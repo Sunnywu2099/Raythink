@@ -45,7 +45,7 @@
         "step": 4,
         "unit": "px",
         "label": "上（移动端）",
-        "default": 80
+        "default": 96
       },
       {
         "type": "range",
@@ -55,7 +55,7 @@
         "step": 4,
         "unit": "px",
         "label": "下（移动端）",
-        "default": 80
+        "default": 96
       },
       {
         "type": "range",
@@ -65,7 +65,7 @@
         "step": 4,
         "unit": "px",
         "label": "上（桌面端）",
-        "default": 120
+        "default": 160
       },
       {
         "type": "range",
@@ -75,7 +75,7 @@
         "step": 4,
         "unit": "px",
         "label": "下（桌面端）",
-        "default": 120
+        "default": 160
       }
     ],
     "blocks": [
@@ -86,7 +86,8 @@
           {
             "type": "color",
             "id": "text_color",
-            "label": "文字颜色"
+            "label": "文字颜色",
+            "default": "#000000"
           },
           {
             "type": "text",
@@ -103,7 +104,8 @@
           {
             "type": "color",
             "id": "text_color",
-            "label": "文字颜色"
+            "label": "文字颜色",
+            "default": "#000000"
           },
           {
             "type": "text",
@@ -114,27 +116,26 @@
         ]
       },
       {
-        "type": "slide",
-        "name": "slide",
+        "type": "half-block",
+        "name": "half-block",
         "settings": [
           {
-            "type": "video",
-            "id": "video",
-            "label": "视频"
+            "type": "image_picker",
+            "id": "image",
+            "label": "图片"
           },
           {
             "type": "text",
             "id": "title",
             "label": "标题",
-            "default": "kindle sticker bundle ✨✨"
+            "default": "Lorem Ipsum"
           },
           {
             "type": "color",
             "id": "title_color",
             "label": "标题颜色",
-            "default": "#1F1F1F"
+            "default": "#000000"
           },
-  
           {
             "type": "text",
             "id": "description",
@@ -145,7 +146,97 @@
             "type": "color",
             "id": "description_color",
             "label": "描述颜色",
-            "default": "#1F1F1F"
+            "default": "#000000"
+          },
+          {
+            "type": "header",
+            "content": "主按钮设置"
+          },
+          {
+            "type": "text",
+            "id": "primary_button_text",
+            "label": "按钮文字",
+            "default": "Learn More"
+          },
+          {
+            "type": "url",
+            "id": "primary_link",
+            "label": "链接"
+          },
+          {
+            "type": "header",
+            "content": "副按钮设置"
+          },
+          {
+            "type": "text",
+            "id": "secondary_button_text",
+            "label": "按钮文字",
+            "default": "Buy Now"
+          },
+          {
+            "type": "url",
+            "id": "secondary_link",
+            "label": "链接"
+          }
+        ]
+      },
+      {
+        "type": "full-block",
+        "name": "full-block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "标题",
+            "default": "Lorem Ipsum"
+          },
+          {
+            "type": "color",
+            "id": "title_color",
+            "label": "标题颜色",
+            "default": "#000000"
+          },
+          {
+            "type": "text",
+            "id": "description",
+            "label": "描述",
+            "default": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+          },
+          {
+            "type": "color",
+            "id": "description_color",
+            "label": "描述颜色",
+            "default": "#000000"
+          },
+          {
+            "type": "header",
+            "content": "主按钮设置"
+          },
+          {
+            "type": "text",
+            "id": "primary_button_text",
+            "label": "按钮文字",
+            "default": "Learn More"
+          },
+          {
+            "type": "url",
+            "id": "primary_link",
+            "label": "链接"
+          },
+          {
+            "type": "header",
+            "content": "副按钮设置"
+          },
+          {
+            "type": "text",
+            "id": "secondary_button_text",
+            "label": "按钮文字",
+            "default": "Buy Now"
+          },
+          {
+            "type": "url",
+            "id": "secondary_link",
+            "label": "链接"
           }
         ]
       }
