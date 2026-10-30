@@ -43,6 +43,8 @@
         "full_block_fky6PL": {
           "type": "full-block",
           "settings": {
+            "bg": "shopify://shop_images/HeroBanner-1.png",
+            "bg_mobile": "shopify://shop_images/HeroBanner-2.png",
             "title": "Product Name",
             "title_color": "#000000",
             "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
