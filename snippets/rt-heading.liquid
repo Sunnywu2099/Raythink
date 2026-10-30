@@ -1,0 +1,57 @@
+{%- doc -%}
+  Renders section heading content (title/description) with shared wrapper.
+
+  @param {string} variant - "title" or "description"
+  @param {string} [text] - Content (used when variant is "title" or "description")
+  @param {string} [color] - Text color
+  @param {string} [class] - Title/description element class
+  @param {string} [shopify_attributes] - block.shopify_attributes output
+
+  @example
+  {% render 'rt-heading', variant: 'title', text: 'Hello', block_class: 'rt-xxx__block', class: '', shopify_attributes: block.shopify_attributes %}
+{%- enddoc -%}
+
+{% stylesheet %}
+  .rt-heading p {
+    line-height: normal;
+  }
+{% endstylesheet %}
+
+{%- liquid
+  assign variant = variant | default: ''
+  assign text = text | default: blank
+  assign color = color | default: blank
+  assign class = class | default: ''
+  assign shopify_attributes = shopify_attributes | default: ''
+-%}
+
+{%- if text != blank -%}
+  {%- case variant -%}
+    {%- when 'title' -%}
+      <p
+        class="rt-{{ variant }} font-poppins text-heading-5 md:text-heading-3 font-bold text-center text-(--color-text) leading-[normal] {{ class }}"
+        style="--color-text: {{color}};"
+        {{ shopify_attributes }}
+      >
+        {{ text }}
+      </p>
+
+    {%- when 'subtitle' -%}
+      <p
+        class="rt-{{ variant }} text-base md:text-lg font-medium text-center text-(--color-text) {{ class }}"
+        style="--color-text: {{color}};"
+        {{ shopify_attributes }}
+      >
+        {{ text }}
+      </p>
+
+    {%- when 'description' -%}
+      <p
+        class="rt-{{ variant }} font-quicksand font-medium text-md md:text-lg text-center text-(--color-text) {{ class }}"
+        style="--color-text: {{color}};"
+        {{ shopify_attributes }}
+      >
+        {{ text }}
+      </p>
+  {%- endcase -%}
+{%- endif -%}
