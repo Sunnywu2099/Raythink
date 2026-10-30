@@ -1,0 +1,9 @@
+:root {
+  /* --- Layout --- */
+  /* container */
+  --container-max-width: calc(1440px + 2 * var(--container-padding-lg));
+  --container-padding-sm: 16px;
+  --container-padding-lg: 32px;
+  --container-padding-xl: 40px;
+  --container-padding-xxl: 80px;
+}
