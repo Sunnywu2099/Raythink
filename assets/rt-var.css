@@ -1,7 +1,8 @@
 :root {
   /* --- Layout --- */
   /* container */
-  --container-max-width: calc(1440px + 2 * var(--container-padding-lg));
+  /* 边框盒宽度，左右内边距包含在 1200px 内 */
+  --container-max-width: 1200px;
   --container-padding-sm: 16px;
   --container-padding-lg: 32px;
   --container-padding-xl: 40px;
