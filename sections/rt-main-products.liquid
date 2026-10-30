@@ -25,7 +25,7 @@
 >
   <div class="rt-ss-padding" {{ container_padding }}>
     <div class="rt-container ">
-      <div class="rt-heading-box">
+      {% comment %} <div class="rt-heading-box">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'title' -%}
@@ -45,8 +45,9 @@
               %}
           {%- endcase -%}
         {%- endfor -%}
-      </div>
+      </div> {% endcomment %}
 
+      
       
     </div>
   </div>
