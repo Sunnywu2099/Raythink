@@ -30,7 +30,7 @@
     {%- when 'title' -%}
       <h2
         class="rt-{{ variant }}"
-        style="--color-text: {{color}};"
+        style="--color-text: {{color}}; color: {{color}};"
         {{ shopify_attributes }}
       >
         {{ text }}
@@ -39,7 +39,7 @@
     {%- when 'subtitle' -%}
       <p
         class="rt-{{ variant }}"
-        style="--color-text: {{color}};"
+        style="--color-text: {{color}}; color: {{color}};"
         {{ shopify_attributes }}
       >
         {{ text }}
@@ -48,7 +48,7 @@
     {%- when 'description' -%}
       <p
         class="rt-{{ variant }}"
-        style="--color-text: {{color}};"
+        style="--color-text: {{color}}; color: {{color}};"
         {{ shopify_attributes }}
       >
         {{ text }}
