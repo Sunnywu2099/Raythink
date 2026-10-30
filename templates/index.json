@@ -15,7 +15,7 @@
         "half_block_iGDRgM": {
           "type": "half-block",
           "settings": {
-            "title": "Lorem Ipsum",
+            "title": "Product Name",
             "title_color": "#000000",
             "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
             "description_color": "#000000",
@@ -28,7 +28,7 @@
         "half_block_gNXT3F": {
           "type": "half-block",
           "settings": {
-            "title": "Lorem Ipsum",
+            "title": "Product Name",
             "title_color": "#000000",
             "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
             "description_color": "#000000",
@@ -41,7 +41,7 @@
         "full_block_fky6PL": {
           "type": "full-block",
           "settings": {
-            "title": "Lorem Ipsum",
+            "title": "Product Name",
             "title_color": "#000000",
             "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
             "description_color": "#000000",
