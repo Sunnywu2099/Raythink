@@ -29,6 +29,14 @@
     {% render 'rt-heading', variant: 'title', text: title, color: title_color %}
     {% render 'rt-heading', variant: 'description', text: description, color: description_color %}
   </div>
+  <div class="rt-main-products-half-block-button">
+    {% if primary_button_text != blank %}
+      <a href="{{ primary_link }}" class="rt-button rt-button-primary" target="_blank">{{ primary_button_text }}</a>
+    {% endif %}
+    {% if secondary_button_text != blank %}
+      <a href="{{ secondary_link }}" class="rt-button rt-button-secondary" target="_blank">{{ secondary_button_text }}</a>
+    {% endif %}
+  </div>
   <div class="rt-main-products-half-block-image">
     {% render 'rt-image2picture', image_mobile: image, image_desktop: image %}
   </div>
