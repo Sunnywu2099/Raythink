@@ -38,3 +38,29 @@
 .rt-radius-lg {
   border-radius: 16px;
 }
+
+/* -------------------------------- button -------------------------------- */
+.rt-button {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--rt-button-radius, 40px);
+  background-color: var(--rt-button-bg-color-primary, #2458a7);
+  border: 1px solid var(--rt-button-border-color-primary, #2458a7);
+  color: var(--rt-button-text-color-primary, #ffffff);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: semibold;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.rt-button:hover {
+  opacity: 0.8;
+}
+
+.rt-button-secondary {
+  background-color: transparent;
+  border: 1px solid var(--rt-button-border-color-secondary, #2458a7);
+  color: var(--rt-button-text-color-secondary, #2458a7);
+}
