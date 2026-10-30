@@ -21,15 +21,15 @@
 <div
   id="{{ section.id }}"
   class="rt-section"
-  style="--spx-section-bg-color: {{ bg_color }};"
+  style="--rt-section-bg-color: {{ bg_color }};"
 >
-  <div class="spx-ss-padding" {{ container_padding }}>
-    <div class="spx-container ">
-      <div class="spx-heading-box">
+  <div class="rt-ss-padding" {{ container_padding }}>
+    <div class="rt-container ">
+      <div class="rt-heading-box">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'title' -%}
-              {% render 'spx-heading',
+              {% render 'rt-heading',
                 variant: 'title',
                 text: block.settings.text,
                 color: block.settings.text_color,
@@ -37,7 +37,7 @@
               %}
 
             {%- when 'description' -%}
-              {% render 'spx-heading',
+              {% render 'rt-heading',
                 variant: 'description',
                 text: block.settings.text,
                 color: block.settings.text_color,
