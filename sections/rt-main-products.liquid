@@ -47,8 +47,17 @@
         {%- endfor -%}
       </div> {% endcomment %}
 
+      <div class="rt-main-products-box">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'half-block' -%}
+              {% render 'rt-main-products-half-block', block: block %}
+            {%- when 'full-block' -%}
+              {% render 'rt-main-products-full-block', block: block %}
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
 
-      
     </div>
   </div>
 </div>
