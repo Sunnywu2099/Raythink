@@ -21,3 +21,16 @@
     padding-right: var(--container-padding-xl);
   }
 }
+
+/* -------------------------------- radius -------------------------------- */
+.rt-radius-sm {
+  border-radius: 4px;
+}
+
+.rt-radius-md {
+  border-radius: 8px;
+}
+
+.rt-radius-lg {
+  border-radius: 16px;
+}
