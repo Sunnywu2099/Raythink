@@ -4,7 +4,7 @@
   assign pb_mobile = ss.padding_bottom_mobile | default: 40
   assign pt_desktop = ss.padding_top_desktop | default: 60
   assign pb_desktop = ss.padding_bottom_desktop | default: 60
-  assign bg_color = ss.background_color | default: '#a6a6a6'
+  assign bg_color = ss.background_color | default: '#f5f5f9'
 -%}
 
 {%- capture container_padding -%}
@@ -18,6 +18,39 @@
   "
 {%- endcapture -%}
 
+<div
+  id="{{ section.id }}"
+  class="rt-section"
+  style="--spx-section-bg-color: {{ bg_color }};"
+>
+  <div class="spx-ss-padding" {{ container_padding }}>
+    <div class="spx-container ">
+      <div class="spx-heading-box">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'title' -%}
+              {% render 'spx-heading',
+                variant: 'title',
+                text: block.settings.text,
+                color: block.settings.text_color,
+                shopify_attributes: block.shopify_attributes
+              %}
+
+            {%- when 'description' -%}
+              {% render 'spx-heading',
+                variant: 'description',
+                text: block.settings.text,
+                color: block.settings.text_color,
+                shopify_attributes: block.shopify_attributes
+              %}
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+
+      
+    </div>
+  </div>
+</div>
 
 {% schema %}
   {
@@ -31,7 +64,7 @@
         "type": "color",
         "id": "background_color",
         "label": "背景颜色",
-        "default": "#a6a6a6"
+        "default": "#f5f5f9"
       },
       {
         "type": "header",
