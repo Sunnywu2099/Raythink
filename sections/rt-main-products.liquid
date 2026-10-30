@@ -1,0 +1,19 @@
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 40
+  assign pb_mobile = ss.padding_bottom_mobile | default: 40
+  assign pt_desktop = ss.padding_top_desktop | default: 60
+  assign pb_desktop = ss.padding_bottom_desktop | default: 60
+  assign bg_color = ss.background_color | default: '#a9a9a9'
+-%}
+
+{%- capture container_padding -%}
+  style="
+    {% render 'rt-section-padding',
+      section_pt_mobile: pt_mobile,
+      section_pb_mobile: pb_mobile,
+      section_pt_desktop: pt_desktop,
+      section_pb_desktop: pb_desktop
+    %}
+  "
+{%- endcapture -%}
