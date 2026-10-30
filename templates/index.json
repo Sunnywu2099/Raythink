@@ -11,6 +11,52 @@
   "sections": {
     "rt_main_products_Mnf3FY": {
       "type": "rt-main-products",
+      "blocks": {
+        "half_block_iGDRgM": {
+          "type": "half-block",
+          "settings": {
+            "title": "Lorem Ipsum",
+            "title_color": "#000000",
+            "description": "#crafting #stickers #cricut #crafty #cute #custom #custommade #collage #journalinspo #journalart  #creative #creativejournaling #creativity #scrapbooking #journalinspiration #inspo #pinterest #aesthetic #journalspread #art #sticker #instax #journaler #archerandolive #scrapbooking #kindle #reader",
+            "description_color": "#000000",
+            "primary_button_text": "Learn More",
+            "primary_link": "",
+            "secondary_button_text": "Buy Now",
+            "secondary_link": ""
+          }
+        },
+        "half_block_gNXT3F": {
+          "type": "half-block",
+          "settings": {
+            "title": "Lorem Ipsum",
+            "title_color": "#000000",
+            "description": "#crafting #stickers #cricut #crafty #cute #custom #custommade #collage #journalinspo #journalart  #creative #creativejournaling #creativity #scrapbooking #journalinspiration #inspo #pinterest #aesthetic #journalspread #art #sticker #instax #journaler #archerandolive #scrapbooking #kindle #reader",
+            "description_color": "#000000",
+            "primary_button_text": "Learn More",
+            "primary_link": "",
+            "secondary_button_text": "Buy Now",
+            "secondary_link": ""
+          }
+        },
+        "full_block_fky6PL": {
+          "type": "full-block",
+          "settings": {
+            "title": "Lorem Ipsum",
+            "title_color": "#000000",
+            "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
+            "description_color": "#000000",
+            "primary_button_text": "Learn More",
+            "primary_link": "",
+            "secondary_button_text": "Buy Now",
+            "secondary_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "half_block_iGDRgM",
+        "half_block_gNXT3F",
+        "full_block_fky6PL"
+      ],
       "name": "rt-main-products",
       "settings": {
         "background_color": "#f5f5f9",
