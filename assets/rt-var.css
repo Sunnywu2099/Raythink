@@ -7,4 +7,7 @@
   --container-padding-lg: 32px;
   --container-padding-xl: 40px;
   --container-padding-xxl: 80px;
+
+  /* --- Button --- */
+  --rt-button-radius: 40px;
 }
