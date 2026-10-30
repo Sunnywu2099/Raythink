@@ -21,9 +21,9 @@
             "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
             "description_color": "#000000",
             "primary_button_text": "Learn More",
-            "primary_link": "",
+            "primary_link": "/",
             "secondary_button_text": "Buy Now",
-            "secondary_link": ""
+            "secondary_link": "/"
           }
         },
         "half_block_gNXT3F": {
@@ -35,9 +35,9 @@
             "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
             "description_color": "#000000",
             "primary_button_text": "Learn More",
-            "primary_link": "",
+            "primary_link": "/",
             "secondary_button_text": "Buy Now",
-            "secondary_link": ""
+            "secondary_link": "/"
           }
         },
         "full_block_fky6PL": {
@@ -50,9 +50,9 @@
             "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
             "description_color": "#000000",
             "primary_button_text": "Learn More",
-            "primary_link": "",
+            "primary_link": "/",
             "secondary_button_text": "Buy Now",
-            "secondary_link": ""
+            "secondary_link": "/"
           }
         }
       },
