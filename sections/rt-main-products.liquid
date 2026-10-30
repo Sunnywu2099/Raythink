@@ -4,7 +4,7 @@
   assign pb_mobile = ss.padding_bottom_mobile | default: 40
   assign pt_desktop = ss.padding_top_desktop | default: 60
   assign pb_desktop = ss.padding_bottom_desktop | default: 60
-  assign bg_color = ss.background_color | default: '#a9a9a9'
+  assign bg_color = ss.background_color | default: '#a6a6a6'
 -%}
 
 {%- capture container_padding -%}
@@ -17,3 +17,144 @@
     %}
   "
 {%- endcapture -%}
+
+
+{% schema %}
+  {
+    "name": "rt-main-products",
+    "tag": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "背景颜色",
+        "default": "#a6a6a6"
+      },
+      {
+        "type": "header",
+        "content": "间距"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "上（移动端）",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "下（移动端）",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_top_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "上（桌面端）",
+        "default": 120
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "下（桌面端）",
+        "default": 120
+      }
+    ],
+    "blocks": [
+      {
+        "type": "title",
+        "name": "标题",
+        "settings": [
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "文字颜色"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "标题",
+            "default": "Lorem Ipsum"
+          }
+        ]
+      },
+      {
+        "type": "description",
+        "name": "描述",
+        "settings": [
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "文字颜色"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "内容",
+            "default": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+          }
+        ]
+      },
+      {
+        "type": "slide",
+        "name": "slide",
+        "settings": [
+          {
+            "type": "video",
+            "id": "video",
+            "label": "视频"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "标题",
+            "default": "kindle sticker bundle ✨✨"
+          },
+          {
+            "type": "color",
+            "id": "title_color",
+            "label": "标题颜色",
+            "default": "#1F1F1F"
+          },
+  
+          {
+            "type": "text",
+            "id": "description",
+            "label": "描述",
+            "default": "#crafting #stickers #cricut #crafty #cute #custom #custommade #collage #journalinspo #journalart  #creative #creativejournaling #creativity #scrapbooking #journalinspiration #inspo #pinterest #aesthetic #journalspread #art #sticker #instax #journaler #archerandolive #scrapbooking #kindle #reader"
+          },
+          {
+            "type": "color",
+            "id": "description_color",
+            "label": "描述颜色",
+            "default": "#1F1F1F"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "rt-main-products",
+        "category": "rt-homepage"
+      }
+    ]
+  }
+  {% endschema %}

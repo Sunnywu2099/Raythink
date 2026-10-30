@@ -1,6 +1,6 @@
 /* -------------------------------- layout -------------------------------- */
 .rt-section {
-  background-color: var(--rt-section-bg-color, #a9a9a9);
+  background-color: var(--rt-section-bg-color, #a6a6a6);
   overflow: hidden;
 }
 .rt-container {
