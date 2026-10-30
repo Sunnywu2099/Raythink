@@ -1,0 +1,69 @@
+{%- doc -%}
+  Renders a <picture> element using separate mobile/desktop Shopify images.
+
+  @param {image} image_mobile - Mobile image object
+  @param {image} image_desktop - Desktop image object
+  @param {string} [class] - Additional class for the <img>
+  @param {string} [alt] - Alt text override
+  @param {string} [sizes] - Sizes attribute (default: 100vw)
+  @param {string} [loading] - "eager" (default) or "lazy"
+  @param {string} [decoding] - "async" (default) or "sync" or "auto"
+  @param {string} [fetchpriority] - "high" (default) | "low" | "auto"
+
+  @example
+  {% render 'image-auto', image_mobile: block.settings.image_mobile, image_desktop: block.settings.image_desktop %}
+{%- enddoc -%}
+
+{%- liquid
+  assign image_mobile = image_mobile
+  assign image_desktop = image_desktop
+  assign img_base = image_mobile | default: image_desktop
+  assign loading_value = loading | default: 'eager'
+  assign decoding_value = decoding | default: 'async'
+  assign sizes_value = sizes | default: '100vw'
+  assign alt_value = alt | default: img_base.alt | default: ''
+  assign fetchpriority_value = fetchpriority | default: 'high'
+-%}
+
+{% stylesheet %}
+  picture {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+{% endstylesheet %}
+
+{% if img_base != blank %}
+  {%- capture mobile_srcset -%}
+    {{ image_mobile | image_url: width: 320 }} 320w, {{ image_mobile | image_url: width: 375 }} 375w, {{ image_mobile | image_url: width: 480 }} 480w, {{ image_mobile | image_url: width: 640 }} 640w, {{ image_mobile | image_url: width: 750 }} 750w
+  {%- endcapture -%}
+
+  {%- capture desktop_srcset -%}
+    {{ image_desktop | image_url: width: 750 }} 750w, {{ image_desktop | image_url: width: 990 }} 990w, {{ image_desktop | image_url: width: 1200 }} 1200w, {{ image_desktop | image_url: width: 1500 }} 1500w, {{ image_desktop | image_url: width: 1800 }} 1800w, {{ image_desktop | image_url: width: 2100 }} 2100w
+  {%- endcapture -%}
+
+  <picture>
+    <source media="(min-width: 750px)" srcset="{{ desktop_srcset | strip }}" sizes="{{ sizes_value | escape }}">
+    <img
+      src="{{ img_base | image_url: width: 750 }}"
+      srcset="{{ mobile_srcset | strip }}"
+      sizes="{{ sizes_value | escape }}"
+      width="{{ img_base.width }}"
+      height="{{ img_base.height }}"
+      alt="{{ alt_value | escape }}"
+      loading="{{ loading_value }}"
+      decoding="{{ decoding_value }}"
+      fetchpriority="{{ fetchpriority_value }}"
+      {% if class != blank %}
+        class="{{ class }}"
+      {% endif %}
+    >
+  </picture>
+{% endif %}
