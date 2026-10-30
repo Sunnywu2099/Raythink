@@ -11,14 +11,18 @@
 %}
 
 {% style %}
+  #shopify-section-{{ section.id }} .rt-main-products-half-block {
+    background-color: #ffffff;
+  }
   #shopify-section-{{ section.id }} .rt-main-products-half-block .rt-main-products-half-block-content{
     display: flex;
     flex-direction: column;
     gap: 8px;
+    align-items: center;
   }
 {% endstyle %}
 
-<div class="rt-main-products-half-block">
+<div class="rt-main-products-half-block rt-radius-lg">
   <div class="rt-main-products-half-block-content">
     {% render 'rt-heading', variant: 'title', text: title, color: title_color %}
     {% render 'rt-heading', variant: 'description', text: description, color: description_color %}
