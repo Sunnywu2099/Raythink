@@ -26,6 +26,18 @@
   }
 }
 
+.rt-ss-padding {
+  padding-top: var(--rt-section-pt-mobile);
+  padding-bottom: var(--rt-section-pb-mobile);
+}
+
+@media (min-width: 750px) {
+  .rt-ss-padding {
+    padding-top: var(--rt-section-pt-desktop);
+    padding-bottom: var(--rt-section-pb-desktop);
+  }
+}
+
 /* -------------------------------- radius -------------------------------- */
 .rt-radius-sm {
   border-radius: 8px;
