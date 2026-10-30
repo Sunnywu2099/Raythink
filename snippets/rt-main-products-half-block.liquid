@@ -10,6 +10,14 @@
   assign secondary_link = block.settings.secondary_link
 %}
 
+{% style %}
+  #shopify-section-{{ section.id }} .rt-main-products-half-block .rt-main-products-half-block-content{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+{% endstyle %}
+
 <div class="rt-main-products-half-block">
   <div class="rt-main-products-half-block-content">
     {% render 'rt-heading', variant: 'title', text: title, color: title_color %}
