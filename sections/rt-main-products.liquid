@@ -18,6 +18,15 @@
   "
 {%- endcapture -%}
 
+{% style %}
+  #shopify-section-{{ section.id }} .rt-main-products-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    row-gap: 40px;
+  }
+{% endstyle %}
+
 <div
   id="{{ section.id }}"
   class="rt-section"
