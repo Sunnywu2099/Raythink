@@ -28,17 +28,17 @@
 {%- if text != blank -%}
   {%- case variant -%}
     {%- when 'title' -%}
-      <p
-        class="rt-{{ variant }} font-poppins text-heading-5 md:text-heading-3 font-bold text-center text-(--color-text) leading-[normal] {{ class }}"
+      <h2
+        class="rt-{{ variant }}"
         style="--color-text: {{color}};"
         {{ shopify_attributes }}
       >
         {{ text }}
-      </p>
+      </h2>
 
     {%- when 'subtitle' -%}
       <p
-        class="rt-{{ variant }} text-base md:text-lg font-medium text-center text-(--color-text) {{ class }}"
+        class="rt-{{ variant }}"
         style="--color-text: {{color}};"
         {{ shopify_attributes }}
       >
@@ -47,7 +47,7 @@
 
     {%- when 'description' -%}
       <p
-        class="rt-{{ variant }} font-quicksand font-medium text-md md:text-lg text-center text-(--color-text) {{ class }}"
+        class="rt-{{ variant }}"
         style="--color-text: {{color}};"
         {{ shopify_attributes }}
       >
