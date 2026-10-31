@@ -20,23 +20,22 @@
     position: absolute;
     inset: 0;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 60px;
   }
   #shopify-section-{{ section.id }} .rt-main-products-full-block-content-box .rt-main-products-full-block-content{
     display: flex;
     flex-direction: column;
     gap: 8px;
-    align-items: center;
-    margin: 24px 32px 20px;
   }
   #shopify-section-{{ section.id }} .rt-main-products-full-block-button {
-    margin-bottom: 32px;
+    margin-top: 32px;
     display: flex;
     justify-content: center;
     gap: 8px;
-  }
-  #shopify-section-{{ section.id }} .rt-main-products-half-block .rt-main-products-half-block-image {
-    max-width: 447px;
-    margin: 0 auto;
   }
 {% endstyle %}
 
