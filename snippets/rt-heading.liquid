@@ -6,9 +6,9 @@
   @param {string} [color] - Text color
   @param {string} [class] - Title/description element class
   @param {string} [shopify_attributes] - block.shopify_attributes output
-
+  @param {string} [diff] - "inside" or "outside"
   @example
-  {% render 'rt-heading', variant: 'title', text: 'Hello', block_class: 'rt-xxx__block', class: '', shopify_attributes: block.shopify_attributes %}
+  {% render 'rt-heading', variant: 'title', text: 'Hello', block_class: 'rt-xxx__block', class: '', shopify_attributes: block.shopify_attributes, diff: 'inside' %}
 {%- enddoc -%}
 
 {% stylesheet %}
@@ -32,6 +32,7 @@
   assign color = color | default: blank
   assign class = class | default: ''
   assign shopify_attributes = shopify_attributes | default: ''
+  assign diff = diff | default: ''
 -%}
 
 {%- if text != blank -%}
