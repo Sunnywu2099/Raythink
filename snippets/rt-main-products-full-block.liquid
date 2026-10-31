@@ -37,6 +37,16 @@
     justify-content: center;
     gap: 8px;
   }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .rt-main-products-full-block-content-box {
+      padding: 24px;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    #shopify-section-{{ section.id }} .rt-main-products-full-block-button {
+      margin-top: 20px;
+    }
+  }
 {% endstyle %}
 
 <div class="rt-main-products-full-block rt-radius-lg">
