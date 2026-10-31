@@ -12,18 +12,23 @@
 %}
 
 {% style %}
-  #shopify-section-{{ section.id }} .rt-main-products-half-block {
+  #shopify-section-{{ section.id }} .rt-main-products-full-block {
     background-color: #ffffff;
     overflow: hidden;
   }
-  #shopify-section-{{ section.id }} .rt-main-products-half-block .rt-main-products-half-block-content{
+  #shopify-section-{{ section.id }} .rt-main-products-full-block-content-box {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .rt-main-products-full-block-content-box .rt-main-products-full-block-content{
     display: flex;
     flex-direction: column;
     gap: 8px;
     align-items: center;
     margin: 24px 32px 20px;
   }
-  #shopify-section-{{ section.id }} .rt-main-products-half-block-button {
+  #shopify-section-{{ section.id }} .rt-main-products-full-block-button {
     margin-bottom: 32px;
     display: flex;
     justify-content: center;
@@ -39,17 +44,18 @@
   <div class="rt-main-products-full-block-bg">
     {% render 'rt-image2picture', image_mobile: bg_mobile, image_desktop: bg %}
   </div>
-  <div class="rt-main-products-full-block-content">
-    {% render 'rt-heading', variant: 'title', text: title, color: title_color %}
-    {% render 'rt-heading', variant: 'description', text: description, color: description_color %}
+  <div class="rt-main-products-full-block-content-box">
+    <div class="rt-main-products-full-block-content">
+      {% render 'rt-heading', variant: 'title', text: title, color: title_color %}
+      {% render 'rt-heading', variant: 'description', text: description, color: description_color %}
+    </div>
+    <div class="rt-main-products-full-block-button">
+      {% if primary_button_text != blank %}
+        <a href="{{ primary_link }}" class="rt-button rt-button-primary" target="_blank">{{ primary_button_text }}</a>
+      {% endif %}
+      {% if secondary_button_text != blank %}
+        <a href="{{ secondary_link }}" class="rt-button rt-button-secondary" target="_blank">{{ secondary_button_text }}</a>
+      {% endif %}
+    </div>
   </div>
-  <div class="rt-main-products-full-block-button">
-    {% if primary_button_text != blank %}
-      <a href="{{ primary_link }}" class="rt-button rt-button-primary" target="_blank">{{ primary_button_text }}</a>
-    {% endif %}
-    {% if secondary_button_text != blank %}
-      <a href="{{ secondary_link }}" class="rt-button rt-button-secondary" target="_blank">{{ secondary_button_text }}</a>
-    {% endif %}
-  </div>
-  
 </div>
