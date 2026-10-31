@@ -39,7 +39,7 @@
   {%- case variant -%}
     {%- when 'title' -%}
       <h2
-        class="rt-{{ variant }}"
+        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}"
         style="--color-text: {{color}}; color: {{color}};"
         {{ shopify_attributes }}
       >
@@ -48,7 +48,7 @@
 
     {%- when 'subtitle' -%}
       <p
-        class="rt-{{ variant }}"
+        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}"
         style="--color-text: {{color}}; color: {{color}};"
         {{ shopify_attributes }}
       >
@@ -57,7 +57,7 @@
 
     {%- when 'description' -%}
       <p
-        class="rt-{{ variant }}"
+        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}"
         style="--color-text: {{color}}; color: {{color}};"
         {{ shopify_attributes }}
       >
