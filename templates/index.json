@@ -45,9 +45,9 @@
           "settings": {
             "bg": "shopify://shop_images/HeroBanner-1.png",
             "bg_mobile": "shopify://shop_images/HeroBanner-2.png",
-            "title": "Product Name",
+            "title": "Need Help Choosing?",
             "title_color": "#000000",
-            "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
+            "description": "Answer a few quick questions and we'll recommend the best setup for your situation.",
             "description_color": "#595959",
             "primary_button_text": "Learn More",
             "primary_link": "/",
