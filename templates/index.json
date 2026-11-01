@@ -6,280 +6,494 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
+    "rt_main_products_mzwqzD": {
+      "type": "rt-main-products",
       "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
+        "title_npk7e3": {
+          "type": "title",
+          "disabled": true,
           "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "text_color": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text_color": "#000000",
+            "text": "Engineered for Clarity and Diagnostic Confidence"
+          }
         },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
+        "description_xXMd33": {
+          "type": "description",
+          "disabled": true,
           "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-custom",
-            "custom_button_background": "rgba(0,0,0,0)",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
+            "text_color": "#595959",
+            "text": "Every Raythink thermal system is calibrated against blackbody standards to guarantee accurate, actionable thermal data in mission-critical environments."
+          }
+        },
+        "half_block_3yfh4L": {
+          "type": "half-block",
+          "settings": {
+            "image": "shopify://shop_images/main-product1.png",
+            "title": "Product Name",
+            "title_color": "#000000",
+            "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
+            "description_color": "#595959",
+            "primary_button_text": "Learn More",
+            "primary_link": "",
+            "secondary_button_text": "Buy Now",
+            "secondary_link": ""
+          }
+        },
+        "half_block_qtQXMP": {
+          "type": "half-block",
+          "settings": {
+            "image": "shopify://shop_images/main-product2.png",
+            "title": "Product Name",
+            "title_color": "#000000",
+            "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
+            "description_color": "#595959",
+            "primary_button_text": "Learn More",
+            "primary_link": "",
+            "secondary_button_text": "Buy Now",
+            "secondary_link": ""
+          }
+        },
+        "full_block_GUJFid": {
+          "type": "full-block",
+          "settings": {
+            "bg": "shopify://shop_images/HeroBanner-1.png",
+            "bg_mobile": "shopify://shop_images/HeroBanner-2.png",
+            "title": "Need Help Choosing?",
+            "title_color": "#000000",
+            "description": "Answer a few quick questions and we'll recommend the best setup for your situation.",
+            "description_color": "#595959",
+            "primary_button_text": "Start Now",
+            "primary_link": "",
+            "secondary_button_text": "",
+            "secondary_link": ""
+          }
         }
       },
       "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
+        "title_npk7e3",
+        "description_xXMd33",
+        "half_block_3yfh4L",
+        "half_block_qtQXMP",
+        "full_block_GUJFid"
       ],
-      "name": "t:names.hero",
+      "name": "rt-main-products",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "background_color": "rgba(0,0,0,0)",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "background_color": "#f5f5f9",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 160
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "rt_application_AAPGAq": {
+      "type": "rt-application",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "title_mPUQYz": {
+          "type": "title",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "text_color": "#000000",
+            "text": "Shop by Application"
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "application_block_wR7cYB": {
+          "type": "application-block",
           "settings": {
-            "product_card_gap": 4,
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+            "image": "shopify://shop_images/Left_top.png",
+            "title": "HVAC Inspection",
+            "title_color": "#ffffff",
+            "link_text": "Learn More",
+            "link_url": "",
+            "link_color": "#ffffff"
+          }
+        },
+        "application_block_a96cgr": {
+          "type": "application-block",
+          "settings": {
+            "image": "shopify://shop_images/Left_top_1.png",
+            "title": "Electrical Inspection",
+            "title_color": "#ffffff",
+            "link_text": "Learn More",
+            "link_url": "",
+            "link_color": "#ffffff"
+          }
+        },
+        "application_block_XeKxJK": {
+          "type": "application-block",
+          "settings": {
+            "image": "shopify://shop_images/Left_top_2.png",
+            "title": "Home & Building",
+            "title_color": "#ffffff",
+            "link_text": "Learn More",
+            "link_url": "",
+            "link_color": "#ffffff"
+          }
+        },
+        "application_block_bKzjNF": {
+          "type": "application-block",
+          "settings": {
+            "image": "shopify://shop_images/Left_top_3.png",
+            "title": "Automotive Diagnostics",
+            "title_color": "#ffffff",
+            "link_text": "Learn More",
+            "link_url": "",
+            "link_color": "#ffffff"
+          }
         }
       },
-      "name": "t:names.product_list",
+      "block_order": [
+        "title_mPUQYz",
+        "application_block_wR7cYB",
+        "application_block_a96cgr",
+        "application_block_XeKxJK",
+        "application_block_bKzjNF"
+      ],
+      "name": "rt-application",
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "background_color": "#f5f5f9",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_icons_with_text_WQCMRx": {
+      "type": "rt-icons-with-text",
+      "blocks": {
+        "title_jFMKVc": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "Engineered for Clarity and Diagnostic Confidence"
+          }
+        },
+        "description_qCnGeY": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text": "Every Raythink thermal system is calibrated against blackbody standards to guarantee accurate, actionable thermal data in mission-critical environments."
+          }
+        },
+        "application_block_Yned4p": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Thermal.png",
+            "title": "Clear Thermal Imaging",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_WHfyn3": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Temperature.png",
+            "title": "Precise Temperature Measurement",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_Gibr8U": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Inspection.png",
+            "title": "Smart Inspection Tools",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_bn7yxg": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Home-Checks.png",
+            "title": "Built for Real-World Use",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        }
+      },
+      "block_order": [
+        "title_jFMKVc",
+        "description_qCnGeY",
+        "application_block_Yned4p",
+        "application_block_WHfyn3",
+        "application_block_Gibr8U",
+        "application_block_bn7yxg"
+      ],
+      "name": "rt-icons-with-text",
+      "settings": {
+        "background_color": "#f5f5f9",
+        "block_background_color": "#ffffff",
+        "is_center": false,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_sharing_AFBAzL": {
+      "type": "rt-sharing",
+      "blocks": {
+        "title_aFjN98": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "Heartful Sharing"
+          }
+        },
+        "sharing_block_FXtprY": {
+          "type": "sharing-block",
+          "settings": {
+            "bg_color": "#2458a7",
+            "img": "shopify://shop_images/image_1271.png",
+            "img_mobile": "shopify://shop_images/image_1271_1.png",
+            "title": "Among many backup systems.",
+            "title_color": "#ffffff",
+            "text": "“Among many backup systems, EcoFlow feels like a guardian angel—giving me peace of mind and safety in everyday moments.”",
+            "text_color": "{{ settings.color_palette.background }}",
+            "author": "—— Zee & Nicole",
+            "author_color": "#ffffff"
+          }
+        },
+        "sharing_block_cRxXKb": {
+          "type": "sharing-block",
+          "settings": {
+            "bg_color": "#f8a72a",
+            "img": "shopify://shop_images/image_1272.png",
+            "img_mobile": "shopify://shop_images/image_1271_1.png",
+            "title": "As adventure filmmakers.",
+            "title_color": "#ffffff",
+            "text": "“As adventure filmmakers, portable power is crucial to keep our gear running in remote outdoor locations, ensuring we never miss a shot.”",
+            "text_color": "{{ settings.color_palette.background }}",
+            "author": "——Katrin & Artem",
+            "author_color": "#ffffff"
+          }
+        },
+        "sharing_block_3wyKcP": {
+          "type": "sharing-block",
+          "settings": {
+            "bg_color": "#55bfca",
+            "img": "shopify://shop_images/image_1273.png",
+            "img_mobile": "shopify://shop_images/image_1271_1.png",
+            "title": "As adventure filmmakers.",
+            "title_color": "#ffffff",
+            "text": "“As adventure filmmakers, portable power is crucial to keep our gear running in remote outdoor locations, ensuring we never miss a shot.”",
+            "text_color": "{{ settings.color_palette.background }}",
+            "author": "——Katrin & Artem",
+            "author_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "title_aFjN98",
+        "sharing_block_FXtprY",
+        "sharing_block_cRxXKb",
+        "sharing_block_3wyKcP"
+      ],
+      "name": "rt-sharing",
+      "settings": {
+        "background_color": "#f5f5f9",
+        "vertical_on_mobile": false,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_blogs_swiper_yUhdkM": {
+      "type": "rt-blogs-swiper",
+      "blocks": {
+        "title_E4Ktpg": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "Featured Blogs and News"
+          }
+        },
+        "link_DyUF3z": {
+          "type": "link",
+          "settings": {
+            "url": "",
+            "text": "View All"
+          }
+        },
+        "blog_block_aU98ra": {
+          "type": "blog-block",
+          "settings": {
+            "bg_color": "#ffffff",
+            "img": "shopify://shop_images/Rectangle_1656.png",
+            "title": "Stay Safe During Rolling Blackouts With Reliable Backup Power",
+            "title_color": "#000000",
+            "text": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent libero ipsum, malesuada quis est sed, venenatis dignissim leo. Morbi ac arcu orci. Ut quis enim purus",
+            "text_color": "#595959"
+          }
+        },
+        "blog_block_iCieRj": {
+          "type": "blog-block",
+          "settings": {
+            "bg_color": "#ffffff",
+            "img": "shopify://shop_images/Rectangle_1656_3.png",
+            "title": "Stay Safe During Rolling Blackouts With Reliable Backup Power",
+            "title_color": "#000000",
+            "text": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent libero ipsum, malesuada quis est sed, venenatis dignissim leo. Morbi ac arcu orci. Ut quis enim purus",
+            "text_color": "#595959"
+          }
+        },
+        "blog_block_zqU6HM": {
+          "type": "blog-block",
+          "settings": {
+            "bg_color": "#ffffff",
+            "img": "shopify://shop_images/Rectangle_1656_1.png",
+            "title": "Stay Safe During Rolling Blackouts With Reliable Backup Power",
+            "title_color": "#000000",
+            "text": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent libero ipsum, malesuada quis est sed, venenatis dignissim leo. Morbi ac arcu orci. Ut quis enim purus",
+            "text_color": "#595959"
+          }
+        },
+        "blog_block_yfb74e": {
+          "type": "blog-block",
+          "settings": {
+            "bg_color": "#ffffff",
+            "img": "shopify://shop_images/Rectangle_1656_2.png",
+            "title": "Stay Safe During Rolling Blackouts With Reliable Backup Power",
+            "title_color": "#000000",
+            "text": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent libero ipsum, malesuada quis est sed, venenatis dignissim leo. Morbi ac arcu orci. Ut quis enim purus",
+            "text_color": "#595959"
+          }
+        }
+      },
+      "block_order": [
+        "title_E4Ktpg",
+        "link_DyUF3z",
+        "blog_block_aU98ra",
+        "blog_block_iCieRj",
+        "blog_block_zqU6HM",
+        "blog_block_yfb74e"
+      ],
+      "name": "rt-blogs-swiper",
+      "settings": {
+        "background_color": "#f5f5f9",
+        "vertical_on_mobile": false,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_icons_with_text_AdcmBa": {
+      "type": "rt-icons-with-text",
+      "blocks": {
+        "application_block_pGb3mK": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Thermal.png",
+            "title": "Clear Thermal Imaging",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_bp7kaN": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Temperature.png",
+            "title": "Precise Temperature Measurement",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_GcLiMf": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Inspection.png",
+            "title": "Smart Inspection Tools",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_EVx8WB": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Home-Checks.png",
+            "title": "Built for Real-World Use",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        }
+      },
+      "block_order": [
+        "application_block_pGb3mK",
+        "application_block_bp7kaN",
+        "application_block_GcLiMf",
+        "application_block_EVx8WB"
+      ],
+      "name": "rt-icons-with-text",
+      "settings": {
+        "background_color": "#f5f5f9",
+        "block_background_color": "#ffffff",
+        "is_center": true,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_form_mKc7V8": {
+      "type": "rt-form",
+      "blocks": {
+        "title_CRpKaV": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "Get more information"
+          }
+        },
+        "description_bT9kxG": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text": "Subscribe for exclusive offers and Raythink updates."
+          }
+        },
+        "form_EMeLcn": {
+          "type": "form",
+          "settings": {
+            "placeholder": "Email",
+            "agreement": "<p>I agree to receive newsletters and marketing emails from Raythink. For details, please refer to the Terms of Use and Privacy Policy</p>",
+            "button_text": "Subscribe Now"
+          }
+        }
+      },
+      "block_order": [
+        "title_CRpKaV",
+        "description_bT9kxG",
+        "form_EMeLcn"
+      ],
+      "name": "rt-form",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "rt_main_products_mzwqzD",
+    "rt_application_AAPGAq",
+    "rt_icons_with_text_WQCMRx",
+    "rt_sharing_AFBAzL",
+    "rt_blogs_swiper_yUhdkM",
+    "rt_icons_with_text_AdcmBa",
+    "rt_form_mKc7V8"
   ]
 }
