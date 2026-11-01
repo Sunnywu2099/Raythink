@@ -1,0 +1,45 @@
+{% liquid 
+  assign bg_color = block.settings.bg_color
+  assign img = block.settings.img
+  assign title = block.settings.title
+  assign title_color = block.settings.title_color
+  assign text = block.settings.text
+  assign text_color = block.settings.text_color
+%}
+
+{% style %}
+  .rt-blog-block{
+    overflow: hidden;
+  }
+  .rt-blog-block-content{
+    padding: 24px;
+  }
+  .rt-blog-block-title{
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 8px;
+  }
+  .rt-blog-block-text{
+    font-size: 14px;
+    line-height: 18px;
+  }
+  @media (min-width: 750px) {
+    .rt-blog-block-content{
+      padding: 24px;
+    }
+    .rt-blog-block-title{
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+{% endstyle %}
+
+<div class="rt-blog-block rt-radius-lg" style="background-color: {{ bg_color }};">
+  <div class="rt-blog-block-image">
+    {% render 'rt-image2picture', image_desktop: img, image_mobile: img, loading: 'lazy', fetchpriority: 'low' %}
+  </div>
+  <div class="rt-blog-block-content">
+    <h3 class="rt-blog-block-title" style="color: {{ title_color }};">{{ title }}</h3>
+    <div class="rt-blog-block-text" style="color: {{ text_color }};">{{ text }}</div>
+  </div>
+</div>

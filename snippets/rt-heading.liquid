@@ -1,0 +1,81 @@
+{%- doc -%}
+  Renders section heading content (title/description) with shared wrapper.
+
+  @param {string} variant - "title" or "description"
+  @param {string} [text] - Content (used when variant is "title" or "description")
+  @param {string} [color] - Text color
+  @param {string} [class] - Title/description element class
+  @param {string} [shopify_attributes] - block.shopify_attributes output
+  @param {string} [diff] - "inside" or "outside"
+  @example
+  {% render 'rt-heading', variant: 'title', text: 'Hello', block_class: 'rt-xxx__block', class: '', shopify_attributes: block.shopify_attributes, diff: 'inside' %}
+{%- enddoc -%}
+
+{% stylesheet %}
+  .rt-title {
+    font-size: 32px;
+    line-height: normal;
+    margin: 0;
+  }
+  .rt-title.rt-inside {
+    font-size: 28px;
+  }
+  .rt-description {
+    font-size: 16px;
+    line-height: normal;
+    margin: 0;
+  }
+  .rt-subtitle {
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+  }
+  @media (min-width: 750px) {
+    .rt-title {
+      font-size: 40px;
+    }
+    .rt-title.rt-inside {
+      font-size: 32px;
+    }
+  }
+{% endstylesheet %}
+
+{%- liquid
+  assign variant = variant | default: ''
+  assign text = text | default: blank
+  assign color = color | default: blank
+  assign class = class | default: ''
+  assign shopify_attributes = shopify_attributes | default: ''
+  assign diff = diff | default: ''
+-%}
+
+{%- if text != blank -%}
+  {%- case variant -%}
+    {%- when 'title' -%}
+      <h2
+        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}"
+        style="--color-text: {{color}}; color: {{color}};"
+        {{ shopify_attributes }}
+      >
+        {{ text }}
+      </h2>
+
+    {%- when 'subtitle' -%}
+      <p
+        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}"
+        style="--color-text: {{color}}; color: {{color}};"
+        {{ shopify_attributes }}
+      >
+        {{ text }}
+      </p>
+
+    {%- when 'description' -%}
+      <p
+        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}"
+        style="--color-text: {{color}}; color: {{color}};"
+        {{ shopify_attributes }}
+      >
+        {{ text }}
+      </p>
+  {%- endcase -%}
+{%- endif -%}

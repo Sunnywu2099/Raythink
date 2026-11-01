@@ -1,0 +1,13 @@
+:root {
+  /* --- Layout --- */
+  /* container */
+  /* 边框盒宽度，左右内边距包含在 1200px 内 */
+  --container-max-width: 1200px;
+  --container-padding-sm: 16px;
+  --container-padding-lg: 32px;
+  --container-padding-xl: 40px;
+  --container-padding-xxl: 80px;
+
+  /* --- Button --- */
+  --rt-button-radius: 40px;
+}

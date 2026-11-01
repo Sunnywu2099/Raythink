@@ -1,0 +1,12 @@
+{%- doc -%}
+  Renders section padding CSS variables.
+
+  @param {string} section_pt_mobile - Mobile padding top
+  @param {string} section_pb_mobile - Mobile padding bottom
+  @param {string} section_pt_desktop - Desktop padding top
+  @param {string} section_pb_desktop - Desktop padding bottom
+{%- enddoc -%}
+--rt-section-pt-mobile: {{ section_pt_mobile | default: 0 }}px;
+--rt-section-pb-mobile: {{ section_pb_mobile | default: 0 }}px; 
+--rt-section-pt-desktop: {{ section_pt_desktop | default: 0 }}px;
+--rt-section-pb-desktop: {{ section_pb_desktop | default: 0 }}px;

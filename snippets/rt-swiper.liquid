@@ -1,0 +1,244 @@
+{%- doc -%}
+  Shared Swiper carousel. Loads the Swiper library once per page.
+  Visual differences belong in the caller; pass options to control behavior.
+
+  @param {string} slides - Slide markup. Each slide root should use class "swiper-slide".
+  @param {string} [class] - Extra class on the host element
+  @param {string} [slides_per_view] - Number or "auto" (default: 1)
+  @param {number} [space_between] - Gap between slides in px (default: 0)
+  @param {boolean} [loop]
+  @param {string} [autoplay] - Delay in ms. Omit or "false" to disable.
+  @param {number} [speed] - Transition speed in ms (default: 400)
+  @param {boolean} [centered_slides]
+  @param {boolean} [pagination]
+  @param {boolean} [navigation]
+  @param {boolean} [grab_cursor]
+  @param {string} [breakpoints] - Swiper breakpoints JSON, e.g. {"750":{"slidesPerView":2,"spaceBetween":24}}
+  @param {string} [options] - Extra Swiper options JSON, merged last
+  @param {number} [enable_min_width] - If set, stack slides below this width and init Swiper from this width up
+
+  @example
+  {% capture slides %}
+    <div class="swiper-slide">One</div>
+    <div class="swiper-slide">Two</div>
+  {% endcapture %}
+  {% render 'rt-swiper', slides: slides, slides_per_view: '1.1', pagination: true, breakpoints: '{"750":{"slidesPerView":2}}' %}
+{%- enddoc -%}
+
+{%- liquid
+  assign slides = slides | default: '' | strip
+  assign class = class | default: '' | strip
+  assign slides_per_view = slides_per_view | default: 1
+  assign space_between = space_between | default: 0
+  assign loop = loop | default: false, allow_false: true
+  assign autoplay = autoplay | default: ''
+  assign speed = speed | default: 400
+  assign centered_slides = centered_slides | default: false, allow_false: true
+  assign pagination = pagination | default: false, allow_false: true
+  assign navigation = navigation | default: false, allow_false: true
+  assign grab_cursor = grab_cursor | default: true, allow_false: true
+  assign breakpoints = breakpoints | default: ''
+  assign options = options | default: ''
+  assign enable_min_width = enable_min_width | default: ''
+-%}
+
+{% stylesheet %}
+  rt-swiper {
+    display: block;
+    position: relative;
+  }
+
+  rt-swiper .swiper {
+    width: 100%;
+  }
+
+  rt-swiper .rt-swiper-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  rt-swiper .rt-swiper-pagination.swiper-pagination {
+    position: static;
+    bottom: auto;
+    left: auto;
+    width: auto;
+    margin: 0;
+    text-align: start;
+  }
+
+  rt-swiper .rt-swiper-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 0 4px;
+    background-color: #000000;
+    opacity: 0.25;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  rt-swiper .rt-swiper-pagination .swiper-pagination-bullet:first-child {
+    margin-inline-start: 0;
+  }
+
+  rt-swiper .rt-swiper-pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+
+  rt-swiper .rt-swiper-navs {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  rt-swiper .rt-swiper-nav {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    --icon-stroke-width: 1.5;
+  }
+
+  rt-swiper .rt-swiper-nav:hover:not(:disabled):not(.swiper-button-disabled) {
+    opacity: 0.8;
+  }
+
+  rt-swiper .rt-swiper-nav:disabled,
+  rt-swiper .rt-swiper-nav.swiper-button-disabled,
+  rt-swiper .rt-swiper-nav.swiper-button-lock {
+    background-color: rgb(0 0 0 / 10%);
+    color: #ffffff;
+    opacity: 1;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  @media (min-width: 750px) {
+    rt-swiper .rt-swiper-navs {
+      display: flex;
+    }
+    rt-swiper .rt-swiper-control {
+      justify-content: space-between;
+    }
+  }
+
+  rt-swiper[data-stacked] .swiper,
+  rt-swiper[data-enable-min-width] .swiper {
+    overflow: visible;
+  }
+
+  rt-swiper[data-stacked] .swiper-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rt-swiper-stack-gap, 8px);
+    transform: none !important;
+  }
+
+  rt-swiper[data-stacked] .swiper-slide {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  rt-swiper[data-stacked] .rt-swiper-control {
+    display: none;
+  }
+
+  @media (max-width: 749px) {
+    rt-swiper[data-enable-min-width] .swiper-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transform: none !important;
+    }
+
+    rt-swiper[data-enable-min-width] .swiper-slide {
+      width: 100% !important;
+      margin: 0 !important;
+    }
+
+    rt-swiper[data-enable-min-width] .rt-swiper-control {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{%- if slides != blank -%}
+<rt-swiper
+  class="rt-swiper {{ class }}"
+  style="--rt-swiper-stack-gap: {{ space_between }}px;"
+  data-swiper-js="{{ 'rt-swiper-bundle.min.js' | asset_url }}"
+  data-swiper-css="{{ 'rt-swiper.min.css' | asset_url }}"
+  data-slides-per-view="{{ slides_per_view }}"
+  data-space-between="{{ space_between }}"
+  data-loop="{{ loop }}"
+  data-speed="{{ speed }}"
+  data-centered-slides="{{ centered_slides }}"
+  data-grab-cursor="{{ grab_cursor }}"
+  {% if enable_min_width != blank %}
+    data-enable-min-width="{{ enable_min_width }}"
+  {% endif %}
+  {% if autoplay != blank and autoplay != false %}
+    data-autoplay="{{ autoplay }}"
+  {% endif %}
+  {% if breakpoints != blank %}
+    data-breakpoints="{{ breakpoints | escape }}"
+  {% endif %}
+  {% if options != blank %}
+    data-options="{{ options | escape }}"
+  {% endif %}
+>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {{ slides }}
+    </div>
+  </div>
+
+  {%- if pagination or navigation -%}
+    <div class="rt-swiper-control">
+      {%- if pagination -%}
+        <div class="rt-swiper-pagination swiper-pagination" data-rt-swiper-pagination></div>
+      {%- else -%}
+        <div class="rt-swiper-pagination"></div>
+      {%- endif -%}
+
+      {%- if navigation -%}
+        <div class="rt-swiper-navs">
+          <button
+            type="button"
+            class="rt-swiper-nav rt-swiper-nav--prev"
+            data-rt-swiper-prev
+            aria-label="{{ 'accessibility.slideshow_previous' | t }}"
+          >
+            {{ 'icon-chevron-left.svg' | inline_asset_content }}
+          </button>
+          <button
+            type="button"
+            class="rt-swiper-nav rt-swiper-nav--next"
+            data-rt-swiper-next
+            aria-label="{{ 'accessibility.slideshow_next' | t }}"
+          >
+            {{ 'icon-chevron-right.svg' | inline_asset_content }}
+          </button>
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</rt-swiper>
+
+<script
+  src="{{ 'rt-swiper.js' | asset_url }}"
+  type="module"
+></script>
+{%- endif -%}

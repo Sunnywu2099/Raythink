@@ -1422,8 +1422,8 @@ input[type='radio'] {
 }
 
 :where(input[type='checkbox']):checked {
-  background-color: var(--color-foreground);
-  border-color: var(--color-foreground);
+  background-color: #2458a7;
+  border-color: #2458a7;
 }
 
 :where(input[type='checkbox']):checked::after {

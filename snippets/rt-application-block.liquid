@@ -1,0 +1,65 @@
+{% liquid
+  assign image = block.settings.image
+  assign title = block.settings.title
+  assign title_color = block.settings.title_color
+  assign link_text = block.settings.link_text
+  assign link_url = block.settings.link_url
+  assign link_color = block.settings.link_color
+%}
+
+{% style %}
+  .rt-application-block {
+    position: relative;
+    overflow: hidden;
+  }
+  .rt-application-block-content {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+  .rt-application-block-title{
+    font-size: 18px;
+    margin: 0;
+  }
+  .rt-application-block-link{
+    margin: 0;
+    display: inline-block;
+    width: fit-content;
+    text-decoration: underline;
+    font-size: 16px;
+  }
+  @media (min-width: 750px) {
+    .rt-application-block-image img{
+      transition: transform 0.3s ease-in-out;
+    }
+    .rt-application-block-title{
+      font-size: 20px;
+    }
+    .rt-application-block:hover img{
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+    .rt-application-block-content{
+      padding: 24px;
+      gap: 8px;
+    }
+  }
+{% endstyle %}
+
+<div class="rt-application-block rt-radius-lg">
+  <div class="rt-application-block-image">
+    {% render 'rt-image2picture', image_mobile: image, image_desktop: image %}
+  </div>
+  <div class="rt-application-block-content">
+    <h3 class="rt-application-block-title" style="color: {{ title_color }};">{{ title }}</h3>
+    {% if link_text != blank %}
+      <a href="{{ link_url }}" class="rt-application-block-link" target="_blank" rel="noopener noreferrer" style="color: {{ link_color }};">{{ link_text }}</a>
+    {% endif %}
+  </div>
+</div>
