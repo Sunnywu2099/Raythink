@@ -1,0 +1,61 @@
+{% liquid
+  assign icon = block.settings.icon
+  assign title = block.settings.title
+  assign title_color = block.settings.title_color
+  assign text = block.settings.text
+  assign text_color = block.settings.text_color
+  assign is_center = is_center
+%}
+
+{% style %}
+  #shopify-section-{{ section.id }} .rt-icons-with-text-block {
+    background-color: {{ block_bg_color }};
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  #shopify-section-{{ section.id }} .rt-icons-with-text-block.rt-center {
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+  }
+  #shopify-section-{{ section.id }} .rt-icons-with-text-block-icon{
+    max-width: 48px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #shopify-section-{{ section.id }} .rt-icons-with-text-block.rt-center .rt-icons-with-text-block-icon{
+    margin-bottom: 0;
+  }
+  #shopify-section-{{ section.id }} .rt-icons-with-text-block-title{
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 8px;
+  }
+  #shopify-section-{{ section.id }} .rt-icons-with-text-block-text{
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+  }
+  @media (min-width: 750px) {
+    #shopify-section-{{ section.id }} .rt-icons-with-text-block-title{
+      font-size: 20px;
+      line-height: 24px;
+    }
+    #shopify-section-{{ section.id }} .rt-icons-with-text-block.rt-center {
+      gap: 8px;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+{% endstyle %}
+
+<div class="rt-icons-with-text-block rt-radius-lg {% if is_center %}rt-center{% endif %}">
+  <div class="rt-icons-with-text-block-icon">
+    {% render 'rt-image2picture', image_mobile: icon, image_desktop: icon %}
+  </div>
+  <div class="rt-icons-with-text-block-content">
+    <div class="rt-icons-with-text-block-title" style="color: {{ title_color }};">{{ title }}</div>
+    <div class="rt-icons-with-text-block-text" style="color: {{ text_color }};">{{ text }}</div>
+  </div>
+</div>

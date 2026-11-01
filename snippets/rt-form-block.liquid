@@ -1,0 +1,199 @@
+{%- doc -%}
+  Newsletter signup form for the rt-form section.
+
+  @param {object} block - form block with placeholder, agreement, and button_text settings
+
+  @example
+  {% render 'rt-form-block', block: block %}
+{%- enddoc -%}
+
+{% liquid
+  assign placeholder = block.settings.placeholder
+  assign agreement = block.settings.agreement
+  assign button_text = block.settings.button_text
+  assign form_id = 'rt-form-' | append: section.id | append: '-' | append: block.id
+  assign input_id = form_id | append: '-email'
+  assign agreement_id = form_id | append: '-agreement'
+  assign error_id = form_id | append: '-error'
+  assign success_id = form_id | append: '-success'
+%}
+
+{% stylesheet %}
+  .rt-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .rt-form-input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px 16px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .rt-form-input::placeholder {
+    color: #8c8c8c;
+  }
+
+  .rt-form-input:focus {
+    outline: 2px solid #2458a7;
+    outline-offset: 2px;
+  }
+
+  .rt-form-agreement {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .rt-form-agreement-input {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin: 2px 0 0;
+    accent-color: #2458a7;
+    cursor: pointer;
+  }
+
+  .rt-form-agreement-text {
+    font-size: 12px;
+    line-height: 16px;
+    color: #000000;
+  }
+
+  .rt-form-agreement-text p {
+    margin: 0;
+  }
+
+  .rt-form-agreement-text a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .rt-form-submit {
+    width: fit-content;
+    cursor: pointer;
+    margin: 8px auto 0;
+    font-weight: 600;
+  }
+
+  .rt-form-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 18px;
+    transition: opacity 0.3s ease;
+  }
+
+  .rt-form-message.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .rt-form-message--error {
+    color: #b42318;
+  }
+
+  .rt-form-message--success {
+    color: #027a48;
+  }
+{% endstylesheet %}
+
+<div class="rt-form-block" {{ block.shopify_attributes }}>
+  {%- form 'customer', id: form_id, class: 'rt-form' -%}
+    {%- liquid
+      assign this_form_posted = false
+      assign this_form_error = false
+      if form.id == form_id
+        if form.posted_successfully?
+          assign this_form_posted = true
+        endif
+        if form.errors
+          assign this_form_error = true
+        endif
+      endif
+    -%}
+    <input type="hidden" name="contact[tags]" value="newsletter">
+    <input type="hidden" name="return_to" value="{{ request.path }}#{{ form_id }}">
+
+    <label class="visually-hidden" for="{{ input_id }}">
+      {{ 'blocks.email_signup.label' | t }}
+    </label>
+    <input
+      id="{{ input_id }}"
+      class="rt-form-input"
+      type="email"
+      name="contact[email]"
+      form="{{ form_id }}"
+      autocorrect="off"
+      autocapitalize="off"
+      autocomplete="section-{{ form_id }} email"
+      placeholder="{{ placeholder | escape }}"
+      required
+      {% if this_form_error %}
+        aria-invalid="true"
+        aria-describedby="{{ error_id }}"
+      {% elsif this_form_posted %}
+        aria-describedby="{{ success_id }}"
+      {% endif %}
+    >
+
+    {%- if agreement != blank -%}
+      <label class="rt-form-agreement" for="{{ agreement_id }}">
+        <input
+          id="{{ agreement_id }}"
+          class="rt-form-agreement-input"
+          type="checkbox"
+          name="rt-form-agreement-{{ block.id }}"
+          form="{{ form_id }}"
+          required
+        >
+        <span class="rt-form-agreement-text">{{ agreement }}</span>
+      </label>
+    {%- endif -%}
+
+    {% if this_form_error %}
+      <p id="{{ error_id }}" class="rt-form-message rt-form-message--error" tabindex="-1">
+        {{ form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email }}
+      </p>
+    {% endif %}
+
+    {% if this_form_posted %}
+      <p id="{{ success_id }}" class="rt-form-message rt-form-message--success" role="status" tabindex="-1">
+        {{ 'blocks.email_signup.success' | t }}
+      </p>
+    {% endif %}
+
+    <button type="submit" class="rt-button rt-form-submit" form="{{ form_id }}">
+      {{ button_text | escape }}
+    </button>
+  {%- endform -%}
+
+  {%- if this_form_error or this_form_posted -%}
+    <script>
+      (() => {
+        const message = document.getElementById({{ error_id | json }}) || document.getElementById({{ success_id | json }});
+        if (!message) return;
+
+        window.setTimeout(() => {
+          message.classList.add('is-hidden');
+          message.setAttribute('hidden', '');
+          message.removeAttribute('tabindex');
+        }, 3000);
+      })();
+    </script>
+  {%- endif -%}
+</div>

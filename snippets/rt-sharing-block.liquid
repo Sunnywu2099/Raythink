@@ -1,0 +1,110 @@
+{% liquid
+  assign bg_color = block.settings.bg_color
+  assign img = block.settings.img
+  assign img_mobile = block.settings.img_mobile
+  assign title = block.settings.title
+  assign title_color = block.settings.title_color
+  assign text = block.settings.text
+  assign text_color = block.settings.text_color
+  assign author = block.settings.author
+  assign author_color = block.settings.author_color
+%}
+
+{% stylesheet %}
+  .rt-sharing-block {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .rt-sharing-block-image {
+    width: 100%;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .rt-sharing-block-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .rt-sharing-block-title {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+    padding-bottom: 8px;
+  }
+
+  .rt-sharing-block-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.65;
+  }
+
+  .rt-sharing-block-author {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    margin-top: 24px;
+  }
+
+  @media (min-width: 750px) {
+    .rt-sharing-block {
+      flex-direction: row;
+    }
+    .rt-sharing-block-image {
+      max-width: 46%;
+    }
+    .rt-sharing-block-content {
+      max-width: 54%;
+      padding: 0 40px;
+    }
+    .rt-sharing-block-title {
+      font-size: 20px;
+      line-height: 24px;
+    }
+    .rt-sharing-block-text {
+      font-size: 14px;
+      line-height: 18px;
+      margin: 0;
+    }
+    .rt-sharing-block-author {
+      font-size: 14px;
+      line-height: 18px;
+      margin: 0;
+      margin-top: 40px;
+    }
+  }
+{% endstylesheet %}
+
+<div
+  class="rt-sharing-block rt-radius-lg"
+  style="background-color: {{ bg_color }};"
+  {{ block.shopify_attributes }}
+>
+  {%- if img != blank -%}
+    <div class="rt-sharing-block-image">
+      {% render 'rt-image2picture', image_mobile: img_mobile, image_desktop: img, loading: 'lazy', fetchpriority: 'low' %}
+    </div>
+  {%- endif -%}
+
+  <div class="rt-sharing-block-content">
+    {%- if title != blank -%}
+      <h3 class="rt-sharing-block-title" style="color: {{ title_color }};">{{ title }}</h3>
+    {%- endif -%}
+
+    {%- if text != blank -%}
+      <p class="rt-sharing-block-text" style="color: {{ text_color }};">{{ text }}</p>
+    {%- endif -%}
+
+    {%- if author != blank -%}
+      <p class="rt-sharing-block-author" style="color: {{ author_color }};">{{ author }}</p>
+    {%- endif -%}
+  </div>
+</div>

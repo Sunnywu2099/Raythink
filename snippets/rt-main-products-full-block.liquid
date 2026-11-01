@@ -1,0 +1,74 @@
+{%  liquid 
+  assign bg = block.settings.bg
+  assign bg_mobile = block.settings.bg_mobile
+  assign title = block.settings.title
+  assign title_color = block.settings.title_color
+  assign description = block.settings.description
+  assign description_color = block.settings.description_color
+  assign primary_button_text = block.settings.primary_button_text
+  assign primary_link = block.settings.primary_link
+  assign secondary_button_text = block.settings.secondary_button_text
+  assign secondary_link = block.settings.secondary_link
+%}
+
+{% style %}
+  #shopify-section-{{ section.id }} .rt-main-products-full-block {
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .rt-main-products-full-block-content-box {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 60px;
+  }
+  #shopify-section-{{ section.id }} .rt-main-products-full-block-content-box .rt-main-products-full-block-content{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 50%;
+  }
+  #shopify-section-{{ section.id }} .rt-main-products-full-block-button {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .rt-main-products-full-block-content-box {
+      padding: 24px;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    #shopify-section-{{ section.id }} .rt-main-products-full-block-content-box .rt-main-products-full-block-content {
+      max-width: 100%;
+    }
+    #shopify-section-{{ section.id }} .rt-main-products-full-block-button {
+      margin-top: 20px;
+    }
+  }
+{% endstyle %}
+
+<div class="rt-main-products-full-block rt-radius-lg">
+  <div class="rt-main-products-full-block-bg">
+    {% render 'rt-image2picture', image_mobile: bg_mobile, image_desktop: bg %}
+  </div>
+  <div class="rt-main-products-full-block-content-box">
+    <div class="rt-main-products-full-block-content">
+      {% render 'rt-heading', diff: 'inside', variant: 'title', text: title, color: title_color %}
+      {% render 'rt-heading', diff: 'inside', variant: 'description', text: description, color: description_color %}
+    </div>
+    <div class="rt-main-products-full-block-button">
+      {% if primary_button_text != blank %}
+        <a href="{{ primary_link }}" class="rt-button rt-button-primary" target="_blank">{{ primary_button_text }}</a>
+      {% endif %}
+      {% if secondary_button_text != blank %}
+        <a href="{{ secondary_link }}" class="rt-button rt-button-secondary" target="_blank">{{ secondary_button_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>

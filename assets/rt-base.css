@@ -1,0 +1,99 @@
+/* -------------------------------- layout -------------------------------- */
+.rt-section {
+  background-color: var(--rt-section-bg-color, #f5f5f9);
+  overflow: hidden;
+}
+.rt-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .rt-container {
+    padding-left: var(--container-padding-sm);
+    padding-right: var(--container-padding-sm);
+  }
+}
+
+@media (min-width: 750px) and (max-width: 1200px) {
+  .rt-container {
+    padding-left: var(--container-padding-lg);
+    padding-right: var(--container-padding-lg);
+  }
+}
+
+.rt-ss-padding {
+  padding-top: var(--rt-section-pt-mobile);
+  padding-bottom: var(--rt-section-pb-mobile);
+}
+
+.rt-heading-box {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rt-heading-box-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 750px) {
+  .rt-ss-padding {
+    padding-top: var(--rt-section-pt-desktop);
+    padding-bottom: var(--rt-section-pb-desktop);
+  }
+  .rt-heading-box {
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+}
+
+/* -------------------------------- radius -------------------------------- */
+.rt-radius-sm {
+  border-radius: 8px;
+}
+
+.rt-radius-md {
+  border-radius: 12px;
+}
+
+.rt-radius-lg {
+  border-radius: 16px;
+}
+
+/* -------------------------------- button -------------------------------- */
+.rt-button {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--rt-button-radius, 40px);
+  background-color: var(--rt-button-bg-color-primary, #2458a7);
+  border: 1px solid var(--rt-button-border-color-primary, #2458a7);
+  color: var(--rt-button-text-color-primary, #ffffff);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: semibold;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.rt-button:hover {
+  opacity: 0.8;
+}
+
+.rt-button-secondary {
+  background-color: transparent;
+  border: 1px solid var(--rt-button-border-color-secondary, #2458a7);
+  color: var(--rt-button-text-color-secondary, #2458a7);
+}
