@@ -9,6 +9,74 @@
  */
 {
   "sections": {
+    "rt_main_banner_NM4gjD": {
+      "type": "rt-main-banner",
+      "blocks": {
+        "main_banner_block_3tkL8h": {
+          "type": "main-banner-block",
+          "settings": {
+            "img_desktop": "shopify://shop_images/HeroBanner-2_1.png",
+            "img_mobile": "shopify://shop_images/Frame_2117130476.png",
+            "slogan": "Slogan Slogan Slogan",
+            "title": "Raythink IX1GO",
+            "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
+            "text_color": "#ffffff",
+            "button_text": "Learn More",
+            "button_url": "",
+            "button_text_2": "Buy Now",
+            "button_url_2": "",
+            "layout": "left"
+          }
+        },
+        "main_banner_block_kKqVWA": {
+          "type": "main-banner-block",
+          "settings": {
+            "img_desktop": "shopify://shop_images/HeroBanner-2_1.png",
+            "img_mobile": "shopify://shop_images/Frame_2117130476.png",
+            "slogan": "Slogan Slogan Slogan",
+            "title": "Raythink IX1GO",
+            "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
+            "text_color": "#ffffff",
+            "button_text": "Learn More",
+            "button_url": "",
+            "button_text_2": "Buy Now",
+            "button_url_2": "",
+            "layout": "left"
+          }
+        },
+        "main_banner_block_Xjqpeh": {
+          "type": "main-banner-block",
+          "settings": {
+            "img_desktop": "shopify://shop_images/HeroBanner-2_1.png",
+            "img_mobile": "shopify://shop_images/Frame_2117130476.png",
+            "slogan": "Slogan Slogan Slogan",
+            "title": "Raythink IX1GO",
+            "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
+            "text_color": "#ffffff",
+            "button_text": "Learn More",
+            "button_url": "",
+            "button_text_2": "Buy Now",
+            "button_url_2": "",
+            "layout": "left"
+          }
+        }
+      },
+      "block_order": [
+        "main_banner_block_3tkL8h",
+        "main_banner_block_kKqVWA",
+        "main_banner_block_Xjqpeh"
+      ],
+      "name": "rt-main-banner",
+      "settings": {
+        "background_color": "#f5f5f9",
+        "enable_autoplay": true,
+        "autoplay_delay": 8,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0
+      }
+    },
     "rt_main_products_mzwqzD": {
       "type": "rt-main-products",
       "blocks": {
@@ -488,6 +556,7 @@
     }
   },
   "order": [
+    "rt_main_banner_NM4gjD",
     "rt_main_products_mzwqzD",
     "rt_application_AAPGAq",
     "rt_icons_with_text_WQCMRx",

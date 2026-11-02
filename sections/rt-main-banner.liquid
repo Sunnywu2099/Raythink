@@ -1,0 +1,488 @@
+{%- comment %}
+  Section contract.
+  Homepage first-screen banner. One slide renders statically; two or more use an isolated rt-swiper instance.
+{% endcomment %}
+
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 40
+  assign pb_mobile = ss.padding_bottom_mobile | default: 40
+  assign pt_desktop = ss.padding_top_desktop | default: 60
+  assign pb_desktop = ss.padding_bottom_desktop | default: 60
+  assign bg_color = ss.background_color | default: '#f5f5f9'
+  assign enable_autoplay = ss.enable_autoplay | default: false, allow_false: true
+  assign autoplay_delay = ss.autoplay_delay | default: 4
+  assign autoplay_ms = autoplay_delay | times: 1000
+  assign autoplay_value = ''
+  if enable_autoplay
+    assign autoplay_value = autoplay_ms
+  endif
+  assign banner_count = 0
+  for block in section.blocks
+    if block.type == 'main-banner-block'
+      assign banner_count = banner_count | plus: 1
+    endif
+  endfor
+-%}
+
+{%- capture container_padding -%}
+  style="
+    {% render 'rt-section-padding',
+      section_pt_mobile: pt_mobile,
+      section_pb_mobile: pb_mobile,
+      section_pt_desktop: pt_desktop,
+      section_pb_desktop: pb_desktop
+    %}
+  "
+{%- endcapture -%}
+
+{% stylesheet %}
+  .rt-main-banner{
+    background-color: #000000;
+  }
+  .rt-main-banner-slide {
+    position: relative;
+  }
+
+  .rt-main-banner-media {
+    display: block;
+    width: 100%;
+  }
+
+  .rt-main-banner-media picture,
+  .rt-main-banner-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .rt-main-banner-copy {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .rt-main-banner-copy .rt-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .rt-main-banner-copy-inner {
+    text-align: center;
+    max-width: 640px;
+    padding-top: 64px;
+    padding-bottom: 24px;
+    pointer-events: auto;
+  }
+
+  .rt-main-banner-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .rt-main-banner-slogan,
+  .rt-main-banner-title,
+  .rt-main-banner-description {
+    margin: 0;
+  }
+
+  .rt-main-banner-slogan,
+  .rt-main-banner-description {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .rt-main-banner-description {
+    opacity: 0.65;
+  }
+
+  .rt-main-banner-title {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .rt-main-banner-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .rt-main-banner-button-secondary {
+    background-color: transparent;
+  }
+
+  .rt-main-banner rt-swiper {
+    display: block;
+  }
+
+  .rt-main-banner rt-swiper .swiper,
+  .rt-main-banner rt-swiper .swiper-wrapper,
+  .rt-main-banner rt-swiper .swiper-slide {
+    height: auto;
+  }
+
+  .rt-main-banner rt-swiper .swiper {
+    overflow: hidden;
+  }
+
+  .rt-main-banner .rt-swiper-control {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 64px;
+    z-index: 2;
+    margin-top: 0;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .rt-main-banner .rt-swiper-pagination {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 16px;
+    border-radius: 999px;
+    background-color: rgb(28 28 28 / 88%);
+    pointer-events: auto;
+  }
+
+  .rt-main-banner .rt-swiper-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    margin: 0;
+    background-color: rgb(255 255 255 / 38%);
+    opacity: 1;
+    border-radius: 999px;
+    overflow: hidden;
+    transition: width 0.35s ease;
+  }
+
+  .rt-main-banner .rt-swiper-pagination .swiper-pagination-bullet-active {
+    position: relative;
+    width: 36px;
+    height: 8px;
+    background-color: rgb(255 255 255 / 28%);
+    overflow: hidden;
+  }
+
+  .rt-main-banner .rt-swiper-pagination .swiper-pagination-bullet-active::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: #ffffff;
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  .rt-main-banner--autoplay .rt-swiper-pagination .swiper-pagination-bullet-active::after {
+    transform: scaleX(0);
+    animation: rt-main-banner-progress var(--rt-banner-autoplay-ms, 4s) linear forwards;
+  }
+
+  @keyframes rt-main-banner-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .rt-main-banner .rt-swiper-navs {
+    display: none;
+  }
+
+  @media (min-width: 750px) {
+    .rt-main-banner-slide {
+      min-height: 720px;
+    }
+
+    .rt-main-banner-media {
+      position: absolute;
+      inset: 0;
+    }
+
+    .rt-main-banner-media picture,
+    .rt-main-banner-media img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .rt-main-banner rt-swiper .swiper,
+    .rt-main-banner rt-swiper .swiper-wrapper,
+    .rt-main-banner rt-swiper .swiper-slide {
+      min-height: 720px;
+    }
+
+    .rt-main-banner-copy .rt-container {
+      align-items: center;
+    }
+
+    .rt-main-banner-slide--left .rt-main-banner-copy .rt-container {
+      justify-content: flex-start;
+    }
+
+    .rt-main-banner-slide--center .rt-main-banner-copy .rt-container {
+      justify-content: center;
+    }
+
+    .rt-main-banner-slide--right .rt-main-banner-copy .rt-container {
+      justify-content: flex-end;
+    }
+
+    .rt-main-banner-copy-inner {
+      text-align: left;
+      padding-block: 40px;
+    }
+
+    .rt-main-banner-title {
+      font-size: 48px;
+      line-height: 52px;
+    }
+
+    .rt-main-banner-title + .rt-main-banner-description {
+      margin-top: 8px;
+    }
+
+    .rt-main-banner-actions {
+      justify-content: flex-start;
+      margin-top: 60px;
+    }
+  }
+{% endstylesheet %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section rt-main-banner{% if enable_autoplay %} rt-main-banner--autoplay{% endif %}"
+  style="--rt-section-bg-color: {{ bg_color }}; --rt-banner-autoplay-ms: {{ autoplay_ms }}ms;"
+>
+  <div class="rt-ss-padding" {{ container_padding }}>
+    {%- if banner_count == 1 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'main-banner-block' -%}
+          {% render 'rt-main-banner-block', block: block, is_first: true %}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- elsif banner_count > 1 -%}
+      {%- capture rt_banner_slides -%}
+        {%- assign banner_index = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'main-banner-block' -%}
+            {%- assign banner_index = banner_index | plus: 1 -%}
+            {%- assign is_first_banner = false -%}
+            {%- if banner_index == 1 -%}
+              {%- assign is_first_banner = true -%}
+            {%- endif -%}
+            <div class="swiper-slide">
+              {% render 'rt-main-banner-block', block: block, is_first: is_first_banner %}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+
+      {% render 'rt-swiper',
+        slides: rt_banner_slides,
+        class: 'rt-main-banner-swiper',
+        slides_per_view: '1',
+        space_between: 0,
+        pagination: true,
+        navigation: false,
+        loop: false,
+        grab_cursor: true,
+        autoplay: autoplay_value,
+        autoplay_progress: enable_autoplay,
+        options: '{"nested":false,"rewind":true}'
+      %}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "rt-main-banner",
+    "tag": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Section背景颜色",
+        "default": "#f5f5f9"
+      },
+      {
+        "type": "header",
+        "content": "轮播"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_autoplay",
+        "label": "开启自动轮播",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "autoplay_delay",
+        "min": 2,
+        "max": 12,
+        "step": 1,
+        "unit": "s",
+        "label": "轮播时长",
+        "default": 4,
+        "visible_if": "{{ section.settings.enable_autoplay == true }}"
+      },
+      {
+        "type": "header",
+        "content": "间距"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "上（移动端）",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "下（移动端）",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_top_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "上（桌面端）",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "下（桌面端）",
+        "default": 0
+      }
+    ],
+    "blocks": [
+      {
+        "type": "main-banner-block",
+        "name": "main-banner-block",
+        "settings": [
+          {
+            "type": "header",
+            "content": "图片设置"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_desktop",
+            "label": "图片(桌面端)"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_mobile",
+            "label": "图片(移动端)"
+          },
+          {
+            "type": "header",
+            "content": "文案内容设置"
+          },
+          {
+            "type": "text",
+            "id": "slogan",
+            "label": "Slogan",
+            "default": "Slogan Slogan Slogan"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "主标题",
+            "default": "Raythink IX1GO"
+          },
+          {
+            "type": "text",
+            "id": "description",
+            "label": "描述",
+            "default": "Discription Pellentesque posuere, diam in hendrerit volutpat"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "文字颜色",
+            "default": "#ffffff"
+          },
+          {
+            "type": "header",
+            "content": "按钮设置",
+            "info": "注意，如果按钮文本为空，则不会显示该按钮"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "主按钮文本",
+            "default": "Learn More"
+          },
+          {
+            "type": "url",
+            "id": "button_url",
+            "label": "主按钮链接"
+          },
+          {
+            "type": "text",
+            "id": "button_text_2",
+            "label": "副按钮文本",
+            "default": "Buy Now"
+          },
+          {
+            "type": "url",
+            "id": "button_url_2",
+            "label": "副按钮链接"
+          },
+          {
+            "type": "header",
+            "content": "PC端布局设置,移动端布局固定为居中"
+          },
+          {
+            "type": "select",
+            "id": "layout",
+            "label": "文案居中、居左、居右",
+            "options": [
+              { "value": "left", "label": "居左" },
+              { "value": "center", "label": "居中" },
+              { "value": "right", "label": "居右" }
+            ],
+            "default": "left"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "rt-main-banner",
+        "category": "rt-homepage"
+      }
+    ]
+  }
+  {% endschema %}

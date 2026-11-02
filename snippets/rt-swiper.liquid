@@ -8,6 +8,7 @@
   @param {number} [space_between] - Gap between slides in px (default: 0)
   @param {boolean} [loop]
   @param {string} [autoplay] - Delay in ms. Omit or "false" to disable.
+  @param {boolean} [autoplay_progress] - Expose autoplay progress as --rt-swiper-progress on pagination
   @param {number} [speed] - Transition speed in ms (default: 400)
   @param {boolean} [centered_slides]
   @param {boolean} [pagination]
@@ -40,6 +41,7 @@
   assign breakpoints = breakpoints | default: ''
   assign options = options | default: ''
   assign enable_min_width = enable_min_width | default: ''
+  assign autoplay_progress = autoplay_progress | default: false, allow_false: true
 -%}
 
 {% stylesheet %}
@@ -191,6 +193,9 @@
   {% endif %}
   {% if autoplay != blank and autoplay != false %}
     data-autoplay="{{ autoplay }}"
+  {% endif %}
+  {% if autoplay_progress %}
+    data-autoplay-progress="true"
   {% endif %}
   {% if breakpoints != blank %}
     data-breakpoints="{{ breakpoints | escape }}"

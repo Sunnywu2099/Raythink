@@ -1,0 +1,97 @@
+{%- doc -%}
+  Hero banner slide: image in document flow, copy overlaid in rt-container.
+
+  @param {object} block - main-banner-block
+  @param {boolean} [is_first] - First slide uses high-priority image loading
+
+  @example
+  {% render 'rt-main-banner-block', block: block, is_first: true %}
+{%- enddoc -%}
+
+{% liquid
+  assign slogan = block.settings.slogan
+  assign title = block.settings.title
+  assign description = block.settings.description
+  assign text_color = block.settings.text_color
+  assign button_text = block.settings.button_text
+  assign button_url = block.settings.button_url
+  assign button_text_2 = block.settings.button_text_2
+  assign button_url_2 = block.settings.button_url_2
+  assign layout = block.settings.layout | default: 'left'
+  assign img_desktop = block.settings.img_desktop
+  assign img_mobile = block.settings.img_mobile
+  assign is_first = is_first | default: false, allow_false: true
+  if is_first
+    assign image_loading = 'eager'
+    assign image_fetchpriority = 'high'
+  else
+    assign image_loading = 'lazy'
+    assign image_fetchpriority = 'low'
+  endif
+  assign has_copy = false
+  if slogan != blank or title != blank or description != blank or button_text != blank or button_text_2 != blank
+    assign has_copy = true
+  endif
+%}
+
+<div
+  class="rt-main-banner-slide rt-main-banner-slide--{{ layout }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="rt-main-banner-media">
+    {% render 'rt-image2picture',
+      image_mobile: img_mobile,
+      image_desktop: img_desktop,
+      loading: image_loading,
+      fetchpriority: image_fetchpriority,
+      sizes: '100vw',
+      alt: title
+    %}
+  </div>
+
+  {%- if has_copy -%}
+    <div class="rt-main-banner-copy">
+      <div class="rt-container">
+        <div class="rt-main-banner-copy-inner">
+          {%- if slogan != blank or title != blank or description != blank -%}
+            <div class="rt-main-banner-text">
+              {%- if slogan != blank -%}
+                <p class="rt-main-banner-slogan" style="color: {{ text_color }};">{{ slogan | escape }}</p>
+              {%- endif -%}
+
+              {%- if title != blank -%}
+                {%- if is_first -%}
+                  <h1 class="rt-main-banner-title" style="color: {{ text_color }};">{{ title | escape }}</h1>
+                {%- else -%}
+                  <h2 class="rt-main-banner-title" style="color: {{ text_color }};">{{ title | escape }}</h2>
+                {%- endif -%}
+              {%- endif -%}
+
+              {%- if description != blank -%}
+                <p class="rt-main-banner-description" style="color: {{ text_color }};">{{ description | escape }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if button_text != blank or button_text_2 != blank -%}
+            <div class="rt-main-banner-actions">
+              {%- if button_text != blank -%}
+                <a class="rt-button" href="{{ button_url | default: '#' }}">
+                  {{ button_text | escape }}
+                </a>
+              {%- endif -%}
+              {%- if button_text_2 != blank -%}
+                <a
+                  class="rt-button rt-button-secondary rt-main-banner-button-secondary rt-button-secondary"
+                  href="{{ button_url_2 | default: '#' }}"
+                >
+                  {{ button_text_2 | escape }}
+                </a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</div>

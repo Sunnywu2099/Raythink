@@ -135,7 +135,7 @@ class RtSwiper extends HTMLElement {
   #init(SwiperConstructor) {
     this.#destroy();
 
-    const root = this.querySelector('.swiper');
+    const root = this.querySelector(':scope > .swiper');
     if (!(root instanceof HTMLElement)) return;
 
     this.#swiper = new SwiperConstructor(root, this.#buildOptions());
@@ -160,6 +160,21 @@ class RtSwiper extends HTMLElement {
     next.disabled = disableNext;
     prev.setAttribute('aria-disabled', String(disablePrev));
     next.setAttribute('aria-disabled', String(disableNext));
+  }
+
+  /**
+   * @param {number} progress
+   */
+  #syncAutoplayProgress(progress) {
+    if (this.dataset.autoplayProgress !== 'true') return;
+
+    const pagination = this.querySelector('[data-rt-swiper-pagination]');
+    if (!(pagination instanceof HTMLElement)) return;
+
+    const value = Number(progress);
+    if (!Number.isFinite(value)) return;
+
+    pagination.style.setProperty('--rt-swiper-progress', String(1 - value));
   }
 
   #buildOptions() {
@@ -193,6 +208,9 @@ class RtSwiper extends HTMLElement {
       options.autoplay = {
         delay: parseNumber(this.dataset.autoplay, 4000),
         disableOnInteraction: false,
+        pauseOnMouseEnter: false,
+        stopOnLastSlide: false,
+        waitForTransition: false,
       };
     }
 
@@ -255,6 +273,10 @@ class RtSwiper extends HTMLElement {
       breakpoint: (...args) => {
         userOn.breakpoint?.(...args);
         this.#syncNavState();
+      },
+      autoplayTimeLeft: (swiper, time, progress) => {
+        userOn.autoplayTimeLeft?.(swiper, time, progress);
+        this.#syncAutoplayProgress(progress);
       },
     };
 
