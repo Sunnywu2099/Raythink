@@ -1,3 +1,36 @@
 {%- comment -%}
   Custom storefront scripts. Feature libraries such as Swiper load from their owning snippets.
 {%- endcomment -%}
+
+<script>
+  (() => {
+    const desktopQuery = window.matchMedia('(min-width: 990px)');
+    const pageWrapper = () => document.querySelector('.page-wrapper');
+
+    const scrollInstant = (target, top) => {
+      if (!target || typeof target.scrollTo !== 'function') return;
+      target.scrollTo({ top, left: 0, behavior: 'instant' });
+    };
+
+    const moveScrollToDesktop = () => {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      scrollInstant(window, 0);
+      const wrapper = pageWrapper();
+      if (!wrapper) return;
+      const max = Math.max(0, wrapper.scrollHeight - wrapper.clientHeight);
+      scrollInstant(wrapper, Math.min(Math.max(0, y), max));
+    };
+
+    const moveScrollToMobile = () => {
+      const wrapper = pageWrapper();
+      const y = wrapper ? wrapper.scrollTop : 0;
+      if (wrapper) scrollInstant(wrapper, 0);
+      scrollInstant(window, Math.max(0, y));
+    };
+
+    desktopQuery.addEventListener('change', () => {
+      if (desktopQuery.matches) moveScrollToDesktop();
+      else moveScrollToMobile();
+    });
+  })();
+</script>

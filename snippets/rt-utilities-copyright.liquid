@@ -1,0 +1,19 @@
+{%- doc -%}
+  Footer utilities copyright line: year, shop name, and merchant suffix.
+
+  @param {object} block - copyright block with a text setting
+
+  @example
+  {% render 'rt-utilities-copyright', block: block %}
+{%- enddoc -%}
+
+{%- liquid
+  assign suffix = block.settings.text
+-%}
+
+<p class="rt-utilities__copyright" {{ block.shopify_attributes }}>
+  <span>&copy;{{ 'now' | date: '%Y' }} {{ shop.name | escape }}</span>
+  {%- if suffix != blank -%}
+    <span>. {{ suffix | escape }}</span>
+  {%- endif -%}
+</p>

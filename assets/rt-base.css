@@ -97,3 +97,7 @@
   border: 1px solid var(--rt-button-border-color-secondary, #2458a7);
   color: var(--rt-button-text-color-secondary, #2458a7);
 }
+
+.rt-footer.rt-section {
+  overflow: visible;
+}

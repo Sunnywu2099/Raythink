@@ -1,0 +1,53 @@
+{% doc %}
+  One region and language option. The parent reads this record and renders the trigger and dialog.
+
+  @example
+  {% content_for 'block', type: '_rt-footer-region', id: 'region' %}
+{% enddoc %}
+
+{%- liquid
+  assign region = block.settings.region | strip | replace: '%%', ''
+  assign language = block.settings.language | strip | replace: '%%', ''
+  assign group = block.settings.group | strip | replace: '%%', ''
+  assign region_link = block.settings.region_link | replace: '%%', ''
+-%}
+{%- if region != blank or language != blank -%}
+%%RT%%{{ group }}%%F%%{{ region }}%%F%%{{ language }}%%F%%{{ region_link }}%%F%%{{ block.id }}%%F%%{{ block.shopify_attributes }}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "地区项",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "group",
+      "label": "分组",
+      "info": "相同名称会显示在同一个标题下，例如 Asia Pacific"
+    },
+    {
+      "type": "text",
+      "id": "region",
+      "label": "地区",
+      "default": "United States"
+    },
+    {
+      "type": "text",
+      "id": "language",
+      "label": "语言",
+      "default": "English"
+    },
+    {
+      "type": "url",
+      "id": "region_link",
+      "label": "地区链接"
+    }
+  ],
+  "presets": [
+    {
+      "name": "地区项"
+    }
+  ]
+}
+{% endschema %}

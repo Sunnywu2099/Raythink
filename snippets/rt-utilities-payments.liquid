@@ -1,0 +1,20 @@
+{%- doc -%}
+  Enabled shop payment icons for the footer utilities bar.
+
+  @param {object} block - payments block
+
+  @example
+  {% render 'rt-utilities-payments', block: block %}
+{%- enddoc -%}
+
+<div class="rt-utilities__payments" {{ block.shopify_attributes }}>
+  {%- if shop.enabled_payment_types.size > 0 -%}
+    <ul class="rt-utilities__payment-list">
+      {%- for type in shop.enabled_payment_types -%}
+        <li class="rt-utilities__payment-item">
+          {{ type | payment_type_svg_tag: class: 'rt-utilities__payment-icon' }}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</div>

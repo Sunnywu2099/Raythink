@@ -1,0 +1,370 @@
+{%- doc -%}
+  Footer newsletter form with an inline submit control. Isolated from other customer forms.
+
+  @param {object} block - form block with title, text, placeholder, agreement, and social urls
+
+  @example
+  {% render 'rt-footer-form', block: block %}
+{%- enddoc -%}
+
+{% liquid
+  assign title = block.settings.title
+  assign text = block.settings.text
+  assign placeholder = block.settings.placeholder
+  assign agreement = block.settings.agreement
+  assign facebook_url = block.settings.facebook_url
+  assign twitter_url = block.settings.twitter_url
+  assign instagram_url = block.settings.instagram_url
+  assign form_id = 'rt-footer-form-' | append: section.id | append: '-' | append: block.id
+  assign input_id = form_id | append: '-email'
+  assign agreement_id = form_id | append: '-agreement'
+  assign error_id = form_id | append: '-error'
+  assign success_id = form_id | append: '-success'
+  assign has_social = false
+  if facebook_url != blank or twitter_url != blank or instagram_url != blank
+    assign has_social = true
+  endif
+%}
+
+{% stylesheet %}
+  .rt-footer-form {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .rt-footer-form__title {
+    margin: 0;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #000000;
+  }
+
+  .rt-footer-form__text {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 18px;
+    color: #565657;
+  }
+
+  .rt-footer-form__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-block-start: 20px;
+  }
+
+  .rt-footer-form__field {
+    display: flex;
+    align-items: stretch;
+    min-width: 0;
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+
+  .rt-footer-form__input {
+    box-sizing: border-box;
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    padding: 16px;
+    border: 0;
+    background: transparent;
+    color: #000000;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .rt-footer-form__input::placeholder {
+    color: #8c8c8c;
+  }
+
+  .rt-footer-form__input:focus {
+    outline: none;
+  }
+
+  .rt-footer-form__field:focus-within {
+    outline: 2px solid #2458a7;
+    outline-offset: 2px;
+  }
+
+  .rt-footer-form__submit {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: #2458a7;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .rt-footer-form__submit:hover {
+    opacity: 0.8;
+  }
+
+  .rt-footer-form__submit-icon {
+    display: block;
+    width: 21px;
+    height: 13px;
+  }
+
+  .rt-footer-form__submit-icon path {
+    stroke: currentColor;
+  }
+
+  .rt-footer-form__agreement {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .rt-footer-form__agreement-input {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin: 2px 0 0;
+    accent-color: #2458a7;
+    cursor: pointer;
+  }
+
+  .rt-footer-form__agreement-text {
+    font-size: 12px;
+    line-height: 16px;
+    color: #000000;
+  }
+
+  .rt-footer-form__agreement-text p {
+    margin: 0;
+  }
+
+  .rt-footer-form__agreement-text a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .rt-footer-form__message {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 18px;
+    transition: opacity 0.3s ease;
+  }
+
+  .rt-footer-form__message.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .rt-footer-form__message--error {
+    color: #b42318;
+  }
+
+  .rt-footer-form__message--success {
+    color: #027a48;
+  }
+
+  .rt-footer-form__social {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-block-start: 24px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rt-footer-form__social-link {
+    display: flex;
+    color: #000000;
+  }
+
+  .rt-footer-form__social-link:hover {
+    opacity: 0.7;
+  }
+
+  .rt-footer-form__social-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media (min-width: 750px) {
+    .rt-footer-form__title {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+{% endstylesheet %}
+
+<div class="rt-footer-form">
+  {%- if title != blank -%}
+    <h2 class="rt-footer-form__title">{{ title | escape }}</h2>
+  {%- endif -%}
+
+  {%- if text != blank -%}
+    <p class="rt-footer-form__text">{{ text | escape }}</p>
+  {%- endif -%}
+
+  {%- form 'customer', id: form_id, class: 'rt-footer-form__form' -%}
+    {%- liquid
+      assign this_form_posted = false
+      assign this_form_error = false
+      if form.id == form_id
+        if form.posted_successfully?
+          assign this_form_posted = true
+        endif
+        if form.errors
+          assign this_form_error = true
+        endif
+      endif
+    -%}
+    <input type="hidden" name="contact[tags]" value="newsletter">
+    <input type="hidden" name="return_to" value="{{ request.path }}#{{ form_id }}">
+
+    <div class="rt-footer-form__field">
+      <label class="visually-hidden" for="{{ input_id }}">
+        {{ 'blocks.email_signup.label' | t }}
+      </label>
+      <input
+        id="{{ input_id }}"
+        class="rt-footer-form__input"
+        type="email"
+        name="contact[email]"
+        form="{{ form_id }}"
+        autocorrect="off"
+        autocapitalize="off"
+        autocomplete="section-{{ form_id }} email"
+        placeholder="{{ placeholder | escape }}"
+        required
+        {% if this_form_error %}
+          aria-invalid="true"
+          aria-describedby="{{ error_id }}"
+        {% elsif this_form_posted %}
+          aria-describedby="{{ success_id }}"
+        {% endif %}
+      >
+      <button
+        type="submit"
+        class="rt-footer-form__submit"
+        form="{{ form_id }}"
+        aria-label="{{ 'actions.sign_up' | t }}"
+      >
+        <svg
+          class="rt-footer-form__submit-icon"
+          width="7"
+          height="12"
+          viewBox="0 0 7 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path d="M0.5 0.5L6 6L0.5 11.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+      </button>
+    </div>
+
+    {%- if agreement != blank -%}
+      <label class="rt-footer-form__agreement" for="{{ agreement_id }}">
+        <input
+          id="{{ agreement_id }}"
+          class="rt-footer-form__agreement-input"
+          type="checkbox"
+          name="rt-footer-agreement-{{ block.id }}"
+          form="{{ form_id }}"
+          required
+        >
+        <span class="rt-footer-form__agreement-text">{{ agreement }}</span>
+      </label>
+    {%- endif -%}
+
+    {% if this_form_error %}
+      <p id="{{ error_id }}" class="rt-footer-form__message rt-footer-form__message--error" tabindex="-1">
+        {{ form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email }}
+      </p>
+    {% endif %}
+
+    {% if this_form_posted %}
+      <p id="{{ success_id }}" class="rt-footer-form__message rt-footer-form__message--success" role="status" tabindex="-1">
+        {{ 'blocks.email_signup.success' | t }}
+      </p>
+    {% endif %}
+  {%- endform -%}
+
+  {%- if has_social -%}
+    <ul class="rt-footer-form__social">
+      {%- if facebook_url != blank -%}
+        <li>
+          <a
+            class="rt-footer-form__social-link"
+            href="{{ facebook_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="{{ 'rt.footer.social_facebook' | t }}"
+          >
+            <svg class="rt-footer-form__social-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false">
+              {% render 'icon', icon: 'facebook' %}
+            </svg>
+          </a>
+        </li>
+      {%- endif -%}
+      {%- if twitter_url != blank -%}
+        <li>
+          <a
+            class="rt-footer-form__social-link"
+            href="{{ twitter_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="{{ 'rt.footer.social_x' | t }}"
+          >
+            <svg class="rt-footer-form__social-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false">
+              {% render 'icon', icon: 'x' %}
+            </svg>
+          </a>
+        </li>
+      {%- endif -%}
+      {%- if instagram_url != blank -%}
+        <li>
+          <a
+            class="rt-footer-form__social-link"
+            href="{{ instagram_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="{{ 'rt.footer.social_instagram' | t }}"
+          >
+            <svg class="rt-footer-form__social-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false">
+              {% render 'icon', icon: 'instagram' %}
+            </svg>
+          </a>
+        </li>
+      {%- endif -%}
+    </ul>
+  {%- endif -%}
+
+  {%- if this_form_error or this_form_posted -%}
+    <script>
+      (() => {
+        const message = document.getElementById({{ error_id | json }}) || document.getElementById({{ success_id | json }});
+        if (!message) return;
+
+        window.setTimeout(() => {
+          message.classList.add('is-hidden');
+          message.setAttribute('hidden', '');
+          message.removeAttribute('tabindex');
+        }, 3000);
+      })();
+    </script>
+  {%- endif -%}
+</div>

@@ -1,0 +1,359 @@
+{% doc %}
+  Footer region selector. Preview mode shows the first country. With preview mode off, the trigger shows the country whose link matches this storefront.
+
+  @example
+  {% content_for 'block', type: '_rt-footer-regions', id: 'regions' %}
+{% enddoc %}
+
+{%- comment %}
+  Nested theme block settings are only available after the children render.
+{%- endcomment -%}
+{%- capture rt_region_sources -%}
+  {%- content_for 'blocks' -%}
+{%- endcapture -%}
+
+{%- liquid
+  assign dialog_title = block.settings.heading
+  assign preview_mode = block.settings.preview_mode
+  assign current_host = request.host | downcase | remove: 'www.'
+  assign shop_host = shop.url | split: '://' | last | split: '/' | first | downcase | remove: 'www.'
+  assign current_path = request.path | downcase
+  assign current_last = current_path | slice: -1, 1
+  if current_path != '/' and current_last == '/'
+    assign current_path_size = current_path.size | minus: 1
+    assign current_path = current_path | slice: 0, current_path_size
+  endif
+
+  assign selected_region = ''
+  assign selected_id = ''
+  assign selected_score = 0
+  assign seen_groups = ''
+  assign region_records = rt_region_sources | split: '%%RT%%'
+
+  for record in region_records
+    assign record_clean = record | strip
+    if record_clean == blank
+      continue
+    endif
+    assign fields = record_clean | split: '%%F%%'
+    assign group_key = fields[0] | strip
+    assign region_name = fields[1] | strip
+    assign region_id = fields[4] | strip
+    assign link_value = fields[3] | strip | downcase
+    if region_name == blank
+      continue
+    endif
+    if group_key == blank
+      assign group_key = '__ungrouped__'
+    endif
+    assign group_token = '||' | append: group_key | append: '||'
+    unless seen_groups contains group_token
+      assign seen_groups = seen_groups | append: group_token
+    endunless
+
+    if preview_mode == false and link_value != blank
+      assign link_is_absolute = false
+      if link_value contains '://'
+        assign link_is_absolute = true
+      endif
+
+      assign link_host = current_host
+      assign link_path = link_value
+      if link_is_absolute
+        assign link_body = link_value | split: '://' | last
+        assign link_host = link_body | split: '/' | first | remove: 'www.'
+        assign link_path = link_body | remove_first: link_host
+        if link_path == blank
+          assign link_path = '/'
+        endif
+      endif
+      assign link_last = link_path | slice: -1, 1
+      if link_path != '/' and link_last == '/'
+        assign link_path_size = link_path.size | minus: 1
+        assign link_path = link_path | slice: 0, link_path_size
+      endif
+
+      assign host_match = false
+      if link_is_absolute == false or link_host == current_host or link_host == shop_host
+        assign host_match = true
+      endif
+
+      assign path_score = 0
+      if host_match
+        if link_path == blank or link_path == '/'
+          assign path_score = 1
+        else
+          assign link_prefix = link_path | append: '/'
+          assign prefix_size = link_prefix.size
+          assign current_prefix = current_path | slice: 0, prefix_size
+          if current_path == link_path or current_prefix == link_prefix
+            assign path_score = link_path.size
+          endif
+        endif
+      endif
+
+      if path_score > selected_score
+        assign selected_score = path_score
+        assign selected_region = region_name
+        assign selected_id = region_id
+      endif
+    endif
+  endfor
+
+  if selected_region == blank
+    for record in region_records
+      assign record_clean = record | strip
+      if record_clean == blank
+        continue
+      endif
+      assign fields = record_clean | split: '%%F%%'
+      assign region_name = fields[1] | strip
+      if selected_region == blank and region_name != blank
+        assign selected_region = region_name
+        assign selected_id = fields[4] | strip
+      endif
+    endfor
+  endif
+
+  assign group_names = seen_groups | split: '||'
+  assign dialog_id = 'rt-footer-regions-dialog-' | append: block.id
+  assign title_id = dialog_id | append: '-title'
+-%}
+
+{%- if selected_region != blank -%}
+  <div class="rt-footer-regions" {{ block.shopify_attributes }}>
+    <button
+      class="rt-footer-regions__trigger"
+      type="button"
+      aria-haspopup="dialog"
+      aria-controls="{{ dialog_id }}"
+      data-rt-region-open
+    >
+      <svg class="rt-footer-regions__globe" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M3 12h18M12 3c2.5 2.8 3.8 5.8 3.8 9s-1.3 6.2-3.8 9c-2.5-2.8-3.8-5.8-3.8-9S9.5 5.8 12 3z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <span>{{ selected_region | escape }}</span>
+    </button>
+
+    <dialog id="{{ dialog_id }}" class="rt-footer-regions__dialog" aria-labelledby="{{ title_id }}">
+      <div class="rt-footer-regions__dialog-header">
+        <h2 id="{{ title_id }}" class="rt-footer-regions__dialog-title">{{ dialog_title | escape }}</h2>
+        <button class="rt-footer-regions__close" type="button" data-rt-region-close aria-label="{{ 'actions.close' | t }}">
+          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+            <path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      {%- for group_name in group_names -%}
+        {%- if group_name != blank -%}
+          <section class="rt-footer-regions__group">
+            {%- unless group_name == '__ungrouped__' -%}
+              <h3 class="rt-footer-regions__group-title">{{ group_name | escape }}</h3>
+            {%- endunless -%}
+            <div class="rt-footer-regions__grid">
+              {%- for record in region_records -%}
+                {%- liquid
+                  assign record_clean = record | strip
+                  assign fields = record_clean | split: '%%F%%'
+                  assign child_group = fields[0] | strip
+                  if child_group == blank
+                    assign child_group = '__ungrouped__'
+                  endif
+                  assign child_region = fields[1] | strip
+                  assign child_language = fields[2] | strip
+                  assign child_link = fields[3] | strip
+                  assign child_id = fields[4] | strip
+                  assign child_attrs = fields[5]
+                -%}
+                {%- if record_clean != blank and child_group == group_name and child_region != blank -%}
+                  <a
+                    class="rt-footer-regions__option"
+                    href="{{ child_link | default: '#' }}"
+                    {{ child_attrs }}
+                    {% if child_id == selected_id %}
+                      aria-current="true"
+                    {% endif %}
+                  >
+                    <span class="rt-footer-regions__country">{{ child_region | escape }}</span>
+                    <span class="rt-footer-regions__language">{{ child_language | escape }}</span>
+                  </a>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </section>
+        {%- endif -%}
+
+      {%- endfor -%}
+    </dialog>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.querySelector('#{{ dialog_id }}')?.closest('.rt-footer-regions');
+      const dialog = document.getElementById({{ dialog_id | json }});
+      if (!root || !dialog) return;
+
+      const openButton = root.querySelector('[data-rt-region-open]');
+      const closeButton = dialog.querySelector('[data-rt-region-close]');
+
+      openButton?.addEventListener('click', () => {
+        dialog.showModal();
+        openButton.setAttribute('aria-expanded', 'true');
+      });
+
+      closeButton?.addEventListener('click', () => {
+        dialog.close();
+      });
+
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+
+      dialog.addEventListener('close', () => {
+        openButton?.setAttribute('aria-expanded', 'false');
+      });
+    })();
+  </script>
+{%- endif -%}
+
+{% stylesheet %}
+  .rt-footer-regions__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #111111;
+    font: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+
+  .rt-footer-regions__globe {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .rt-footer-regions__dialog {
+    width: min(880px, calc(100vw - 32px));
+    max-height: min(80vh, 720px);
+    margin: auto;
+    padding: 24px;
+    border: 0;
+    border-radius: 12px;
+    color: #111111;
+  }
+
+  .rt-footer-regions__dialog::backdrop {
+    background: rgb(0 0 0 / 0.45);
+  }
+
+  .rt-footer-regions__dialog-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .rt-footer-regions__dialog-title {
+    margin: 0;
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: 700;
+  }
+
+  .rt-footer-regions__close {
+    display: inline-flex;
+    flex-shrink: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .rt-footer-regions__close svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .rt-footer-regions__group + .rt-footer-regions__group {
+    margin-top: 24px;
+  }
+
+  .rt-footer-regions__group-title {
+    margin: 0 0 20px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+  }
+
+  .rt-footer-regions__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .rt-footer-regions__option {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    color: inherit;
+    text-decoration: none;
+    background: #f7f7f7;
+    border-radius: 4px;
+  }
+
+  .rt-footer-regions__country,
+  .rt-footer-regions__language {
+    min-width: 0;
+    padding: 12px 16px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+  .rt-footer-regions__country{
+    color: #000000;
+  }
+  .rt-footer-regions__language{
+    color: #595959;
+  }
+  @media (min-width: 750px) {
+    .rt-footer-regions__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "地区",
+  "tag": null,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "preview_mode",
+      "label": "预览模式",
+      "info": "打开后直接显示第一项国家。正式上线后关闭，再按当前网址匹配国家。",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "弹窗标题",
+      "default": "Select your country or region"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_rt-footer-region"
+    }
+  ]
+}
+{% endschema %}

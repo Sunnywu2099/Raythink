@@ -1,0 +1,241 @@
+{%- comment %}
+  Section contract.
+  Footer navigation columns plus an isolated newsletter form. Mobile stacks accordion menus above the form. From 750px to 1023px menus are two columns and the form sits below. From 1024px menus are four columns with the form on the right.
+{% endcomment %}
+
+{%- liquid
+  assign bg_color = section.settings.background_color
+  assign pt_mobile = section.settings.padding_top_mobile
+  assign pb_mobile = section.settings.padding_bottom_mobile
+  assign pt_desktop = section.settings.padding_top_desktop
+  assign pb_desktop = section.settings.padding_bottom_desktop
+-%}
+
+{%- capture container_padding -%}
+  style="
+    {% render 'rt-section-padding',
+      section_pt_mobile: pt_mobile,
+      section_pb_mobile: pb_mobile,
+      section_pt_desktop: pt_desktop,
+      section_pb_desktop: pb_desktop
+    %}
+  "
+{%- endcapture -%}
+
+{% stylesheet %}
+  .rt-footer__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-width: 0;
+  }
+
+  .rt-footer__menus {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .rt-footer__form {
+    min-width: 0;
+  }
+  .footer_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-bottom: 24px;
+    padding-top: 24px;
+    border-bottom: 1px solid #e6e6e6;
+    border-top: 1px solid #e6e6e6;
+  }
+
+  @media (min-width: 750px) and (max-width: 1023px) {
+    .rt-footer__menus {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px 48px;
+    }
+
+    .rt-footer__form {
+      max-width: 420px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .rt-footer__content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+      gap: 40px 48px;
+      align-items: start;
+    }
+
+    .rt-footer__menus {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px 32px;
+    }
+
+    .footer_bottom {
+      margin-top: 80px;
+      padding-bottom: 24px;
+      padding-top: 0;
+      border-bottom: 1px solid #999999;
+      border-top: 0;
+    }
+  }
+{% endstylesheet %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section rt-footer"
+  style="--rt-section-bg-color: {{ bg_color }};"
+>
+  <div class="rt-ss-padding" {{ container_padding }}>
+    <div class="rt-container rt-footer-container">
+      <div class="rt-footer__content">
+        {% content_for 'block', type: '_rt-footer-menus', id: 'menus' %}
+        {% content_for 'block', type: '_rt-footer-form', id: 'form' %}
+      </div>
+      <div class="footer_bottom">
+        {% if section.settings.logo != blank %}
+            <div class="footer_bottom__logo">
+              <a href="{{ routes.root_url }}">
+                {% render 'rt-image2picture', image_mobile: section.settings.logo, image_desktop: section.settings.logo %}
+                {% comment %} <img loading="lazy" src="{{ section.settings.logo | image_url: width: 80 }}" alt="{{ section.settings.logo.alt }}" width="80" height="32"> {% endcomment %}
+              </a>
+            </div>
+        {% endif %}
+        {% content_for 'block', type: '_rt-footer-regions', id: 'regions' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    (() => {
+      const root = document.getElementById({{ section.id | json }});
+      if (!root) return;
+
+      const desktop = window.matchMedia('(min-width: 750px)');
+
+      root.addEventListener('click', (event) => {
+        const button = event.target.closest('.rt-footer-menu__toggle');
+        if (!button || !root.contains(button) || desktop.matches) return;
+
+        const menu = button.closest('.rt-footer-menu');
+        if (!menu) return;
+
+        const open = menu.classList.toggle('is-open');
+        button.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+  </script>
+
+{% schema %}
+  {
+    "name": "rt-footer",
+    "tag": "section",
+    "enabled_on": {
+      "groups": ["footer"]
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo",
+        "info": "选择Logo"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Footer背景颜色",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "间距"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "上（移动端）",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "下（移动端）",
+        "default": 60
+      },
+      {
+        "type": "range",
+        "id": "padding_top_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "上（桌面端）",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "下（桌面端）",
+        "default": 60
+      }
+    ],
+    "presets": [
+      {
+        "name": "rt-footer",
+        "category": "rt-main",
+        "blocks": {
+          "menus": {
+            "type": "_rt-footer-menus",
+            "static": true,
+            "blocks": {},
+            "block_order": []
+          },
+          "form": {
+            "type": "_rt-footer-form",
+            "static": true,
+            "settings": {}
+          },
+          "regions": {
+            "type": "_rt-footer-regions",
+            "static": true,
+            "settings": {
+              "preview_mode": true
+            },
+            "blocks": {
+              "region": {
+                "type": "_rt-footer-region",
+                "settings": {
+                  "region": "United States",
+                  "language": "English"
+                }
+              }
+            },
+            "block_order": ["region"]
+          }
+        }
+      }
+    ]
+  }
+{% endschema %}
