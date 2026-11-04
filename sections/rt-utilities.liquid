@@ -1,0 +1,260 @@
+{%- comment %}
+  Section contract.
+  Footer utilities bar. Desktop is copyright, menu, then payment icons. Mobile stacks payments, menu, then copyright.
+{% endcomment %}
+
+{%- liquid
+  assign bg_color = section.settings.background_color
+  assign pt_mobile = section.settings.padding_top_mobile
+  assign pb_mobile = section.settings.padding_bottom_mobile
+  assign pt_desktop = section.settings.padding_top_desktop
+  assign pb_desktop = section.settings.padding_bottom_desktop
+-%}
+
+{%- capture container_padding -%}
+  style="
+    {% render 'rt-section-padding',
+      section_pt_mobile: pt_mobile,
+      section_pb_mobile: pb_mobile,
+      section_pt_desktop: pt_desktop,
+      section_pb_desktop: pb_desktop
+    %}
+  "
+{%- endcapture -%}
+
+{% stylesheet %}
+  .rt-utilities__grid {
+    display: grid;
+    grid-template-areas:
+      'payments'
+      'menu'
+      'copyright';
+    justify-items: start;
+    gap: 16px;
+    min-width: 0;
+    color: #000000;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: start;
+  }
+
+  .rt-utilities__copyright {
+    grid-area: copyright;
+    margin: 0;
+  }
+
+  .rt-utilities__menu {
+    grid-area: menu;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .rt-utilities__menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rt-utilities__menu-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .rt-utilities__menu-link:hover {
+    text-decoration: underline;
+  }
+
+  .rt-utilities__payments {
+    grid-area: payments;
+    max-width: 100%;
+  }
+
+  .rt-utilities__payment-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rt-utilities__payment-item {
+    display: flex;
+  }
+
+  .rt-utilities__payment-icon {
+    display: block;
+    width: auto;
+    height: 24px;
+  }
+
+  @media (min-width: 750px) {
+    .rt-utilities__grid {
+      grid-template-areas: 'copyright menu payments';
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      justify-items: stretch;
+      gap: 24px;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: start;
+    }
+
+    .rt-utilities__copyright {
+      justify-self: start;
+    }
+
+    .rt-utilities__menu-list {
+      justify-content: center;
+    }
+
+    .rt-utilities__payments {
+      justify-self: end;
+    }
+
+    .rt-utilities__payment-list {
+      justify-content: flex-end;
+    }
+  }
+{% endstylesheet %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section rt-utilities"
+  style="--rt-section-bg-color: {{ bg_color }};"
+>
+  <div class="rt-ss-padding" {{ container_padding }}>
+    <div class="rt-container">
+      <div class="rt-utilities__grid">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'copyright' -%}
+              {% render 'rt-utilities-copyright', block: block %}
+            {%- when 'menu' -%}
+              {% render 'rt-utilities-menu', block: block %}
+            {%- when 'payments' -%}
+              {% render 'rt-utilities-payments', block: block %}
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "rt-utilities",
+  "tag": "section",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "上（移动端）",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "下（移动端）",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "上（桌面端）",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "下（桌面端）",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "copyright",
+      "name": "Copyright",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "补充文案",
+          "default": "All rights reserved."
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Menu",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "info": "选择菜单"
+        }
+      ]
+    },
+    {
+      "type": "payments",
+      "name": "支付方式",
+      "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "rt-utilities",
+      "category": "rt-main",
+      "blocks": [
+        {
+          "type": "copyright"
+        },
+        {
+          "type": "menu"
+        },
+        {
+          "type": "payments"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,24 @@
+{%- doc -%}
+  Horizontal footer utilities menu.
+
+  @param {object} block - menu block with a link_list setting
+
+  @example
+  {% render 'rt-utilities-menu', block: block %}
+{%- enddoc -%}
+
+{%- liquid
+  assign menu = block.settings.menu
+-%}
+
+<nav class="rt-utilities__menu" {{ block.shopify_attributes }}>
+  {%- if menu != blank and menu.links.size > 0 -%}
+    <ul class="rt-utilities__menu-list">
+      {%- for link in menu.links -%}
+        <li>
+          <a class="rt-utilities__menu-link" href="{{ link.url }}">{{ link.title | escape }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</nav>
