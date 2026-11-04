@@ -1,0 +1,62 @@
+{% doc %}
+  Footer newsletter form.
+
+  @example
+  {% content_for 'block', type: '_rt-footer-form', id: 'form' %}
+{% enddoc %}
+
+<div class="rt-footer__form" {{ block.shopify_attributes }}>
+  {% render 'rt-footer-form', block: block %}
+</div>
+
+{% schema %}
+{
+  "name": "订阅",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "Stay Connected"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "描述",
+      "default": "Get prodcut updates, inspection tips, and exclusive offers."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "邮箱占位符",
+      "default": "Email"
+    },
+    {
+      "type": "richtext",
+      "id": "agreement",
+      "label": "agreement",
+      "default": "<p>I agree to receive newsletters and marketing emails from Raythink. For details, please refer to the Terms of Use and Privacy Policy</p>"
+    },
+    {
+      "type": "header",
+      "content": "社媒链接"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "X"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram"
+    }
+  ]
+}
+{% endschema %}

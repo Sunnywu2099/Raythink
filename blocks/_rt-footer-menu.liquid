@@ -1,0 +1,28 @@
+{% doc %}
+  One footer menu column. Nest inside the footer menus group.
+
+  @example
+  {% content_for 'block', type: '_rt-footer-menu', id: 'menu' %}
+{% enddoc %}
+
+{% render 'rt-footer-menu', block: block %}
+
+{% schema %}
+{
+  "name": "Menu",
+  "tag": null,
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "info": "选择菜单"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Menu"
+    }
+  ]
+}
+{% endschema %}

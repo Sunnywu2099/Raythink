@@ -1,0 +1,166 @@
+{%- doc -%}
+  Footer menu column. Desktop shows the links; mobile toggles them with a button.
+
+  @param {object} block - menu block with a link_list setting
+
+  @example
+  {% render 'rt-footer-menu', block: block %}
+{%- enddoc -%}
+
+{% liquid
+  assign menu = block.settings.menu
+%}
+
+{% stylesheet %}
+  .rt-footer-menu {
+    min-width: 0;
+    border-block-end: 1px solid #e8e8e8;
+  }
+
+  .rt-footer-menu__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 18px 0 12px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    text-align: start;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #000000;
+  }
+
+  .rt-footer-menu__title {
+    min-width: 0;
+  }
+
+  .rt-footer-menu__icon {
+    flex-shrink: 0;
+    display: flex;
+    width: 14px;
+    height: 14px;
+    color: #000000;
+    --icon-stroke-width: 1.5px;
+  }
+
+  .rt-footer-menu__icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .rt-footer-menu.is-open .rt-footer-menu__icon .horizontal {
+    display: none;
+  }
+
+  .rt-footer-menu__panel {
+    display: none;
+  }
+
+  .rt-footer-menu.is-open .rt-footer-menu__panel {
+    display: block;
+  }
+
+  .rt-footer-menu__list {
+    margin: 0;
+    padding: 0 0 16px 12px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rt-footer-menu__link {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    color: #565657;
+    text-decoration: none;
+  }
+
+  .rt-footer-menu__link:hover {
+    color: #000000;
+  }
+
+  .rt-footer-menu__child-list {
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-inline-start: 12px;
+  }
+
+  @media (min-width: 750px) {
+    .rt-footer-menu {
+      border-block-end: none;
+    }
+
+    .rt-footer-menu__toggle {
+      padding-block: 0 20px;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .rt-footer-menu__icon {
+      display: none;
+    }
+
+    .rt-footer-menu__panel {
+      display: block;
+    }
+
+    .rt-footer-menu__list {
+      padding-block-end: 0;
+      gap: 8px;
+      padding-inline-start: 0;
+    }
+  }
+{% endstylesheet %}
+
+{%- if menu != blank -%}
+  {%- assign panel_id = 'rt-footer-menu-' | append: section.id | append: '-' | append: block.id -%}
+  <nav class="rt-footer-menu" aria-label="{{ menu.title | escape }}" {{ block.shopify_attributes }}>
+    <button
+      class="rt-footer-menu__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="{{ panel_id }}"
+    >
+      <span class="rt-footer-menu__title">{{ menu.title | escape }}</span>
+      <span class="rt-footer-menu__icon" aria-hidden="true">
+        {{- 'icon-plus.svg' | inline_asset_content -}}
+      </span>
+    </button>
+    {%- if menu.links.size > 0 -%}
+      <div class="rt-footer-menu__panel" id="{{ panel_id }}">
+        <ul class="rt-footer-menu__list">
+          {%- for link in menu.links -%}
+            <li class="rt-footer-menu__item">
+              <a class="rt-footer-menu__link" href="{{ link.url }}">
+                {{ link.title | escape }}
+              </a>
+              {%- if link.links.size > 0 -%}
+                <ul class="rt-footer-menu__child-list">
+                  {%- for child in link.links -%}
+                    <li>
+                      <a class="rt-footer-menu__link" href="{{ child.url }}">
+                        {{ child.title | escape }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </nav>
+{%- endif -%}

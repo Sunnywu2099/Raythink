@@ -1,0 +1,22 @@
+{% doc %}
+  Footer menu group. Merchants add up to four menu columns inside this group.
+
+  @example
+  {% content_for 'block', type: '_rt-footer-menus', id: 'menus' %}
+{% enddoc %}
+
+<div class="rt-footer__menus" {{ block.shopify_attributes }}>
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "菜单",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "_rt-footer-menu"
+    }
+  ]
+}
+{% endschema %}
