@@ -245,7 +245,9 @@
     text-align: start;
   }
 
-  .menu-drawer .rt-mega--products .rt-mega__tab {
+  .menu-drawer .rt-mega--products .rt-mega__tab,
+  .menu-drawer .rt-mega--products .rt-mega__tab.is-active,
+  .menu-drawer .rt-mega.rt-mega--products:not(:has(.rt-mega__tab.is-active)) .rt-mega__tab:first-child {
     background: #fbfbfb;
   }
 
