@@ -113,7 +113,7 @@
                       "settings": {
                         "product": "ix1-go-smart-phone-thermal-camera",
                         "badge_text": "New",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#00AD2E"
                       },
                       "blocks": {}
                     },
@@ -123,7 +123,7 @@
                       "settings": {
                         "product": "ix1go-pro",
                         "badge_text": "New",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#00AD2E"
                       },
                       "blocks": {}
                     }
@@ -145,7 +145,7 @@
                       "settings": {
                         "product": "ix1-go-smart-phone-thermal-camera",
                         "badge_text": "New",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#00AD2E"
                       },
                       "blocks": {}
                     },
@@ -155,7 +155,7 @@
                       "settings": {
                         "product": "ix1go-pro",
                         "badge_text": "New",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#00AD2E"
                       },
                       "blocks": {}
                     }
@@ -177,7 +177,7 @@
                       "settings": {
                         "product": "ix1-go-smart-phone-thermal-camera",
                         "badge_text": "New",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#00AD2E"
                       },
                       "blocks": {}
                     },
@@ -187,7 +187,7 @@
                       "settings": {
                         "product": "ix1go-pro",
                         "badge_text": "New",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#00AD2E"
                       },
                       "blocks": {}
                     }
@@ -224,7 +224,7 @@
                       "settings": {
                         "product": "ix1-go-smart-phone-thermal-camera",
                         "badge_text": "New",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#00AD2E"
                       },
                       "blocks": {}
                     },
@@ -234,7 +234,7 @@
                       "settings": {
                         "product": "ix1go-pro",
                         "badge_text": "New",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#00AD2E"
                       },
                       "blocks": {}
                     }
@@ -243,76 +243,10 @@
                     "rt_header_menu_product_B9jQdb",
                     "rt_header_menu_product_EGAnew"
                   ]
-                },
-                "rt_header_menu_product_category_PGiz8f": {
-                  "type": "_rt-header-menu-product-category",
-                  "settings": {
-                    "title": "EX20 Series"
-                  },
-                  "blocks": {
-                    "rt_header_menu_product_bm7wL9": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ix1-go-smart-phone-thermal-camera",
-                        "badge_text": "New",
-                        "badge_color": "#1B8F3A"
-                      },
-                      "blocks": {}
-                    },
-                    "rt_header_menu_product_ViEqdj": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ix1go-pro",
-                        "badge_text": "New",
-                        "badge_color": "#1B8F3A"
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "rt_header_menu_product_bm7wL9",
-                    "rt_header_menu_product_ViEqdj"
-                  ]
-                },
-                "rt_header_menu_product_category_WQdfkx": {
-                  "type": "_rt-header-menu-product-category",
-                  "settings": {
-                    "title": "CX20 Series"
-                  },
-                  "blocks": {
-                    "rt_header_menu_product_ftPn3n": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ix1-go-smart-phone-thermal-camera",
-                        "badge_text": "New",
-                        "badge_color": "#1B8F3A"
-                      },
-                      "blocks": {}
-                    },
-                    "rt_header_menu_product_FwhcxF": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ix1go-pro",
-                        "badge_text": "New",
-                        "badge_color": "#1B8F3A"
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "rt_header_menu_product_ftPn3n",
-                    "rt_header_menu_product_FwhcxF"
-                  ]
                 }
               },
               "block_order": [
-                "rt_header_menu_product_category_wjAXfb",
-                "rt_header_menu_product_category_PGiz8f",
-                "rt_header_menu_product_category_WQdfkx"
+                "rt_header_menu_product_category_wjAXfb"
               ]
             },
             "rt_header_menu_mega_6LXnw8": {
