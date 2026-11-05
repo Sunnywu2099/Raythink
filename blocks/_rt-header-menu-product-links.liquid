@@ -1,0 +1,27 @@
+{% doc %}
+  Link group shown under the product categories in the left column.
+  Each child is one jump link.
+{% enddoc %}
+
+<ul class="rt-mega__link-group" data-rt-mega-link-group {{ block.shopify_attributes }}>
+  {% content_for 'blocks' %}
+</ul>
+
+{% schema %}
+{
+  "name": "链接组",
+  "tag": null,
+  "settings": [],
+  "blocks": [
+    { "type": "_rt-header-menu-product-link" }
+  ],
+  "presets": [
+    {
+      "name": "链接组",
+      "blocks": [
+        { "type": "_rt-header-menu-product-link" }
+      ]
+    }
+  ]
+}
+{% endschema %}

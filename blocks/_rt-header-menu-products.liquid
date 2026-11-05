@@ -38,7 +38,10 @@
   <div class="menu-list__submenu" ref="submenu[]" data-skip-node-update>
     <div id="submenu-{{ block.id }}" class="menu-list__submenu-inner">
       <rt-mega-menu class="rt-mega rt-mega--products">
-        <div class="rt-mega__tabs" data-rt-mega-tabs></div>
+        <div class="rt-mega__aside">
+          <div class="rt-mega__tabs" data-rt-mega-tabs></div>
+          <div class="rt-mega__links" data-rt-mega-links></div>
+        </div>
         <div class="rt-mega__stage" data-rt-mega-stage></div>
         <div class="rt-mega__source" data-rt-mega-source>
           {% content_for 'blocks' %}
@@ -66,6 +69,59 @@
     width: 180px;
     min-width: 180px;
     white-space: normal;
+  }
+
+  .rt-mega--products .rt-mega__aside {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 180px;
+    min-width: 180px;
+    white-space: normal;
+  }
+
+  .rt-mega--products .rt-mega__tabs {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .rt-mega__links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .rt-mega__links:empty {
+    display: none;
+  }
+
+  .rt-mega__link-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rt-mega__side-link {
+    display: block;
+    padding: 8px 0;
+    color: #111111;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .rt-mega__side-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   .rt-mega__stage {
@@ -123,7 +179,9 @@
   }
 
   .menu-drawer .rt-mega__tabs,
-  .menu-drawer .rt-mega__stage {
+  .menu-drawer .rt-mega__stage,
+  .menu-drawer .rt-mega--products .rt-mega__aside,
+  .menu-drawer .rt-mega--products .rt-mega__links {
     grid-column: auto;
     width: 100%;
     min-width: 0;
@@ -286,14 +344,16 @@
     }
   ],
   "blocks": [
-    { "type": "_rt-header-menu-product-category" }
+    { "type": "_rt-header-menu-product-category" },
+    { "type": "_rt-header-menu-product-links" }
   ],
   "presets": [
     {
       "name": "产品菜单",
       "blocks": [
         { "type": "_rt-header-menu-product-category" },
-        { "type": "_rt-header-menu-product-category" }
+        { "type": "_rt-header-menu-product-category" },
+        { "type": "_rt-header-menu-product-links" }
       ]
     }
   ]
