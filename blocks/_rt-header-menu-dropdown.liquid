@@ -1,0 +1,77 @@
+{% doc %}
+  A top-level header item that opens a hover submenu. Add submenu links inside this block.
+{% enddoc %}
+
+<li
+  class="menu-list__list-item"
+  role="presentation"
+  on:blur="/deactivate"
+  on:pointerenter="/activate"
+  on:pointerleave="/deactivate"
+  {{ block.shopify_attributes }}
+>
+  <span class="menu-list__trigger">
+    <a
+      href="{{ block.settings.url | default: '#' }}"
+      class="menu-list__link"
+      data-skip-node-update
+      ref="menuitem"
+    >
+      <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+    </a>
+    <button
+      type="button"
+      class="menu-list__disclosure button-unstyled"
+      aria-controls="submenu-{{ block.id }}"
+      aria-expanded="false"
+      aria-label="{{ 'accessibility.show_submenu' | t: title: block.settings.title }}"
+      ref="disclosure[]"
+      data-skip-node-update
+      on:click="/toggle"
+    >
+      <svg class="menu-list__disclosure-icon" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+        {%- render 'icon', icon: 'caret' -%}
+      </svg>
+    </button>
+  </span>
+  <div class="menu-list__submenu" ref="submenu[]" data-skip-node-update>
+    <div id="submenu-{{ block.id }}" class="menu-list__submenu-inner">
+      <ul class="rt-header-submenu" role="list">
+        {% content_for 'blocks' %}
+      </ul>
+    </div>
+  </div>
+</li>
+
+{% schema %}
+{
+  "name": "下拉菜单",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "名称",
+      "default": "Applications"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "链接"
+    }
+  ],
+  "blocks": [
+    { "type": "_rt-header-submenu-link" }
+  ],
+  "presets": [
+    {
+      "name": "下拉菜单",
+      "blocks": [
+        {
+          "type": "_rt-header-submenu-link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

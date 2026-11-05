@@ -1,0 +1,56 @@
+{% doc %}
+  A top-level header link with no submenu.
+{% enddoc %}
+
+<li
+  class="menu-list__list-item"
+  role="presentation"
+  on:blur="/deactivate"
+  on:pointerenter="/activate"
+  on:pointerleave="/deactivate"
+  {{ block.shopify_attributes }}
+>
+  <a
+    href="{{ block.settings.url | default: '#' }}"
+    class="menu-list__link"
+    data-skip-node-update
+    ref="menuitem"
+    {% if block.settings.open_in_new_window %}
+      target="_blank"
+      rel="noopener"
+    {% endif %}
+  >
+    <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+  </a>
+</li>
+
+{% schema %}
+{
+  "name": "链接",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "名称",
+      "default": "Products"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "链接"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_window",
+      "label": "新窗口打开",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "链接"
+    }
+  ]
+}
+{% endschema %}
