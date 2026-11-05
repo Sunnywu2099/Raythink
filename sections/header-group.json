@@ -38,7 +38,7 @@
         "section_width": "page-width",
         "background_color": "#027FFF",
         "divider_width": 1,
-        "divider_color": "",
+        "divider_color": "#027FFF",
         "padding-block-start": 15,
         "padding-block-end": 15
       }
