@@ -78,6 +78,7 @@
     "back": "Back",
     "back_to": "Back to {{ title }}",
     "back_to_main_menu": "Back to main menu",
+    "buy_now": "Buy now",
     "choose": "Choose",
     // Button to reset current selection or input
     "clear": "Clear",
@@ -90,6 +91,7 @@
     "enter_password": "Enter password",
     "log_in_html": "Have an account? <a href=\"{{ link }}\">Log in</a> to check out faster.",
     "log_in": "Sign in",
+    "learn_more": "Learn more",
     "log_out": "Log out",
     "open_image_in_full_screen": "Open image in full screen",
     // Button to remove applied filters from search/collection results
