@@ -11,14 +11,20 @@
   {{ block.shopify_attributes }}
 >
   <span class="menu-list__trigger">
-    <a
-      href="{{ block.settings.url | default: '#' }}"
-      class="menu-list__link"
-      data-skip-node-update
-      ref="menuitem"
-    >
-      <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
-    </a>
+    {% if block.settings.url != blank %}
+      <a
+        href="{{ block.settings.url }}"
+        class="menu-list__link"
+        data-skip-node-update
+        ref="menuitem"
+      >
+        <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+      </a>
+    {% else %}
+      <span class="menu-list__link" data-skip-node-update ref="menuitem">
+        <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+      </span>
+    {% endif %}
     <button
       type="button"
       class="menu-list__disclosure button-unstyled"
@@ -27,11 +33,12 @@
       aria-label="{{ 'accessibility.show_submenu' | t: title: block.settings.title }}"
       ref="disclosure[]"
       data-skip-node-update
-      on:click="/toggle"
+      on:click="header-menu/toggle"
     >
-      <svg class="menu-list__disclosure-icon" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+      <svg class="menu-list__disclosure-icon menu-list__disclosure-icon--desktop" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
         {%- render 'icon', icon: 'caret' -%}
       </svg>
+      {% render 'rt-menu-chevron', class: 'menu-list__disclosure-icon menu-list__disclosure-icon--drawer' %}
     </button>
   </span>
   <div class="menu-list__submenu" ref="submenu[]" data-skip-node-update>

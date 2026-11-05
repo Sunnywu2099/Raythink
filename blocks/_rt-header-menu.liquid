@@ -110,6 +110,18 @@
     text-decoration: none;
   }
 
+  .menu-list__link:not(a) {
+    cursor: default;
+  }
+
+  .header-menu .menu-list__list-item:is(:hover, :focus-within) > .menu-list__trigger .menu-list__link-title,
+  .header-menu .menu-list__list-item:is(:hover, :focus-within) > .menu-list__link .menu-list__link-title {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #000000;
+    text-underline-offset: 28px;
+  }
+
   .menu-list__disclosure {
     display: inline-flex;
     padding: 0;
@@ -119,9 +131,15 @@
     cursor: pointer;
   }
 
-  .menu-list__disclosure-icon {
+  .menu-list__disclosure-icon--desktop {
     width: 10px;
     height: 6px;
+  }
+
+  .menu-list__disclosure-icon--drawer {
+    display: none;
+    width: 24px;
+    height: 24px;
   }
 
   .menu-list__submenu,
@@ -210,28 +228,129 @@
     text-decoration: none;
   }
 
+  .menu-drawer .menu-drawer__menu {
+    margin: 0;
+    padding: 8px 0 24px;
+    list-style: none;
+  }
+
   .menu-drawer .menu-list__list-item {
     display: block;
     white-space: normal;
   }
 
-  .menu-drawer .menu-list__trigger {
+  .menu-drawer .menu-list__trigger,
+  .menu-drawer .menu-list__list-item > .menu-list__link {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
     width: 100%;
+    height: auto;
+    padding: 11px 20px;
+    color: #111111;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: start;
+    text-decoration: none;
+  }
+
+  .menu-drawer .menu-list__trigger {
+    justify-content: space-between;
+  }
+
+  .menu-drawer .menu-list__link {
+    flex: 1 1 auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 0;
+    height: auto;
+    color: inherit;
+    text-align: start;
+  }
+
+  .menu-drawer .menu-list__link-title {
+    min-width: 0;
+    padding-inline: 0;
+  }
+
+  .menu-list__link-icon {
+    display: none;
+  }
+
+  .menu-drawer .menu-list__list-item > .menu-list__link {
+    justify-content: space-between;
+  }
+
+  .menu-drawer .menu-list__link-icon {
+    display: block;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    max-width: none;
+    aspect-ratio: auto;
+    transform: rotate(-90deg);
+  }
+
+  [dir='rtl'] .menu-drawer .menu-list__link-icon {
+    transform: rotate(90deg);
+  }
+
+  .menu-drawer .menu-list__disclosure {
+    position: static;
+    inset: auto;
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    color: #111111;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .menu-drawer .menu-list__disclosure-icon--desktop {
+    display: none;
+  }
+
+  .menu-drawer .menu-list__disclosure-icon--drawer {
+    display: block;
+    width: 24px;
+    height: 24px;
+    max-width: none;
+    aspect-ratio: auto;
+    transition: transform 0.2s var(--ease-out-cubic);
+  }
+
+  .menu-drawer .menu-list__list-item.is-open .menu-list__disclosure-icon--drawer {
+    transform: rotate(180deg);
   }
 
   .menu-drawer .menu-list__list-item > .menu-list__submenu {
+    display: none;
     position: static;
-    visibility: visible;
+    visibility: hidden;
     width: auto;
     inset: auto;
-    padding: 0 0 0 16px;
+    padding: 0;
     clip-path: none;
+    background: transparent;
     --submenu-content-opacity: 1;
   }
 
+  .menu-drawer .menu-list__list-item.is-open > .menu-list__submenu {
+    display: block;
+    visibility: visible;
+  }
+
   .menu-drawer .menu-list__submenu-inner {
+    width: 100%;
+    max-width: none;
+    margin: 0;
     padding: 0;
     background: transparent;
     max-height: none;
@@ -248,7 +367,26 @@
   }
 
   .menu-drawer .rt-header-submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     grid-template-columns: 1fr;
+  }
+
+  .menu-drawer .rt-header-submenu__link {
+    display: block;
+    padding: 14px 20px;
+    color: #111111;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-drawer .menu-list__disclosure-icon--drawer {
+      transition: none;
+    }
   }
 {% endstylesheet %}
 

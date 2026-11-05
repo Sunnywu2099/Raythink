@@ -12,14 +12,20 @@
   {{ block.shopify_attributes }}
 >
   <span class="menu-list__trigger">
-    <a
-      href="{{ block.settings.url | default: '#' }}"
-      class="menu-list__link"
-      data-skip-node-update
-      ref="menuitem"
-    >
-      <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
-    </a>
+    {% if block.settings.url != blank %}
+      <a
+        href="{{ block.settings.url }}"
+        class="menu-list__link"
+        data-skip-node-update
+        ref="menuitem"
+      >
+        <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+      </a>
+    {% else %}
+      <span class="menu-list__link" data-skip-node-update ref="menuitem">
+        <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+      </span>
+    {% endif %}
     <button
       type="button"
       class="menu-list__disclosure button-unstyled"
@@ -28,11 +34,12 @@
       aria-label="{{ 'accessibility.show_submenu' | t: title: block.settings.title }}"
       ref="disclosure[]"
       data-skip-node-update
-      on:click="/toggle"
+      on:click="header-menu/toggle"
     >
-      <svg class="menu-list__disclosure-icon" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+      <svg class="menu-list__disclosure-icon menu-list__disclosure-icon--desktop" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
         {%- render 'icon', icon: 'caret' -%}
       </svg>
+      {% render 'rt-menu-chevron', class: 'menu-list__disclosure-icon menu-list__disclosure-icon--drawer' %}
     </button>
   </span>
   <div class="menu-list__submenu" ref="submenu[]" data-skip-node-update>
@@ -161,8 +168,55 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  @media screen and (min-width: 751px) and (max-width: 1024px) {
+    .rt-mega--products .rt-mega__cards,
+    .rt-mega--products .rt-mega__cards:has(> :nth-child(3)),
+    .rt-mega--products .rt-mega__cards:has(> :nth-child(4)) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .menu-drawer .rt-mega--products .rt-mega__category,
+  .menu-drawer .rt-mega--products .rt-mega__panel {
+    min-width: 0;
+    max-width: 100%;
+  }
+
   .menu-drawer .rt-mega--products .rt-mega__cards {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .menu-drawer .rt-mega--products .rt-mega__cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-drawer .rt-mega--products .rt-product-card {
+    flex: 0 0 194px;
+    width: 194px;
+    min-width: 194px;
+  }
+
+  .menu-drawer .rt-product-card__title {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .menu-drawer .rt-product-card__actions {
+    margin-top: 0;
+  }
+
+  .menu-drawer .rt-product-card__link {
+    font-size: 12px;
+    line-height: 16px;
   }
 
   .rt-mega__cards > :nth-child(n + 5) {
@@ -173,10 +227,15 @@
     display: block;
   }
 
+  .rt-mega__tab-icon,
+  .rt-mega__side-link-icon {
+    display: none;
+  }
+
   .menu-drawer .rt-mega {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 0;
   }
 
   .menu-drawer .rt-mega__tabs,
@@ -189,9 +248,112 @@
     max-width: none;
   }
 
-  .menu-drawer .rt-mega__panel,
-  .menu-drawer .rt-mega__cards > :nth-child(n + 5) {
+  .menu-drawer .rt-mega--products .rt-mega__aside,
+  .menu-drawer .rt-mega--products .rt-mega__links,
+  .menu-drawer .rt-mega--products .rt-mega__link-group {
+    gap: 0;
+  }
+
+  .menu-drawer .rt-mega--products .rt-mega__link-group {
+    padding: 0;
+    border-top: 0;
+    background: #fbfbfb;
+  }
+
+  .menu-drawer .rt-mega--products .rt-mega__tabs {
+    background: #fbfbfb;
+  }
+
+  .menu-drawer .rt-mega__stage:empty {
+    display: none;
+  }
+
+  .menu-drawer .rt-mega__tab {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    max-width: none;
+    padding: 12px 20px 12px 30px;
+    border: 0;
+    border-radius: 0;
+    background: #f6f6f6;
+    color: #111111;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: start;
+  }
+
+  .menu-drawer .rt-mega--products .rt-mega__tab,
+  .menu-drawer .rt-mega--products .rt-mega__tab.is-active,
+  .menu-drawer .rt-mega.rt-mega--products:not(:has(.rt-mega__tab.is-active)) .rt-mega__tab:first-child {
+    background: #fbfbfb;
+  }
+
+  .menu-drawer .rt-mega__tab-icon {
     display: block;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s var(--ease-out-cubic);
+  }
+
+  .menu-drawer .rt-mega__category.is-open > .rt-mega__tab .rt-mega__tab-icon {
+    transform: rotate(180deg);
+  }
+
+  .menu-drawer .rt-mega__panel {
+    display: none;
+  }
+
+  .menu-drawer .rt-mega__category.is-open > .rt-mega__panel,
+  .menu-drawer .rt-mega__panel.rt-mega__panel--loose {
+    display: block;
+    padding: 12px 20px 20px;
+  }
+
+  .menu-drawer .rt-mega__side-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 20px 12px 30px;
+    background: #fbfbfb;
+    color: #111111;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: start;
+    text-decoration: none;
+  }
+
+  .menu-drawer .rt-mega__side-link-label {
+    min-width: 0;
+  }
+
+  .menu-drawer .rt-mega__side-link-icon {
+    display: block;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    transform: rotate(-90deg);
+  }
+
+  [dir='rtl'] .menu-drawer .rt-mega__side-link-icon {
+    transform: rotate(90deg);
+  }
+
+  .menu-drawer .rt-mega--products .rt-mega__cards > :nth-child(n + 5) {
+    display: flex;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-drawer .rt-mega__tab-icon {
+      transition: none;
+    }
   }
 
   .menu-drawer .rt-mega__cards {

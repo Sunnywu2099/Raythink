@@ -12,14 +12,20 @@
   {{ block.shopify_attributes }}
 >
   <span class="menu-list__trigger">
-    <a
-      href="{{ block.settings.url | default: '#' }}"
-      class="menu-list__link"
-      data-skip-node-update
-      ref="menuitem"
-    >
-      <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
-    </a>
+    {% if block.settings.url != blank %}
+      <a
+        href="{{ block.settings.url }}"
+        class="menu-list__link"
+        data-skip-node-update
+        ref="menuitem"
+      >
+        <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+      </a>
+    {% else %}
+      <span class="menu-list__link" data-skip-node-update ref="menuitem">
+        <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+      </span>
+    {% endif %}
     <button
       type="button"
       class="menu-list__disclosure button-unstyled"
@@ -28,11 +34,12 @@
       aria-label="{{ 'accessibility.show_submenu' | t: title: block.settings.title }}"
       ref="disclosure[]"
       data-skip-node-update
-      on:click="/toggle"
+      on:click="header-menu/toggle"
     >
-      <svg class="menu-list__disclosure-icon" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+      <svg class="menu-list__disclosure-icon menu-list__disclosure-icon--desktop" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
         {%- render 'icon', icon: 'caret' -%}
       </svg>
+      {% render 'rt-menu-chevron', class: 'menu-list__disclosure-icon menu-list__disclosure-icon--drawer' %}
     </button>
   </span>
   <div class="menu-list__submenu" ref="submenu[]" data-skip-node-update>
@@ -97,6 +104,10 @@
     cursor: pointer;
   }
 
+  .rt-mega__tab-icon {
+    display: none;
+  }
+
   .rt-mega__tab.is-active,
   .rt-mega:not(:has(.rt-mega__tab.is-active)) .rt-mega__tab:first-child {
     background: #f3f3f3;
@@ -130,6 +141,14 @@
 
   .rt-mega__cards > :nth-child(n + 5) {
     display: none;
+  }
+
+  @media screen and (min-width: 751px) and (max-width: 1024px) {
+    .rt-mega__cards,
+    .rt-mega__cards:has(> :nth-child(3)),
+    .rt-mega__cards:has(> :nth-child(4)) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   .rt-mega-card {
@@ -197,7 +216,7 @@
   .menu-drawer .rt-mega {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 0;
   }
 
   .menu-drawer .rt-mega__tabs,
@@ -208,13 +227,87 @@
     max-width: none;
   }
 
-  .menu-drawer .rt-mega__panel,
-  .menu-drawer .rt-mega__cards > :nth-child(n + 5) {
-    display: block;
+  .menu-drawer .rt-mega__tabs {
+    background: #f6f6f6;
+    gap: 0;
   }
 
-  .menu-drawer .rt-mega__cards {
-    grid-template-columns: 1fr;
+  .menu-drawer .rt-mega__stage:empty {
+    display: none;
+  }
+
+  .menu-drawer .rt-mega__tab {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    max-width: none;
+    padding: 12px 20px 12px 30px;
+    border-radius: 0;
+    background: #f6f6f6;
+    color: #111111;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: start;
+  }
+
+  .menu-drawer .rt-mega__tab.is-active,
+  .menu-drawer .rt-mega:not(:has(.rt-mega__tab.is-active)) .rt-mega__tab:first-child {
+    background: #f6f6f6;
+  }
+
+  .menu-drawer .rt-mega__tab-icon {
+    display: block;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s var(--ease-out-cubic);
+  }
+
+  .menu-drawer .rt-mega__category.is-open > .rt-mega__tab .rt-mega__tab-icon {
+    transform: rotate(180deg);
+  }
+
+  .menu-drawer .rt-mega__panel {
+    display: none;
+  }
+
+  .menu-drawer .rt-mega__category.is-open > .rt-mega__panel,
+  .menu-drawer .rt-mega__panel.rt-mega__panel--loose {
+    display: block;
+    padding: 12px 20px 20px;
+  }
+
+  .menu-drawer .rt-mega:not(.rt-mega--products) .rt-mega__category.is-open > .rt-mega__panel,
+  .menu-drawer .rt-mega:not(.rt-mega--products) .rt-mega__panel.rt-mega__panel--loose {
+    background: #f6f6f6;
+  }
+
+  .menu-drawer .rt-mega-card {
+    background: #ffffff;
+  }
+
+  .menu-drawer .rt-mega:not(.rt-mega--products) .rt-mega__cards {
+    gap: 12px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .menu-drawer .rt-mega:not(.rt-mega--products) .rt-mega__cards:has(> :nth-child(2)),
+  .menu-drawer .rt-mega:not(.rt-mega--products) .rt-mega__cards:has(> :nth-child(3)),
+  .menu-drawer .rt-mega:not(.rt-mega--products) .rt-mega__cards:has(> :nth-child(4)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .menu-drawer .rt-mega__cards > :nth-child(n + 5) {
+    display: flex;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-drawer .rt-mega__tab-icon {
+      transition: none;
+    }
   }
 {% endstylesheet %}
 

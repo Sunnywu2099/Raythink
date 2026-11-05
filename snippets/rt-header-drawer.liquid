@@ -54,11 +54,13 @@
           {{- 'icon-close-menu.svg' | inline_asset_content -}}
         </span>
       </button>
-      <nav class="menu-drawer__navigation" aria-label="{{ 'accessibility.header_navigation_label' | t }}">
-        <ul class="menu-drawer__menu has-submenu" role="list">
-          {{ menus }}
-        </ul>
-      </nav>
+      <rt-drawer-accordion>
+        <nav class="menu-drawer__navigation" aria-label="{{ 'accessibility.header_navigation_label' | t }}">
+          <ul class="menu-drawer__menu has-submenu" role="list">
+            {{ menus }}
+          </ul>
+        </nav>
+      </rt-drawer-accordion>
       {% if show_country or show_language %}
         <div class="menu-drawer__utility-links">
           {% render 'localization-form',
@@ -72,3 +74,5 @@
     </div>
   </details>
 </header-drawer>
+
+<script src="{{ 'rt-drawer-accordion.js' | asset_url }}" type="module"></script>
