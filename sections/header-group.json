@@ -101,6 +101,34 @@
                 "url": ""
               },
               "blocks": {
+                "rt_header_menu_product_links_UPxgDw": {
+                  "type": "_rt-header-menu-product-links",
+                  "name": "链接组",
+                  "settings": {},
+                  "blocks": {
+                    "rt_header_menu_product_link_LFTKAG": {
+                      "type": "_rt-header-menu-product-link",
+                      "name": "链接",
+                      "settings": {
+                        "title": "Machine Comparison",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_link_KprY8C": {
+                      "type": "_rt-header-menu-product-link",
+                      "settings": {
+                        "title": "What’s More",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_link_LFTKAG",
+                    "rt_header_menu_product_link_KprY8C"
+                  ]
+                },
                 "rt_header_menu_product_category_pBeBjt": {
                   "type": "_rt-header-menu-product-category",
                   "settings": {
@@ -113,7 +141,7 @@
                       "settings": {
                         "product": "ix1-go-smart-phone-thermal-camera",
                         "badge_text": "New",
-                        "badge_color": "#00AD2E"
+                        "badge_color": "#00ad2e"
                       },
                       "blocks": {}
                     },
@@ -123,7 +151,7 @@
                       "settings": {
                         "product": "ix1go-pro",
                         "badge_text": "New",
-                        "badge_color": "#00AD2E"
+                        "badge_color": "#00ad2e"
                       },
                       "blocks": {}
                     }
@@ -145,7 +173,7 @@
                       "settings": {
                         "product": "ix1-go-smart-phone-thermal-camera",
                         "badge_text": "New",
-                        "badge_color": "#00AD2E"
+                        "badge_color": "#00ad2e"
                       },
                       "blocks": {}
                     },
@@ -155,7 +183,7 @@
                       "settings": {
                         "product": "ix1go-pro",
                         "badge_text": "New",
-                        "badge_color": "#00AD2E"
+                        "badge_color": "#00ad2e"
                       },
                       "blocks": {}
                     },
@@ -165,7 +193,7 @@
                       "settings": {
                         "product": "ix1-go-smart-phone-thermal-camera",
                         "badge_text": "New",
-                        "badge_color": "#00AD2E"
+                        "badge_color": "#00ad2e"
                       },
                       "blocks": {}
                     }
@@ -188,7 +216,7 @@
                       "settings": {
                         "product": "ix1-go-smart-phone-thermal-camera",
                         "badge_text": "New",
-                        "badge_color": "#00AD2E"
+                        "badge_color": "#00ad2e"
                       },
                       "blocks": {}
                     }
@@ -199,6 +227,7 @@
                 }
               },
               "block_order": [
+                "rt_header_menu_product_links_UPxgDw",
                 "rt_header_menu_product_category_pBeBjt",
                 "rt_header_menu_product_category_gqzkQT",
                 "rt_header_menu_product_category_3B8Vii"
@@ -224,7 +253,7 @@
                       "settings": {
                         "product": "ix1-go-smart-phone-thermal-camera",
                         "badge_text": "New",
-                        "badge_color": "#00AD2E"
+                        "badge_color": "#00ad2e"
                       },
                       "blocks": {}
                     },
@@ -234,7 +263,7 @@
                       "settings": {
                         "product": "ix1go-pro",
                         "badge_text": "New",
-                        "badge_color": "#00AD2E"
+                        "badge_color": "#00ad2e"
                       },
                       "blocks": {}
                     }
