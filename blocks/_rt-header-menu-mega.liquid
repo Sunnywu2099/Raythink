@@ -1,0 +1,259 @@
+{% doc %}
+  Desktop dropdown with category titles on the left and up to four image cards on the right.
+  Hovering a category swaps the cards. With no categories, add a card group: the left column stays blank and keeps its width.
+{% enddoc %}
+
+<li
+  class="menu-list__list-item"
+  role="presentation"
+  on:blur="/deactivate"
+  on:pointerenter="/activate"
+  on:pointerleave="/deactivate"
+  {{ block.shopify_attributes }}
+>
+  <span class="menu-list__trigger">
+    <a
+      href="{{ block.settings.url | default: '#' }}"
+      class="menu-list__link"
+      data-skip-node-update
+      ref="menuitem"
+    >
+      <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+    </a>
+    <button
+      type="button"
+      class="menu-list__disclosure button-unstyled"
+      aria-controls="submenu-{{ block.id }}"
+      aria-expanded="false"
+      aria-label="{{ 'accessibility.show_submenu' | t: title: block.settings.title }}"
+      ref="disclosure[]"
+      data-skip-node-update
+      on:click="/toggle"
+    >
+      <svg class="menu-list__disclosure-icon" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+        {%- render 'icon', icon: 'caret' -%}
+      </svg>
+    </button>
+  </span>
+  <div class="menu-list__submenu" ref="submenu[]" data-skip-node-update>
+    <div id="submenu-{{ block.id }}" class="menu-list__submenu-inner">
+      <div class="rt-mega" data-rt-mega>
+        <div class="rt-mega__tabs" data-rt-mega-tabs></div>
+        <div class="rt-mega__stage" data-rt-mega-stage></div>
+        <div class="rt-mega__source" data-rt-mega-source>
+          {% content_for 'blocks' %}
+        </div>
+      </div>
+      <script>
+        (() => {
+          const root = document.currentScript.closest('[data-rt-mega]');
+          if (!root || root.dataset.rtMegaReady === 'true') return;
+          root.dataset.rtMegaReady = 'true';
+
+          const tabsBox = root.querySelector('[data-rt-mega-tabs]');
+          const stage = root.querySelector('[data-rt-mega-stage]');
+          const source = root.querySelector('[data-rt-mega-source]');
+          if (!tabsBox || !stage || !source) return;
+
+          source.querySelectorAll('[data-rt-mega-tab]').forEach((tab) => tabsBox.append(tab));
+          source.querySelectorAll('[data-rt-mega-panel]').forEach((panel) => stage.append(panel));
+
+          const tabs = [...tabsBox.querySelectorAll('[data-rt-mega-tab]')];
+          const panels = [...stage.querySelectorAll('[data-rt-mega-panel]')];
+          const inDrawer = Boolean(root.closest('.menu-drawer'));
+
+          const activate = (tab) => {
+            tabs.forEach((item) => {
+              const selected = item === tab;
+              item.classList.toggle('is-active', selected);
+              item.setAttribute('aria-selected', selected ? 'true' : 'false');
+            });
+            panels.forEach((panel) => {
+              if (panel.hasAttribute('data-rt-mega-loose')) {
+                panel.classList.remove('is-active');
+                return;
+              }
+              const match = panel.dataset.panelId && panel.dataset.panelId === tab.dataset.panelId;
+              panel.classList.toggle('is-active', match);
+            });
+          };
+
+          if (!inDrawer && tabs.length > 0) activate(tabs[0]);
+
+          tabs.forEach((tab) => {
+            tab.addEventListener('pointerenter', () => activate(tab));
+            tab.addEventListener('focus', () => activate(tab));
+          });
+        })();
+      </script>
+    </div>
+  </div>
+</li>
+
+{% stylesheet %}
+  .rt-mega {
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
+  }
+
+  .rt-mega__tabs {
+    flex: 0 0 180px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .rt-mega__stage {
+    flex: 1 1 940px;
+    width: min(940px, 100%);
+    max-width: 940px;
+    min-width: 0;
+  }
+
+  .rt-mega__source {
+    display: none;
+  }
+
+  .rt-mega__tab {
+    width: 100%;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: #111111;
+    font: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    text-align: start;
+    cursor: pointer;
+  }
+
+  .rt-mega__tab.is-active,
+  .rt-mega:not(:has(.rt-mega__tab.is-active)) .rt-mega__tab:first-child {
+    background: #f3f3f3;
+  }
+
+  .rt-mega__panel {
+    display: none;
+  }
+
+  .rt-mega__panel.is-active,
+  .rt-mega:not(:has(.rt-mega__tab)) .rt-mega__panel--loose,
+  .rt-mega:not(:has(.is-active)) .rt-mega__stage > .rt-mega__panel:first-child {
+    display: block;
+  }
+
+  .rt-mega__cards {
+    display: grid;
+    gap: 16px;
+    max-width: 940px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rt-mega__cards:has(> :nth-child(3)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rt-mega__cards:has(> :nth-child(4)) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .rt-mega__cards > :nth-child(n + 5) {
+    display: none;
+  }
+
+  .rt-mega-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .rt-mega-card__media {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f3f3f3;
+  }
+
+  .rt-mega-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .rt-mega-card__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 64px;
+    padding: 12px 8px;
+    border-radius: 8px;
+    background: #f3f3f3;
+    color: #111111;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .menu-drawer .rt-mega {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .menu-drawer .rt-mega__tabs,
+  .menu-drawer .rt-mega__stage {
+    flex-basis: auto;
+    width: 100%;
+    max-width: none;
+  }
+
+  .menu-drawer .rt-mega__panel,
+  .menu-drawer .rt-mega__cards > :nth-child(n + 5) {
+    display: block;
+  }
+
+  .menu-drawer .rt-mega__cards {
+    grid-template-columns: 1fr;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "分类菜单",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "名称",
+      "default": "Scenario"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "链接"
+    }
+  ],
+  "blocks": [
+    { "type": "_rt-header-menu-category" },
+    { "type": "_rt-header-menu-card-group" }
+  ],
+  "presets": [
+    {
+      "name": "分类菜单",
+      "blocks": [
+        { "type": "_rt-header-menu-category" },
+        { "type": "_rt-header-menu-category" }
+      ]
+    }
+  ]
+}
+{% endschema %}
