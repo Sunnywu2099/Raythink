@@ -278,55 +278,55 @@
                 "rt_header_submenu_link_gW4jrD"
               ]
             },
-            "rt_header_menu_dropdown_E846Ng": {
-              "type": "_rt-header-menu-dropdown",
+            "rt_header_menu_mega_YjjGwT": {
+              "type": "_rt-header-menu-mega",
+              "name": "分类菜单",
               "settings": {
                 "title": "Explore",
                 "url": ""
               },
               "blocks": {
-                "rt_header_submenu_link_fTyiYm": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                "rt_header_menu_card_group_7fcizf": {
+                  "type": "_rt-header-menu-card-group",
+                  "name": "卡片组",
+                  "settings": {},
+                  "blocks": {
+                    "rt_header_menu_card_APwLFK": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "title": "Card",
+                        "url": ""
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_nEbPnX": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "title": "Card",
+                        "url": ""
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_44nkPA": {
+                      "type": "_rt-header-menu-card",
+                      "settings": {
+                        "title": "Card",
+                        "url": ""
+                      },
+                      "blocks": {}
+                    }
                   },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_BLmkjW": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_mUVeEN": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_pTyFt7": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
+                  "block_order": [
+                    "rt_header_menu_card_APwLFK",
+                    "rt_header_menu_card_nEbPnX",
+                    "rt_header_menu_card_44nkPA"
+                  ]
                 }
               },
               "block_order": [
-                "rt_header_submenu_link_fTyiYm",
-                "rt_header_submenu_link_BLmkjW",
-                "rt_header_submenu_link_mUVeEN",
-                "rt_header_submenu_link_pTyFt7"
+                "rt_header_menu_card_group_7fcizf"
               ]
             },
             "rt_header_menu_link_ezkUM8": {
@@ -344,7 +344,7 @@
             "rt_header_menu_dropdown_cPQYfz",
             "rt_header_menu_mega_6LXnw8",
             "rt_header_menu_dropdown_KN4Wm9",
-            "rt_header_menu_dropdown_E846Ng",
+            "rt_header_menu_mega_YjjGwT",
             "rt_header_menu_link_ezkUM8"
           ]
         }
