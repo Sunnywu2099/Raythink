@@ -471,7 +471,7 @@
           style="{{ style | strip }}"
         {%- endif -%}
       >
-        <div class="header__columns spacing-style">
+        <div class="header__columns rt-container spacing-style">
           {{ content }}
         </div>
       </div>
@@ -1035,6 +1035,10 @@
   .header__columns {
     --padding-block-start: var(--header-padding);
     --padding-block-end: var(--header-padding);
+  }
+
+  #header-component .header__row > .header__columns.rt-container {
+    grid-column: 1 / -1;
   }
 
   .header:not(.header--compact) .header__row--bottom {
