@@ -28,7 +28,7 @@
       aria-label="{{ 'accessibility.show_submenu' | t: title: block.settings.title }}"
       ref="disclosure[]"
       data-skip-node-update
-      on:click="/toggle"
+      on:click="header-menu/toggle"
     >
       <svg class="menu-list__disclosure-icon menu-list__disclosure-icon--desktop" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
         {%- render 'icon', icon: 'caret' -%}

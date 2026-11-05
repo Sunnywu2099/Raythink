@@ -4,7 +4,7 @@ class RtDrawerAccordion extends HTMLElement {
     this.ready = true;
     this.abort = new AbortController();
 
-    this.addEventListener(
+    window.addEventListener(
       'click',
       (event) => {
         if (!(event.target instanceof Element)) return;
