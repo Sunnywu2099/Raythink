@@ -280,13 +280,23 @@
                         "url": "/"
                       },
                       "blocks": {}
+                    },
+                    "rt_header_menu_card_78hDwi": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "title": "Card",
+                        "url": ""
+                      },
+                      "blocks": {}
                     }
                   },
                   "block_order": [
                     "rt_header_menu_card_eBBpbq",
                     "rt_header_menu_card_LxqXWd",
                     "rt_header_menu_card_MtNXJt",
-                    "rt_header_menu_card_twtcTw"
+                    "rt_header_menu_card_twtcTw",
+                    "rt_header_menu_card_78hDwi"
                   ]
                 },
                 "rt_header_menu_category_MWdQjC": {
