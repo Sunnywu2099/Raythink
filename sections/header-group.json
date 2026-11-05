@@ -17,6 +17,20 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
+            "text": "<strong>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. &nbsp;</strong><a href=\"/\" title=\"/\">Learn more</a>",
+            "link": "",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none",
+            "text_color": "{{ settings.color_palette.background }}"
+          },
+          "blocks": {}
+        },
+        "announcement_EwtddT": {
+          "type": "_announcement",
+          "settings": {
             "text": "Welcome to our store",
             "link": "",
             "font": "var(--font-subheading--family)",
@@ -24,23 +38,380 @@
             "weight": "",
             "letter_spacing": "normal",
             "case": "none",
-            "text_color": ""
+            "text_color": "{{ settings.color_palette.background }}"
+          },
+          "blocks": {}
+        },
+        "announcement_V8dEdq": {
+          "type": "_announcement",
+          "settings": {
+            "text": "<strong>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. &nbsp;</strong><a href=\"/\" title=\"/\">Learn more</a>",
+            "link": "",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none",
+            "text_color": "{{ settings.color_palette.background }}"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "announcement_BxgCk9"
+        "announcement_BxgCk9",
+        "announcement_EwtddT",
+        "announcement_V8dEdq"
       ],
       "name": "t:names.announcement_bar",
       "settings": {
-        "speed": 5,
+        "speed": 4,
         "section_width": "page-width",
-        "background_color": "{{ settings.color_palette.background }}",
+        "background_color": "#027FFF",
         "divider_width": 1,
-        "divider_color": "{{ settings.color_palette.color2 }}",
+        "divider_color": "#027FFF",
         "padding-block-start": 15,
         "padding-block-end": 15
+      }
+    },
+    "rt_header_FYxiQF": {
+      "type": "rt-header",
+      "blocks": {
+        "header-logo": {
+          "type": "_header-logo",
+          "static": true,
+          "settings": {
+            "hide_logo_on_home_page": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "header-menu": {
+          "type": "_rt-header-menu",
+          "static": true,
+          "settings": {
+            "layout_type": "left"
+          },
+          "blocks": {
+            "rt_header_menu_dropdown_Ld38ME": {
+              "type": "_rt-header-menu-dropdown",
+              "settings": {
+                "title": "Smart Phone",
+                "url": ""
+              },
+              "blocks": {
+                "rt_header_submenu_link_wBKq3T": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_PmMNDg": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_a7phzd": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_3pUVKh": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "rt_header_submenu_link_wBKq3T",
+                "rt_header_submenu_link_PmMNDg",
+                "rt_header_submenu_link_a7phzd",
+                "rt_header_submenu_link_3pUVKh"
+              ]
+            },
+            "rt_header_menu_dropdown_cPQYfz": {
+              "type": "_rt-header-menu-dropdown",
+              "settings": {
+                "title": "Handheld",
+                "url": ""
+              },
+              "blocks": {
+                "rt_header_submenu_link_mpHBnW": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_xG996J": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_dDFPNk": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_mBihXY": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "rt_header_submenu_link_mpHBnW",
+                "rt_header_submenu_link_xG996J",
+                "rt_header_submenu_link_dDFPNk",
+                "rt_header_submenu_link_mBihXY"
+              ]
+            },
+            "rt_header_menu_dropdown_VDYx6N": {
+              "type": "_rt-header-menu-dropdown",
+              "settings": {
+                "title": "Support",
+                "url": ""
+              },
+              "blocks": {
+                "rt_header_submenu_link_QWHJJg": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_YzMMPz": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_aeQbDV": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_3fcBhP": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "rt_header_submenu_link_QWHJJg",
+                "rt_header_submenu_link_YzMMPz",
+                "rt_header_submenu_link_aeQbDV",
+                "rt_header_submenu_link_3fcBhP"
+              ]
+            },
+            "rt_header_menu_dropdown_KN4Wm9": {
+              "type": "_rt-header-menu-dropdown",
+              "settings": {
+                "title": "Scenario",
+                "url": ""
+              },
+              "blocks": {
+                "rt_header_submenu_link_Pj64UC": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_HCtaHa": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_7cK9ip": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_gW4jrD": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "rt_header_submenu_link_Pj64UC",
+                "rt_header_submenu_link_HCtaHa",
+                "rt_header_submenu_link_7cK9ip",
+                "rt_header_submenu_link_gW4jrD"
+              ]
+            },
+            "rt_header_menu_dropdown_E846Ng": {
+              "type": "_rt-header-menu-dropdown",
+              "settings": {
+                "title": "Explore",
+                "url": ""
+              },
+              "blocks": {
+                "rt_header_submenu_link_fTyiYm": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_BLmkjW": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_mUVeEN": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                },
+                "rt_header_submenu_link_pTyFt7": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item",
+                    "url": "",
+                    "open_in_new_window": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "rt_header_submenu_link_fTyiYm",
+                "rt_header_submenu_link_BLmkjW",
+                "rt_header_submenu_link_mUVeEN",
+                "rt_header_submenu_link_pTyFt7"
+              ]
+            },
+            "rt_header_menu_link_ezkUM8": {
+              "type": "_rt-header-menu-link",
+              "settings": {
+                "title": "Products",
+                "url": "",
+                "open_in_new_window": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "rt_header_menu_dropdown_Ld38ME",
+            "rt_header_menu_dropdown_cPQYfz",
+            "rt_header_menu_dropdown_VDYx6N",
+            "rt_header_menu_dropdown_KN4Wm9",
+            "rt_header_menu_dropdown_E846Ng",
+            "rt_header_menu_link_ezkUM8"
+          ]
+        }
+      },
+      "name": "rt-header",
+      "settings": {
+        "logo_position": "left",
+        "menu_position": "left",
+        "menu_row": "top",
+        "customer_account_menu": "customer-account-main-menu",
+        "show_search": false,
+        "search_position": "right",
+        "search_row": "top",
+        "show_country": true,
+        "country_selector_style": true,
+        "show_language": true,
+        "localization_font": "heading",
+        "localization_font_size": "1rem",
+        "localization_position": "right",
+        "localization_row": "top",
+        "section_width": "page-width",
+        "section_height": "standard",
+        "enable_sticky_header": "always",
+        "divider_width": 0,
+        "divider_size": "page-width",
+        "divider_color": "",
+        "border_width": 1,
+        "bottom_border_color": "#F5F5F9",
+        "actions_display_style": "icon",
+        "actions_font_size": "0.875rem",
+        "actions_font": "body",
+        "actions_text_case": "none",
+        "background_color_top": "",
+        "text_color_top": "",
+        "background_color_bottom": "",
+        "text_color_bottom": "",
+        "bubble_style": "default",
+        "bubble_background_color": "",
+        "bubble_text_color": "",
+        "enable_transparent_header_home": false,
+        "home_inverse_logo": false,
+        "text_color_transparent_home": "",
+        "enable_transparent_header_product": false,
+        "product_inverse_logo": false,
+        "text_color_transparent_product": "",
+        "enable_transparent_header_collection": false,
+        "collection_inverse_logo": false,
+        "text_color_transparent_collection": ""
       }
     },
     "header_section": {
@@ -81,6 +452,7 @@
           "blocks": {}
         }
       },
+      "disabled": true,
       "settings": {
         "logo_position": "left",
         "menu_position": "left",
@@ -129,6 +501,7 @@
   },
   "order": [
     "header_announcements_9jGBFp",
+    "rt_header_FYxiQF",
     "header_section"
   ]
 }
