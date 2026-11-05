@@ -93,55 +93,33 @@
             "layout_type": "left"
           },
           "blocks": {
-            "rt_header_menu_dropdown_Ld38ME": {
-              "type": "_rt-header-menu-dropdown",
+            "rt_header_menu_products_JTBF9Y": {
+              "type": "_rt-header-menu-products",
+              "name": "产品菜单",
               "settings": {
                 "title": "Smart Phone",
                 "url": ""
               },
               "blocks": {
-                "rt_header_submenu_link_wBKq3T": {
-                  "type": "_rt-header-submenu-link",
+                "rt_header_menu_product_category_pBeBjt": {
+                  "type": "_rt-header-menu-product-category",
                   "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                    "title": "EX10 Series"
                   },
                   "blocks": {}
                 },
-                "rt_header_submenu_link_PmMNDg": {
-                  "type": "_rt-header-submenu-link",
+                "rt_header_menu_side_link_jp7LPe": {
+                  "type": "_rt-header-menu-side-link",
                   "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_a7phzd": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_3pUVKh": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                    "title": "Learn more",
+                    "url": ""
                   },
                   "blocks": {}
                 }
               },
               "block_order": [
-                "rt_header_submenu_link_wBKq3T",
-                "rt_header_submenu_link_PmMNDg",
-                "rt_header_submenu_link_a7phzd",
-                "rt_header_submenu_link_3pUVKh"
+                "rt_header_menu_product_category_pBeBjt",
+                "rt_header_menu_side_link_jp7LPe"
               ]
             },
             "rt_header_menu_dropdown_cPQYfz": {
@@ -403,7 +381,7 @@
             }
           },
           "block_order": [
-            "rt_header_menu_dropdown_Ld38ME",
+            "rt_header_menu_products_JTBF9Y",
             "rt_header_menu_dropdown_cPQYfz",
             "rt_header_menu_mega_6LXnw8",
             "rt_header_menu_mega_U6VYdt",
