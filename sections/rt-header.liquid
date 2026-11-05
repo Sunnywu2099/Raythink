@@ -2,7 +2,7 @@
 {% comment %}
   Section contract.
   Custom header with the theme header behavior: logo, search, localization, account, cart, sticky, and transparent states.
-  Desktop menu, mobile drawer menu, and navigation bar are the three captures named menu, drawer_menu, and navigation_bar. Replace those when the custom menu is ready.
+  Desktop menu and mobile drawer menu both render `_rt-header-menu`. Add menu items inside that block.
 {% endcomment %}
 
 {% liquid
@@ -90,15 +90,14 @@
   endcapture
 
   capture menu
-    content_for 'block', type: '_header-menu', id: 'header-menu'
+    content_for 'block', type: '_rt-header-menu', id: 'header-menu'
   endcapture
 
   capture drawer_menu
-    content_for 'block', type: '_header-menu', id: 'header-menu', variant: 'mobile'
+    content_for 'block', type: '_rt-header-menu', id: 'header-menu', variant: 'mobile'
   endcapture
 
   capture navigation_bar
-    content_for 'block', type: '_header-menu', id: 'header-menu', variant: 'navigation_bar', transparent: transparent
   endcapture
 
   assign has_navigation_bar = false
@@ -1856,11 +1855,35 @@
           "settings": {}
         },
         "header-menu": {
-          "type": "_header-menu",
+          "type": "_rt-header-menu",
           "static": true,
           "settings": {
-            "menu": "main-menu"
-          }
+            "layout_type": "left"
+          },
+          "blocks": {
+            "link": {
+              "type": "_rt-header-menu-link",
+              "settings": {
+                "title": "Products"
+              }
+            },
+            "dropdown": {
+              "type": "_rt-header-menu-dropdown",
+              "settings": {
+                "title": "Applications"
+              },
+              "blocks": {
+                "child": {
+                  "type": "_rt-header-submenu-link",
+                  "settings": {
+                    "title": "Item"
+                  }
+                }
+              },
+              "block_order": ["child"]
+            }
+          },
+          "block_order": ["link", "dropdown"]
         }
       }
     }
