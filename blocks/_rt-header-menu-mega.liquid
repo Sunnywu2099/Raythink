@@ -51,25 +51,26 @@
 
 {% stylesheet %}
   .rt-mega {
-    display: flex;
-    align-items: flex-start;
-    gap: 80px;
+    display: grid;
+    grid-template-columns: 180px minmax(0, 940px);
+    column-gap: 80px;
+    align-items: start;
+    width: 100%;
   }
 
   .rt-mega__tabs {
-    flex: 0 0 180px;
-    width: 180px;
-    min-width: 180px;
-    max-width: 180px;
+    grid-column: 1;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    width: 180px;
+    min-width: 180px;
     white-space: normal;
   }
 
   .rt-mega__stage {
-    flex: 1 1 940px;
-    width: min(940px, 100%);
+    grid-column: 2;
+    width: 100%;
     max-width: 940px;
     min-width: 0;
   }
@@ -114,6 +115,7 @@
   .rt-mega__cards {
     display: grid;
     gap: 16px;
+    width: 100%;
     max-width: 940px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -191,14 +193,16 @@
   }
 
   .menu-drawer .rt-mega {
+    display: flex;
     flex-direction: column;
     gap: 16px;
   }
 
   .menu-drawer .rt-mega__tabs,
   .menu-drawer .rt-mega__stage {
-    flex-basis: auto;
+    grid-column: auto;
     width: 100%;
+    min-width: 0;
     max-width: none;
   }
 
