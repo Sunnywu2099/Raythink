@@ -15,15 +15,15 @@
         "main_banner_block_3tkL8h": {
           "type": "main-banner-block",
           "settings": {
-            "img_desktop": "shopify://shop_images/HeroBanner-2_1.png",
+            "img_desktop": "shopify://shop_images/IX1GO_DRAFT_KV_PC_2.png",
             "img_mobile": "shopify://shop_images/Frame_2117130476.png",
-            "slogan": "Slogan Slogan Slogan",
+            "slogan": "",
             "title": "Raythink IX1GO",
-            "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
-            "text_color": "#ffffff",
+            "description": "",
+            "text_color": "{{ settings.color_palette.foreground }}",
             "button_text": "Learn More",
             "button_url": "",
-            "button_text_2": "Buy Now",
+            "button_text_2": "",
             "button_url_2": "",
             "layout": "left"
           }
