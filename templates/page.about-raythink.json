@@ -1,0 +1,88 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "raythink_about_page_mnYBk8": {
+      "type": "raythink-about-page",
+      "blocks": {
+        "application_4Nr4j6": {
+          "type": "application",
+          "settings": {
+            "title": "HVAC & Electrical Inspection",
+            "icon": "bolt",
+            "image": "shopify://shop_images/About_Us_Senario_3.png"
+          }
+        },
+        "application_tGbnAq": {
+          "type": "application",
+          "settings": {
+            "title": "Industrial Maintenance",
+            "icon": "gear",
+            "image": "shopify://shop_images/About_Us_Senario_2.png"
+          }
+        },
+        "application_AyGPrN": {
+          "type": "application",
+          "settings": {
+            "title": "Building Diagnostics",
+            "icon": "building",
+            "image": "shopify://shop_images/About_Us_Senario_1_9765a03f-f596-4a4d-9062-3b20abef8230.png"
+          }
+        }
+      },
+      "block_order": [
+        "application_4Nr4j6",
+        "application_tGbnAq",
+        "application_AyGPrN"
+      ],
+      "name": "Raythink About Page",
+      "settings": {
+        "accent_color": "#235bb1",
+        "text_color": "#192233",
+        "content_width": 1200,
+        "hero_eyebrow": "Discover Raythink",
+        "hero_title": "About Raythink",
+        "hero_subtitle": "Intelligent sensing technologies for smarter decisions.",
+        "hero_description": "<p>Professional thermal imaging and laser sensing solutions to help you detect hidden problems and make smarter decisions.</p>",
+        "hero_video": "shopify://files/videos/Raythink Brand Introduction.mp4",
+        "video_button_label": "Watch Brand Video",
+        "hero_button_link": "",
+        "about_heading": "About Raythink",
+        "about_text": "<p>Raythink specializes in intelligent sensing technologies. We develop professional thermal imaging and laser sensing solutions that help users detect hidden problems and make smarter decisions.</p>",
+        "about_image": "shopify://shop_images/02-about-sensor-chips-16x10.jpg",
+        "apps_heading": "What We Do",
+        "apps_text": "<p>From HVAC and electrical inspection to industrial maintenance and building diagnostics, Raythink delivers reliable tools designed to improve safety, efficiency, and productivity.</p>",
+        "quality_heading": "Quality Assurance",
+        "quality_text": "<p>A comprehensive quality management system with rigorous reliability testing ensures consistent performance and long-lasting product reliability.</p>",
+        "quality_image_1": "shopify://shop_images/03-quality-main-cleanroom-4x3.jpg",
+        "quality_image_2": "shopify://shop_images/04-quality-side-inspection-16x9.webp",
+        "quality_image_3": "shopify://shop_images/05-quality-side-testing-16x9.jpg",
+        "innovation_heading": "Driven by Innovation",
+        "innovation_text": "<p>Committed to innovation, we continue to advance thermal imaging technology and create smarter solutions for a safer and more sustainable future.</p>",
+        "innovation_image": "shopify://shop_images/02-about-sensor-chips-16x10.jpg"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "raythink_about_page_mnYBk8"
+  ]
+}
