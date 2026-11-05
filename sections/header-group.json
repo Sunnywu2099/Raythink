@@ -45,7 +45,7 @@
         "announcement_Y7EhYx": {
           "type": "_announcement",
           "settings": {
-            "text": "<strong>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</strong>",
+            "text": "<strong>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. &nbsp;</strong><a href=\"/\" target=\"_blank\" title=\"/\">Learn more</a>",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
