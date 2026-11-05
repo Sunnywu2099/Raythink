@@ -1,0 +1,213 @@
+{% doc %}
+  Desktop dropdown with series titles on the left and up to four products on the right.
+  Hovering a series swaps the products. Optional side links sit under the series list.
+{% enddoc %}
+
+<li
+  class="menu-list__list-item"
+  role="presentation"
+  on:blur="/deactivate"
+  on:pointerenter="/activate"
+  on:pointerleave="/deactivate"
+  {{ block.shopify_attributes }}
+>
+  <span class="menu-list__trigger">
+    <a
+      href="{{ block.settings.url | default: '#' }}"
+      class="menu-list__link"
+      data-skip-node-update
+      ref="menuitem"
+    >
+      <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+    </a>
+    <button
+      type="button"
+      class="menu-list__disclosure button-unstyled"
+      aria-controls="submenu-{{ block.id }}"
+      aria-expanded="false"
+      aria-label="{{ 'accessibility.show_submenu' | t: title: block.settings.title }}"
+      ref="disclosure[]"
+      data-skip-node-update
+      on:click="/toggle"
+    >
+      <svg class="menu-list__disclosure-icon" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+        {%- render 'icon', icon: 'caret' -%}
+      </svg>
+    </button>
+  </span>
+  <div class="menu-list__submenu" ref="submenu[]" data-skip-node-update>
+    <div id="submenu-{{ block.id }}" class="menu-list__submenu-inner">
+      <rt-mega-menu class="rt-mega rt-mega--products">
+        <div class="rt-mega__tabs" data-rt-mega-tabs>
+          <div class="rt-mega__links" data-rt-mega-links></div>
+        </div>
+        <div class="rt-mega__stage" data-rt-mega-stage></div>
+        <div class="rt-mega__source" data-rt-mega-source>
+          {% content_for 'blocks' %}
+        </div>
+      </rt-mega-menu>
+      <script src="{{ 'rt-header-mega.js' | asset_url }}" type="module"></script>
+    </div>
+  </div>
+</li>
+
+{% stylesheet %}
+  .rt-mega__links:empty {
+    display: none;
+  }
+
+  .rt-mega__links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #e6e6e6;
+  }
+
+  .rt-mega__tabs:not(:has(.rt-mega__tab)) .rt-mega__links {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .rt-mega__side-link {
+    display: block;
+    padding: 8px 0;
+    color: #111111;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .rt-product-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f6f6f6;
+    color: #111111;
+  }
+
+  .rt-product-card__media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 168px;
+    padding: 28px 20px 8px;
+  }
+
+  .rt-product-card__media picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .rt-product-card__image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
+  }
+
+  .rt-product-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 20px 24px;
+  }
+
+  .rt-product-card__badge,
+  .rt-product-card__title,
+  .rt-product-card__description,
+  .rt-product-card__actions {
+    margin: 0;
+  }
+
+  .rt-product-card__badge {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+  }
+
+  .rt-product-card__title {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+  }
+
+  .rt-product-card__description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    color: #6b6b6b;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .rt-product-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  .rt-product-card__link {
+    color: #111111;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .rt-product-card--empty {
+    justify-content: center;
+    min-height: 180px;
+    padding: 24px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "产品菜单",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "名称",
+      "default": "Products"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "链接"
+    }
+  ],
+  "blocks": [
+    { "type": "_rt-header-menu-product-category" },
+    { "type": "_rt-header-menu-product-group" },
+    { "type": "_rt-header-menu-side-link" }
+  ],
+  "presets": [
+    {
+      "name": "产品菜单",
+      "blocks": [
+        { "type": "_rt-header-menu-product-category" },
+        { "type": "_rt-header-menu-side-link" }
+      ]
+    }
+  ]
+}
+{% endschema %}

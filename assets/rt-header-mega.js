@@ -9,10 +9,12 @@ class RtMegaMenu extends HTMLElement {
     const source = this.querySelector('[data-rt-mega-source]');
     if (!tabsBox || !stage || !source) return;
 
-    source.querySelectorAll('[data-rt-mega-tab]').forEach((tab) => tabsBox.append(tab));
-    source.querySelectorAll('[data-rt-mega-panel]').forEach((panel) => stage.append(panel));
-
     const linksBox = tabsBox.querySelector('[data-rt-mega-links]');
+    source.querySelectorAll('[data-rt-mega-tab]').forEach((tab) => {
+      if (linksBox) linksBox.before(tab);
+      else tabsBox.append(tab);
+    });
+    source.querySelectorAll('[data-rt-mega-panel]').forEach((panel) => stage.append(panel));
     if (linksBox) {
       source.querySelectorAll('[data-rt-mega-link]').forEach((link) => linksBox.append(link));
     }
