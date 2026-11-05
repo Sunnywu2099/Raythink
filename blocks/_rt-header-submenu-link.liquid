@@ -1,0 +1,47 @@
+{% doc %}
+  One link inside a header dropdown.
+{% enddoc %}
+
+<li class="rt-header-submenu__item" {{ block.shopify_attributes }}>
+  <a
+    class="rt-header-submenu__link"
+    href="{{ block.settings.url | default: '#' }}"
+    {% if block.settings.open_in_new_window %}
+      target="_blank"
+      rel="noopener"
+    {% endif %}
+  >
+    {{ block.settings.title | escape }}
+  </a>
+</li>
+
+{% schema %}
+{
+  "name": "二级链接",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "名称",
+      "default": "Item"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "链接"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_window",
+      "label": "新窗口打开",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "二级链接"
+    }
+  ]
+}
+{% endschema %}
