@@ -96,7 +96,7 @@
             "rt_header_menu_dropdown_Ld38ME": {
               "type": "_rt-header-menu-dropdown",
               "settings": {
-                "title": "Scenario",
+                "title": "Smart Phone",
                 "url": ""
               },
               "blocks": {
@@ -147,7 +147,7 @@
             "rt_header_menu_dropdown_cPQYfz": {
               "type": "_rt-header-menu-dropdown",
               "settings": {
-                "title": "Scenario",
+                "title": "Handheld",
                 "url": ""
               },
               "blocks": {
@@ -198,7 +198,7 @@
             "rt_header_menu_dropdown_VDYx6N": {
               "type": "_rt-header-menu-dropdown",
               "settings": {
-                "title": "Scenario",
+                "title": "Support",
                 "url": ""
               },
               "blocks": {
@@ -300,7 +300,7 @@
             "rt_header_menu_dropdown_E846Ng": {
               "type": "_rt-header-menu-dropdown",
               "settings": {
-                "title": "Scenario",
+                "title": "Explore",
                 "url": ""
               },
               "blocks": {
