@@ -12,6 +12,11 @@ class RtMegaMenu extends HTMLElement {
     source.querySelectorAll('[data-rt-mega-tab]').forEach((tab) => tabsBox.append(tab));
     source.querySelectorAll('[data-rt-mega-panel]').forEach((panel) => stage.append(panel));
 
+    const linksBox = tabsBox.querySelector('[data-rt-mega-links]');
+    if (linksBox) {
+      source.querySelectorAll('[data-rt-mega-link]').forEach((link) => linksBox.append(link));
+    }
+
     const tabs = [...tabsBox.querySelectorAll('[data-rt-mega-tab]')];
     const panels = [...stage.querySelectorAll('[data-rt-mega-panel]')];
     const inDrawer = Boolean(this.closest('.menu-drawer'));

@@ -1,0 +1,46 @@
+{% doc %}
+  A left-side series title. Hovering it shows this series' products on the right.
+{% enddoc %}
+
+<div class="rt-mega__category" data-rt-mega-category>
+  <button
+    class="rt-mega__tab"
+    type="button"
+    data-rt-mega-tab
+    data-panel-id="{{ block.id }}"
+    {{ block.shopify_attributes }}
+  >
+    {{ block.settings.title | escape }}
+  </button>
+  <div class="rt-mega__panel" data-rt-mega-panel data-panel-id="{{ block.id }}">
+    <div class="rt-mega__cards">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "产品分类",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "分类标题",
+      "default": "Series"
+    }
+  ],
+  "blocks": [
+    { "type": "_rt-header-menu-product" }
+  ],
+  "presets": [
+    {
+      "name": "产品分类",
+      "blocks": [
+        { "type": "_rt-header-menu-product" }
+      ]
+    }
+  ]
+}
+{% endschema %}
