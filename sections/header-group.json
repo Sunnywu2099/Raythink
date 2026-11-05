@@ -24,21 +24,51 @@
             "weight": "",
             "letter_spacing": "normal",
             "case": "none",
-            "text_color": ""
+            "text_color": "{{ settings.color_palette.background }}"
+          },
+          "blocks": {}
+        },
+        "announcement_EwtddT": {
+          "type": "_announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": "",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none",
+            "text_color": "{{ settings.color_palette.background }}"
+          },
+          "blocks": {}
+        },
+        "announcement_V8dEdq": {
+          "type": "_announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": "",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none",
+            "text_color": "{{ settings.color_palette.background }}"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "announcement_BxgCk9"
+        "announcement_BxgCk9",
+        "announcement_EwtddT",
+        "announcement_V8dEdq"
       ],
       "name": "t:names.announcement_bar",
       "settings": {
-        "speed": 5,
+        "speed": 4,
         "section_width": "page-width",
-        "background_color": "{{ settings.color_palette.background }}",
+        "background_color": "#027FFF",
         "divider_width": 1,
-        "divider_color": "{{ settings.color_palette.color2 }}",
+        "divider_color": "#027FFF",
         "padding-block-start": 15,
         "padding-block-end": 15
       }
