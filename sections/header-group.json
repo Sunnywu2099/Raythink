@@ -105,7 +105,7 @@
             "rt_header_menu_dropdown_Ld38ME": {
               "type": "_rt-header-menu-dropdown",
               "settings": {
-                "title": "Applications",
+                "title": "Scenario",
                 "url": ""
               },
               "blocks": {
