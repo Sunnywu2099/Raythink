@@ -52,6 +52,88 @@
 </li>
 
 {% stylesheet %}
+  .rt-mega {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 940px);
+    column-gap: 80px;
+    align-items: start;
+    width: 100%;
+  }
+
+  .rt-mega__tabs {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 180px;
+    min-width: 180px;
+    white-space: normal;
+  }
+
+  .rt-mega__stage {
+    grid-column: 2;
+    width: 100%;
+    max-width: 940px;
+    min-width: 0;
+  }
+
+  .rt-mega__source {
+    display: none;
+  }
+
+  .rt-mega__panel {
+    display: none;
+  }
+
+  .rt-mega__panel.is-active,
+  .rt-mega:not(:has(.rt-mega__tab)) .rt-mega__panel--loose,
+  .rt-mega:not(:has(.is-active)) .rt-mega__stage > .rt-mega__panel:first-child {
+    display: block;
+  }
+
+  .rt-mega__cards {
+    display: grid;
+    gap: 16px;
+    width: 100%;
+    max-width: 940px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rt-mega__cards:has(> :nth-child(3)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rt-mega__cards:has(> :nth-child(4)) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .rt-mega__cards > :nth-child(n + 5) {
+    display: none;
+  }
+
+  .menu-drawer .rt-mega {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .menu-drawer .rt-mega__tabs,
+  .menu-drawer .rt-mega__stage {
+    grid-column: auto;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .menu-drawer .rt-mega__panel,
+  .menu-drawer .rt-mega__cards > :nth-child(n + 5) {
+    display: block;
+  }
+
+  .menu-drawer .rt-mega__cards {
+    grid-template-columns: 1fr;
+  }
+
   .rt-mega__links:empty {
     display: none;
   }
