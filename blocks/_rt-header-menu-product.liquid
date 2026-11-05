@@ -12,6 +12,10 @@
 {% if menu_product != blank %}
   {% liquid
     assign card_alt = menu_product.featured_image.alt | default: menu_product.title
+    assign card_description = menu_product.description | strip_html | strip
+    if card_description == blank
+      assign card_description = 'Discription Pellentesque posuere, diam in hendrerit volutpat'
+    endif
   %}
   <article class="rt-product-card" {{ block.shopify_attributes }}>
     <div class="rt-product-card__media">
@@ -29,9 +33,7 @@
         <p class="rt-product-card__badge" style="color: {{ badge_color }};">{{ badge_text | escape }}</p>
       {% endif %}
       <p class="rt-product-card__title">{{ menu_product.title | escape }}</p>
-      {% if menu_product.description != blank %}
-        <p class="rt-product-card__description">{{ menu_product.description | strip_html }}</p>
-      {% endif %}
+      <p class="rt-product-card__description">{{ card_description | escape }}</p>
       <p class="rt-product-card__actions">
         <a class="rt-product-card__link" href="{{ menu_product.url }}">{{ 'actions.learn_more' | t }}</a>
         <a class="rt-product-card__link" href="{{ menu_product.url }}">{{ 'actions.buy_now' | t }}</a>
