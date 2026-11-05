@@ -227,55 +227,45 @@
                 "rt_header_menu_card_group_74KCg9"
               ]
             },
-            "rt_header_menu_dropdown_KN4Wm9": {
-              "type": "_rt-header-menu-dropdown",
+            "rt_header_menu_mega_U6VYdt": {
+              "type": "_rt-header-menu-mega",
+              "name": "分类菜单",
               "settings": {
                 "title": "Scenario",
                 "url": ""
               },
               "blocks": {
-                "rt_header_submenu_link_Pj64UC": {
-                  "type": "_rt-header-submenu-link",
+                "rt_header_menu_category_b6Dzfy": {
+                  "type": "_rt-header-menu-category",
                   "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                    "title": "Home Solutions"
                   },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_HCtaHa": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                  "blocks": {
+                    "rt_header_menu_card_eBBpbq": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "title": "Card",
+                        "url": ""
+                      },
+                      "blocks": {}
+                    }
                   },
-                  "blocks": {}
+                  "block_order": [
+                    "rt_header_menu_card_eBBpbq"
+                  ]
                 },
-                "rt_header_submenu_link_7cK9ip": {
-                  "type": "_rt-header-submenu-link",
+                "rt_header_menu_category_Ftrt4W": {
+                  "type": "_rt-header-menu-category",
                   "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_gW4jrD": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                    "title": "Outdoors"
                   },
                   "blocks": {}
                 }
               },
               "block_order": [
-                "rt_header_submenu_link_Pj64UC",
-                "rt_header_submenu_link_HCtaHa",
-                "rt_header_submenu_link_7cK9ip",
-                "rt_header_submenu_link_gW4jrD"
+                "rt_header_menu_category_b6Dzfy",
+                "rt_header_menu_category_Ftrt4W"
               ]
             },
             "rt_header_menu_mega_YjjGwT": {
@@ -346,7 +336,7 @@
             "rt_header_menu_dropdown_Ld38ME",
             "rt_header_menu_dropdown_cPQYfz",
             "rt_header_menu_mega_6LXnw8",
-            "rt_header_menu_dropdown_KN4Wm9",
+            "rt_header_menu_mega_U6VYdt",
             "rt_header_menu_mega_YjjGwT",
             "rt_header_menu_link_ezkUM8"
           ]
