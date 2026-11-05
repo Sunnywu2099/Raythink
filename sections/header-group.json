@@ -132,10 +132,76 @@
                     "rt_header_menu_product_4hmb3h",
                     "rt_header_menu_product_PfQa99"
                   ]
+                },
+                "rt_header_menu_product_category_gqzkQT": {
+                  "type": "_rt-header-menu-product-category",
+                  "settings": {
+                    "title": "EX20 Series"
+                  },
+                  "blocks": {
+                    "rt_header_menu_product_FtQGgP": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_w3cDqi": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1go-pro",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_FtQGgP",
+                    "rt_header_menu_product_w3cDqi"
+                  ]
+                },
+                "rt_header_menu_product_category_3B8Vii": {
+                  "type": "_rt-header-menu-product-category",
+                  "settings": {
+                    "title": "CX20 Series"
+                  },
+                  "blocks": {
+                    "rt_header_menu_product_Vcjkdn": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_6Nb7M7": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1go-pro",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_Vcjkdn",
+                    "rt_header_menu_product_6Nb7M7"
+                  ]
                 }
               },
               "block_order": [
-                "rt_header_menu_product_category_pBeBjt"
+                "rt_header_menu_product_category_pBeBjt",
+                "rt_header_menu_product_category_gqzkQT",
+                "rt_header_menu_product_category_3B8Vii"
               ]
             },
             "rt_header_menu_dropdown_cPQYfz": {
