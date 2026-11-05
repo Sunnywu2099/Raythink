@@ -44,21 +44,13 @@
       </span>
     </summary>
     <div ref="menuDrawer" class="menu-drawer">
-      <button
-        class="button close-button menu-drawer__close-button focus-inset"
-        type="button"
-        aria-label="{{ 'actions.close' | t }}"
-        on:click="/close"
-      >
-        <span class="svg-wrapper header-drawer-icon header-drawer-icon--close">
-          {{- 'icon-close-menu.svg' | inline_asset_content -}}
-        </span>
-      </button>
-      <nav class="menu-drawer__navigation" aria-label="{{ 'accessibility.header_navigation_label' | t }}">
-        <ul class="menu-drawer__menu has-submenu" role="list">
-          {{ menus }}
-        </ul>
-      </nav>
+      <rt-drawer-accordion>
+        <nav class="menu-drawer__navigation" aria-label="{{ 'accessibility.header_navigation_label' | t }}">
+          <ul class="menu-drawer__menu has-submenu" role="list">
+            {{ menus }}
+          </ul>
+        </nav>
+      </rt-drawer-accordion>
       {% if show_country or show_language %}
         <div class="menu-drawer__utility-links">
           {% render 'localization-form',
@@ -70,5 +62,90 @@
         </div>
       {% endif %}
     </div>
+    <div class="menu-drawer__backdrop" on:click="/close"></div>
   </details>
 </header-drawer>
+
+<script src="{{ 'rt-drawer-accordion.js' | asset_url }}" type="module"></script>
+
+{% stylesheet %}
+  .menu-drawer-container > summary {
+    list-style: none;
+  }
+
+  .menu-drawer-container > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .header__drawer .header__icon--summary {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    color: var(--color-foreground);
+  }
+
+  .header__drawer .header-drawer-icon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+  }
+
+  .header__drawer details:not(.menu-open) .header-drawer-icon--close,
+  .header__drawer details.menu-open .header-drawer-icon--open {
+    display: none;
+  }
+
+  .header__drawer .menu-drawer {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    z-index: var(--layer-menu-drawer);
+    display: flex;
+    flex-direction: column;
+    width: var(--drawer-width);
+    max-width: var(--drawer-max-width);
+    height: var(--drawer-height);
+    padding-block: var(--safe-area-inset-top) var(--safe-area-inset-bottom);
+    background: #ffffff;
+    overflow: auto;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: transform var(--drawer-animation-speed) ease, visibility var(--drawer-animation-speed) ease;
+  }
+
+  [dir='rtl'] .header__drawer .menu-drawer {
+    transform: translateX(100%);
+  }
+
+  .header__drawer .menu-open > .menu-drawer {
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .header__drawer .menu-drawer__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: var(--layer-overlay);
+    background: rgb(0 0 0 / 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--drawer-animation-speed) ease;
+  }
+
+  .header__drawer .menu-open > .menu-drawer__backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .header__drawer .menu-drawer__navigation {
+    padding: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .header__drawer .menu-drawer,
+    .header__drawer .menu-drawer__backdrop {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
