@@ -1,6 +1,6 @@
 {% doc %}
-  Desktop dropdown with series titles on the left and up to four products on the right.
-  Hovering a series swaps the products. Optional side links sit under the series list.
+  Desktop dropdown with the same category setup as the category menu.
+  Cards in this menu show a selected product instead of a manual image card.
 {% enddoc %}
 
 <li
@@ -37,10 +37,8 @@
   </span>
   <div class="menu-list__submenu" ref="submenu[]" data-skip-node-update>
     <div id="submenu-{{ block.id }}" class="menu-list__submenu-inner">
-      <rt-mega-menu class="rt-mega rt-mega--products">
-        <div class="rt-mega__tabs" data-rt-mega-tabs>
-          <div class="rt-mega__links" data-rt-mega-links></div>
-        </div>
+      <rt-mega-menu class="rt-mega">
+        <div class="rt-mega__tabs" data-rt-mega-tabs></div>
         <div class="rt-mega__stage" data-rt-mega-stage></div>
         <div class="rt-mega__source" data-rt-mega-source>
           {% content_for 'blocks' %}
@@ -132,36 +130,6 @@
 
   .menu-drawer .rt-mega__cards {
     grid-template-columns: 1fr;
-  }
-
-  .rt-mega__links:empty {
-    display: none;
-  }
-
-  .rt-mega__links {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 8px;
-    padding-top: 16px;
-    border-top: 1px solid #e6e6e6;
-  }
-
-  .rt-mega__tabs:not(:has(.rt-mega__tab)) .rt-mega__links {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: 0;
-  }
-
-  .rt-mega__side-link {
-    display: block;
-    padding: 8px 0;
-    color: #111111;
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
   }
 
   .rt-product-card {
@@ -279,15 +247,14 @@
   ],
   "blocks": [
     { "type": "_rt-header-menu-product-category" },
-    { "type": "_rt-header-menu-product-group" },
-    { "type": "_rt-header-menu-side-link" }
+    { "type": "_rt-header-menu-product-group" }
   ],
   "presets": [
     {
       "name": "产品菜单",
       "blocks": [
         { "type": "_rt-header-menu-product-category" },
-        { "type": "_rt-header-menu-side-link" }
+        { "type": "_rt-header-menu-product-category" }
       ]
     }
   ]

@@ -1,5 +1,5 @@
 {% doc %}
-  A left-side series title. Hovering it shows this series' products on the right.
+  A left-side category title. Hovering it shows this category's products on the right.
 {% enddoc %}
 
 <div class="rt-mega__category" data-rt-mega-category>
@@ -21,14 +21,14 @@
 
 {% schema %}
 {
-  "name": "产品分类",
+  "name": "分类",
   "tag": null,
   "settings": [
     {
       "type": "text",
       "id": "title",
-      "label": "分类标题",
-      "default": "Series"
+      "label": "类目标题",
+      "default": "Category"
     }
   ],
   "blocks": [
@@ -36,7 +36,7 @@
   ],
   "presets": [
     {
-      "name": "产品分类",
+      "name": "分类",
       "blocks": [
         { "type": "_rt-header-menu-product" }
       ]
