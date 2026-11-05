@@ -167,6 +167,33 @@
     overflow-wrap: anywhere;
   }
 
+  @media (min-width: 750px) {
+    .rt-mega-card {
+      position: relative;
+      transition: transform 0.5s var(--ease-out-cubic);
+    }
+
+    .rt-mega-card:hover {
+      z-index: 1;
+      transform: scale(1.04);
+    }
+
+    .menu-drawer .rt-mega-card,
+    .menu-drawer .rt-mega-card:hover {
+      z-index: auto;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rt-mega-card,
+    .rt-mega-card:hover {
+      transform: none;
+      transition: none;
+    }
+  }
+
   .menu-drawer .rt-mega {
     flex-direction: column;
     gap: 16px;
