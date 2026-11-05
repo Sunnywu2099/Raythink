@@ -10,6 +10,30 @@ class RtMegaMenu extends HTMLElement {
     if (!tabsBox || !stage || !source) return;
 
     const linksBox = this.querySelector('[data-rt-mega-links]');
+    const inDrawer = Boolean(this.closest('.menu-drawer'));
+
+    if (inDrawer) {
+      source.querySelectorAll('[data-rt-mega-category]').forEach((category) => tabsBox.append(category));
+      source.querySelectorAll('[data-rt-mega-loose]').forEach((panel) => tabsBox.append(panel));
+      const linkTarget = linksBox || tabsBox;
+      source.querySelectorAll('[data-rt-mega-link-group]').forEach((group) => linkTarget.append(group));
+
+      tabsBox.addEventListener(
+        'click',
+        (event) => {
+          if (!(event.target instanceof Element)) return;
+          const tab = event.target.closest('[data-rt-mega-tab]');
+          if (!tab || !tabsBox.contains(tab)) return;
+          const category = tab.closest('[data-rt-mega-category]');
+          if (!category) return;
+          const open = !category.classList.contains('is-open');
+          category.classList.toggle('is-open', open);
+          tab.setAttribute('aria-expanded', open ? 'true' : 'false');
+        },
+        { signal: this.abort.signal }
+      );
+      return;
+    }
 
     source.querySelectorAll('[data-rt-mega-tab]').forEach((tab) => tabsBox.append(tab));
     source.querySelectorAll('[data-rt-mega-panel]').forEach((panel) => stage.append(panel));
@@ -19,7 +43,6 @@ class RtMegaMenu extends HTMLElement {
 
     const tabs = [...tabsBox.querySelectorAll('[data-rt-mega-tab]')];
     const panels = [...stage.querySelectorAll('[data-rt-mega-panel]')];
-    const inDrawer = Boolean(this.closest('.menu-drawer'));
     const { signal } = this.abort;
 
     const activate = (tab) => {
@@ -34,7 +57,7 @@ class RtMegaMenu extends HTMLElement {
       });
     };
 
-    if (!inDrawer && tabs[0]) activate(tabs[0]);
+    if (tabs[0]) activate(tabs[0]);
 
     tabs.forEach((tab) => {
       tab.addEventListener('pointerenter', () => activate(tab), { signal });

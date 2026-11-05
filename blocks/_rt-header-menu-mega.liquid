@@ -30,9 +30,10 @@
       data-skip-node-update
       on:click="/toggle"
     >
-      <svg class="menu-list__disclosure-icon" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+      <svg class="menu-list__disclosure-icon menu-list__disclosure-icon--desktop" aria-hidden="true" focusable="false" viewBox="0 0 10 6">
         {%- render 'icon', icon: 'caret' -%}
       </svg>
+      {% render 'rt-menu-chevron', class: 'menu-list__disclosure-icon menu-list__disclosure-icon--drawer' %}
     </button>
   </span>
   <div class="menu-list__submenu" ref="submenu[]" data-skip-node-update>
