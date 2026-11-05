@@ -10,19 +10,25 @@
   on:pointerleave="/deactivate"
   {{ block.shopify_attributes }}
 >
-  <a
-    href="{{ block.settings.url | default: '#' }}"
-    class="menu-list__link"
-    data-skip-node-update
-    ref="menuitem"
-    {% if block.settings.open_in_new_window %}
-      target="_blank"
-      rel="noopener"
-    {% endif %}
-  >
-    <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
-    {% render 'rt-menu-chevron', class: 'menu-list__link-icon' %}
-  </a>
+  {% if block.settings.url != blank %}
+    <a
+      href="{{ block.settings.url }}"
+      class="menu-list__link"
+      data-skip-node-update
+      ref="menuitem"
+      {% if block.settings.open_in_new_window %}
+        target="_blank"
+        rel="noopener"
+      {% endif %}
+    >
+      <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+      {% render 'rt-menu-chevron', class: 'menu-list__link-icon' %}
+    </a>
+  {% else %}
+    <span class="menu-list__link" data-skip-node-update ref="menuitem">
+      <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+    </span>
+  {% endif %}
 </li>
 
 {% schema %}

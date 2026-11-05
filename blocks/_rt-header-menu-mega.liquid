@@ -12,14 +12,20 @@
   {{ block.shopify_attributes }}
 >
   <span class="menu-list__trigger">
-    <a
-      href="{{ block.settings.url | default: '#' }}"
-      class="menu-list__link"
-      data-skip-node-update
-      ref="menuitem"
-    >
-      <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
-    </a>
+    {% if block.settings.url != blank %}
+      <a
+        href="{{ block.settings.url }}"
+        class="menu-list__link"
+        data-skip-node-update
+        ref="menuitem"
+      >
+        <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+      </a>
+    {% else %}
+      <span class="menu-list__link" data-skip-node-update ref="menuitem">
+        <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+      </span>
+    {% endif %}
     <button
       type="button"
       class="menu-list__disclosure button-unstyled"

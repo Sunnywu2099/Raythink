@@ -110,6 +110,10 @@
     text-decoration: none;
   }
 
+  .menu-list__link:not(a) {
+    cursor: default;
+  }
+
   .header-menu .menu-list__list-item:is(:hover, :focus-within) > .menu-list__trigger .menu-list__link-title,
   .header-menu .menu-list__list-item:is(:hover, :focus-within) > .menu-list__link .menu-list__link-title {
     text-decoration: underline;
