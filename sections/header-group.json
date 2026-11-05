@@ -66,9 +66,9 @@
       "settings": {
         "speed": 4,
         "section_width": "page-width",
-        "background_color": "#027FFF",
+        "background_color": "#027fff",
         "divider_width": 1,
-        "divider_color": "#027FFF",
+        "divider_color": "#027fff",
         "padding-block-start": 15,
         "padding-block-end": 15
       }
@@ -195,157 +195,201 @@
                 "rt_header_submenu_link_mBihXY"
               ]
             },
-            "rt_header_menu_dropdown_VDYx6N": {
-              "type": "_rt-header-menu-dropdown",
+            "rt_header_menu_mega_6LXnw8": {
+              "type": "_rt-header-menu-mega",
+              "name": "分类菜单",
               "settings": {
                 "title": "Support",
                 "url": ""
               },
               "blocks": {
-                "rt_header_submenu_link_QWHJJg": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                "rt_header_menu_card_group_74KCg9": {
+                  "type": "_rt-header-menu-card-group",
+                  "name": "卡片组",
+                  "settings": {},
+                  "blocks": {
+                    "rt_header_menu_card_AwjF4z": {
+                      "type": "_rt-header-menu-card",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562.png",
+                        "title": "Contact Us",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
                   },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_YzMMPz": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_aeQbDV": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_3fcBhP": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
+                  "block_order": [
+                    "rt_header_menu_card_AwjF4z"
+                  ]
                 }
               },
               "block_order": [
-                "rt_header_submenu_link_QWHJJg",
-                "rt_header_submenu_link_YzMMPz",
-                "rt_header_submenu_link_aeQbDV",
-                "rt_header_submenu_link_3fcBhP"
+                "rt_header_menu_card_group_74KCg9"
               ]
             },
-            "rt_header_menu_dropdown_KN4Wm9": {
-              "type": "_rt-header-menu-dropdown",
+            "rt_header_menu_mega_U6VYdt": {
+              "type": "_rt-header-menu-mega",
+              "name": "分类菜单",
               "settings": {
                 "title": "Scenario",
                 "url": ""
               },
               "blocks": {
-                "rt_header_submenu_link_Pj64UC": {
-                  "type": "_rt-header-submenu-link",
+                "rt_header_menu_category_b6Dzfy": {
+                  "type": "_rt-header-menu-category",
                   "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                    "title": "Home Solutions"
                   },
-                  "blocks": {}
+                  "blocks": {
+                    "rt_header_menu_card_eBBpbq": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_894d54eb-608f-43a4-9d33-d348ad8559f7.png",
+                        "title": "HVAC Inspection",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_LxqXWd": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_bcf97628-7c6e-4353-8c93-aa524e1113ef.png",
+                        "title": "Electrical Inspection",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_MtNXJt": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_51bd9c85-473b-4e35-8b64-3acc905d636c.png",
+                        "title": "Home & Building",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_twtcTw": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_5a941720-01cf-4b65-8044-b54abf612ff2.png",
+                        "title": "Automotive Diagnostics",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_card_eBBpbq",
+                    "rt_header_menu_card_LxqXWd",
+                    "rt_header_menu_card_MtNXJt",
+                    "rt_header_menu_card_twtcTw"
+                  ]
                 },
-                "rt_header_submenu_link_HCtaHa": {
-                  "type": "_rt-header-submenu-link",
+                "rt_header_menu_category_MWdQjC": {
+                  "type": "_rt-header-menu-category",
                   "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                    "title": "Outdoors"
                   },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_7cK9ip": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                  "blocks": {
+                    "rt_header_menu_card_Nhz4fp": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_894d54eb-608f-43a4-9d33-d348ad8559f7.png",
+                        "title": "HVAC Inspection",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_fPAiGy": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_894d54eb-608f-43a4-9d33-d348ad8559f7.png",
+                        "title": "HVAC Inspection",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_VMFAWt": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_894d54eb-608f-43a4-9d33-d348ad8559f7.png",
+                        "title": "HVAC Inspection",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
                   },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_gW4jrD": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
+                  "block_order": [
+                    "rt_header_menu_card_Nhz4fp",
+                    "rt_header_menu_card_fPAiGy",
+                    "rt_header_menu_card_VMFAWt"
+                  ]
                 }
               },
               "block_order": [
-                "rt_header_submenu_link_Pj64UC",
-                "rt_header_submenu_link_HCtaHa",
-                "rt_header_submenu_link_7cK9ip",
-                "rt_header_submenu_link_gW4jrD"
+                "rt_header_menu_category_b6Dzfy",
+                "rt_header_menu_category_MWdQjC"
               ]
             },
-            "rt_header_menu_dropdown_E846Ng": {
-              "type": "_rt-header-menu-dropdown",
+            "rt_header_menu_mega_YjjGwT": {
+              "type": "_rt-header-menu-mega",
+              "name": "分类菜单",
               "settings": {
                 "title": "Explore",
                 "url": ""
               },
               "blocks": {
-                "rt_header_submenu_link_fTyiYm": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                "rt_header_menu_card_group_7fcizf": {
+                  "type": "_rt-header-menu-card-group",
+                  "name": "卡片组",
+                  "settings": {},
+                  "blocks": {
+                    "rt_header_menu_card_APwLFK": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_ba59898a-cffc-4928-90d2-f6827098f8d0.png",
+                        "title": "Blog",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_nEbPnX": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_812b0469-bdd5-4fc2-9813-9aa9fb45be2d.png",
+                        "title": "About Us",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_44nkPA": {
+                      "type": "_rt-header-menu-card",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_e5608ec7-52d6-45c3-85f0-c2d6b3ee1462.png",
+                        "title": "Membership",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
                   },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_BLmkjW": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_mUVeEN": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_pTyFt7": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
+                  "block_order": [
+                    "rt_header_menu_card_APwLFK",
+                    "rt_header_menu_card_nEbPnX",
+                    "rt_header_menu_card_44nkPA"
+                  ]
                 }
               },
               "block_order": [
-                "rt_header_submenu_link_fTyiYm",
-                "rt_header_submenu_link_BLmkjW",
-                "rt_header_submenu_link_mUVeEN",
-                "rt_header_submenu_link_pTyFt7"
+                "rt_header_menu_card_group_7fcizf"
               ]
             },
             "rt_header_menu_link_ezkUM8": {
@@ -361,9 +405,9 @@
           "block_order": [
             "rt_header_menu_dropdown_Ld38ME",
             "rt_header_menu_dropdown_cPQYfz",
-            "rt_header_menu_dropdown_VDYx6N",
-            "rt_header_menu_dropdown_KN4Wm9",
-            "rt_header_menu_dropdown_E846Ng",
+            "rt_header_menu_mega_6LXnw8",
+            "rt_header_menu_mega_U6VYdt",
+            "rt_header_menu_mega_YjjGwT",
             "rt_header_menu_link_ezkUM8"
           ]
         }
@@ -391,7 +435,7 @@
         "divider_size": "page-width",
         "divider_color": "",
         "border_width": 1,
-        "bottom_border_color": "#F5F5F9",
+        "bottom_border_color": "#f5f5f9",
         "actions_display_style": "icon",
         "actions_font_size": "0.875rem",
         "actions_font": "body",
