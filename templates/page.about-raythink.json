@@ -27,21 +27,24 @@
           "type": "application",
           "settings": {
             "title": "HVAC & Electrical Inspection",
-            "icon": "bolt"
+            "icon": "bolt",
+            "image": "shopify://shop_images/01-HVAC-and-Electrical-Inspection.webp"
           }
         },
         "application_tGbnAq": {
           "type": "application",
           "settings": {
             "title": "Industrial Maintenance",
-            "icon": "gear"
+            "icon": "gear",
+            "image": "shopify://shop_images/02-Industrial-Maintenance.jpg"
           }
         },
         "application_AyGPrN": {
           "type": "application",
           "settings": {
             "title": "Building Diagnostics",
-            "icon": "building"
+            "icon": "building",
+            "image": "shopify://shop_images/03-Building-Diagnostics.jpg"
           }
         }
       },
