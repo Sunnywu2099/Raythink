@@ -64,12 +64,17 @@
         "hero_button_link": "",
         "about_heading": "About Raythink",
         "about_text": "<p>Raythink specializes in intelligent sensing technologies. We develop professional thermal imaging and laser sensing solutions that help users detect hidden problems and make smarter decisions.</p>",
+        "about_image": "shopify://shop_images/02-about-sensor-chips-16x10.jpg",
         "apps_heading": "What We Do",
         "apps_text": "<p>From HVAC and electrical inspection to industrial maintenance and building diagnostics, Raythink delivers reliable tools designed to improve safety, efficiency, and productivity.</p>",
         "quality_heading": "Quality Assurance",
         "quality_text": "<p>A comprehensive quality management system with rigorous reliability testing ensures consistent performance and long-lasting product reliability.</p>",
+        "quality_image_1": "shopify://shop_images/03-quality-main-cleanroom-4x3.jpg",
+        "quality_image_2": "shopify://shop_images/04-quality-side-inspection-16x9.webp",
+        "quality_image_3": "shopify://shop_images/05-quality-side-testing-16x9.jpg",
         "innovation_heading": "Driven by Innovation",
-        "innovation_text": "<p>Committed to innovation, we continue to advance thermal imaging technology and create smarter solutions for a safer and more sustainable future.</p>"
+        "innovation_text": "<p>Committed to innovation, we continue to advance thermal imaging technology and create smarter solutions for a safer and more sustainable future.</p>",
+        "innovation_image": "shopify://shop_images/02-about-sensor-chips-16x10.jpg"
       }
     }
   },
