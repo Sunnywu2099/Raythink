@@ -204,55 +204,115 @@
                 "rt_header_menu_product_category_3B8Vii"
               ]
             },
-            "rt_header_menu_dropdown_cPQYfz": {
-              "type": "_rt-header-menu-dropdown",
+            "rt_header_menu_products_WVQRyh": {
+              "type": "_rt-header-menu-products",
+              "name": "产品菜单",
               "settings": {
                 "title": "Handheld",
                 "url": ""
               },
               "blocks": {
-                "rt_header_submenu_link_mpHBnW": {
-                  "type": "_rt-header-submenu-link",
+                "rt_header_menu_product_category_wjAXfb": {
+                  "type": "_rt-header-menu-product-category",
                   "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                    "title": "EX10 Series"
                   },
-                  "blocks": {}
+                  "blocks": {
+                    "rt_header_menu_product_B9jQdb": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_EGAnew": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1go-pro",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_B9jQdb",
+                    "rt_header_menu_product_EGAnew"
+                  ]
                 },
-                "rt_header_submenu_link_xG996J": {
-                  "type": "_rt-header-submenu-link",
+                "rt_header_menu_product_category_PGiz8f": {
+                  "type": "_rt-header-menu-product-category",
                   "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                    "title": "EX20 Series"
                   },
-                  "blocks": {}
+                  "blocks": {
+                    "rt_header_menu_product_bm7wL9": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_ViEqdj": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1go-pro",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_bm7wL9",
+                    "rt_header_menu_product_ViEqdj"
+                  ]
                 },
-                "rt_header_submenu_link_dDFPNk": {
-                  "type": "_rt-header-submenu-link",
+                "rt_header_menu_product_category_WQdfkx": {
+                  "type": "_rt-header-menu-product-category",
                   "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                    "title": "CX20 Series"
                   },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_mBihXY": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                  "blocks": {
+                    "rt_header_menu_product_ftPn3n": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_FwhcxF": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1go-pro",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    }
                   },
-                  "blocks": {}
+                  "block_order": [
+                    "rt_header_menu_product_ftPn3n",
+                    "rt_header_menu_product_FwhcxF"
+                  ]
                 }
               },
               "block_order": [
-                "rt_header_submenu_link_mpHBnW",
-                "rt_header_submenu_link_xG996J",
-                "rt_header_submenu_link_dDFPNk",
-                "rt_header_submenu_link_mBihXY"
+                "rt_header_menu_product_category_wjAXfb",
+                "rt_header_menu_product_category_PGiz8f",
+                "rt_header_menu_product_category_WQdfkx"
               ]
             },
             "rt_header_menu_mega_6LXnw8": {
@@ -464,7 +524,7 @@
           },
           "block_order": [
             "rt_header_menu_products_JTBF9Y",
-            "rt_header_menu_dropdown_cPQYfz",
+            "rt_header_menu_products_WVQRyh",
             "rt_header_menu_mega_6LXnw8",
             "rt_header_menu_mega_U6VYdt",
             "rt_header_menu_mega_YjjGwT",
