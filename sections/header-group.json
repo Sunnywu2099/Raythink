@@ -66,9 +66,9 @@
       "settings": {
         "speed": 4,
         "section_width": "page-width",
-        "background_color": "#027FFF",
+        "background_color": "#027fff",
         "divider_width": 1,
-        "divider_color": "#027FFF",
+        "divider_color": "#027fff",
         "padding-block-start": 15,
         "padding-block-end": 15
       }
@@ -202,33 +202,6 @@
                 "url": ""
               },
               "blocks": {
-                "rt_header_submenu_link_QWHJJg": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_YzMMPz": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
-                "rt_header_submenu_link_aeQbDV": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
-                  },
-                  "blocks": {}
-                },
                 "rt_header_submenu_link_3fcBhP": {
                   "type": "_rt-header-submenu-link",
                   "settings": {
@@ -240,9 +213,6 @@
                 }
               },
               "block_order": [
-                "rt_header_submenu_link_QWHJJg",
-                "rt_header_submenu_link_YzMMPz",
-                "rt_header_submenu_link_aeQbDV",
                 "rt_header_submenu_link_3fcBhP"
               ]
             },
@@ -391,7 +361,7 @@
         "divider_size": "page-width",
         "divider_color": "",
         "border_width": 1,
-        "bottom_border_color": "#F5F5F9",
+        "bottom_border_color": "#f5f5f9",
         "actions_display_style": "icon",
         "actions_font_size": "0.875rem",
         "actions_font": "body",
