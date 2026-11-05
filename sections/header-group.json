@@ -106,20 +106,36 @@
                   "settings": {
                     "title": "EX10 Series"
                   },
-                  "blocks": {}
-                },
-                "rt_header_menu_side_link_jp7LPe": {
-                  "type": "_rt-header-menu-side-link",
-                  "settings": {
-                    "title": "Learn more",
-                    "url": ""
+                  "blocks": {
+                    "rt_header_menu_product_4hmb3h": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_PfQa99": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1go-pro",
+                        "badge_text": "New",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    }
                   },
-                  "blocks": {}
+                  "block_order": [
+                    "rt_header_menu_product_4hmb3h",
+                    "rt_header_menu_product_PfQa99"
+                  ]
                 }
               },
               "block_order": [
-                "rt_header_menu_product_category_pBeBjt",
-                "rt_header_menu_side_link_jp7LPe"
+                "rt_header_menu_product_category_pBeBjt"
               ]
             },
             "rt_header_menu_dropdown_cPQYfz": {
