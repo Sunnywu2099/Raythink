@@ -241,6 +241,34 @@
                 "url": ""
               },
               "blocks": {
+                "rt_header_menu_product_links_hwXKgR": {
+                  "type": "_rt-header-menu-product-links",
+                  "name": "链接组",
+                  "settings": {},
+                  "blocks": {
+                    "rt_header_menu_product_link_FJTaWg": {
+                      "type": "_rt-header-menu-product-link",
+                      "name": "链接",
+                      "settings": {
+                        "title": "Machine Comparison",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_link_9KyABp": {
+                      "type": "_rt-header-menu-product-link",
+                      "settings": {
+                        "title": "What’s More",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_link_FJTaWg",
+                    "rt_header_menu_product_link_9KyABp"
+                  ]
+                },
                 "rt_header_menu_product_category_wjAXfb": {
                   "type": "_rt-header-menu-product-category",
                   "settings": {
@@ -275,6 +303,7 @@
                 }
               },
               "block_order": [
+                "rt_header_menu_product_links_hwXKgR",
                 "rt_header_menu_product_category_wjAXfb"
               ]
             },
