@@ -261,7 +261,30 @@
   }
 
   .menu-drawer .menu-list__link-title {
+    min-width: 0;
     padding-inline: 0;
+  }
+
+  .menu-list__link-icon {
+    display: none;
+  }
+
+  .menu-drawer .menu-list__list-item > .menu-list__link {
+    justify-content: space-between;
+  }
+
+  .menu-drawer .menu-list__link-icon {
+    display: block;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    max-width: none;
+    aspect-ratio: auto;
+    transform: rotate(-90deg);
+  }
+
+  [dir='rtl'] .menu-drawer .menu-list__link-icon {
+    transform: rotate(90deg);
   }
 
   .menu-drawer .menu-list__disclosure {

@@ -21,6 +21,7 @@
     {% endif %}
   >
     <span class="menu-list__link-title">{{ block.settings.title | escape }}</span>
+    {% render 'rt-menu-chevron', class: 'menu-list__link-icon' %}
   </a>
 </li>
 
