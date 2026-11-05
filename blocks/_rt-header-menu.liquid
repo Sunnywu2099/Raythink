@@ -230,22 +230,34 @@
   .menu-drawer .menu-list__trigger,
   .menu-drawer .menu-list__list-item > .menu-list__link {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 12px;
     width: 100%;
+    height: auto;
     padding: 12px 20px;
     color: #111111;
     font-size: 14px;
     line-height: 18px;
     font-weight: 600;
+    text-align: start;
     text-decoration: none;
   }
 
+  .menu-drawer .menu-list__trigger {
+    justify-content: space-between;
+  }
+
   .menu-drawer .menu-list__link {
-    flex: 1;
+    flex: 1 1 auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     min-width: 0;
+    height: auto;
     color: inherit;
+    text-align: start;
   }
 
   .menu-drawer .menu-list__link-title {
