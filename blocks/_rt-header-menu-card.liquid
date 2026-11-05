@@ -2,6 +2,10 @@
   One card in a category menu: image, title, and link. A category or card group shows at most four cards.
 {% enddoc %}
 
+{% liquid
+  assign card_alt = block.settings.image.alt | default: block.settings.title
+%}
+
 <a
   class="rt-mega-card"
   href="{{ block.settings.url | default: '#' }}"
@@ -15,9 +19,9 @@
         | image_tag:
           class: 'rt-mega-card__image',
           widths: '240, 360, 480, 720, 960',
-          sizes: '(min-width: 990px) 220px, 50vw',
-          alt: block.settings.image.alt
-          | default: block.settings.title
+          sizes: '(min-width: 990px) 230px, 50vw',
+          alt: card_alt,
+          loading: 'lazy'
       }}
     {% endif %}
   </span>

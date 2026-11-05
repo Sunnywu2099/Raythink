@@ -2,11 +2,17 @@
   A left-side category title. Hovering it shows this category's cards on the right.
 {% enddoc %}
 
-<div class="rt-mega__category" data-rt-mega-category {{ block.shopify_attributes }}>
-  <button class="rt-mega__tab" type="button" data-rt-mega-tab>
+<div class="rt-mega__category" data-rt-mega-category>
+  <button
+    class="rt-mega__tab"
+    type="button"
+    data-rt-mega-tab
+    data-panel-id="{{ block.id }}"
+    {{ block.shopify_attributes }}
+  >
     {{ block.settings.title | escape }}
   </button>
-  <div class="rt-mega__panel" data-rt-mega-panel>
+  <div class="rt-mega__panel" data-rt-mega-panel data-panel-id="{{ block.id }}">
     <div class="rt-mega__cards">
       {% content_for 'blocks' %}
     </div>
