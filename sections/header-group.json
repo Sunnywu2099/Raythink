@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "<strong>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. &nbsp;</strong><a href=\"/\" title=\"/\">Learn more</a>",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
@@ -45,7 +45,7 @@
         "announcement_V8dEdq": {
           "type": "_announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "<strong>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. &nbsp;</strong><a href=\"/\" title=\"/\">Learn more</a>",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
