@@ -137,6 +137,14 @@
     display: none;
   }
 
+  @media screen and (min-width: 751px) and (max-width: 1024px) {
+    .rt-mega__cards,
+    .rt-mega__cards:has(> :nth-child(3)),
+    .rt-mega__cards:has(> :nth-child(4)) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
   .rt-mega-card {
     display: flex;
     flex-direction: column;
