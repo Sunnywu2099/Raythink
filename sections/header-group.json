@@ -17,6 +17,20 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
+            "text": "<strong>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. &nbsp;</strong><a href=\"/\" title=\"/\">Learn more</a>",
+            "link": "",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none",
+            "text_color": "{{ settings.color_palette.background }}"
+          },
+          "blocks": {}
+        },
+        "announcement_EwtddT": {
+          "type": "_announcement",
+          "settings": {
             "text": "Welcome to our store",
             "link": "",
             "font": "var(--font-subheading--family)",
@@ -24,23 +38,537 @@
             "weight": "",
             "letter_spacing": "normal",
             "case": "none",
-            "text_color": ""
+            "text_color": "{{ settings.color_palette.background }}"
+          },
+          "blocks": {}
+        },
+        "announcement_V8dEdq": {
+          "type": "_announcement",
+          "settings": {
+            "text": "<strong>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. &nbsp;</strong><a href=\"/\" title=\"/\">Learn more</a>",
+            "link": "",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none",
+            "text_color": "{{ settings.color_palette.background }}"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "announcement_BxgCk9"
+        "announcement_BxgCk9",
+        "announcement_EwtddT",
+        "announcement_V8dEdq"
       ],
       "name": "t:names.announcement_bar",
       "settings": {
-        "speed": 5,
+        "speed": 4,
         "section_width": "page-width",
-        "background_color": "{{ settings.color_palette.background }}",
+        "background_color": "#027fff",
         "divider_width": 1,
-        "divider_color": "{{ settings.color_palette.color2 }}",
+        "divider_color": "#027fff",
         "padding-block-start": 15,
         "padding-block-end": 15
+      }
+    },
+    "rt_header_FYxiQF": {
+      "type": "rt-header",
+      "blocks": {
+        "header-logo": {
+          "type": "_header-logo",
+          "static": true,
+          "settings": {
+            "hide_logo_on_home_page": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "header-menu": {
+          "type": "_rt-header-menu",
+          "static": true,
+          "settings": {
+            "layout_type": "left"
+          },
+          "blocks": {
+            "rt_header_menu_products_JTBF9Y": {
+              "type": "_rt-header-menu-products",
+              "name": "产品菜单",
+              "settings": {
+                "title": "Smart Phone",
+                "url": ""
+              },
+              "blocks": {
+                "rt_header_menu_product_links_UPxgDw": {
+                  "type": "_rt-header-menu-product-links",
+                  "name": "链接组",
+                  "settings": {},
+                  "blocks": {
+                    "rt_header_menu_product_link_LFTKAG": {
+                      "type": "_rt-header-menu-product-link",
+                      "name": "链接",
+                      "settings": {
+                        "title": "Machine Comparison",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_link_KprY8C": {
+                      "type": "_rt-header-menu-product-link",
+                      "settings": {
+                        "title": "What’s More",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_link_LFTKAG",
+                    "rt_header_menu_product_link_KprY8C"
+                  ]
+                },
+                "rt_header_menu_product_category_pBeBjt": {
+                  "type": "_rt-header-menu-product-category",
+                  "settings": {
+                    "title": "EX10 Series"
+                  },
+                  "blocks": {
+                    "rt_header_menu_product_4hmb3h": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "New",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_PfQa99": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1go-pro",
+                        "badge_text": "New",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_4hmb3h",
+                    "rt_header_menu_product_PfQa99"
+                  ]
+                },
+                "rt_header_menu_product_category_gqzkQT": {
+                  "type": "_rt-header-menu-product-category",
+                  "settings": {
+                    "title": "EX20 Series"
+                  },
+                  "blocks": {
+                    "rt_header_menu_product_FtQGgP": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "New",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_w3cDqi": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1go-pro",
+                        "badge_text": "New",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_TdepKy": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "New",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_FtQGgP",
+                    "rt_header_menu_product_w3cDqi",
+                    "rt_header_menu_product_TdepKy"
+                  ]
+                },
+                "rt_header_menu_product_category_3B8Vii": {
+                  "type": "_rt-header-menu-product-category",
+                  "settings": {
+                    "title": "CX20 Series"
+                  },
+                  "blocks": {
+                    "rt_header_menu_product_Vcjkdn": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "New",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_Vcjkdn"
+                  ]
+                }
+              },
+              "block_order": [
+                "rt_header_menu_product_links_UPxgDw",
+                "rt_header_menu_product_category_pBeBjt",
+                "rt_header_menu_product_category_gqzkQT",
+                "rt_header_menu_product_category_3B8Vii"
+              ]
+            },
+            "rt_header_menu_products_WVQRyh": {
+              "type": "_rt-header-menu-products",
+              "name": "产品菜单",
+              "settings": {
+                "title": "Handheld",
+                "url": ""
+              },
+              "blocks": {
+                "rt_header_menu_product_links_hwXKgR": {
+                  "type": "_rt-header-menu-product-links",
+                  "name": "链接组",
+                  "settings": {},
+                  "blocks": {
+                    "rt_header_menu_product_link_FJTaWg": {
+                      "type": "_rt-header-menu-product-link",
+                      "name": "链接",
+                      "settings": {
+                        "title": "Machine Comparison",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_link_9KyABp": {
+                      "type": "_rt-header-menu-product-link",
+                      "settings": {
+                        "title": "What’s More",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_link_FJTaWg",
+                    "rt_header_menu_product_link_9KyABp"
+                  ]
+                },
+                "rt_header_menu_product_category_wjAXfb": {
+                  "type": "_rt-header-menu-product-category",
+                  "settings": {
+                    "title": "EX10 Series"
+                  },
+                  "blocks": {
+                    "rt_header_menu_product_B9jQdb": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "New",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_EGAnew": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1go-pro",
+                        "badge_text": "New",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_B9jQdb",
+                    "rt_header_menu_product_EGAnew"
+                  ]
+                }
+              },
+              "block_order": [
+                "rt_header_menu_product_links_hwXKgR",
+                "rt_header_menu_product_category_wjAXfb"
+              ]
+            },
+            "rt_header_menu_mega_6LXnw8": {
+              "type": "_rt-header-menu-mega",
+              "name": "分类菜单",
+              "settings": {
+                "title": "Support",
+                "url": ""
+              },
+              "blocks": {
+                "rt_header_menu_card_group_74KCg9": {
+                  "type": "_rt-header-menu-card-group",
+                  "name": "卡片组",
+                  "settings": {},
+                  "blocks": {
+                    "rt_header_menu_card_AwjF4z": {
+                      "type": "_rt-header-menu-card",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562.png",
+                        "title": "Contact Us",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_card_AwjF4z"
+                  ]
+                }
+              },
+              "block_order": [
+                "rt_header_menu_card_group_74KCg9"
+              ]
+            },
+            "rt_header_menu_mega_U6VYdt": {
+              "type": "_rt-header-menu-mega",
+              "name": "分类菜单",
+              "settings": {
+                "title": "Scenario",
+                "url": ""
+              },
+              "blocks": {
+                "rt_header_menu_category_b6Dzfy": {
+                  "type": "_rt-header-menu-category",
+                  "settings": {
+                    "title": "Home Solutions"
+                  },
+                  "blocks": {
+                    "rt_header_menu_card_eBBpbq": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_894d54eb-608f-43a4-9d33-d348ad8559f7.png",
+                        "title": "HVAC Inspection",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_LxqXWd": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_bcf97628-7c6e-4353-8c93-aa524e1113ef.png",
+                        "title": "Electrical Inspection",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_MtNXJt": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_51bd9c85-473b-4e35-8b64-3acc905d636c.png",
+                        "title": "Home & Building",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_twtcTw": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_5a941720-01cf-4b65-8044-b54abf612ff2.png",
+                        "title": "Automotive Diagnostics",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_card_eBBpbq",
+                    "rt_header_menu_card_LxqXWd",
+                    "rt_header_menu_card_MtNXJt",
+                    "rt_header_menu_card_twtcTw"
+                  ]
+                },
+                "rt_header_menu_category_MWdQjC": {
+                  "type": "_rt-header-menu-category",
+                  "settings": {
+                    "title": "Outdoors"
+                  },
+                  "blocks": {
+                    "rt_header_menu_card_Nhz4fp": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_894d54eb-608f-43a4-9d33-d348ad8559f7.png",
+                        "title": "HVAC Inspection",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_fPAiGy": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_894d54eb-608f-43a4-9d33-d348ad8559f7.png",
+                        "title": "HVAC Inspection",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_VMFAWt": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_894d54eb-608f-43a4-9d33-d348ad8559f7.png",
+                        "title": "HVAC Inspection",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_card_Nhz4fp",
+                    "rt_header_menu_card_fPAiGy",
+                    "rt_header_menu_card_VMFAWt"
+                  ]
+                }
+              },
+              "block_order": [
+                "rt_header_menu_category_b6Dzfy",
+                "rt_header_menu_category_MWdQjC"
+              ]
+            },
+            "rt_header_menu_mega_YjjGwT": {
+              "type": "_rt-header-menu-mega",
+              "name": "分类菜单",
+              "settings": {
+                "title": "Explore",
+                "url": ""
+              },
+              "blocks": {
+                "rt_header_menu_card_group_7fcizf": {
+                  "type": "_rt-header-menu-card-group",
+                  "name": "卡片组",
+                  "settings": {},
+                  "blocks": {
+                    "rt_header_menu_card_APwLFK": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_ba59898a-cffc-4928-90d2-f6827098f8d0.png",
+                        "title": "Blog",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_nEbPnX": {
+                      "type": "_rt-header-menu-card",
+                      "name": "卡片",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_812b0469-bdd5-4fc2-9813-9aa9fb45be2d.png",
+                        "title": "About Us",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_card_44nkPA": {
+                      "type": "_rt-header-menu-card",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562_e5608ec7-52d6-45c3-85f0-c2d6b3ee1462.png",
+                        "title": "Membership",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_card_APwLFK",
+                    "rt_header_menu_card_nEbPnX",
+                    "rt_header_menu_card_44nkPA"
+                  ]
+                }
+              },
+              "block_order": [
+                "rt_header_menu_card_group_7fcizf"
+              ]
+            },
+            "rt_header_menu_link_ezkUM8": {
+              "type": "_rt-header-menu-link",
+              "disabled": true,
+              "settings": {
+                "title": "Products",
+                "url": "/",
+                "open_in_new_window": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "rt_header_menu_products_JTBF9Y",
+            "rt_header_menu_products_WVQRyh",
+            "rt_header_menu_mega_6LXnw8",
+            "rt_header_menu_mega_U6VYdt",
+            "rt_header_menu_mega_YjjGwT",
+            "rt_header_menu_link_ezkUM8"
+          ]
+        }
+      },
+      "name": "rt-header",
+      "settings": {
+        "logo_position": "left",
+        "menu_position": "left",
+        "menu_row": "top",
+        "customer_account_menu": "customer-account-main-menu",
+        "show_search": false,
+        "search_position": "right",
+        "search_row": "top",
+        "show_country": true,
+        "country_selector_style": true,
+        "show_language": true,
+        "localization_font": "heading",
+        "localization_font_size": "1rem",
+        "localization_position": "right",
+        "localization_row": "top",
+        "section_width": "page-width",
+        "section_height": "standard",
+        "enable_sticky_header": "always",
+        "divider_width": 0,
+        "divider_size": "page-width",
+        "divider_color": "",
+        "border_width": 1,
+        "bottom_border_color": "#f5f5f9",
+        "actions_display_style": "icon",
+        "actions_font_size": "0.875rem",
+        "actions_font": "body",
+        "actions_text_case": "none",
+        "background_color_top": "",
+        "text_color_top": "",
+        "background_color_bottom": "",
+        "text_color_bottom": "",
+        "bubble_style": "default",
+        "bubble_background_color": "",
+        "bubble_text_color": "",
+        "enable_transparent_header_home": false,
+        "home_inverse_logo": false,
+        "text_color_transparent_home": "",
+        "enable_transparent_header_product": false,
+        "product_inverse_logo": false,
+        "text_color_transparent_product": "",
+        "enable_transparent_header_collection": false,
+        "collection_inverse_logo": false,
+        "text_color_transparent_collection": ""
       }
     },
     "header_section": {
@@ -81,6 +609,7 @@
           "blocks": {}
         }
       },
+      "disabled": true,
       "settings": {
         "logo_position": "left",
         "menu_position": "left",
@@ -129,6 +658,7 @@
   },
   "order": [
     "header_announcements_9jGBFp",
+    "rt_header_FYxiQF",
     "header_section"
   ]
 }

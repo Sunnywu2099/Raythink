@@ -1,0 +1,417 @@
+{% doc %}
+  Custom header menu. Desktop renders a hover menu. The mobile variant renders the same items inside the side drawer.
+
+  @param {string} [variant] - `mobile` renders the drawer. Any other value renders the desktop menu.
+{% enddoc %}
+
+{% liquid
+  assign animation_speed = 200
+  assign layout_type = block.settings.layout_type
+%}
+
+{% capture menus %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+
+{% case variant %}
+  {% when 'mobile' %}
+    <div
+      class="header__drawer"
+      ref="headerDrawerContainer"
+      {{ block.shopify_attributes }}
+    >
+      {% render 'rt-header-drawer', menus: menus, block: block, section: section %}
+    </div>
+  {% else %}
+    <header-menu
+      ref="headerMenu"
+      class="header-menu{% if layout_type == 'center' %} menu-list--center{% elsif layout_type == 'right' %} menu-list--right{% else %} menu-list--left{% endif %}"
+      data-animation-delay="{{ animation_speed }}"
+      {{ block.shopify_attributes }}
+      style="--submenu-animation-speed: {{ animation_speed }}ms;"
+    >
+      <div class="header-menu__inner">
+        <nav header-menu style="height: 100%;">
+          <div class="menu-list">
+            {% capture children %}
+              {{ menus }}
+              <li
+                class="menu-list__list-item"
+                slot="more"
+                on:blur="/deactivate"
+                on:pointerenter="/activate"
+                on:pointerleave="/deactivate"
+              >
+                <button
+                  class="menu-list__link button-unstyled"
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ref="menuitem"
+                  on:click="/toggle"
+                  data-skip-node-update
+                >
+                  <span class="menu-list__link-title">{{ 'actions.more' | t }}</span>
+                </button>
+              </li>
+            {% endcapture %}
+            {% render 'overflow-list',
+              class: 'overflow-menu',
+              ref: 'overflowMenu',
+              children: children,
+              minimum-items: 2
+            %}
+          </div>
+        </nav>
+      </div>
+      <script src="{{ 'header-menu.js' | asset_url }}" type="module" fetchpriority="low"></script>
+    </header-menu>
+{% endcase %}
+
+{% stylesheet %}
+  .menu-list--left .overflow-menu {
+    --overflow-list-alignment: flex-start;
+  }
+
+  .menu-list--center .overflow-menu {
+    --overflow-list-alignment: center;
+  }
+
+  .menu-list--right .overflow-menu {
+    --overflow-list-alignment: flex-end;
+  }
+
+  header-menu {
+    width: 100%;
+  }
+
+  .header-menu {
+    height: 100%;
+  }
+
+  .menu-list {
+    --menu-horizontal-gap: var(--gap-xl);
+    align-items: center;
+  }
+
+  .menu-list__list-item {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .menu-list__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap-2xs);
+  }
+
+  .menu-list__link {
+    color: var(--color-foreground);
+    text-decoration: none;
+  }
+
+  .menu-list__link:not(a) {
+    cursor: default;
+  }
+
+  .header-menu .menu-list__list-item:is(:hover, :focus-within) > .menu-list__trigger .menu-list__link-title,
+  .header-menu .menu-list__list-item:is(:hover, :focus-within) > .menu-list__link .menu-list__link-title {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #000000;
+    text-underline-offset: 28px;
+  }
+
+  .menu-list__disclosure {
+    display: inline-flex;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .menu-list__disclosure-icon--desktop {
+    width: 10px;
+    height: 6px;
+  }
+
+  .menu-list__disclosure-icon--drawer {
+    display: none;
+    width: 24px;
+    height: 24px;
+  }
+
+  .menu-list__submenu,
+  .overflow-menu::part(overflow) {
+    --submenu-content-opacity: 0;
+    --submenu-content-animation: opacity calc(var(--submenu-animation-speed) * 0.75) var(--animation-easing);
+    --submenu-gap: calc(var(--padding-block-end, var(--header-padding)) + var(--border-bottom-width, 0px));
+    --submenu-clip-top: calc(var(--header-height) - var(--submenu-gap));
+
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    inset-inline-start: 0;
+    top: calc(100% - 1px + var(--border-bottom-width) - (var(--full-open-header-height) - var(--submenu-height)));
+    z-index: var(--layer-header-menu);
+    padding-inline: var(--padding-inline);
+    background-color: transparent;
+    clip-path: rect(var(--submenu-clip-top) 100% var(--full-open-header-height) 0);
+    transition: clip-path var(--submenu-animation-speed) var(--ease-out-cubic);
+  }
+
+  .menu-list__list-item:has([aria-expanded='true']) > .menu-list__submenu,
+  .menu-list__submenu:hover,
+  .overflow-menu::part(overflow):hover {
+    --submenu-content-opacity: 1;
+    visibility: visible;
+  }
+
+  #header-component {
+    --submenu-animation-speed: 200ms;
+  }
+
+  #header-component .header__underlay {
+    --color-submenu: #ffffff;
+  }
+
+  .header-menu .menu-list__submenu {
+    padding-inline: 0;
+    background-color: transparent;
+  }
+
+  .header-menu .menu-list__submenu-inner {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--container-max-width);
+    height: auto;
+    margin-inline: auto;
+    padding-block: var(--padding-3xl);
+    padding-inline: 0;
+    opacity: var(--submenu-content-opacity);
+    background: transparent;
+    transition: opacity 120ms var(--animation-easing);
+    max-height: none;
+    overflow: visible;
+    transform: translateY(calc(var(--full-open-header-height) - var(--submenu-height)));
+  }
+
+  .header-menu .menu-list__list-item:has([aria-expanded='true']) > .menu-list__submenu .menu-list__submenu-inner,
+  .header-menu .menu-list__submenu:hover .menu-list__submenu-inner {
+    transition-delay: var(--submenu-animation-speed);
+  }
+
+  @media (max-width: 1200px) {
+    .header-menu .menu-list__submenu-inner {
+      padding-inline: var(--container-padding-sm);
+    }
+  }
+
+  @media (min-width: 750px) and (max-width: 1200px) {
+    .header-menu .menu-list__submenu-inner {
+      padding-inline: var(--container-padding-lg);
+    }
+  }
+
+  .rt-header-submenu {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rt-header-submenu__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .menu-drawer .menu-drawer__menu {
+    margin: 0;
+    padding: 8px 0 24px;
+    list-style: none;
+  }
+
+  .menu-drawer .menu-list__list-item {
+    display: block;
+    white-space: normal;
+  }
+
+  .menu-drawer .menu-list__trigger,
+  .menu-drawer .menu-list__list-item > .menu-list__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    height: auto;
+    padding: 11px 20px;
+    color: #111111;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: start;
+    text-decoration: none;
+  }
+
+  .menu-drawer .menu-list__trigger {
+    justify-content: space-between;
+  }
+
+  .menu-drawer .menu-list__link {
+    flex: 1 1 auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 0;
+    height: auto;
+    color: inherit;
+    text-align: start;
+  }
+
+  .menu-drawer .menu-list__link-title {
+    min-width: 0;
+    padding-inline: 0;
+  }
+
+  .menu-list__link-icon {
+    display: none;
+  }
+
+  .menu-drawer .menu-list__list-item > .menu-list__link {
+    justify-content: space-between;
+  }
+
+  .menu-drawer .menu-list__link-icon {
+    display: block;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    max-width: none;
+    aspect-ratio: auto;
+    transform: rotate(-90deg);
+  }
+
+  [dir='rtl'] .menu-drawer .menu-list__link-icon {
+    transform: rotate(90deg);
+  }
+
+  .menu-drawer .menu-list__disclosure {
+    position: static;
+    inset: auto;
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    color: #111111;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .menu-drawer .menu-list__disclosure-icon--desktop {
+    display: none;
+  }
+
+  .menu-drawer .menu-list__disclosure-icon--drawer {
+    display: block;
+    width: 24px;
+    height: 24px;
+    max-width: none;
+    aspect-ratio: auto;
+    transition: transform 0.2s var(--ease-out-cubic);
+  }
+
+  .menu-drawer .menu-list__list-item.is-open .menu-list__disclosure-icon--drawer {
+    transform: rotate(180deg);
+  }
+
+  .menu-drawer .menu-list__list-item > .menu-list__submenu {
+    display: none;
+    position: static;
+    visibility: hidden;
+    width: auto;
+    inset: auto;
+    padding: 0;
+    clip-path: none;
+    background: transparent;
+    --submenu-content-opacity: 1;
+  }
+
+  .menu-drawer .menu-list__list-item.is-open > .menu-list__submenu {
+    display: block;
+    visibility: visible;
+  }
+
+  .menu-drawer .menu-list__submenu-inner {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .header-menu .menu-list__submenu-inner {
+      transition: none;
+    }
+  }
+
+  .menu-drawer .rt-header-submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .menu-drawer .rt-header-submenu__link {
+    display: block;
+    padding: 14px 20px;
+    color: #111111;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-drawer .menu-list__disclosure-icon--drawer {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "菜单",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "对齐",
+      "options": [
+        { "value": "left", "label": "左侧" },
+        { "value": "center", "label": "居中" },
+        { "value": "right", "label": "右侧" }
+      ],
+      "default": "left"
+    }
+  ],
+  "blocks": [
+    { "type": "_rt-header-menu-link" },
+    { "type": "_rt-header-menu-dropdown" },
+    { "type": "_rt-header-menu-mega" },
+    { "type": "_rt-header-menu-products" }
+  ]
+}
+{% endschema %}

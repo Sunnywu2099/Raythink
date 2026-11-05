@@ -1,0 +1,35 @@
+{% doc %}
+  One jump link inside a product menu link group.
+{% enddoc %}
+
+<li class="rt-mega__link-item" {{ block.shopify_attributes }}>
+  <a class="rt-mega__side-link" href="{{ block.settings.url | default: '#' }}">
+    <span class="rt-mega__side-link-label">{{ block.settings.title | escape }}</span>
+    {% render 'rt-menu-chevron', class: 'rt-mega__side-link-icon' %}
+  </a>
+</li>
+
+{% schema %}
+{
+  "name": "链接",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "名称",
+      "default": "Link"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "链接"
+    }
+  ],
+  "presets": [
+    {
+      "name": "链接"
+    }
+  ]
+}
+{% endschema %}

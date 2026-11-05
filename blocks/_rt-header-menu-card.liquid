@@ -1,0 +1,57 @@
+{% doc %}
+  One card in a category menu: image, title, and link. A category or card group shows at most four cards.
+{% enddoc %}
+
+{% liquid
+  assign card_alt = block.settings.image.alt | default: block.settings.title
+%}
+
+<a
+  class="rt-mega-card"
+  href="{{ block.settings.url | default: '#' }}"
+  {{ block.shopify_attributes }}
+>
+  <span class="rt-mega-card__media">
+    {% render 'rt-image1picture',
+      image: block.settings.image,
+      class: 'rt-mega-card__image',
+      alt: card_alt,
+      sizes: '(min-width: 750px) 480px, 100vw',
+      loading: 'lazy',
+      fetchpriority: 'low'
+    %}
+  </span>
+  {% if block.settings.title != blank %}
+    <span class="rt-mega-card__title">{{ block.settings.title | escape }}</span>
+  {% endif %}
+</a>
+
+{% schema %}
+{
+  "name": "卡片",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "图片"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "Card"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "链接"
+    }
+  ],
+  "presets": [
+    {
+      "name": "卡片"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,45 @@
+{%- doc -%}
+  Renders one image for both PC and mobile.
+
+  @param {image} image - Shared image
+  @param {string} [class] - Class for the img
+  @param {string} [alt] - Alt text override
+  @param {string} [sizes] - Sizes attribute (default: 100vw)
+  @param {string} [loading] - "lazy" (default) or "eager"
+  @param {string} [decoding] - "async" (default) or "sync" or "auto"
+  @param {string} [fetchpriority] - "auto" (default) | "high" | "low"
+
+  @example
+  {% render 'rt-image1picture', image: block.settings.image, loading: 'lazy' %}
+{%- enddoc -%}
+
+{%- liquid
+  assign loading_value = loading | default: 'lazy'
+  assign decoding_value = decoding | default: 'async'
+  assign sizes_value = sizes | default: '100vw'
+  assign alt_value = alt | default: image.alt | default: ''
+  assign fetchpriority_value = fetchpriority | default: 'auto'
+-%}
+
+{%- if image != blank -%}
+  {%- capture srcset -%}
+    {{ image | image_url: width: 320 }} 320w, {{ image | image_url: width: 480 }} 480w, {{ image | image_url: width: 640 }} 640w, {{ image | image_url: width: 750 }} 750w, {{ image | image_url: width: 960 }} 960w, {{ image | image_url: width: 1200 }} 1200w, {{ image | image_url: width: 1600 }} 1600w
+  {%- endcapture -%}
+
+  <picture>
+    <img
+      src="{{ image | image_url: width: 960 }}"
+      srcset="{{ srcset | strip }}"
+      sizes="{{ sizes_value | escape }}"
+      width="{{ image.width }}"
+      height="{{ image.height }}"
+      alt="{{ alt_value | escape }}"
+      loading="{{ loading_value }}"
+      decoding="{{ decoding_value }}"
+      fetchpriority="{{ fetchpriority_value }}"
+      {% if class != blank %}
+        class="{{ class }}"
+      {% endif %}
+    >
+  </picture>
+{%- endif -%}

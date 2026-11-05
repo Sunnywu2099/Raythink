@@ -1,0 +1,78 @@
+{% doc %}
+  Mobile header drawer. Uses the theme drawer behavior and renders the custom menu items passed in.
+
+  @param {string} menus - Rendered menu items
+  @param {object} block - Header menu block
+  @param {object} section - Header section
+
+  @example
+  {% render 'rt-header-drawer', menus: menus, block: block, section: section %}
+{% enddoc %}
+
+{% liquid
+  assign show_language = section.settings.show_language
+  if localization.available_languages.size <= 1
+    assign show_language = false
+  endif
+
+  assign show_country = section.settings.show_country
+  if localization.available_countries.size <= 1
+    assign show_country = false
+  endif
+%}
+
+<script src="{{ 'header-drawer.js' | asset_url }}" type="module" fetchpriority="low"></script>
+
+<header-drawer class="header-drawer">
+  <details
+    id="Details-menu-drawer-container"
+    data-skip-node-update="true"
+    class="menu-drawer-container"
+    ref="details"
+    scroll-lock
+  >
+    <summary
+      class="header__icon header__icon--menu header__icon--summary"
+      aria-label="{{ 'accessibility.menu' | t }}"
+      on:click="/toggle"
+    >
+      <span class="svg-wrapper header-drawer-icon header-drawer-icon--open">
+        {{- 'icon-menu.svg' | inline_asset_content -}}
+      </span>
+      <span class="svg-wrapper header-drawer-icon header-drawer-icon--close">
+        {{- 'icon-close-menu.svg' | inline_asset_content -}}
+      </span>
+    </summary>
+    <div ref="menuDrawer" class="menu-drawer">
+      <button
+        class="button close-button menu-drawer__close-button focus-inset"
+        type="button"
+        aria-label="{{ 'actions.close' | t }}"
+        on:click="/close"
+      >
+        <span class="svg-wrapper header-drawer-icon header-drawer-icon--close">
+          {{- 'icon-close-menu.svg' | inline_asset_content -}}
+        </span>
+      </button>
+      <rt-drawer-accordion>
+        <nav class="menu-drawer__navigation" aria-label="{{ 'accessibility.header_navigation_label' | t }}">
+          <ul class="menu-drawer__menu has-submenu" role="list">
+            {{ menus }}
+          </ul>
+        </nav>
+      </rt-drawer-accordion>
+      {% if show_country or show_language %}
+        <div class="menu-drawer__utility-links">
+          {% render 'localization-form',
+            show_country: show_country,
+            show_language: show_language,
+            localization_style: 'drawer',
+            form_id: block.id
+          %}
+        </div>
+      {% endif %}
+    </div>
+  </details>
+</header-drawer>
+
+<script src="{{ 'rt-drawer-accordion.js' | asset_url }}" type="module"></script>
