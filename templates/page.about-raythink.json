@@ -28,7 +28,7 @@
           "settings": {
             "title": "HVAC & Electrical Inspection",
             "icon": "bolt",
-            "image": "shopify://shop_images/01-HVAC-and-Electrical-Inspection.webp"
+            "image": "shopify://shop_images/About_Us_Senario_3.png"
           }
         },
         "application_tGbnAq": {
@@ -36,7 +36,7 @@
           "settings": {
             "title": "Industrial Maintenance",
             "icon": "gear",
-            "image": "shopify://shop_images/02-Industrial-Maintenance.jpg"
+            "image": "shopify://shop_images/About_Us_Senario_2.png"
           }
         },
         "application_AyGPrN": {
@@ -44,7 +44,7 @@
           "settings": {
             "title": "Building Diagnostics",
             "icon": "building",
-            "image": "shopify://shop_images/03-Building-Diagnostics.jpg"
+            "image": "shopify://shop_images/About_Us_Senario_1_9765a03f-f596-4a4d-9062-3b20abef8230.png"
           }
         }
       },
