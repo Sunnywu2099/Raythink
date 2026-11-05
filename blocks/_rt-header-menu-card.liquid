@@ -12,18 +12,14 @@
   {{ block.shopify_attributes }}
 >
   <span class="rt-mega-card__media">
-    {% if block.settings.image != blank %}
-      {{
-        block.settings.image
-        | image_url: width: 960
-        | image_tag:
-          class: 'rt-mega-card__image',
-          widths: '240, 360, 480, 720, 960',
-          sizes: '(min-width: 990px) 230px, 50vw',
-          alt: card_alt,
-          loading: 'lazy'
-      }}
-    {% endif %}
+    {% render 'rt-image1picture',
+      image: block.settings.image,
+      class: 'rt-mega-card__image',
+      alt: card_alt,
+      sizes: '(min-width: 750px) 480px, 100vw',
+      loading: 'lazy',
+      fetchpriority: 'low'
+    %}
   </span>
   {% if block.settings.title != blank %}
     <span class="rt-mega-card__title">{{ block.settings.title | escape }}</span>
