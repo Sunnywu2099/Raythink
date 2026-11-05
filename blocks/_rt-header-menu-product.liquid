@@ -10,12 +10,15 @@
 %}
 
 {% if menu_product != blank %}
+  {% liquid
+    assign card_alt = menu_product.featured_image.alt | default: menu_product.title
+  %}
   <article class="rt-product-card" {{ block.shopify_attributes }}>
     <div class="rt-product-card__media">
       {% render 'rt-image1picture',
         image: menu_product.featured_image,
         class: 'rt-product-card__image',
-        alt: menu_product.featured_image.alt | default: menu_product.title,
+        alt: card_alt,
         sizes: '(min-width: 750px) 220px, 80vw',
         loading: 'lazy',
         fetchpriority: 'low'
