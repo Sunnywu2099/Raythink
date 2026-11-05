@@ -4,7 +4,8 @@
 
 <li class="rt-mega__link-item" {{ block.shopify_attributes }}>
   <a class="rt-mega__side-link" href="{{ block.settings.url | default: '#' }}">
-    {{ block.settings.title | escape }}
+    <span class="rt-mega__side-link-label">{{ block.settings.title | escape }}</span>
+    {% render 'rt-menu-chevron', class: 'rt-mega__side-link-icon' %}
   </a>
 </li>
 
