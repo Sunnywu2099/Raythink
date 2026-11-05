@@ -116,9 +116,9 @@
           "type": "half-block",
           "settings": {
             "image": "shopify://shop_images/main-product2.png",
-            "title": "Product Name",
+            "title": "IX1GO Series",
             "title_color": "#000000",
-            "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
+            "description": "",
             "description_color": "#595959",
             "primary_button_text": "Learn More",
             "primary_link": "",
