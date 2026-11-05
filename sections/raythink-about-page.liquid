@@ -1,0 +1,242 @@
+{% comment %}
+  Raythink About page — single configurable Shopify section.
+  Add to Online Store > Themes > Edit code > Sections > raythink-about-page.liquid
+  Then create a Page template and add this section via theme editor.
+{% endcomment %}
+
+<section id="rt-about-{{ section.id }}" class="rt-about" style="--rt-accent: {{ section.settings.accent_color }}; --rt-ink: {{ section.settings.text_color }}; --rt-max: {{ section.settings.content_width }}px;">
+  <div class="rt-about__hero">
+    <div class="rt-about__wrap rt-about__hero-grid">
+      <div class="rt-about__hero-copy">
+        <span class="rt-about__eyebrow">{{ section.settings.hero_eyebrow | escape }}</span>
+        <h1>{{ section.settings.hero_title | escape }}</h1>
+        <p class="rt-about__lead">{{ section.settings.hero_subtitle | escape }}</p>
+        <div class="rt-about__intro">{{ section.settings.hero_description }}</div>
+        {% if section.settings.hero_video != blank %}
+          <a class="rt-about__button" href="#rt-about-video-{{ section.id }}" aria-label="Watch Raythink brand video">
+            <span aria-hidden="true">▶</span> {{ section.settings.video_button_label | escape }}
+          </a>
+        {% elsif section.settings.hero_button_link != blank %}
+          <a class="rt-about__button" href="{{ section.settings.hero_button_link }}">{{ section.settings.video_button_label | escape }} <span aria-hidden="true">→</span></a>
+        {% endif %}
+      </div>
+      <div class="rt-about__hero-media" id="rt-about-video-{{ section.id }}">
+        {% if section.settings.hero_video != blank %}
+          {{ section.settings.hero_video | video_tag: image_size: '1400x', controls: true, autoplay: false, loop: false, playsinline: true, class: 'rt-about__video' }}
+        {% elsif section.settings.hero_image != blank %}
+          {{ section.settings.hero_image | image_url: width: 1400 | image_tag: class: 'rt-about__img', loading: 'eager', widths: '480, 720, 960, 1200, 1400', sizes: '(min-width: 850px) 52vw, 100vw', alt: section.settings.hero_image.alt }}
+        {% else %}
+          <div class="rt-about__placeholder">Upload your Raythink brand video in the section settings</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="rt-about__section rt-about__wrap rt-about__split">
+    <div class="rt-about__media">
+      {% if section.settings.about_image != blank %}
+        {{ section.settings.about_image | image_url: width: 1300 | image_tag: class: 'rt-about__img', loading: 'lazy', widths: '480, 750, 1000, 1300', sizes: '(min-width: 850px) 48vw, 100vw', alt: section.settings.about_image.alt }}
+      {% else %}
+        <div class="rt-about__placeholder">About image (sensor / chip)</div>
+      {% endif %}
+    </div>
+    <div class="rt-about__copy">
+      <span class="rt-about__rule"></span>
+      <h2>{{ section.settings.about_heading | escape }}</h2>
+      <div class="rt-about__body">{{ section.settings.about_text }}</div>
+    </div>
+  </div>
+
+  <div class="rt-about__applications">
+    <div class="rt-about__wrap rt-about__applications-grid">
+      <div class="rt-about__applications-intro">
+        <span class="rt-about__rule"></span>
+        <h2>{{ section.settings.apps_heading | escape }}</h2>
+        <div class="rt-about__body">{{ section.settings.apps_text }}</div>
+      </div>
+      <div class="rt-about__cards">
+        {% for block in section.blocks %}
+          {% if block.type == 'application' %}
+            <article class="rt-about__card" {{ block.shopify_attributes }}>
+              <div class="rt-about__card-top">
+                <span class="rt-about__card-icon" aria-hidden="true">
+                  {% case block.settings.icon %}
+                    {% when 'bolt' %}⚡
+                    {% when 'gear' %}⚙
+                    {% when 'building' %}▥
+                    {% else %}◈
+                  {% endcase %}
+                </span>
+                <h3>{{ block.settings.title | escape }}</h3>
+              </div>
+              <div class="rt-about__card-media">
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 650 | image_tag: class: 'rt-about__img', loading: 'lazy', widths: '300, 450, 650', sizes: '(min-width: 850px) 20vw, 75vw', alt: block.settings.image.alt }}
+                {% else %}
+                  <div class="rt-about__card-fallback">{{ block.settings.title | escape }}</div>
+                {% endif %}
+              </div>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="rt-about__section rt-about__wrap rt-about__quality">
+    <div class="rt-about__center">
+      <span class="rt-about__rule"></span>
+      <h2>{{ section.settings.quality_heading | escape }}</h2>
+      <div class="rt-about__body">{{ section.settings.quality_text }}</div>
+    </div>
+    <div class="rt-about__gallery">
+      {% for i in (1..3) %}
+        {% assign field = 'quality_image_' | append: i %}
+        {% assign quality_image = section.settings[field] %}
+        <div class="rt-about__gallery-item rt-about__gallery-item--{{ i }}">
+          {% if quality_image != blank %}
+            {{ quality_image | image_url: width: 1400 | image_tag: class: 'rt-about__img', loading: 'lazy', widths: '420, 700, 1000, 1400', sizes: '(min-width: 850px) 60vw, 100vw', alt: quality_image.alt }}
+          {% else %}
+            <div class="rt-about__placeholder">Quality image {{ i }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="rt-about__section rt-about__wrap rt-about__split rt-about__innovation">
+    <div class="rt-about__media">
+      {% if section.settings.innovation_image != blank %}
+        {{ section.settings.innovation_image | image_url: width: 1300 | image_tag: class: 'rt-about__img', loading: 'lazy', widths: '480, 750, 1000, 1300', sizes: '(min-width: 850px) 48vw, 100vw', alt: section.settings.innovation_image.alt }}
+      {% else %}
+        <div class="rt-about__placeholder">Innovation image (sensor / chip)</div>
+      {% endif %}
+    </div>
+    <div class="rt-about__copy">
+      <span class="rt-about__rule"></span>
+      <h2>{{ section.settings.innovation_heading | escape }}</h2>
+      <div class="rt-about__body">{{ section.settings.innovation_text }}</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #rt-about-{{ section.id }} { color: var(--rt-ink); font-family: inherit; font-size: 16px; line-height: 1.6; }
+  #rt-about-{{ section.id }} * { box-sizing: border-box; }
+  #rt-about-{{ section.id }} .rt-about__wrap { width: min(calc(100% - 48px), var(--rt-max)); margin-inline: auto; }
+  #rt-about-{{ section.id }} h1, #rt-about-{{ section.id }} h2, #rt-about-{{ section.id }} h3 { color: var(--rt-ink); margin: 0; line-height: 1.13; letter-spacing: -.035em; }
+  #rt-about-{{ section.id }} h1 { font-size: clamp(40px, 5vw, 68px); font-weight: 750; }
+  #rt-about-{{ section.id }} h2 { font-size: clamp(30px, 3.4vw, 46px); font-weight: 730; }
+  #rt-about-{{ section.id }} h3 { font-size: clamp(16px, 1.5vw, 20px); font-weight: 700; letter-spacing: -.02em; }
+  #rt-about-{{ section.id }} p { margin: 0; }
+  #rt-about-{{ section.id }} .rt-about__body { max-width: 650px; font-size: clamp(15px, 1.22vw, 18px); line-height: 1.75; color: #454d5b; }
+  #rt-about-{{ section.id }} .rt-about__body p + p { margin-top: 12px; }
+  #rt-about-{{ section.id }} .rt-about__section { padding-block: clamp(64px, 7vw, 110px); }
+  #rt-about-{{ section.id }} .rt-about__hero { background: linear-gradient(115deg, #ffffff 3%, #eff6ff 62%, #d8eafa 100%); padding-block: clamp(62px, 7vw, 105px); }
+  #rt-about-{{ section.id }} .rt-about__hero-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(28px, 5vw, 76px); align-items: center; }
+  #rt-about-{{ section.id }} .rt-about__eyebrow { display: inline-block; margin-bottom: 18px; font-size: 12px; font-weight: 700; color: var(--rt-accent); text-transform: uppercase; letter-spacing: .16em; }
+  #rt-about-{{ section.id }} .rt-about__lead { font-size: clamp(21px, 2.25vw, 31px); font-weight: 520; line-height: 1.35; margin-top: 17px; }
+  #rt-about-{{ section.id }} .rt-about__intro { color: #4b5563; margin-top: 18px; max-width: 520px; font-size: 16px; line-height: 1.7; }
+  #rt-about-{{ section.id }} .rt-about__button { display: inline-flex; align-items: center; gap: 12px; background: var(--rt-accent); color: #fff; text-decoration: none; padding: 13px 20px; border-radius: 5px; font-weight: 650; font-size: 14px; margin-top: 28px; transition: opacity .2s; }
+  #rt-about-{{ section.id }} .rt-about__button:hover { opacity: .86; }
+  #rt-about-{{ section.id }} .rt-about__hero-media, #rt-about-{{ section.id }} .rt-about__media, #rt-about-{{ section.id }} .rt-about__gallery-item { overflow: hidden; border-radius: 12px; background: #e8edf4; }
+  #rt-about-{{ section.id }} .rt-about__hero-media { aspect-ratio: 16/10; scroll-margin-top: 100px; }
+  #rt-about-{{ section.id }} .rt-about__img, #rt-about-{{ section.id }} .rt-about__video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #rt-about-{{ section.id }} .rt-about__hero-media video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  #rt-about-{{ section.id }} .rt-about__split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
+  #rt-about-{{ section.id }} .rt-about__media { aspect-ratio: 1.65; }
+  #rt-about-{{ section.id }} .rt-about__rule { display: block; width: 36px; height: 4px; border-radius: 3px; background: var(--rt-accent); margin-bottom: 21px; }
+  #rt-about-{{ section.id }} .rt-about__copy .rt-about__body { margin-top: 21px; }
+  #rt-about-{{ section.id }} .rt-about__applications { padding-block: clamp(64px, 7vw, 105px); background: #eef5fc; }
+  #rt-about-{{ section.id }} .rt-about__applications-grid { display: grid; grid-template-columns: minmax(230px, .9fr) minmax(0, 2.1fr); gap: 30px; align-items: center; }
+  #rt-about-{{ section.id }} .rt-about__applications-intro .rt-about__body { margin-top: 22px; font-size: 16px; }
+  #rt-about-{{ section.id }} .rt-about__cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  #rt-about-{{ section.id }} .rt-about__card { background: #fff; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+  #rt-about-{{ section.id }} .rt-about__card-top { padding: 23px 18px 18px; min-height: 138px; }
+  #rt-about-{{ section.id }} .rt-about__card-icon { font-size: 29px; line-height: 1; color: var(--rt-accent); display: block; margin-bottom: 14px; }
+  #rt-about-{{ section.id }} .rt-about__card-media { aspect-ratio: 1.25; margin-top: auto; overflow: hidden; }
+  #rt-about-{{ section.id }} .rt-about__card-fallback { height: 100%; display: flex; justify-content: center; align-items: center; padding: 12px; color: #59728d; background: linear-gradient(150deg, #eaf5ff, #bfd7ee); text-align: center; }
+  #rt-about-{{ section.id }} .rt-about__center { text-align: center; max-width: 790px; margin: 0 auto 36px; }
+  #rt-about-{{ section.id }} .rt-about__center .rt-about__rule { margin-inline: auto; }
+  #rt-about-{{ section.id }} .rt-about__center .rt-about__body { margin: 18px auto 0; }
+  #rt-about-{{ section.id }} .rt-about__gallery { display: grid; grid-template-columns: 1.2fr .9fr; grid-template-rows: 1fr 1fr; gap: 12px; height: clamp(360px, 36vw, 540px); }
+  #rt-about-{{ section.id }} .rt-about__gallery-item--1 { grid-row: span 2; }
+  #rt-about-{{ section.id }} .rt-about__placeholder { display: flex; align-items: center; justify-content: center; color: #637b92; text-align: center; background: #e9f1fa; height: 100%; min-height: 170px; padding: 20px; font-size: 14px; }
+  #rt-about-{{ section.id }} .rt-about__innovation { padding-top: 0; }
+  @media (max-width: 989px) {
+    #rt-about-{{ section.id }} .rt-about__applications-grid { grid-template-columns: 1fr; }
+    #rt-about-{{ section.id }} .rt-about__cards { gap: 12px; }
+    #rt-about-{{ section.id }} .rt-about__card-top { min-height: 120px; }
+  }
+  @media (max-width: 749px) {
+    #rt-about-{{ section.id }} .rt-about__wrap { width: min(calc(100% - 36px), var(--rt-max)); }
+    #rt-about-{{ section.id }} .rt-about__hero-grid, #rt-about-{{ section.id }} .rt-about__split { grid-template-columns: 1fr; gap: 28px; }
+    #rt-about-{{ section.id }} .rt-about__hero { padding-block: 55px 48px; }
+    #rt-about-{{ section.id }} .rt-about__intro { font-size: 15px; }
+    #rt-about-{{ section.id }} .rt-about__hero-media { aspect-ratio: 16/10; }
+    #rt-about-{{ section.id }} .rt-about__section { padding-block: 60px; }
+    #rt-about-{{ section.id }} .rt-about__media { aspect-ratio: 16/10; }
+    #rt-about-{{ section.id }} .rt-about__applications { padding-block: 60px; }
+    #rt-about-{{ section.id }} .rt-about__cards { grid-template-columns: repeat(3, minmax(210px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+    #rt-about-{{ section.id }} .rt-about__card { scroll-snap-align: start; }
+    #rt-about-{{ section.id }} .rt-about__gallery { height: auto; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+    #rt-about-{{ section.id }} .rt-about__gallery-item--1 { grid-row: auto; grid-column: span 2; aspect-ratio: 1.65; }
+    #rt-about-{{ section.id }} .rt-about__gallery-item--2, #rt-about-{{ section.id }} .rt-about__gallery-item--3 { aspect-ratio: 1; }
+    #rt-about-{{ section.id }} .rt-about__innovation { padding-top: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #rt-about-{{ section.id }} .rt-about__button { transition: none; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Raythink About Page",
+  "tag": "section",
+  "class": "section-raythink-about",
+  "settings": [
+    {"type":"header","content":"General"},
+    {"type":"color","id":"accent_color","label":"Brand blue","default":"#235bb1"},
+    {"type":"color","id":"text_color","label":"Heading color","default":"#192233"},
+    {"type":"range","id":"content_width","label":"Max content width","min":960,"max":1440,"step":40,"unit":"px","default":1200},
+    {"type":"header","content":"01 — Hero & brand video"},
+    {"type":"text","id":"hero_eyebrow","label":"Small label","default":"Discover Raythink"},
+    {"type":"text","id":"hero_title","label":"Title","default":"About Raythink"},
+    {"type":"text","id":"hero_subtitle","label":"Subtitle","default":"Intelligent sensing technologies for smarter decisions."},
+    {"type":"richtext","id":"hero_description","label":"Intro","default":"<p>Professional thermal imaging and laser sensing solutions to help you detect hidden problems and make smarter decisions.</p>"},
+    {"type":"video","id":"hero_video","label":"Brand video (upload under Content > Files)"},
+    {"type":"image_picker","id":"hero_image","label":"Fallback image when no video is selected"},
+    {"type":"text","id":"video_button_label","label":"Hero button label","default":"Watch Brand Video"},
+    {"type":"url","id":"hero_button_link","label":"Optional button link when no video"},
+    {"type":"header","content":"02 — About Raythink"},
+    {"type":"text","id":"about_heading","label":"Heading","default":"About Raythink"},
+    {"type":"richtext","id":"about_text","label":"Description","default":"<p>Raythink specializes in intelligent sensing technologies. We develop professional thermal imaging and laser sensing solutions that help users detect hidden problems and make smarter decisions.</p>"},
+    {"type":"image_picker","id":"about_image","label":"Chip / technology image"},
+    {"type":"header","content":"03 — Applications"},
+    {"type":"text","id":"apps_heading","label":"Heading","default":"What We Do"},
+    {"type":"richtext","id":"apps_text","label":"Description","default":"<p>From HVAC and electrical inspection to industrial maintenance and building diagnostics, Raythink delivers reliable tools designed to improve safety, efficiency, and productivity.</p>"},
+    {"type":"header","content":"04 — Quality Assurance"},
+    {"type":"text","id":"quality_heading","label":"Heading","default":"Quality Assurance"},
+    {"type":"richtext","id":"quality_text","label":"Description","default":"<p>A comprehensive quality management system with rigorous reliability testing ensures consistent performance and long-lasting product reliability.</p>"},
+    {"type":"image_picker","id":"quality_image_1","label":"Large factory image (left)"},
+    {"type":"image_picker","id":"quality_image_2","label":"Small factory image (top right)"},
+    {"type":"image_picker","id":"quality_image_3","label":"Small factory image (bottom right)"},
+    {"type":"header","content":"05 — Innovation"},
+    {"type":"text","id":"innovation_heading","label":"Heading","default":"Driven by Innovation"},
+    {"type":"richtext","id":"innovation_text","label":"Description","default":"<p>Committed to innovation, we continue to advance thermal imaging technology and create smarter solutions for a safer and more sustainable future.</p>"},
+    {"type":"image_picker","id":"innovation_image","label":"Innovation / chip image"}
+  ],
+  "blocks": [
+    {"type":"application","name":"Application card","limit":3,"settings":[
+      {"type":"text","id":"title","label":"Card title","default":"Application"},
+      {"type":"select","id":"icon","label":"Icon","options":[{"value":"bolt","label":"Electrical"},{"value":"gear","label":"Industrial"},{"value":"building","label":"Building"},{"value":"diamond","label":"Technology"}],"default":"bolt"},
+      {"type":"image_picker","id":"image","label":"Card image"}
+    ]}
+  ],
+  "presets": [{"name":"Raythink About Page","blocks":[
+    {"type":"application","settings":{"title":"HVAC & Electrical Inspection","icon":"bolt"}},
+    {"type":"application","settings":{"title":"Industrial Maintenance","icon":"gear"}},
+    {"type":"application","settings":{"title":"Building Diagnostics","icon":"building"}}
+  ]}]
+}
+{% endschema %}
