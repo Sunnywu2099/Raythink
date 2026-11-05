@@ -37,7 +37,7 @@
   </span>
   <div class="menu-list__submenu" ref="submenu[]" data-skip-node-update>
     <div id="submenu-{{ block.id }}" class="menu-list__submenu-inner">
-      <rt-mega-menu class="rt-mega">
+      <rt-mega-menu class="rt-mega rt-mega--products">
         <div class="rt-mega__tabs" data-rt-mega-tabs></div>
         <div class="rt-mega__stage" data-rt-mega-stage></div>
         <div class="rt-mega__source" data-rt-mega-source>
@@ -97,16 +97,23 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .rt-mega__cards:has(> :nth-child(3)) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .rt-mega--products .rt-mega__cards,
+  .rt-mega--products .rt-mega__cards:has(> :nth-child(3)),
+  .rt-mega--products .rt-mega__cards:has(> :nth-child(4)) {
+    gap: 16px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .rt-mega__cards:has(> :nth-child(4)) {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .menu-drawer .rt-mega--products .rt-mega__cards {
+    grid-template-columns: 1fr;
   }
 
   .rt-mega__cards > :nth-child(n + 5) {
     display: none;
+  }
+
+  .rt-mega--products .rt-mega__cards > :nth-child(n + 5) {
+    display: block;
   }
 
   .menu-drawer .rt-mega {
