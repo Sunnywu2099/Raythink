@@ -133,18 +133,19 @@
   .rt-mega-card {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0;
     min-width: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f6f6f6;
     color: inherit;
     text-decoration: none;
   }
 
   .rt-mega-card__media {
     display: block;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
-    border-radius: 8px;
-    background: #f3f3f3;
   }
 
   .rt-mega-card__image {
@@ -157,13 +158,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 64px;
-    padding: 12px 8px;
-    border-radius: 8px;
-    background: #f3f3f3;
+    padding: 12px 20px;
     color: #111111;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 22px;
     font-weight: 600;
     text-align: center;
     overflow-wrap: anywhere;
