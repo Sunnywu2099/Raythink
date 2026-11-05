@@ -295,8 +295,9 @@
                       "type": "_rt-header-menu-card",
                       "name": "卡片",
                       "settings": {
-                        "title": "Card",
-                        "url": ""
+                        "image": "shopify://shop_images/Rectangle_562_ba59898a-cffc-4928-90d2-f6827098f8d0.png",
+                        "title": "Blog",
+                        "url": "/"
                       },
                       "blocks": {}
                     },
@@ -304,16 +305,18 @@
                       "type": "_rt-header-menu-card",
                       "name": "卡片",
                       "settings": {
-                        "title": "Card",
-                        "url": ""
+                        "image": "shopify://shop_images/Rectangle_562_812b0469-bdd5-4fc2-9813-9aa9fb45be2d.png",
+                        "title": "About Us",
+                        "url": "/"
                       },
                       "blocks": {}
                     },
                     "rt_header_menu_card_44nkPA": {
                       "type": "_rt-header-menu-card",
                       "settings": {
-                        "title": "Card",
-                        "url": ""
+                        "image": "shopify://shop_images/Rectangle_562_e5608ec7-52d6-45c3-85f0-c2d6b3ee1462.png",
+                        "title": "Membership",
+                        "url": "/"
                       },
                       "blocks": {}
                     }
