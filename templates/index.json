@@ -102,13 +102,13 @@
           "type": "half-block",
           "settings": {
             "image": "shopify://shop_images/main-product1.png",
-            "title": "Product Name",
+            "title": "EX20 Series",
             "title_color": "#000000",
-            "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
+            "description": "",
             "description_color": "#595959",
             "primary_button_text": "Learn More",
             "primary_link": "",
-            "secondary_button_text": "Buy Now",
+            "secondary_button_text": "",
             "secondary_link": ""
           }
         },
