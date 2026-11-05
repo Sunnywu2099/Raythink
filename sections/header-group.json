@@ -506,9 +506,10 @@
             },
             "rt_header_menu_link_ezkUM8": {
               "type": "_rt-header-menu-link",
+              "disabled": true,
               "settings": {
                 "title": "Products",
-                "url": "",
+                "url": "/",
                 "open_in_new_window": false
               },
               "blocks": {}
