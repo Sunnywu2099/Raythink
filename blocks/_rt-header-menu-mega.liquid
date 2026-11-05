@@ -59,9 +59,12 @@
   .rt-mega__tabs {
     flex: 0 0 180px;
     width: 180px;
+    min-width: 180px;
+    max-width: 180px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    white-space: normal;
   }
 
   .rt-mega__stage {
@@ -88,6 +91,8 @@
     line-height: 20px;
     font-weight: 500;
     text-align: start;
+    white-space: normal;
+    overflow-wrap: anywhere;
     cursor: pointer;
   }
 
@@ -161,6 +166,7 @@
     line-height: 20px;
     font-weight: 600;
     text-align: center;
+    overflow-wrap: anywhere;
   }
 
   .menu-drawer .rt-mega {
