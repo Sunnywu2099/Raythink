@@ -162,8 +162,33 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .menu-drawer .rt-mega--products .rt-mega__category,
+  .menu-drawer .rt-mega--products .rt-mega__panel {
+    min-width: 0;
+    max-width: 100%;
+  }
+
   .menu-drawer .rt-mega--products .rt-mega__cards {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .menu-drawer .rt-mega--products .rt-mega__cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-drawer .rt-mega--products .rt-product-card {
+    flex: 0 0 194px;
+    width: 194px;
+    min-width: 194px;
   }
 
   .rt-mega__cards > :nth-child(n + 5) {
