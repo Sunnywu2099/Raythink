@@ -30,6 +30,7 @@
         },
         "main_banner_block_kKqVWA": {
           "type": "main-banner-block",
+          "disabled": true,
           "settings": {
             "img_desktop": "shopify://shop_images/HeroBanner-2_1.png",
             "img_mobile": "shopify://shop_images/Frame_2117130476.png",
@@ -46,6 +47,7 @@
         },
         "main_banner_block_Xjqpeh": {
           "type": "main-banner-block",
+          "disabled": true,
           "settings": {
             "img_desktop": "shopify://shop_images/HeroBanner-2_1.png",
             "img_mobile": "shopify://shop_images/Frame_2117130476.png",
@@ -126,6 +128,7 @@
         },
         "full_block_GUJFid": {
           "type": "full-block",
+          "disabled": true,
           "settings": {
             "bg": "shopify://shop_images/HeroBanner-1.png",
             "bg_mobile": "shopify://shop_images/HeroBanner-2.png",
@@ -218,6 +221,7 @@
         "application_block_XeKxJK",
         "application_block_bKzjNF"
       ],
+      "disabled": true,
       "name": "rt-application",
       "settings": {
         "background_color": "#f5f5f9",
@@ -363,6 +367,7 @@
         "sharing_block_cRxXKb",
         "sharing_block_3wyKcP"
       ],
+      "disabled": true,
       "name": "rt-sharing",
       "settings": {
         "background_color": "#f5f5f9",
@@ -443,6 +448,7 @@
         "blog_block_zqU6HM",
         "blog_block_yfb74e"
       ],
+      "disabled": true,
       "name": "rt-blogs-swiper",
       "settings": {
         "background_color": "#f5f5f9",
@@ -503,6 +509,7 @@
         "application_block_GcLiMf",
         "application_block_EVx8WB"
       ],
+      "disabled": true,
       "name": "rt-icons-with-text",
       "settings": {
         "background_color": "#f5f5f9",
