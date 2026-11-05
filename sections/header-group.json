@@ -195,25 +195,36 @@
                 "rt_header_submenu_link_mBihXY"
               ]
             },
-            "rt_header_menu_dropdown_VDYx6N": {
-              "type": "_rt-header-menu-dropdown",
+            "rt_header_menu_mega_6LXnw8": {
+              "type": "_rt-header-menu-mega",
+              "name": "分类菜单",
               "settings": {
                 "title": "Support",
                 "url": ""
               },
               "blocks": {
-                "rt_header_submenu_link_3fcBhP": {
-                  "type": "_rt-header-submenu-link",
-                  "settings": {
-                    "title": "Item",
-                    "url": "",
-                    "open_in_new_window": false
+                "rt_header_menu_card_group_74KCg9": {
+                  "type": "_rt-header-menu-card-group",
+                  "name": "卡片组",
+                  "settings": {},
+                  "blocks": {
+                    "rt_header_menu_card_AwjF4z": {
+                      "type": "_rt-header-menu-card",
+                      "settings": {
+                        "image": "shopify://shop_images/Rectangle_562.png",
+                        "title": "Contact Us",
+                        "url": "/"
+                      },
+                      "blocks": {}
+                    }
                   },
-                  "blocks": {}
+                  "block_order": [
+                    "rt_header_menu_card_AwjF4z"
+                  ]
                 }
               },
               "block_order": [
-                "rt_header_submenu_link_3fcBhP"
+                "rt_header_menu_card_group_74KCg9"
               ]
             },
             "rt_header_menu_dropdown_KN4Wm9": {
@@ -331,7 +342,7 @@
           "block_order": [
             "rt_header_menu_dropdown_Ld38ME",
             "rt_header_menu_dropdown_cPQYfz",
-            "rt_header_menu_dropdown_VDYx6N",
+            "rt_header_menu_mega_6LXnw8",
             "rt_header_menu_dropdown_KN4Wm9",
             "rt_header_menu_dropdown_E846Ng",
             "rt_header_menu_link_ezkUM8"
