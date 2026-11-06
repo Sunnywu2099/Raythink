@@ -16,7 +16,7 @@
           "type": "info",
           "settings": {
             "title": "General Support:",
-            "text": "<p>For order updates or product-related questions, please contact us at <a href=\"mailto:support@example.com\">support@raythink.com</a></p>"
+            "text": "<p>For order updates or product-related questions, please contact us at <a href=\"mailto:support@raythink.com\" title=\"mailto:support@raythink.com\">support@raythink.com</a></p>"
           }
         },
         "info_cXzxMP": {
