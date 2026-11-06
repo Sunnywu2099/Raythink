@@ -253,6 +253,38 @@
                 "url": ""
               },
               "blocks": {
+                "rt_header_menu_product_category_aQyfhw": {
+                  "type": "_rt-header-menu-product-category",
+                  "name": "产品分类",
+                  "settings": {
+                    "title": "IX1GO Series"
+                  },
+                  "blocks": {
+                    "rt_header_menu_product_RUniAR": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ix1go-pro",
+                        "badge_text": "",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_PHDWBt": {
+                      "type": "_rt-header-menu-product",
+                      "settings": {
+                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "badge_text": "",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_RUniAR",
+                    "rt_header_menu_product_PHDWBt"
+                  ]
+                },
                 "rt_header_menu_product_links_hwXKgR": {
                   "type": "_rt-header-menu-product-links",
                   "name": "链接组",
@@ -280,43 +312,11 @@
                     "rt_header_menu_product_link_FJTaWg",
                     "rt_header_menu_product_link_9KyABp"
                   ]
-                },
-                "rt_header_menu_product_category_wjAXfb": {
-                  "type": "_rt-header-menu-product-category",
-                  "settings": {
-                    "title": "EX10 Series"
-                  },
-                  "blocks": {
-                    "rt_header_menu_product_B9jQdb": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ix1-go-smart-phone-thermal-camera",
-                        "badge_text": "New",
-                        "badge_color": "#00ad2e"
-                      },
-                      "blocks": {}
-                    },
-                    "rt_header_menu_product_EGAnew": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ix1go-pro",
-                        "badge_text": "New",
-                        "badge_color": "#00ad2e"
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "rt_header_menu_product_B9jQdb",
-                    "rt_header_menu_product_EGAnew"
-                  ]
                 }
               },
               "block_order": [
-                "rt_header_menu_product_links_hwXKgR",
-                "rt_header_menu_product_category_wjAXfb"
+                "rt_header_menu_product_category_aQyfhw",
+                "rt_header_menu_product_links_hwXKgR"
               ]
             },
             "rt_header_menu_mega_6LXnw8": {
