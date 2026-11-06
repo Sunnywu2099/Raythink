@@ -164,6 +164,7 @@
                 },
                 "rt_header_menu_product_category_gqzkQT": {
                   "type": "_rt-header-menu-product-category",
+                  "disabled": true,
                   "settings": {
                     "title": "EX20 Series"
                   },
@@ -216,7 +217,7 @@
                       "settings": {
                         "product": "cx20-pro-handheld-thermal-camera",
                         "badge_text": "",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#1b8f3a"
                       },
                       "blocks": {}
                     },
@@ -226,7 +227,7 @@
                       "settings": {
                         "product": "cx20-ultra-handheld-thermal-camera",
                         "badge_text": "",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#1b8f3a"
                       },
                       "blocks": {}
                     }
@@ -266,7 +267,7 @@
                       "settings": {
                         "product": "ix1go-pro",
                         "badge_text": "",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#1b8f3a"
                       },
                       "blocks": {}
                     },
@@ -275,7 +276,7 @@
                       "settings": {
                         "product": "ix1-go-smart-phone-thermal-camera",
                         "badge_text": "",
-                        "badge_color": "#1B8F3A"
+                        "badge_color": "#1b8f3a"
                       },
                       "blocks": {}
                     }
