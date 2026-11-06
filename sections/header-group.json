@@ -140,7 +140,7 @@
                       "type": "_rt-header-menu-product",
                       "name": "产品",
                       "settings": {
-                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "product": "ex10-handheld-thermal-camera",
                         "badge_text": "New",
                         "badge_color": "#00ad2e"
                       },
@@ -150,7 +150,7 @@
                       "type": "_rt-header-menu-product",
                       "name": "产品",
                       "settings": {
-                        "product": "ix1go-pro",
+                        "product": "ex10-pro-handheld-thermal-camera",
                         "badge_text": "New",
                         "badge_color": "#00ad2e"
                       },
