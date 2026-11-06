@@ -126,6 +126,19 @@
             "secondary_link": ""
           }
         },
+        "half_block_hdLM79": {
+          "type": "half-block",
+          "settings": {
+            "title": "Lorem Ipsum",
+            "title_color": "#000000",
+            "description": "#crafting #stickers #cricut #crafty #cute #custom #custommade #collage #journalinspo #journalart  #creative #creativejournaling #creativity #scrapbooking #journalinspiration #inspo #pinterest #aesthetic #journalspread #art #sticker #instax #journaler #archerandolive #scrapbooking #kindle #reader",
+            "description_color": "#000000",
+            "primary_button_text": "Learn More",
+            "primary_link": "",
+            "secondary_button_text": "Buy Now",
+            "secondary_link": ""
+          }
+        },
         "full_block_GUJFid": {
           "type": "full-block",
           "disabled": true,
@@ -148,6 +161,7 @@
         "description_xXMd33",
         "half_block_qtQXMP",
         "half_block_bkKfRb",
+        "half_block_hdLM79",
         "full_block_GUJFid"
       ],
       "name": "rt-main-products",
