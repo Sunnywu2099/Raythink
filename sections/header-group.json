@@ -105,11 +105,13 @@
                 "rt_header_menu_product_links_UPxgDw": {
                   "type": "_rt-header-menu-product-links",
                   "name": "链接组",
+                  "disabled": true,
                   "settings": {},
                   "blocks": {
                     "rt_header_menu_product_link_LFTKAG": {
                       "type": "_rt-header-menu-product-link",
                       "name": "链接",
+                      "disabled": true,
                       "settings": {
                         "title": "Machine Comparison",
                         "url": "/"
@@ -118,6 +120,7 @@
                     },
                     "rt_header_menu_product_link_KprY8C": {
                       "type": "_rt-header-menu-product-link",
+                      "disabled": true,
                       "settings": {
                         "title": "What’s More",
                         "url": "/"
@@ -289,11 +292,13 @@
                 "rt_header_menu_product_links_hwXKgR": {
                   "type": "_rt-header-menu-product-links",
                   "name": "链接组",
+                  "disabled": true,
                   "settings": {},
                   "blocks": {
                     "rt_header_menu_product_link_FJTaWg": {
                       "type": "_rt-header-menu-product-link",
                       "name": "链接",
+                      "disabled": true,
                       "settings": {
                         "title": "Machine Comparison",
                         "url": "/"
@@ -302,6 +307,7 @@
                     },
                     "rt_header_menu_product_link_9KyABp": {
                       "type": "_rt-header-menu-product-link",
+                      "disabled": true,
                       "settings": {
                         "title": "What’s More",
                         "url": "/"
