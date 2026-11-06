@@ -67,9 +67,9 @@
             "text": "Get prodcut updates, inspection tips, and exclusive offers.",
             "placeholder": "Email",
             "agreement": "<p>I agree to receive newsletters and marketing emails from Raythink. For details, please refer to the Terms of Use and Privacy Policy</p>",
-            "facebook_url": "/",
-            "twitter_url": "/",
-            "instagram_url": "/"
+            "facebook_url": "",
+            "twitter_url": "",
+            "instagram_url": ""
           },
           "blocks": {}
         },
@@ -77,6 +77,7 @@
           "type": "_rt-footer-regions",
           "static": true,
           "settings": {
+            "preview_mode": true,
             "heading": "Select your country or region"
           },
           "blocks": {
