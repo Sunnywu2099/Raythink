@@ -30,6 +30,7 @@
             "rt_footer_menu_Ac3GMY": {
               "type": "_rt-footer-menu",
               "name": "Menu",
+              "disabled": true,
               "settings": {
                 "menu": "applications"
               },
