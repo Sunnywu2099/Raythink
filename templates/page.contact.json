@@ -6,8 +6,64 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
+    "raythink_contact_us_page_4yHwmM": {
+      "type": "raythink-contact-us-page",
+      "blocks": {
+        "info_AP7ATF": {
+          "type": "info",
+          "settings": {
+            "title": "General Support:",
+            "text": "<p>For order updates or product-related questions, please contact us at <a href=\"mailto:support@example.com\">support@example.com</a></p>"
+          }
+        },
+        "info_cXzxMP": {
+          "type": "info",
+          "settings": {
+            "title": "Phone Support:",
+            "text": "<p><a href=\"tel:+18008895116\">+1 (800) 889-5116</a><br>Monday - Friday | 8:00 AM - 6:00 PM PST</p>"
+          }
+        },
+        "info_bVbWgk": {
+          "type": "info",
+          "settings": {
+            "title": "Amazon Orders:",
+            "text": "<p>For any questions regarding your Amazon purchase, please contact <a href=\"mailto:amazon@example.com\">amazon@example.com</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_AP7ATF",
+        "info_cXzxMP",
+        "info_bVbWgk"
+      ],
+      "name": "RISION Contact Info",
+      "settings": {
+        "kicker": "Support",
+        "heading": "Got Questions?",
+        "subheading": "<p>Visit our FAQs for immediate answers to common inquiries.</p>",
+        "image": "shopify://shop_images/Raythink_Contact_Us_Page_Side_Image.png",
+        "media_kicker": "",
+        "media_heading": "CONTACT US",
+        "media_text": "<p>Feel free to contact us.</p>",
+        "button_label": "Send Your Concern",
+        "button_link": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "image_radius": 0,
+        "media_overlay_opacity": 55,
+        "background_color": "{{ settings.color_palette.background }}",
+        "text_color": "#0B2118",
+        "muted_color": "#233A30",
+        "accent_color": "#0B2118",
+        "media_overlay_bg": "#020707",
+        "media_text_color": "#FFFFFF",
+        "button_bg": "#F3F6FA",
+        "button_text_color": "#F2992F"
+      }
+    },
     "main": {
       "type": "main-page",
       "blocks": {
@@ -21,10 +77,12 @@
             "alignment": "center",
             "type_preset": "h2",
             "font": "var(--font-body--family)",
+            "font_size": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
             "wrap": "pretty",
+            "text_color": "",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -45,10 +103,12 @@
             "alignment": "center",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
+            "font_size": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
             "wrap": "pretty",
+            "text_color": "",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -64,6 +124,7 @@
         "title",
         "content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -82,7 +143,13 @@
             "custom_width": 50,
             "width_mobile": "custom",
             "custom_width_mobile": 100,
+            "background_color": "",
             "input_style": "default",
+            "input_background_color": "{{ settings.color_palette.background }}",
+            "input_text_color": "{{ settings.color_palette.foreground }}",
+            "input_border_color": "{{ settings.color_palette.foreground }}",
+            "border_width": 1,
+            "border_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -95,6 +162,9 @@
               "settings": {
                 "label": "Submit",
                 "style_class": "button",
+                "custom_button_background": "{{ settings.color_palette.foreground }}",
+                "custom_button_text": "{{ settings.color_palette.background }}",
+                "custom_button_border": "{{ settings.color_palette.background }}",
                 "width": "fit-content",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
@@ -109,6 +179,7 @@
       "block_order": [
         "contact_form_UwiCkQ"
       ],
+      "disabled": true,
       "name": "t:names.contact_form",
       "settings": {
         "content_direction": "column",
@@ -120,25 +191,28 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 32,
         "section_width": "page-width",
+        "section_height": "",
         "section_height_custom": 50,
         "background_media": "none",
         "background_color": "{{ settings.color_palette.background }}",
         "video_position": "cover",
         "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
         "toggle_overlay": false,
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
         "padding-block-start": 32,
         "padding-block-end": 84
       }
     }
   },
   "order": [
+    "raythink_contact_us_page_4yHwmM",
     "main",
     "form"
   ]
