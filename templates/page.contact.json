@@ -16,14 +16,14 @@
           "type": "info",
           "settings": {
             "title": "General Support:",
-            "text": "<p>For order updates or product-related questions, please contact us at <a href=\"mailto:support@example.com\">support@example.com</a></p>"
+            "text": "<p>For order updates or product-related questions, please contact us at <a href=\"mailto:support@example.com\">support@raythink.com</a></p>"
           }
         },
         "info_cXzxMP": {
           "type": "info",
           "settings": {
             "title": "Phone Support:",
-            "text": "<p><a href=\"tel:+18008895116\">+1 (800) 889-5116</a><br>Monday - Friday | 8:00 AM - 6:00 PM PST</p>"
+            "text": "<p><a href=\"tel:+18008895116\">+1 (800) 889-5116</a><br/>Monday - Friday | 8:00 AM - 6:00 PM PST</p>"
           }
         },
         "info_bVbWgk": {
