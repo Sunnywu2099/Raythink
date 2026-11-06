@@ -98,7 +98,7 @@
               "type": "_rt-header-menu-products",
               "name": "产品菜单",
               "settings": {
-                "title": "Smart Phone",
+                "title": "Handheld",
                 "url": ""
               },
               "blocks": {
@@ -238,7 +238,7 @@
               "type": "_rt-header-menu-products",
               "name": "产品菜单",
               "settings": {
-                "title": "Handheld",
+                "title": "Plug-In",
                 "url": ""
               },
               "blocks": {
