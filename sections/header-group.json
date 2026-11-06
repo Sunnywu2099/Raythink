@@ -168,16 +168,6 @@
                     "title": "EX20 Series"
                   },
                   "blocks": {
-                    "rt_header_menu_product_FtQGgP": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ix1-go-smart-phone-thermal-camera",
-                        "badge_text": "New",
-                        "badge_color": "#00ad2e"
-                      },
-                      "blocks": {}
-                    },
                     "rt_header_menu_product_w3cDqi": {
                       "type": "_rt-header-menu-product",
                       "name": "产品",
@@ -200,7 +190,6 @@
                     }
                   },
                   "block_order": [
-                    "rt_header_menu_product_FtQGgP",
                     "rt_header_menu_product_w3cDqi",
                     "rt_header_menu_product_TdepKy"
                   ]
@@ -215,15 +204,37 @@
                       "type": "_rt-header-menu-product",
                       "name": "产品",
                       "settings": {
-                        "product": "ix1-go-smart-phone-thermal-camera",
+                        "product": "cx20-handheld-thermal-camera",
                         "badge_text": "New",
                         "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_kM6mAW": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "cx20-pro-handheld-thermal-camera",
+                        "badge_text": "",
+                        "badge_color": "#1B8F3A"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_pwRrP3": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "cx20-ultra-handheld-thermal-camera",
+                        "badge_text": "",
+                        "badge_color": "#1B8F3A"
                       },
                       "blocks": {}
                     }
                   },
                   "block_order": [
-                    "rt_header_menu_product_Vcjkdn"
+                    "rt_header_menu_product_Vcjkdn",
+                    "rt_header_menu_product_kM6mAW",
+                    "rt_header_menu_product_pwRrP3"
                   ]
                 }
               },
