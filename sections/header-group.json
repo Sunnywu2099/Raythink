@@ -355,6 +355,7 @@
             "rt_header_menu_mega_U6VYdt": {
               "type": "_rt-header-menu-mega",
               "name": "分类菜单",
+              "disabled": true,
               "settings": {
                 "title": "Scenario",
                 "url": ""
