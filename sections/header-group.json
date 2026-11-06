@@ -173,7 +173,7 @@
                       "type": "_rt-header-menu-product",
                       "name": "产品",
                       "settings": {
-                        "product": "ix1go-pro",
+                        "product": "ix1go-pro-smart-phone-thermal-camera",
                         "badge_text": "New",
                         "badge_color": "#00ad2e"
                       },
@@ -265,7 +265,7 @@
                       "type": "_rt-header-menu-product",
                       "name": "产品",
                       "settings": {
-                        "product": "ix1go-pro",
+                        "product": "ix1go-pro-smart-phone-thermal-camera",
                         "badge_text": "",
                         "badge_color": "#1b8f3a"
                       },
