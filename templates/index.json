@@ -98,21 +98,6 @@
             "text": "Every Raythink thermal system is calibrated against blackbody standards to guarantee accurate, actionable thermal data in mission-critical environments."
           }
         },
-        "half_block_3yfh4L": {
-          "type": "half-block",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/EX20_EX20_Pro_Front.png",
-            "title": "EX20 Series",
-            "title_color": "#000000",
-            "description": "",
-            "description_color": "#595959",
-            "primary_button_text": "Learn More",
-            "primary_link": "",
-            "secondary_button_text": "",
-            "secondary_link": ""
-          }
-        },
         "half_block_qtQXMP": {
           "type": "half-block",
           "settings": {
@@ -161,7 +146,6 @@
       "block_order": [
         "title_npk7e3",
         "description_xXMd33",
-        "half_block_3yfh4L",
         "half_block_qtQXMP",
         "half_block_bkKfRb",
         "full_block_GUJFid"
