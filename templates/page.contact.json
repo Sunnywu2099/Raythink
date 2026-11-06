@@ -30,7 +30,7 @@
           "type": "info",
           "settings": {
             "title": "Global Partnerships:",
-            "text": "<p>To become an authorized global partner, please contact us at <a href=\"mailto:sales@raythink.com\" title=\"mailto:sales@raythink.com\"><strong>sales@raythink.com</strong></a></p>"
+            "text": "<p>To become an authorized global partner, please contact us at <a href=\"mailto:sales@raythink.com\" target=\"_blank\" title=\"mailto:sales@raythink.com\"><strong>sales@raythink.com</strong></a></p>"
           }
         }
       },

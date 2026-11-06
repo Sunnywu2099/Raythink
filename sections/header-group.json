@@ -62,6 +62,7 @@
         "announcement_EwtddT",
         "announcement_V8dEdq"
       ],
+      "disabled": true,
       "name": "t:names.announcement_bar",
       "settings": {
         "speed": 4,
