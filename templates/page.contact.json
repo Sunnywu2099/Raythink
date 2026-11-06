@@ -30,7 +30,7 @@
           "type": "info",
           "settings": {
             "title": "Global Partnerships:",
-            "text": "<p>To become an authorized global partner, please contact us at <a href=\"mailto:Sales@rision.com\"><strong>sales@raythink.com</strong></a></p>"
+            "text": "<p>To become an authorized global partner, please contact us at <a href=\"mailto:sales@raythink.com\" title=\"mailto:sales@raythink.com\"><strong>sales@raythink.com</strong></a></p>"
           }
         }
       },
@@ -55,13 +55,13 @@
         "image_radius": 0,
         "media_overlay_opacity": 55,
         "background_color": "{{ settings.color_palette.background }}",
-        "text_color": "#0B2118",
-        "muted_color": "#233A30",
-        "accent_color": "#0B2118",
+        "text_color": "#0b2118",
+        "muted_color": "#233a30",
+        "accent_color": "#0b2118",
         "media_overlay_bg": "#020707",
-        "media_text_color": "#FFFFFF",
-        "button_bg": "#F3F6FA",
-        "button_text_color": "#F2992F"
+        "media_text_color": "#ffffff",
+        "button_bg": "#f3f6fa",
+        "button_text_color": "#f2992f"
       }
     },
     "main": {
