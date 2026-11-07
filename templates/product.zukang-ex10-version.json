@@ -477,6 +477,8 @@
           "settings": {
             "group": "detection",
             "label": "Feature",
+            "desktop_image": "shopify://shop_images/EX10_PC_03.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_03.jpg",
             "caption": ""
           }
         },
