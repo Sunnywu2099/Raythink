@@ -536,7 +536,9 @@
           "type": "tab_slide",
           "settings": {
             "group": "detection",
-            "label": "Feature",
+            "label": "10-Hour Runtime",
+            "desktop_image": "shopify://shop_images/EX10_PC_09.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_09.jpg",
             "caption": ""
           }
         },
