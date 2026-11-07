@@ -546,7 +546,9 @@
           "type": "tab_slide",
           "settings": {
             "group": "detection",
-            "label": "Feature",
+            "label": "8GB Storage",
+            "desktop_image": "shopify://shop_images/EX10_PC_10.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_10.jpg",
             "caption": ""
           }
         },
