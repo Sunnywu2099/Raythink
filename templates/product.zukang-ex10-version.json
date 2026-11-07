@@ -556,14 +556,36 @@
           "type": "scene",
           "settings": {
             "title": "Home Inspection",
-            "description": ""
+            "description": "",
+            "desktop_image": "shopify://shop_images/EX10_PC_12.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_12.jpg"
           }
         },
         "scene_nVY8hJ": {
           "type": "scene",
           "settings": {
-            "title": "Home Inspection",
-            "description": ""
+            "title": "Electrical Inspection",
+            "description": "",
+            "desktop_image": "shopify://shop_images/EX10_PC_13.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_13.jpg"
+          }
+        },
+        "scene_trgeMw": {
+          "type": "scene",
+          "settings": {
+            "title": "HVAC Diagnostics",
+            "description": "",
+            "desktop_image": "shopify://shop_images/EX10_PC_14.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_14.jpg"
+          }
+        },
+        "scene_4bWPVq": {
+          "type": "scene",
+          "settings": {
+            "title": "Automotive Inspection",
+            "description": "",
+            "desktop_image": "shopify://shop_images/EX10_PC_15.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_15.jpg"
           }
         }
       },
@@ -577,7 +599,9 @@
         "tab_slide_CgdT6g",
         "tab_slide_nPBzA9",
         "scene_rdzzBK",
-        "scene_nVY8hJ"
+        "scene_nVY8hJ",
+        "scene_trgeMw",
+        "scene_4bWPVq"
       ],
       "name": "Raythink EX10 details",
       "settings": {
