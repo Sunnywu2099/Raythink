@@ -471,14 +471,112 @@
     },
     "raythink_ex10_JD8UDY": {
       "type": "raythink-ex10",
+      "blocks": {
+        "tab_slide_Rk3GYj": {
+          "type": "tab_slide",
+          "settings": {
+            "group": "detection",
+            "label": "Feature",
+            "caption": ""
+          }
+        },
+        "tab_slide_pqnLTC": {
+          "type": "tab_slide",
+          "settings": {
+            "group": "detection",
+            "label": "Feature",
+            "caption": ""
+          }
+        },
+        "tab_slide_GBekkF": {
+          "type": "tab_slide",
+          "settings": {
+            "group": "detection",
+            "label": "Feature",
+            "caption": ""
+          }
+        },
+        "tab_slide_8ThaHC": {
+          "type": "tab_slide",
+          "settings": {
+            "group": "detection",
+            "label": "Feature",
+            "caption": ""
+          }
+        },
+        "tab_slide_hVn87p": {
+          "type": "tab_slide",
+          "settings": {
+            "group": "detection",
+            "label": "Feature",
+            "caption": ""
+          }
+        },
+        "tab_slide_Wb7X7G": {
+          "type": "tab_slide",
+          "settings": {
+            "group": "detection",
+            "label": "Feature",
+            "caption": ""
+          }
+        },
+        "tab_slide_CgdT6g": {
+          "type": "tab_slide",
+          "settings": {
+            "group": "detection",
+            "label": "Feature",
+            "caption": ""
+          }
+        },
+        "tab_slide_nPBzA9": {
+          "type": "tab_slide",
+          "settings": {
+            "group": "detection",
+            "label": "Feature",
+            "caption": ""
+          }
+        },
+        "scene_rdzzBK": {
+          "type": "scene",
+          "settings": {
+            "title": "Home Inspection",
+            "description": ""
+          }
+        },
+        "scene_nVY8hJ": {
+          "type": "scene",
+          "settings": {
+            "title": "Home Inspection",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_slide_Rk3GYj",
+        "tab_slide_pqnLTC",
+        "tab_slide_GBekkF",
+        "tab_slide_8ThaHC",
+        "tab_slide_hVn87p",
+        "tab_slide_Wb7X7G",
+        "tab_slide_CgdT6g",
+        "tab_slide_nPBzA9",
+        "scene_rdzzBK",
+        "scene_nVY8hJ"
+      ],
       "name": "Raythink EX10 details",
       "settings": {
         "section_label": "EX10 Thermal Camera product details",
-        "show_benefits": false,
+        "hero_desktop": "shopify://shop_images/EX10_PC_01.jpg",
+        "hero_mobile": "shopify://shop_images/EX10_MO_01.jpg",
+        "show_benefits": true,
+        "nur_desktop": "shopify://shop_images/EX10_PC_02.jpg",
+        "nur_mobile": "shopify://shop_images/EX10_MO_02.jpg",
         "detection_heading": "See More. Detect More.",
         "detection_subheading": "Detailed thermal imaging and smart inspection tools for everyday diagnostics.",
         "professional_heading": "Built for the Way You Work",
         "professional_subheading": "Analyze, measure, capture and inspect with confidence.",
+        "durable_desktop": "shopify://shop_images/EX10_PC_11.jpg",
+        "durable_mobile": "shopify://shop_images/EX10_MO_11.jpg",
         "scenes_heading": "Made for Real-World Inspections",
         "scenes_subheading": "From home maintenance to electrical, HVAC and automotive checks.",
         "content_width": 1280,
