@@ -516,7 +516,9 @@
           "type": "tab_slide",
           "settings": {
             "group": "detection",
-            "label": "Feature",
+            "label": "PC Thermal Analysis",
+            "desktop_image": "shopify://shop_images/EX10_PC_07.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_07.jpg",
             "caption": ""
           }
         },
