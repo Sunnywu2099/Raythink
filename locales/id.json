@@ -352,5 +352,23 @@
       "success_moderated": "Komentar diposting, menunggu moderasi",
       "success": "Komentar diposting"
     }
+  },
+  "rt_product": {
+    "variant_error": "Opsi ini tidak dapat diperbarui. Pilih kembali sebelum membeli.",
+    "percent_off": "Diskon {{ percent }}%",
+    "review_count": "{{ count }} ulasan",
+    "days_abbreviation": "HARI",
+    "delivery": "Pengiriman",
+    "payment": "Metode pembayaran",
+    "media_gallery": "Galeri media produk",
+    "media_group": "Kategori media",
+    "media": "Media",
+    "video": "Video",
+    "scenario": "Skenario penggunaan",
+    "zoom_image": "Perbesar gambar produk",
+    "show_media": "Tampilkan media {{ index }}",
+    "learn_more": "Pelajari lebih lanjut",
+    "buy_now": "Beli sekarang",
+    "checkout_error": "Pembayaran tidak dapat dimulai. Silakan coba lagi."
   }
 }

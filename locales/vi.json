@@ -352,5 +352,23 @@
       "default_title": "Tiêu đề mặc định",
       "sticky_add_to_cart": "Thanh thêm nhanh vào giỏ hàng"
     }
+  },
+  "rt_product": {
+    "variant_error": "Không thể cập nhật tùy chọn này. Vui lòng chọn lại trước khi mua.",
+    "percent_off": "Giảm {{ percent }}%",
+    "review_count": "{{ count }} đánh giá",
+    "days_abbreviation": "NGÀY",
+    "delivery": "Giao hàng",
+    "payment": "Phương thức thanh toán",
+    "media_gallery": "Thư viện phương tiện sản phẩm",
+    "media_group": "Danh mục phương tiện",
+    "media": "Phương tiện",
+    "video": "Video",
+    "scenario": "Tình huống sử dụng",
+    "zoom_image": "Phóng to hình ảnh sản phẩm",
+    "show_media": "Hiển thị phương tiện {{ index }}",
+    "learn_more": "Tìm hiểu thêm",
+    "buy_now": "Mua ngay",
+    "checkout_error": "Không thể bắt đầu thanh toán. Vui lòng thử lại."
   }
 }

@@ -1,0 +1,79 @@
+{% doc %}
+  Native price formatting with an optional calculated sale badge.
+  @param {product} product_resource - Product being displayed.
+  @param {boolean} [badge_first] - Place the sale badge above the price.
+  @example
+  {% render 'rt-product-price', product_resource: closest.product, badge_first: true %}
+{% enddoc %}
+{% liquid
+  assign variant = product_resource.selected_or_first_available_variant
+  assign percent_off = 0
+  if variant.compare_at_price > variant.price
+    assign saving = variant.compare_at_price | minus: variant.price
+    assign percent_off = saving | times: 100.0 | divided_by: variant.compare_at_price | round
+  endif
+%}
+{% capture sale_badge %}
+  {% if percent_off > 0 %}
+    <span class="rt-product-price__badge">{{ 'rt_product.percent_off' | t: percent: percent_off }}</span>
+  {% endif %}
+{% endcapture %}
+<div class="rt-product-price{% if badge_first %} rt-product-price--badge-first{% endif %}">
+  {% if badge_first %}{{ sale_badge }}{% endif %}
+  {% render 'price', product_resource: product_resource, show_sale_price_first: true, show_unit_price: true %}
+  {% unless badge_first %}{{ sale_badge }}{% endunless %}
+</div>
+
+{% stylesheet %}
+  .rt-product-price {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+    min-inline-size: 0;
+  }
+
+  .rt-product-price > [ref='priceContainer'] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .rt-product-price .price {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+  }
+
+  .rt-product-price .compare-at-price {
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-50));
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    text-decoration: line-through;
+  }
+
+  .rt-product-price__badge {
+    flex: 0 0 auto;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: var(--rt-product-sale-color);
+    background: var(--rt-product-sale-background);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+  }
+
+  .rt-product-price--badge-first {
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-price--badge-first {
+      gap: 12px;
+    }
+  }
+{% endstylesheet %}

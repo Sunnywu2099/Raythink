@@ -359,5 +359,23 @@
       "success_moderated": "Komentar je objavljen, čeka moderiranje",
       "success": "Komentar objavljen"
     }
+  },
+  "rt_product": {
+    "variant_error": "Ovu opciju nije bilo moguće ažurirati. Ponovno je odaberite prije kupnje.",
+    "percent_off": "{{ percent }}% popusta",
+    "review_count": "Recenzije: {{ count }}",
+    "days_abbreviation": "DAN",
+    "delivery": "Dostava",
+    "payment": "Načini plaćanja",
+    "media_gallery": "Medijska galerija proizvoda",
+    "media_group": "Kategorija medija",
+    "media": "Mediji",
+    "video": "Video",
+    "scenario": "Primjene",
+    "zoom_image": "Povećaj sliku proizvoda",
+    "show_media": "Prikaži medij {{ index }}",
+    "learn_more": "Saznajte više",
+    "buy_now": "Kupite sada",
+    "checkout_error": "Nije bilo moguće pokrenuti naplatu. Pokušajte ponovno."
   }
 }

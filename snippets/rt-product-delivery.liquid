@@ -1,0 +1,60 @@
+{% doc %}
+  Shared merchant-authored dispatch message for the details and fixed purchase bar.
+  @param {string} text - Dispatch message; omit the component when empty.
+  @param {boolean} [compact] - Use the bottom bar's intrinsic 20px/16px icon assets.
+  @example
+  {% render 'rt-product-delivery', text: block.settings.delivery_text %}
+{% enddoc %}
+{% if text != blank %}
+  <p class="rt-product-delivery">
+    {% if compact %}
+      <img class="rt-product-delivery__desktop-icon" src="{{ 'rt-product-delivery-bar.svg' | asset_url }}" width="20" height="20" alt="" aria-hidden="true" loading="lazy">
+      <img class="rt-product-delivery__mobile-icon" src="{{ 'rt-product-delivery-mobile.svg' | asset_url }}" width="16" height="16" alt="" aria-hidden="true" loading="lazy">
+    {% else %}
+      <img src="{{ 'rt-product-delivery.svg' | asset_url }}" width="24" height="24" alt="" aria-hidden="true" loading="lazy">
+    {% endif %}
+    <span>{{ text | escape }}</span>
+  </p>
+{% endif %}
+
+{% stylesheet %}
+  .rt-product-delivery {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-inline-size: 0;
+    font-size: 14px;
+    line-height: 18px;
+    overflow-wrap: anywhere;
+  }
+
+  .rt-product-delivery img {
+    flex: 0 0 auto;
+    inline-size: 24px;
+    block-size: 24px;
+  }
+
+  .rt-product-delivery .rt-product-delivery__desktop-icon {
+    inline-size: 20px;
+    block-size: 20px;
+  }
+
+  .rt-product-delivery .rt-product-delivery__mobile-icon {
+    inline-size: 16px;
+    block-size: 16px;
+  }
+
+  .rt-product-delivery__mobile-icon {
+    display: none;
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-delivery__desktop-icon {
+      display: none;
+    }
+
+    .rt-product-delivery__mobile-icon {
+      display: block;
+    }
+  }
+{% endstylesheet %}

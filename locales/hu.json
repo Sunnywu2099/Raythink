@@ -352,5 +352,23 @@
       "default_title": "Alapértelmezett cím",
       "sticky_add_to_cart": "Gyors hozzáadás a kosárhoz sáv"
     }
+  },
+  "rt_product": {
+    "variant_error": "Nem sikerült frissíteni ezt a lehetőséget. Vásárlás előtt válaszd ki újra.",
+    "percent_off": "{{ percent }}% kedvezmény",
+    "review_count": "{{ count }} értékelés",
+    "days_abbreviation": "NAP",
+    "delivery": "Szállítás",
+    "payment": "Fizetési módok",
+    "media_gallery": "Termék médiagalériája",
+    "media_group": "Médiakategória",
+    "media": "Média",
+    "video": "Videó",
+    "scenario": "Felhasználási területek",
+    "zoom_image": "Termékkép nagyítása",
+    "show_media": "{{ index }}. média megjelenítése",
+    "learn_more": "További információ",
+    "buy_now": "Vásárlás most",
+    "checkout_error": "Nem sikerült elindítani a fizetést. Próbáld újra."
   }
 }

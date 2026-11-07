@@ -1,0 +1,31 @@
+{%- doc -%}
+  Renders native product media with a cleaned description in accessible attributes.
+  Exact attribute replacements preserve native media markup, styles and playback
+  without changing the shared product-media snippet or the underlying Shopify media.
+  @param {media} media - Current media item.
+  @param {string} description - Plain text description without the grouping marker.
+  @param {block} block - Gallery block with zoom and video settings.
+  @param {product} selected_product - Current product.
+  @param {string} sizes - Responsive image sizes.
+  @param {string} widths - Responsive image widths.
+  @param {string} loading - Eager or lazy image loading.
+  @param {boolean} is_main_product_media - Whether this is the initially visible media.
+  @example
+  {% render 'rt-product-media', media: media, description: product.title, block: block, selected_product: product, sizes: '100vw', widths: '320, 680', loading: 'lazy', is_main_product_media: false %}
+{%- enddoc -%}
+{%- capture native_media -%}
+  {%- render 'product-media', media: media, block: block, selected_product: selected_product, sizes: sizes, widths: widths, loading: loading, is_main_product_media: is_main_product_media -%}
+{%- endcapture -%}
+{%- liquid
+  assign original_description = media.alt | escape
+  assign clean_description = description | escape
+  assign original_alt = 'alt="' | append: original_description | append: '"'
+  assign clean_alt = 'alt="' | append: clean_description | append: '"'
+  assign original_title = 'title="' | append: original_description | append: '"'
+  assign clean_title = 'title="' | append: clean_description | append: '"'
+  assign original_video_label = 'blocks.load_video' | t: description: media.alt | escape
+  assign clean_video_label = 'blocks.load_video' | t: description: description | escape
+  assign original_video_label = 'aria-label="' | append: original_video_label | append: '"'
+  assign clean_video_label = 'aria-label="' | append: clean_video_label | append: '"'
+  echo native_media | replace: original_alt, clean_alt | replace: original_title, clean_title | replace: original_video_label, clean_video_label
+-%}
