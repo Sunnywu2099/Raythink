@@ -1,0 +1,48 @@
+{% doc %}
+  Fixed-label checkout action inside the RT product form. The native form's
+  availability ref is retained so variant updates also control this action.
+  @param {boolean} can_add_to_cart - Whether the selected variant can be purchased.
+  @example
+  {% content_for 'block', type: '_rt-product-buy-now', id: 'accelerated-checkout', can_add_to_cart: can_add_to_cart %}
+{% enddoc %}
+{% liquid
+  assign checkout_url = routes.root_url | append: '/checkout' | replace: '//', '/'
+%}
+{% render 'button-custom-styles', block_settings: block.settings, block_id: block.id %}
+<div
+  class="rt-product-buy-now"
+  ref="acceleratedCheckoutButtonContainer"
+  {{ block.shopify_attributes }}
+  {% unless can_add_to_cart %}hidden{% endunless %}
+>
+  <button
+    type="submit"
+    name="return_to"
+    value="{{ checkout_url | escape }}"
+    class="rt-product-buy-now__button {{ block.settings.style_class }} {{ block.settings.style_class }}--{{ block.id }}"
+    data-rt-buy-now
+    data-error="{{ 'rt_product.checkout_error' | t | escape }}"
+  >
+    {{ 'rt_product.buy_now' | t }}
+  </button>
+</div>
+
+{% schema %}
+{
+  "name": "t:rt_product.buy_now",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select", "id": "style_class", "label": "t:settings.style", "default": "button-custom",
+      "options": [
+        { "value": "button", "label": "t:options.primary" },
+        { "value": "button-secondary", "label": "t:options.secondary" },
+        { "value": "button-custom", "label": "t:options.custom" }
+      ]
+    },
+    { "type": "color", "id": "custom_button_background", "label": "t:settings.background", "default": "#1f1f1f" },
+    { "type": "color", "id": "custom_button_text", "label": "t:settings.text", "default": "#ffffff" },
+    { "type": "color", "id": "custom_button_border", "label": "t:settings.borders", "default": "#1f1f1f" }
+  ]
+}
+{% endschema %}

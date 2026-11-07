@@ -352,5 +352,23 @@
       "success_moderated": "댓글이 게시되었습니다. 조정 대기 중입니다",
       "success": "댓글 게시됨"
     }
+  },
+  "rt_product": {
+    "variant_error": "이 옵션을 업데이트하지 못했습니다. 구매하기 전에 다시 선택해 주세요.",
+    "percent_off": "{{ percent }}% 할인",
+    "review_count": "리뷰 {{ count }}개",
+    "days_abbreviation": "일",
+    "delivery": "배송",
+    "payment": "결제 수단",
+    "media_gallery": "제품 미디어 갤러리",
+    "media_group": "미디어 분류",
+    "media": "미디어",
+    "video": "동영상",
+    "scenario": "활용 사례",
+    "zoom_image": "제품 이미지 확대",
+    "show_media": "미디어 {{ index }} 표시",
+    "learn_more": "자세히 보기",
+    "buy_now": "지금 구매",
+    "checkout_error": "결제를 시작하지 못했습니다. 다시 시도해 주세요."
   }
 }

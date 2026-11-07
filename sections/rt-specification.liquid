@@ -1,0 +1,280 @@
+{% comment %}
+  Section contract.
+  Product specification groups. A group block starts a table; following row blocks fill it.
+  @example
+  <!-- Add rt-specification on the product template, then add group and row blocks. -->
+{% endcomment %}
+
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 48
+  assign pb_mobile = ss.padding_bottom_mobile | default: 48
+  assign pt_desktop = ss.padding_top_desktop | default: 80
+  assign pb_desktop = ss.padding_bottom_desktop | default: 80
+  assign bg_color = ss.background_color | default: '#ffffff'
+-%}
+
+{% stylesheet %}
+  .rt-spec-group + .rt-spec-group {
+    margin-top: 72px;
+  }
+
+  .rt-spec-group-title {
+    margin: 0;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e6e6e6;
+    color: rgb(0 0 0 / 0.88);
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+  }
+
+  .rt-spec-rows {
+    margin: 24px 0 0;
+  }
+
+  .rt-spec-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rt-spec-row + .rt-spec-row {
+    margin-top: 24px;
+  }
+
+  .rt-spec-row dt,
+  .rt-spec-row dd {
+    margin: 0;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+  }
+
+  .rt-spec-row dt {
+    color: rgb(0 0 0 / 0.88);
+  }
+
+  .rt-spec-row dd {
+    color: rgb(0 0 0 / 0.65);
+  }
+
+  @media (min-width: 750px) {
+    .rt-spec-group + .rt-spec-group {
+      margin-top: 64px;
+    }
+
+    .rt-spec-group-title {
+      padding-bottom: 32px;
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .rt-spec-rows {
+      margin-top: 32px;
+    }
+
+    .rt-spec-row {
+      display: grid;
+      grid-template-columns: 264px minmax(0, 1fr);
+      gap: 96px;
+    }
+
+    .rt-spec-row + .rt-spec-row {
+      margin-top: 32px;
+    }
+  }
+{% endstylesheet %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section rt-pdp rt-specification"
+  style="--rt-section-bg-color: {{ bg_color }}; --rt-pdp-heading-color: {{ ss.heading_color }};"
+>
+  <div
+    class="rt-ss-padding"
+    style="
+      {% render 'rt-section-padding',
+        section_pt_mobile: pt_mobile,
+        section_pb_mobile: pb_mobile,
+        section_pt_desktop: pt_desktop,
+        section_pb_desktop: pb_desktop
+      %}
+    "
+  >
+    <div class="rt-container">
+      <div class="rt-pdp-layout">
+      {%- if ss.heading != blank -%}
+        <div class="rt-pdp-heading">
+          {% render 'rt-heading', variant: 'title', text: ss.heading %}
+        </div>
+      {%- endif -%}
+
+      {%- assign group_open = false -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'group' -%}
+            {%- if group_open -%}
+              </dl>
+              </div>
+            {%- endif -%}
+            <div class="rt-spec-group" {{ block.shopify_attributes }}>
+              {%- if block.settings.title != blank -%}
+                <h3 class="rt-spec-group-title">{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
+              <dl class="rt-spec-rows">
+            {%- assign group_open = true -%}
+          {%- when 'row' -%}
+            {%- unless group_open -%}
+              <div class="rt-spec-group">
+                <dl class="rt-spec-rows">
+              {%- assign group_open = true -%}
+            {%- endunless -%}
+            <div class="rt-spec-row" {{ block.shopify_attributes }}>
+              <dt>{{ block.settings.label | escape }}</dt>
+              <dd>{{ block.settings.value | escape }}</dd>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+      {%- if group_open -%}
+        </dl>
+        </div>
+      {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "rt-specification",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "标题",
+      "default": "Specification"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "标题颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "上（移动端）",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "下（移动端）",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "上（桌面端）",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "下（桌面端）",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "group",
+      "name": "分组",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "分组标题",
+          "default": "Processing Capacity"
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "name": "参数",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "名称",
+          "default": "Operating System"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "内容",
+          "default": "OxygenOS based on Android™ 15"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 40,
+  "presets": [
+    {
+      "name": "rt-specification",
+      "category": "rt-product",
+      "blocks": {
+        "group_1": { "type": "group", "settings": { "title": "Processing Capacity" } },
+        "row_1": { "type": "row", "settings": { "label": "Operating System", "value": "OxygenOS based on Android™ 15" } },
+        "row_2": { "type": "row", "settings": { "label": "CPU", "value": "—" } },
+        "row_3": { "type": "row", "settings": { "label": "GPU", "value": "—" } },
+        "row_4": { "type": "row", "settings": { "label": "RAM", "value": "—" } },
+        "row_5": { "type": "row", "settings": { "label": "ROM", "value": "—" } },
+        "row_6": { "type": "row", "settings": { "label": "Storage", "value": "—" } },
+        "row_7": { "type": "row", "settings": { "label": "Battery", "value": "4,500mAh dual-cell (2250mAh) battery, non-removable" } },
+        "row_8": { "type": "row", "settings": { "label": "Weight", "value": "—" } },
+        "group_2": { "type": "group", "settings": { "title": "Processing Capacity" } },
+        "row_9": { "type": "row", "settings": { "label": "Operating System", "value": "OxygenOS based on Android™ 15" } },
+        "row_10": { "type": "row", "settings": { "label": "CPU", "value": "—" } },
+        "row_11": { "type": "row", "settings": { "label": "GPU", "value": "—" } },
+        "row_12": { "type": "row", "settings": { "label": "RAM", "value": "—" } },
+        "row_13": { "type": "row", "settings": { "label": "ROM", "value": "—" } },
+        "row_14": { "type": "row", "settings": { "label": "Storage", "value": "—" } },
+        "row_15": { "type": "row", "settings": { "label": "Battery", "value": "4,500mAh dual-cell (2250mAh) battery, non-removable" } },
+        "row_16": { "type": "row", "settings": { "label": "Weight", "value": "—" } }
+      },
+      "block_order": ["group_1", "row_1", "row_2", "row_3", "row_4", "row_5", "row_6", "row_7", "row_8", "group_2", "row_9", "row_10", "row_11", "row_12", "row_13", "row_14", "row_15", "row_16"]
+    }
+  ]
+}
+{% endschema %}

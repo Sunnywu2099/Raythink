@@ -1,0 +1,69 @@
+{% doc %}
+  Enabled shop payment methods, independently managed in RT product details.
+  @example
+  <!-- Add RT payment beside delivery and service benefits. -->
+{% enddoc %}
+{% if block.settings.show_payment_icons and shop.enabled_payment_types.size > 0 %}
+  <div class="rt-product-payment" {{ block.shopify_attributes }}>
+    <h2 class="rt-product-purchase__heading">{{ 'rt_product.payment' | t }}</h2>
+    <ul class="rt-product-payment__list list-unstyled" role="list">
+      {% for payment_type in shop.enabled_payment_types %}
+        <li>{{ payment_type | payment_type_svg_tag: class: 'rt-product-payment__icon' }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+{% stylesheet %}
+  .rt-product-payment {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .rt-product-payment__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin: 0;
+  }
+
+  .rt-product-payment__icon {
+    display: block;
+    inline-size: 48px;
+    block-size: 32px;
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-payment {
+      padding: 20px 24px;
+    }
+
+    .rt-product-payment__list {
+      gap: 8px;
+    }
+
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:rt_product.payment_block",
+  "tag": null,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "t:rt_product.show_payment_icons",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:rt_product.payment_block",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,18 @@
+{%- doc -%}
+  One customer photo in the review gallery.
+
+  @param {object} block - Section block with an image
+{%- enddoc -%}
+
+{%- if block.settings.image != blank -%}
+  <li class="rt-review-photo" {{ block.shopify_attributes }}>
+    {% render 'rt-image2picture',
+      image_mobile: block.settings.image,
+      image_desktop: block.settings.image,
+      alt: block.settings.image.alt,
+      sizes: '160px',
+      loading: 'lazy',
+      fetchpriority: 'low'
+    %}
+  </li>
+{%- endif -%}

@@ -352,5 +352,23 @@
       "success_moderated": "Kommentaren blev indsendt og afventer moderering",
       "success": "Kommentaren blev indsendt"
     }
+  },
+  "rt_product": {
+    "variant_error": "Vi kunne ikke opdatere denne valgmulighed. Vælg den igen, før du køber.",
+    "percent_off": "{{ percent }}% rabat",
+    "review_count": "{{ count }} anmeldelser",
+    "days_abbreviation": "DAG",
+    "delivery": "Levering",
+    "payment": "Betalingsmetoder",
+    "media_gallery": "Produktmediegalleri",
+    "media_group": "Mediekategori",
+    "media": "Medier",
+    "video": "Video",
+    "scenario": "Anvendelse",
+    "zoom_image": "Forstør produktbilledet",
+    "show_media": "Vis medie {{ index }}",
+    "learn_more": "Læs mere",
+    "buy_now": "Køb nu",
+    "checkout_error": "Vi kunne ikke starte betalingen. Prøv igen."
   }
 }

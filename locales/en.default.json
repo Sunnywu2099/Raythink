@@ -380,5 +380,26 @@
       "social_x": "X",
       "social_instagram": "Instagram"
     }
+  },
+  "rt_product": {
+    "variant_error": "We could not update this option. Please select it again before purchasing.",
+    "percent_off": "{{ percent }}% OFF",
+    "review_count": "{{ count }} Reviews",
+    "days_abbreviation": "DAY",
+    "delivery": "Delivery",
+    "payment": "Payment",
+    "media_gallery": "Product media gallery",
+    "media_group": "Media category",
+    "media": "Media",
+    "video": "Video",
+    "scenario": "Applicable Scenario",
+    "zoom_image": "Enlarge product image",
+    "show_media": "Show media {{ index }}",
+    "learn_more": "Learn more",
+    "buy_now": "Buy now",
+    "currently_viewing": "Currently viewing",
+    "checkout_error": "We could not start checkout. Please try again.",
+    "rating_of_five": "{{ rating }} out of 5 stars",
+    "star_count": "{{ stars }} star reviews: {{ count }}"
   }
 }

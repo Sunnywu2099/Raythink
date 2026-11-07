@@ -1,0 +1,101 @@
+{% doc %}
+  Fixed purchase actions only, inside the product form owned by RT details.
+  @param {string} [delivery_markup] - Rendered compact message from the sibling RT delivery block.
+  @example
+  {% content_for 'block', type: '_rt-product-buy-buttons', id: 'rt_purchase', delivery_markup: delivery_markup %}
+{% enddoc %}
+{% liquid
+  assign block_settings = block.settings
+  assign product = closest.product
+  if request.visual_preview_mode and product == blank
+    assign product = collections.all.products.first
+  endif
+
+  assign variant = closest.product.selected_or_first_available_variant
+  assign inventory_quantity = variant.inventory_quantity
+  assign inventory_policy = variant.inventory_policy
+
+  if variant.inventory_management == 'shopify'
+    assign inventory_managed = true
+  endif
+
+  assign can_add_to_cart = false
+  assign add_to_cart_text = 'products.product.unavailable' | t
+
+  if variant
+    if variant.quantity_rule.min > variant.inventory_quantity and inventory_managed and inventory_policy == 'deny'
+      assign quantity_rule_soldout = true
+    endif
+
+    if variant.available and quantity_rule_soldout != true
+      assign can_add_to_cart = true
+      assign add_to_cart_text = 'products.product.add_to_cart' | t
+    elsif inventory_managed and inventory_quantity <= 0 and inventory_policy == 'deny' or quantity_rule_soldout
+      assign can_add_to_cart = false
+      assign add_to_cart_text = 'products.product.sold_out' | t
+    else
+      assign can_add_to_cart = false
+      assign add_to_cart_text = 'products.product.unavailable' | t
+    endif
+  endif
+%}
+
+{% capture actions %}
+{% content_for 'block',
+  type: 'add-to-cart',
+  id: 'add-to-cart',
+  can_add_to_cart: can_add_to_cart,
+  add_to_cart_text: add_to_cart_text
+%}
+
+{% if block_settings.show_accelerated_checkout %}
+{% content_for 'block',
+  type: '_rt-product-buy-now',
+  id: 'accelerated-checkout',
+  can_add_to_cart: can_add_to_cart
+%}
+{% endif %}
+{% endcapture %}
+{% render 'rt-product-bottom-bar', product_resource: product, delivery_markup: delivery_markup, actions: actions, block_id: block.id, shopify_attributes: block.shopify_attributes %}
+
+{% render 'buy-buttons-styles' %}
+
+{% schema %}
+{
+  "name": "t:rt_product.purchase",
+  "tag": null,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_accelerated_checkout",
+      "label": "t:rt_product.show_accelerated_checkout",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:settings.text_color",
+      "placeholder": "t:settings.default"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:rt_product.purchase",
+      "category": "t:categories.product",
+      "blocks": {
+        "add-to-cart": {
+          "type": "add-to-cart",
+          "static": true,
+          "settings": {
+            "style_class": "button-secondary"
+          }
+        },
+        "accelerated-checkout": {
+          "type": "_rt-product-buy-now",
+          "static": true
+        }
+      }
+    }
+  ]
+}
+{% endschema %}

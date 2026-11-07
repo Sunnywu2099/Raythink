@@ -1,0 +1,333 @@
+{% comment %}
+  Section contract.
+  Dark product feature with pill tabs that swap the media below.
+  Sits on the X1 GO PDP above the white "What's in the box" area.
+  @example
+  <!-- Add rt-view-switch on product.rt-product, one block per view. -->
+{% endcomment %}
+
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 48
+  assign pb_mobile = ss.padding_bottom_mobile | default: 32
+  assign pt_desktop = ss.padding_top_desktop | default: 80
+  assign pb_desktop = ss.padding_bottom_desktop | default: 48
+  assign bg_color = ss.background_color | default: '#141414'
+-%}
+
+{% stylesheet %}
+  .rt-view-switch {
+    color: #ffffff;
+  }
+
+  .rt-view-switch .rt-pdp-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 744px;
+    margin-inline: auto;
+  }
+
+  .rt-view-switch .rt-pdp-heading .rt-title {
+    color: #646464;
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: 700;
+  }
+
+  .rt-view-switch .rt-description {
+    max-width: 744px;
+    margin: 0;
+    color: #484848;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .rt-view-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 16px;
+  }
+
+  .rt-view-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 999px;
+    background-color: #242424;
+    color: #6a6a6a;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .rt-view-stage {
+    margin-top: 28px;
+    overflow: hidden;
+    border-radius: 24px;
+    background-color: #000000;
+  }
+
+  .rt-view-panel {
+    display: none;
+  }
+
+  .rt-view-panel--empty {
+    aspect-ratio: 16 / 7;
+  }
+
+  .rt-view-panel picture,
+  .rt-view-panel img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .rt-view-panel picture > img {
+    object-fit: cover;
+  }
+
+  .rt-view-switch-root > .rt-view-input:nth-of-type(1):checked ~ .rt-view-tabs .rt-view-tab:nth-child(1),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(2):checked ~ .rt-view-tabs .rt-view-tab:nth-child(2),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(3):checked ~ .rt-view-tabs .rt-view-tab:nth-child(3),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(4):checked ~ .rt-view-tabs .rt-view-tab:nth-child(4),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(5):checked ~ .rt-view-tabs .rt-view-tab:nth-child(5),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(6):checked ~ .rt-view-tabs .rt-view-tab:nth-child(6) {
+    background-color: #585858;
+    color: #1c1c1c;
+  }
+
+  .rt-view-switch-root > .rt-view-input:nth-of-type(1):focus-visible ~ .rt-view-tabs .rt-view-tab:nth-child(1),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(2):focus-visible ~ .rt-view-tabs .rt-view-tab:nth-child(2),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(3):focus-visible ~ .rt-view-tabs .rt-view-tab:nth-child(3),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(4):focus-visible ~ .rt-view-tabs .rt-view-tab:nth-child(4),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(5):focus-visible ~ .rt-view-tabs .rt-view-tab:nth-child(5),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(6):focus-visible ~ .rt-view-tabs .rt-view-tab:nth-child(6) {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }
+
+  .rt-view-switch-root > .rt-view-input:nth-of-type(1):checked ~ .rt-view-stage .rt-view-panel:nth-child(1),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(2):checked ~ .rt-view-stage .rt-view-panel:nth-child(2),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(3):checked ~ .rt-view-stage .rt-view-panel:nth-child(3),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(4):checked ~ .rt-view-stage .rt-view-panel:nth-child(4),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(5):checked ~ .rt-view-stage .rt-view-panel:nth-child(5),
+  .rt-view-switch-root > .rt-view-input:nth-of-type(6):checked ~ .rt-view-stage .rt-view-panel:nth-child(6) {
+    display: block;
+  }
+
+  @media (min-width: 750px) {
+    .rt-view-switch .rt-pdp-heading .rt-title {
+      font-size: 40px;
+      line-height: 44px;
+    }
+
+    .rt-view-stage {
+      margin-top: 36px;
+    }
+  }
+{% endstylesheet %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section rt-view-switch"
+  style="--rt-section-bg-color: {{ bg_color }};"
+>
+  <div
+    class="rt-ss-padding"
+    style="
+      {% render 'rt-section-padding',
+        section_pt_mobile: pt_mobile,
+        section_pb_mobile: pb_mobile,
+        section_pt_desktop: pt_desktop,
+        section_pb_desktop: pb_desktop
+      %}
+    "
+  >
+    <div class="rt-container">
+      <div class="rt-view-switch-root">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'view' -%}
+            <input
+              class="rt-view-input visually-hidden"
+              type="radio"
+              name="rt-view-{{ section.id }}"
+              id="rt-view-{{ section.id }}-{{ forloop.index }}"
+              {% if forloop.first %}checked{% endif %}
+            >
+          {%- endif -%}
+        {%- endfor -%}
+
+        <div class="rt-pdp-heading rt-pdp-heading-center">
+          {%- if ss.heading != blank -%}
+            {% render 'rt-heading', variant: 'title', text: ss.heading %}
+          {%- endif -%}
+          {%- if ss.description != blank -%}
+            {% render 'rt-heading', variant: 'description', text: ss.description %}
+          {%- endif -%}
+        </div>
+
+        <div class="rt-view-tabs">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'view' -%}
+              <label class="rt-view-tab" for="rt-view-{{ section.id }}-{{ forloop.index }}" {{ block.shopify_attributes }}>
+                {{ block.settings.title | escape }}
+              </label>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="rt-view-stage">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'view' -%}
+              {%- liquid
+                assign image_desktop = block.settings.image_desktop
+                assign image_mobile = block.settings.image_mobile | default: image_desktop
+              -%}
+              <div class="rt-view-panel{% if image_desktop == blank and image_mobile == blank %} rt-view-panel--empty{% endif %}">
+                {% render 'rt-image2picture',
+                  image_mobile: image_mobile,
+                  image_desktop: image_desktop,
+                  alt: block.settings.title,
+                  sizes: '(min-width: 1200px) 1200px, 100vw',
+                  loading: 'lazy',
+                  fetchpriority: 'low'
+                %}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "rt-view-switch",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "标题",
+      "default": "Choose the View That Fits the Job."
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "标题颜色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "描述",
+      "default": "Switch between thermal, visible-light camera, and picture-in-picture views to connect thermal information with the real-world scene."
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "描述颜色",
+      "default": "#b5b5b5"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色",
+      "default": "#141414"
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "上（移动端）",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "下（移动端）",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "上（桌面端）",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "下（桌面端）",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "view",
+      "name": "视图",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "按钮文字",
+          "default": "IX One Go"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "桌面图片"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "移动端图片"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "rt-view-switch",
+      "category": "rt-product",
+      "blocks": {
+        "view_1": { "type": "view", "settings": { "title": "IX One Go" } },
+        "view_2": { "type": "view", "settings": { "title": "IX One Go Pro" } }
+      },
+      "block_order": ["view_1", "view_2"]
+    }
+  ]
+}
+{% endschema %}

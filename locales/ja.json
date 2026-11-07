@@ -352,5 +352,23 @@
       "success_moderated": "コメントを投稿しました。承認待ちです",
       "success": "コメントを投稿しました"
     }
+  },
+  "rt_product": {
+    "variant_error": "このオプションを更新できませんでした。購入する前にもう一度選択してください。",
+    "percent_off": "{{ percent }}% OFF",
+    "review_count": "レビュー {{ count }} 件",
+    "days_abbreviation": "日",
+    "delivery": "配送",
+    "payment": "お支払い方法",
+    "media_gallery": "商品メディアギャラリー",
+    "media_group": "メディアの種類",
+    "media": "メディア",
+    "video": "動画",
+    "scenario": "使用シーン",
+    "zoom_image": "商品画像を拡大",
+    "show_media": "メディア {{ index }} を表示",
+    "learn_more": "詳しく見る",
+    "buy_now": "今すぐ購入",
+    "checkout_error": "チェックアウトを開始できませんでした。もう一度お試しください。"
   }
 }

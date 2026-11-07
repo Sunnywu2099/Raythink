@@ -1,0 +1,486 @@
+{% doc %}
+  Product media grouped into media, videos, and scenario images. The final pipe-
+  separated alt segment must equal scenario (case-insensitive, ignoring spaces).
+  A standalone scenario marker remains supported for existing product media.
+  Native slideshow and media components remain responsible for scrolling and playback.
+  @example
+  {% content_for 'block', type: '_rt-product-media-gallery', id: 'media-gallery', closest.product: product %}
+{% enddoc %}
+{% liquid
+  assign product_resource = closest.product
+  assign media_items = '' | split: ','
+  assign video_items = '' | split: ','
+  assign scenario_items = '' | split: ','
+  assign selected_media = product_resource.selected_or_first_available_variant.featured_media
+  assign selected_group = ''
+  for media in product_resource.media
+    assign media_item = product_resource.media | where: 'id', media.id
+    assign media_type_marker = media.alt | append: ' ' | split: '|' | last | strip | downcase
+    if media.media_type == 'video' or media.media_type == 'external_video'
+      assign video_items = video_items | concat: media_item
+      assign item_group = 'video'
+    elsif media_type_marker == 'scenario'
+      assign scenario_items = scenario_items | concat: media_item
+      assign item_group = 'scenario'
+    else
+      assign media_items = media_items | concat: media_item
+      assign item_group = 'media'
+    endif
+    if selected_media.id == media.id
+      assign selected_group = item_group
+    endif
+  endfor
+  assign active_group = 'media'
+  if media_items.size == 0 and video_items.size > 0
+    assign active_group = 'video'
+  elsif media_items.size == 0
+    assign active_group = 'scenario'
+  endif
+  if selected_group != blank
+    assign active_group = selected_group
+  endif
+  assign group_count = 0
+  if media_items.size > 0
+    assign group_count = group_count | plus: 1
+  endif
+  if video_items.size > 0
+    assign group_count = group_count | plus: 1
+  endif
+  if scenario_items.size > 0
+    assign group_count = group_count | plus: 1
+  endif
+  assign models = product_resource.media | where: 'media_type', 'model'
+%}
+<rt-product-media-gallery
+  class="rt-product-gallery"
+  data-active-group="{{ active_group }}"
+  data-rt-product-fragment="gallery-{{ block.id }}"
+  data-selected-media-id="{{ selected_media.id }}"
+  aria-label="{{ 'rt_product.media_gallery' | t | escape }}"
+  role="region"
+  {{ block.shopify_attributes }}
+>
+  {% if product_resource.media.size == 0 %}
+    <div class="rt-product-gallery__empty">{{ 'product-apparel-1' | placeholder_svg_tag }}</div>
+  {% else %}
+    {% if models.size > 0 %}
+      <link rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css">
+      <script type="application/json" data-rt-product-models>{{ models | json }}</script>
+    {% endif %}
+    <noscript>
+      <ul>
+        {% for media in product_resource.media %}
+          {% capture media_description %}{% render 'rt-product-media-alt', alt: media.alt, fallback: product_resource.title %}{% endcapture %}
+          <li><a href="{{ media.preview_image | image_url: width: 1920 }}">{{ media_description | escape }} — {{ forloop.index }}</a></li>
+        {% endfor %}
+      </ul>
+    </noscript>
+    {% if media_items.size > 0 %}
+      {% render 'rt-product-media-group', media_items: media_items, group: 'media', active_group: active_group, product_resource: product_resource, selected_media: selected_media, block: block %}
+    {% endif %}
+    {% if video_items.size > 0 %}
+      {% render 'rt-product-media-group', media_items: video_items, group: 'video', active_group: active_group, product_resource: product_resource, selected_media: selected_media, block: block %}
+    {% endif %}
+    {% if scenario_items.size > 0 %}
+      {% render 'rt-product-media-group', media_items: scenario_items, group: 'scenario', active_group: active_group, product_resource: product_resource, selected_media: selected_media, block: block %}
+    {% endif %}
+    {% if group_count > 1 %}
+      <div class="rt-product-gallery__tabs" role="group" aria-label="{{ 'rt_product.media_group' | t | escape }}">
+        {% if media_items.size > 0 %}
+        <button type="button" data-rt-group="media" aria-pressed="{% if active_group == 'media' %}true{% else %}false{% endif %}" on:click="/changeGroup">{{ 'rt_product.media' | t }}</button>
+        {% endif %}
+        {% if video_items.size > 0 %}
+        <button type="button" data-rt-group="video" aria-pressed="{% if active_group == 'video' %}true{% else %}false{% endif %}" on:click="/changeGroup">{{ 'rt_product.video' | t }}</button>
+        {% endif %}
+        {% if scenario_items.size > 0 %}
+        <button type="button" data-rt-group="scenario" aria-pressed="{% if active_group == 'scenario' %}true{% else %}false{% endif %}" on:click="/changeGroup">{{ 'rt_product.scenario' | t }}</button>
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if block.settings.zoom %}
+      <dialog-component class="rt-product-gallery__zoom" ref="zoomDialog">
+        <dialog class="rt-product-gallery__dialog" ref="dialog" aria-label="{{ 'rt_product.zoom_image' | t | escape }}" scroll-lock>
+          <button class="rt-product-gallery__close" type="button" on:click="/closeDialog" aria-label="{{ 'actions.close' | t | escape }}">{{ 'icon-close.svg' | inline_asset_content }}</button>
+          <img data-rt-zoom-image width="1200" height="1200" alt="">
+        </dialog>
+      </dialog-component>
+    {% endif %}
+  {% endif %}
+</rt-product-media-gallery>
+{% render 'product-media-container-styles' %}
+{% render 'product-media-gallery-content-styles' %}
+{% render 'deferred-media-video-styles' %}
+{% render 'deferred-media-product-model-styles' %}
+
+{% stylesheet %}
+  .rt-product-gallery {
+    container-type: inline-size;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(120px, 1fr) fit-content(calc(100% - 136px));
+    column-gap: 16px;
+    min-inline-size: 0;
+    border-radius: 4px;
+    background: var(--color-background);
+  }
+
+  .rt-product-gallery__empty {
+    grid-column: 1 / -1;
+    aspect-ratio: 1;
+    background: var(--rt-product-surface);
+  }
+
+  .rt-product-gallery__group {
+    display: contents;
+  }
+
+  .rt-product-gallery__group[hidden] {
+    display: none;
+  }
+
+  .rt-product-gallery .rt-product-gallery__slideshow {
+    --slide-min-height: 0;
+    --slide-min-height-desktop: 0;
+    --gallery-aspect-ratio: 1;
+    display: block;
+    grid-column: 1 / -1;
+  }
+
+  .rt-product-gallery__slideshow slideshow-container {
+    background: var(--rt-product-surface);
+    border-radius: 4px;
+  }
+
+  .rt-product-gallery .rt-product-gallery__slide {
+    --slide-width: 100%;
+    display: flex;
+    flex: 0 0 100%;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    min-inline-size: 0;
+  }
+
+  .rt-product-gallery__slide :is(.product-media, .rt-product-gallery__zoom-link) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .rt-product-gallery__slide .product-media__image {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: contain;
+  }
+
+  .rt-product-gallery__zoom-link {
+    cursor: zoom-in;
+  }
+
+  .rt-product-gallery__counter {
+    position: absolute;
+    z-index: 1;
+    inset-block-start: 20px;
+    inset-inline-end: 32px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    color: var(--color-background);
+    background: rgb(var(--color-foreground-rgb) / var(--opacity-40));
+    font-size: 14px;
+    line-height: 18px;
+    pointer-events: none;
+  }
+
+  .rt-product-gallery__arrow {
+    position: absolute;
+    z-index: 1;
+    inset-block-start: calc(50% - 24px);
+    inset-inline-start: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 48px;
+    block-size: 48px;
+    padding: 8px;
+    border: 0;
+    border-radius: 50%;
+    background: rgb(var(--color-foreground-rgb) / var(--opacity-15));
+    cursor: pointer;
+  }
+
+  .rt-product-gallery__arrow img {
+    inline-size: 32px;
+    block-size: 32px;
+  }
+
+  .rt-product-gallery :is(.rt-product-gallery__arrow, .rt-product-gallery__thumbnail-arrow):disabled {
+    opacity: var(--opacity-50);
+    cursor: default;
+  }
+
+  .rt-product-gallery__arrow--next {
+    inset-inline-start: auto;
+    inset-inline-end: 32px;
+  }
+
+  .rt-product-gallery__arrow--next img,
+  .rt-product-gallery__thumbnail-arrow--next img {
+    transform: rotate(180deg);
+  }
+
+  [dir='rtl'] .rt-product-gallery__arrow img,
+  [dir='rtl'] .rt-product-gallery__thumbnail-arrow img {
+    transform: rotate(180deg);
+  }
+
+  [dir='rtl'] .rt-product-gallery__arrow--next img,
+  [dir='rtl'] .rt-product-gallery__thumbnail-arrow--next img {
+    transform: none;
+  }
+
+  .rt-product-gallery__controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 2;
+    min-inline-size: 0;
+    min-block-size: 72px;
+  }
+
+  .rt-product-gallery__thumbnail-arrow {
+    display: flex;
+    flex: 0 0 24px;
+    align-items: center;
+    justify-content: center;
+    inline-size: 24px;
+    min-block-size: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .rt-product-gallery__thumbnails {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    min-inline-size: 0;
+    scrollbar-width: none;
+  }
+
+  .rt-product-gallery__thumbnail {
+    display: flex;
+    flex: 0 0 40px;
+    align-items: center;
+    justify-content: center;
+    inline-size: 40px;
+    block-size: 40px;
+    padding: 4px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-20));
+    border-radius: 4px;
+    background: var(--color-background);
+    cursor: pointer;
+  }
+
+  .rt-product-gallery__thumbnail[aria-current='true'] {
+    border-color: var(--color-foreground);
+  }
+
+  .rt-product-gallery__thumbnail img {
+    inline-size: 30px;
+    block-size: 30px;
+    object-fit: contain;
+    opacity: var(--opacity-60);
+  }
+
+  .rt-product-gallery__thumbnail[aria-current='true'] img {
+    opacity: 1;
+  }
+
+  .rt-product-gallery__dots {
+    display: none;
+  }
+
+  .rt-product-gallery__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-self: center;
+    grid-column: 2;
+    grid-row: 2;
+    max-inline-size: 100%;
+  }
+
+  .rt-product-gallery__tabs button {
+    min-block-size: 40px;
+    padding: 8px 24px;
+    border: 0;
+    border-radius: 999px;
+    color: var(--color-foreground);
+    background: rgb(var(--color-foreground-rgb) / var(--opacity-5));
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    cursor: pointer;
+  }
+
+  .rt-product-gallery__tabs button[aria-pressed='true'] {
+    color: var(--color-background);
+    background: var(--color-foreground);
+  }
+
+  .rt-product-gallery:not(:has(.rt-product-gallery__tabs)) {
+    column-gap: 0;
+  }
+
+  .rt-product-gallery__zoom {
+    grid-column: 1 / -1;
+  }
+
+  .rt-product-gallery__dialog {
+    inline-size: min(92vw, 1200px);
+    max-inline-size: 92vw;
+    max-block-size: 92dvh;
+    padding: 40px 16px 16px;
+    border: 0;
+    border-radius: 8px;
+    color: var(--color-foreground);
+    background: var(--color-background);
+  }
+
+  .rt-product-gallery__dialog::backdrop {
+    background: rgb(var(--color-foreground-rgb) / var(--opacity-60));
+  }
+
+  .rt-product-gallery__dialog img {
+    inline-size: 100%;
+    block-size: min(80dvh, 1000px);
+    object-fit: contain;
+  }
+
+  .rt-product-gallery__close {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    display: grid;
+    place-items: center;
+    inline-size: 44px;
+    block-size: 44px;
+    padding: 10px;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .rt-product-gallery__close svg {
+    inline-size: 24px;
+    block-size: 24px;
+  }
+
+  @container (max-width: 600px) {
+    .rt-product-gallery__group {
+      display: block;
+      grid-column: 1 / -1;
+    }
+
+    .rt-product-gallery__tabs {
+      justify-content: center;
+      grid-column: 1 / -1;
+      grid-row: auto;
+      padding-block-end: 16px;
+    }
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-gallery {
+      padding-block-end: 20px;
+      border-radius: 0;
+    }
+
+    .rt-product-gallery__group {
+      display: block;
+      grid-column: 1 / -1;
+    }
+
+    .rt-product-gallery .rt-product-gallery__slide {
+      aspect-ratio: auto;
+      block-size: 280px;
+    }
+
+    .rt-product-gallery .product-media__image {
+      aspect-ratio: auto;
+    }
+
+    .rt-product-gallery__counter {
+      inset-block-start: 248px;
+      inset-inline-end: 16px;
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .rt-product-gallery__arrow,
+    .rt-product-gallery__controls {
+      display: none;
+    }
+
+    .rt-product-gallery__dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      justify-content: center;
+      min-block-size: 36px;
+      padding: 0 16px;
+    }
+
+    .rt-product-gallery__dot {
+      display: grid;
+      place-items: center;
+      inline-size: 24px;
+      block-size: 36px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .rt-product-gallery__dot::after {
+      content: '';
+      inline-size: 8px;
+      block-size: 8px;
+      border-radius: 50%;
+      background: rgb(var(--color-foreground-rgb) / var(--opacity-15));
+    }
+
+    .rt-product-gallery__dot[aria-current='true']::after {
+      background: var(--color-foreground);
+    }
+
+    .rt-product-gallery__tabs {
+      justify-content: center;
+      grid-column: 1 / -1;
+      grid-row: auto;
+      padding-block-end: 0;
+    }
+
+    .rt-product-gallery__tabs button {
+      min-block-size: 36px;
+      padding: 8px 12px;
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:rt_product.gallery",
+  "tag": null,
+  "settings": [
+    { "type": "checkbox", "id": "zoom", "label": "t:rt_product.enable_zoom", "default": true },
+    { "type": "checkbox", "id": "video_loop", "label": "t:settings.enable_video_looping", "default": false }
+  ]
+}
+{% endschema %}

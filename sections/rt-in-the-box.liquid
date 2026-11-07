@@ -1,0 +1,277 @@
+{% comment %}
+  Section contract.
+  Product page "What's in the box". Desktop uses five columns: item 1 spans three, items 2–3 are the tall cards, and the rest fill the next row. Mobile shows item 1 full width, then three columns.
+  @example
+  <!-- Add rt-in-the-box below the product purchase section on product.rt-product. -->
+{% endcomment %}
+
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 48
+  assign pb_mobile = ss.padding_bottom_mobile | default: 48
+  assign pt_desktop = ss.padding_top_desktop | default: 80
+  assign pb_desktop = ss.padding_bottom_desktop | default: 80
+  assign bg_color = ss.background_color | default: '#ffffff'
+-%}
+
+{% stylesheet %}
+  .rt-in-the-box-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+    min-width: 0;
+  }
+
+  .rt-in-the-box-side,
+  .rt-in-the-box-smalls {
+    display: contents;
+  }
+
+  .rt-in-the-box-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #fafafa;
+    border-radius: 0;
+  }
+
+  .rt-in-the-box-item--large {
+    grid-column: 1 / -1;
+  }
+
+  .rt-in-the-box-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+  }
+
+  .rt-in-the-box-item--large .rt-in-the-box-media {
+    aspect-ratio: 327 / 249;
+  }
+
+  .rt-in-the-box-media picture {
+    width: 100%;
+    height: 100%;
+  }
+
+  .rt-in-the-box-media picture > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .rt-in-the-box-label {
+    margin: 0;
+    padding: 8px;
+    color: rgb(0 0 0 / 0.88);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    text-align: start;
+  }
+
+  .rt-in-the-box-item--large .rt-in-the-box-label {
+    padding: 8px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+  }
+
+  @media (min-width: 750px) {
+    .rt-in-the-box-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      column-gap: 20px;
+      row-gap: 16px;
+    }
+
+    .rt-in-the-box-item--large {
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+
+    .rt-in-the-box-item--large .rt-in-the-box-media {
+      aspect-ratio: 568 / 300;
+    }
+
+    .rt-in-the-box-item--side .rt-in-the-box-media {
+      aspect-ratio: 176 / 300;
+    }
+
+    .rt-in-the-box-label,
+    .rt-in-the-box-item--large .rt-in-the-box-label {
+      min-height: 50px;
+      padding: 16px;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 600;
+    }
+
+    .rt-in-the-box-item--large .rt-in-the-box-label {
+      padding-inline: 24px;
+    }
+  }
+{% endstylesheet %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section rt-pdp rt-in-the-box"
+  style="--rt-section-bg-color: {{ bg_color }}; --rt-pdp-heading-color: {{ ss.heading_color }};"
+>
+  <div
+    class="rt-ss-padding"
+    style="
+      {% render 'rt-section-padding',
+        section_pt_mobile: pt_mobile,
+        section_pb_mobile: pb_mobile,
+        section_pt_desktop: pt_desktop,
+        section_pb_desktop: pb_desktop
+      %}
+    "
+  >
+    <div class="rt-container">
+      <div class="rt-pdp-layout">
+      {%- if ss.heading != blank -%}
+        <div class="rt-pdp-heading">
+          {% render 'rt-heading', variant: 'title', text: ss.heading %}
+        </div>
+      {%- endif -%}
+
+      <div class="rt-in-the-box-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'item' and forloop.index == 1 -%}
+            {% render 'rt-in-the-box-item', block: block, card_style: 'large' %}
+          {%- endif -%}
+        {%- endfor -%}
+
+        <div class="rt-in-the-box-side">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'item' -%}
+              {%- if forloop.index == 2 or forloop.index == 3 -%}
+                {% render 'rt-in-the-box-item', block: block, card_style: 'side' %}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="rt-in-the-box-smalls">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'item' and forloop.index > 3 -%}
+              {% render 'rt-in-the-box-item', block: block, card_style: 'small' %}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "rt-in-the-box",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "标题",
+      "default": "What's in the box"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "标题颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "上（移动端）",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "下（移动端）",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "上（桌面端）",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "下（桌面端）",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "物品",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "图片"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "名称",
+          "default": "Accessory"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "rt-in-the-box",
+      "category": "rt-product",
+      "blocks": {
+        "item_1": { "type": "item", "settings": { "title": "IX1 Go" } },
+        "item_2": { "type": "item", "settings": { "title": "Packaging Box" } },
+        "item_3": { "type": "item", "settings": { "title": "Carrying Bag" } },
+        "item_4": { "type": "item", "settings": { "title": "USB-C Cable" } },
+        "item_5": { "type": "item", "settings": { "title": "Certificate" } },
+        "item_6": { "type": "item", "settings": { "title": "Quick Start Guide" } }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "item_4", "item_5", "item_6"]
+    }
+  ]
+}
+{% endschema %}

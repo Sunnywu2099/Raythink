@@ -1,0 +1,16 @@
+{%- doc -%}
+  One FAQ accordion item.
+
+  @param {object} block - Section block with question and answer
+  @param {boolean} open - Whether this item starts expanded
+{%- enddoc -%}
+
+<details class="rt-faq-item" {% if open %}open{% endif %} {{ block.shopify_attributes }}>
+  <summary class="rt-faq-summary">
+    <span class="rt-faq-question">{{ block.settings.question | escape }}</span>
+    <span class="rt-faq-icon" aria-hidden="true"></span>
+  </summary>
+  {%- if block.settings.answer != blank -%}
+    <div class="rt-faq-answer rte">{{ block.settings.answer }}</div>
+  {%- endif -%}
+</details>
