@@ -352,5 +352,23 @@
       "default_title": "Standardtitel",
       "sticky_add_to_cart": "Fält för att lägga till snabbt i varukorgen"
     }
+  },
+  "rt_product": {
+    "variant_error": "Det gick inte att uppdatera det här alternativet. Välj det igen innan du köper.",
+    "percent_off": "{{ percent }}% rabatt",
+    "review_count": "{{ count }} recensioner",
+    "days_abbreviation": "DAG",
+    "delivery": "Leverans",
+    "payment": "Betalningsmetoder",
+    "media_gallery": "Produktmediegalleri",
+    "media_group": "Mediekategori",
+    "media": "Media",
+    "video": "Video",
+    "scenario": "Användningsområden",
+    "zoom_image": "Förstora produktbilden",
+    "show_media": "Visa media {{ index }}",
+    "learn_more": "Läs mer",
+    "buy_now": "Köp nu",
+    "checkout_error": "Det gick inte att starta kassan. Försök igen."
   }
 }

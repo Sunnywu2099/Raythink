@@ -1,0 +1,250 @@
+{% comment %}
+  Section contract.
+  Product FAQ accordion. The first item is expanded. Later items use a plus that becomes a minus when open.
+  @example
+  <!-- Add rt-faq on the product template with one block per question. -->
+{% endcomment %}
+
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 48
+  assign pb_mobile = ss.padding_bottom_mobile | default: 48
+  assign pt_desktop = ss.padding_top_desktop | default: 80
+  assign pb_desktop = ss.padding_bottom_desktop | default: 80
+  assign bg_color = ss.background_color | default: '#ffffff'
+-%}
+
+{% stylesheet %}
+  .rt-faq-list {
+    border-block-start: 1px solid rgb(0 0 0 / 0.15);
+  }
+
+  .rt-faq-item {
+    border-block-end: 1px solid rgb(0 0 0 / 0.15);
+  }
+
+  .rt-faq-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 16px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .rt-faq-item[open] .rt-faq-summary {
+    padding-block-start: 0;
+  }
+
+  .rt-faq-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .rt-faq-question {
+    color: rgb(0 0 0 / 0.88);
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+
+  .rt-faq-icon {
+    position: relative;
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    color: rgb(0 0 0 / 0.88);
+  }
+
+  .rt-faq-icon::before,
+  .rt-faq-icon::after {
+    content: '';
+    position: absolute;
+    background-color: currentcolor;
+  }
+
+  .rt-faq-icon::before {
+    inset-block-start: 11px;
+    inset-inline-start: 5px;
+    width: 14px;
+    height: 2px;
+  }
+
+  .rt-faq-icon::after {
+    inset-block-start: 5px;
+    inset-inline-start: 11px;
+    width: 2px;
+    height: 14px;
+  }
+
+  .rt-faq-item[open] .rt-faq-icon::after {
+    display: none;
+  }
+
+  .rt-faq-answer {
+    padding-block-end: 16px;
+    color: rgb(0 0 0 / 0.65);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+  }
+
+  @media (min-width: 750px) {
+    .rt-faq-question {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  .rt-faq-answer > :first-child {
+    margin-top: 0;
+  }
+
+  .rt-faq-answer > :last-child {
+    margin-bottom: 0;
+  }
+{% endstylesheet %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section rt-pdp rt-faq"
+  style="--rt-section-bg-color: {{ bg_color }}; --rt-pdp-heading-color: {{ ss.heading_color }};"
+>
+  <div
+    class="rt-ss-padding"
+    style="
+      {% render 'rt-section-padding',
+        section_pt_mobile: pt_mobile,
+        section_pb_mobile: pb_mobile,
+        section_pt_desktop: pt_desktop,
+        section_pb_desktop: pb_desktop
+      %}
+    "
+  >
+    <div class="rt-container">
+      <div class="rt-pdp-layout">
+      {%- if ss.heading != blank -%}
+        <div class="rt-pdp-heading">
+          {% render 'rt-heading', variant: 'title', text: ss.heading %}
+        </div>
+      {%- endif -%}
+
+      <div class="rt-faq-list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'item' -%}
+            {% render 'rt-faq-item', block: block, open: forloop.first %}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "rt-faq",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "标题",
+      "default": "FAQ"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "标题颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "上（移动端）",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "下（移动端）",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "上（桌面端）",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "下（桌面端）",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "问题",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "问题",
+          "default": "Item"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "回答",
+          "default": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "rt-faq",
+      "category": "rt-product",
+      "blocks": {
+        "item_1": { "type": "item", "settings": { "question": "Item" } },
+        "item_2": { "type": "item", "settings": { "question": "Item" } },
+        "item_3": { "type": "item", "settings": { "question": "Item" } },
+        "item_4": { "type": "item", "settings": { "question": "Item" } }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "item_4"]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,527 @@
+<section
+  class="rision-contact-info"
+  style="
+    --r-contact-bg: {{ section.settings.background_color }};
+    --r-contact-text: {{ section.settings.text_color }};
+    --r-contact-muted: {{ section.settings.muted_color }};
+    --r-contact-accent: {{ section.settings.accent_color }};
+    --r-contact-card-bg: {{ section.settings.media_overlay_bg }};
+    --r-contact-card-text: {{ section.settings.media_text_color }};
+    --r-contact-button-bg: {{ section.settings.button_bg }};
+    --r-contact-button-text: {{ section.settings.button_text_color }};
+    --r-contact-radius: {{ section.settings.image_radius }}px;
+    --r-contact-padding-top: {{ section.settings.padding_top }}px;
+    --r-contact-padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="rision-contact-info__inner">
+    {% if section.settings.kicker != blank or section.settings.heading != blank or section.settings.subheading != blank %}
+      <div class="rision-contact-info__header">
+        {% if section.settings.kicker != blank %}
+          <p class="rision-contact-info__kicker">{{ section.settings.kicker | escape }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="rision-contact-info__heading">{{ section.settings.heading | escape }}</h2>
+        {% endif %}
+
+        {% if section.settings.subheading != blank %}
+          <div class="rision-contact-info__subheading">{{ section.settings.subheading }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="rision-contact-info__grid">
+      {% if section.blocks.size > 0 %}
+        <div class="rision-contact-info__list">
+          {% for block in section.blocks %}
+            <div class="rision-contact-info__item" {{ block.shopify_attributes }}>
+              {% if block.settings.title != blank %}
+                <h3>{{ block.settings.title | escape }}</h3>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <div class="rision-contact-info__item-text">{{ block.settings.text }}</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="rision-contact-info__media-card">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1400', sizes: '(max-width: 749px) 100vw, 52vw', class: 'rision-contact-info__image' }}
+        {% endif %}
+
+        <div class="rision-contact-info__media-overlay">
+          {% if section.settings.media_kicker != blank %}
+            <p class="rision-contact-info__media-kicker">{{ section.settings.media_kicker | escape }}</p>
+          {% endif %}
+
+          {% if section.settings.media_heading != blank %}
+            <h3 class="rision-contact-info__media-heading">{{ section.settings.media_heading | escape }}</h3>
+          {% endif %}
+
+          {% if section.settings.media_text != blank %}
+            <div class="rision-contact-info__media-text">{{ section.settings.media_text }}</div>
+          {% endif %}
+
+          {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+            <a class="rision-contact-info__button" href="{{ section.settings.button_link }}">
+              {{ section.settings.button_label | escape }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.rision-contact-info {
+  background: var(--r-contact-bg);
+  color: var(--r-contact-text);
+  padding: var(--r-contact-padding-top) 24px var(--r-contact-padding-bottom);
+}
+
+.rision-contact-info__inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.rision-contact-info__header {
+  max-width: 820px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.rision-contact-info__kicker {
+  margin: 0 0 10px;
+  color: var(--r-contact-accent);
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.rision-contact-info__heading {
+  margin: 0;
+  color: var(--r-contact-text);
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.rision-contact-info__subheading {
+  margin: 18px auto 0;
+  max-width: 680px;
+  color: var(--r-contact-muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.rision-contact-info__subheading p,
+.rision-contact-info__media-text p,
+.rision-contact-info__item-text p {
+  margin: 0;
+}
+
+.rision-contact-info__subheading p + p,
+.rision-contact-info__media-text p + p,
+.rision-contact-info__item-text p + p {
+  margin-top: 6px;
+}
+
+.rision-contact-info__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(36px, 6vw, 82px);
+  align-items: center;
+}
+
+.rision-contact-info__list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.rision-contact-info__item h3 {
+  margin: 0 0 4px;
+  color: var(--r-contact-text);
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.rision-contact-info__item-text {
+  color: var(--r-contact-text);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.rision-contact-info__item-text strong,
+.rision-contact-info__item-text b,
+.rision-contact-info__subheading strong,
+.rision-contact-info__subheading b,
+.rision-contact-info__media-text strong,
+.rision-contact-info__media-text b {
+  font-weight: 800;
+}
+
+.rision-contact-info__item-text a,
+.rision-contact-info__subheading a,
+.rision-contact-info__media-text a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.rision-contact-info__media-card {
+  position: relative;
+  min-height: 430px;
+  border-radius: var(--r-contact-radius);
+  overflow: hidden;
+  background: var(--r-contact-card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rision-contact-info__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rision-contact-info__media-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 430px;
+  padding: clamp(36px, 5vw, 72px);
+  background: rgba(0, 0, 0, {{ section.settings.media_overlay_opacity | divided_by: 100.0 }});
+  color: var(--r-contact-card-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.rision-contact-info__media-kicker {
+  margin: 0 0 12px;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.rision-contact-info__media-heading {
+  margin: 0;
+  max-width: 560px;
+  font-size: clamp(34px, 4.8vw, 54px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+.rision-contact-info__media-text {
+  margin-top: 24px;
+  max-width: 440px;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 600;
+  opacity: 0.88;
+}
+
+.rision-contact-info__button {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  min-width: 180px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: var(--r-contact-button-bg);
+  color: var(--r-contact-button-text);
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.rision-contact-info__button:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+@media (max-width: 749px) {
+  .rision-contact-info {
+    padding: calc(var(--r-contact-padding-top) * 0.65) 18px calc(var(--r-contact-padding-bottom) * 0.65);
+  }
+
+  .rision-contact-info__header {
+    margin-bottom: 30px;
+  }
+
+  .rision-contact-info__heading {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .rision-contact-info__subheading {
+    font-size: 14px;
+  }
+
+  .rision-contact-info__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .rision-contact-info__list {
+    gap: 18px;
+  }
+
+  .rision-contact-info__item h3,
+  .rision-contact-info__item-text {
+    font-size: 14px;
+  }
+
+  .rision-contact-info__media-card,
+  .rision-contact-info__media-overlay {
+    min-height: 340px;
+  }
+
+  .rision-contact-info__media-overlay {
+    padding: 34px 22px;
+  }
+
+  .rision-contact-info__media-heading {
+    font-size: clamp(30px, 10vw, 40px);
+  }
+
+  .rision-contact-info__media-text {
+    margin-top: 18px;
+    font-size: 14px;
+  }
+
+  .rision-contact-info__button {
+    min-height: 48px;
+    min-width: 160px;
+    margin-top: 26px;
+    font-size: 14px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "RISION Contact Info",
+  "class": "shopify-section--rision-contact-info",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Small title",
+      "default": "Support"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main title",
+      "default": "Got Questions?"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Intro text",
+      "default": "<p>Visit our FAQs for immediate answers to common inquiries.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right image"
+    },
+    {
+      "type": "text",
+      "id": "media_kicker",
+      "label": "Image small title"
+    },
+    {
+      "type": "text",
+      "id": "media_heading",
+      "label": "Image title",
+      "default": "CONTACT US"
+    },
+    {
+      "type": "richtext",
+      "id": "media_text",
+      "label": "Image text",
+      "default": "<p>Feel free to contact us.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Send Your Concern"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 20,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 20,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "media_overlay_opacity",
+      "label": "Image overlay opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#EDE8D8"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#0B2118"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#233A30"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#0B2118"
+    },
+    {
+      "type": "color",
+      "id": "media_overlay_bg",
+      "label": "Image fallback background",
+      "default": "#020707"
+    },
+    {
+      "type": "color",
+      "id": "media_text_color",
+      "label": "Image text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#F3F6FA"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#F2992F"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "Left text item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Bold title",
+          "default": "General Support:"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>For order updates or product-related questions, please contact us at <a href=\"mailto:support@example.com\">support@example.com</a></p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RISION Contact Info",
+      "blocks": [
+        {
+          "type": "info",
+          "settings": {
+            "title": "General Support:",
+            "text": "<p>For order updates or product-related questions, please contact us at <a href=\"mailto:support@example.com\">support@example.com</a></p>"
+          }
+        },
+        {
+          "type": "info",
+          "settings": {
+            "title": "Phone Support:",
+            "text": "<p><a href=\"tel:+18008895116\">+1 (800) 889-5116</a><br>Monday - Friday | 8:00 AM - 6:00 PM PST</p>"
+          }
+        },
+        {
+          "type": "info",
+          "settings": {
+            "title": "Amazon Orders:",
+            "text": "<p>For any questions regarding your Amazon purchase, please contact <a href=\"mailto:amazon@example.com\">amazon@example.com</a></p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

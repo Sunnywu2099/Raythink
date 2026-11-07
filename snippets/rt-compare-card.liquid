@@ -1,0 +1,86 @@
+{%- doc -%}
+  One product card in the comparison section.
+
+  When a product is selected, the name, price, image, and purchase actions come from that product. Specs stay on the block so each comparison row can be written by hand.
+
+  @param {object} block - Section block with a product, optional image, and spec lines
+{%- enddoc -%}
+
+{%- liquid
+  assign card_product = block.settings.product
+  assign image = block.settings.image
+  assign title = block.settings.title
+  assign price = block.settings.price
+  assign variant = blank
+  assign is_current = false
+
+  if card_product != blank
+    assign title = card_product.title
+    assign variant = card_product.selected_or_first_available_variant
+    if image == blank
+      assign image = card_product.featured_image
+    endif
+    if card_product.id == product.id
+      assign is_current = true
+    endif
+  endif
+-%}
+
+<li class="rt-compare-card" {{ block.shopify_attributes }}>
+  <div class="rt-compare-media">
+    {% render 'rt-image2picture',
+      image_mobile: image,
+      image_desktop: image,
+      alt: title,
+      sizes: '(min-width: 750px) 320px, 200px',
+      loading: 'lazy',
+      fetchpriority: 'low'
+    %}
+  </div>
+  {%- if title != blank -%}
+    <h3 class="rt-compare-name">{{ title | escape }}</h3>
+  {%- endif -%}
+  {%- if card_product != blank and variant != blank -%}
+    <p class="rt-compare-price">{{ variant.price | money }}</p>
+  {%- elsif price != blank -%}
+    <p class="rt-compare-price">{{ price | escape }}</p>
+  {%- endif -%}
+
+  {%- if card_product != blank -%}
+    <div class="rt-compare-actions">
+      {%- if is_current -%}
+        <p class="rt-compare-viewing">{{ 'rt_product.currently_viewing' | t }}</p>
+      {%- elsif variant != blank and variant.available -%}
+        <form class="rt-compare-buy-form" action="{{ routes.cart_add_url }}" method="post">
+          <input type="hidden" name="id" value="{{ variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="return_to" value="/checkout">
+          <button class="rt-compare-buy" type="submit">{{ 'rt_product.buy_now' | t }}</button>
+        </form>
+      {%- else -%}
+        <button class="rt-compare-buy" type="button" disabled>{{ 'products.product.sold_out' | t }}</button>
+      {%- endif -%}
+      <a class="rt-compare-learn" href="{{ card_product.url }}">{{ 'rt_product.learn_more' | t }}</a>
+    </div>
+  {%- elsif block.settings.viewing_label != blank or block.settings.buy_label != blank or block.settings.learn_label != blank -%}
+    <div class="rt-compare-actions">
+      {%- if block.settings.viewing_label != blank -%}
+        <p class="rt-compare-viewing">{{ block.settings.viewing_label | escape }}</p>
+      {%- endif -%}
+      {%- if block.settings.buy_label != blank -%}
+        {%- if block.settings.buy_url != blank -%}
+          <a class="rt-compare-buy" href="{{ block.settings.buy_url }}">{{ block.settings.buy_label | escape }}</a>
+        {%- else -%}
+          <span class="rt-compare-buy">{{ block.settings.buy_label | escape }}</span>
+        {%- endif -%}
+      {%- endif -%}
+      {%- if block.settings.learn_label != blank -%}
+        {%- if block.settings.learn_url != blank -%}
+          <a class="rt-compare-learn" href="{{ block.settings.learn_url }}">{{ block.settings.learn_label | escape }}</a>
+        {%- else -%}
+          <span class="rt-compare-learn">{{ block.settings.learn_label | escape }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</li>

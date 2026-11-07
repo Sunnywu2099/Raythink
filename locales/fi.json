@@ -352,5 +352,23 @@
       "success_moderated": "Kommentti on julkaistu; odotetaan moderointia",
       "success": "Kommentti on julkaistu"
     }
+  },
+  "rt_product": {
+    "variant_error": "Tätä vaihtoehtoa ei voitu päivittää. Valitse se uudelleen ennen ostamista.",
+    "percent_off": "{{ percent }}% alennus",
+    "review_count": "{{ count }} arvostelua",
+    "days_abbreviation": "PV",
+    "delivery": "Toimitus",
+    "payment": "Maksutavat",
+    "media_gallery": "Tuotteen mediagalleria",
+    "media_group": "Medialuokka",
+    "media": "Media",
+    "video": "Video",
+    "scenario": "Käyttökohteet",
+    "zoom_image": "Suurenna tuotekuva",
+    "show_media": "Näytä media {{ index }}",
+    "learn_more": "Lue lisää",
+    "buy_now": "Osta nyt",
+    "checkout_error": "Kassalle siirtyminen epäonnistui. Yritä uudelleen."
   }
 }

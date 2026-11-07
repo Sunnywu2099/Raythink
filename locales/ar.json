@@ -380,5 +380,23 @@
       "default_title": "العنوان الافتراضي",
       "sticky_add_to_cart": "شريط الإضافة السريعة إلى سلة التسوق"
     }
+  },
+  "rt_product": {
+    "variant_error": "تعذر تحديث هذا الخيار. يُرجى تحديده مرة أخرى قبل الشراء.",
+    "percent_off": "خصم {{ percent }}%",
+    "review_count": "{{ count }} من التقييمات",
+    "days_abbreviation": "يوم",
+    "delivery": "التوصيل",
+    "payment": "طرق الدفع",
+    "media_gallery": "معرض وسائط المنتج",
+    "media_group": "فئة الوسائط",
+    "media": "الوسائط",
+    "video": "فيديو",
+    "scenario": "حالات الاستخدام",
+    "zoom_image": "تكبير صورة المنتج",
+    "show_media": "عرض الوسائط {{ index }}",
+    "learn_more": "معرفة المزيد",
+    "buy_now": "اشترِ الآن",
+    "checkout_error": "تعذر بدء إتمام الشراء. يُرجى المحاولة مرة أخرى."
   }
 }

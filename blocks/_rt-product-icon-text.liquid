@@ -1,0 +1,114 @@
+{% doc %}
+  An editable feature or service item using the design's local icon assets.
+  @example
+  <!-- Add to RT features or RT purchase services; choose an icon and enter text. -->
+{% enddoc %}
+{% if block.settings.text != blank %}
+  <div class="rt-product-icon-text{% if block.settings.round_icon %} rt-product-icon-text--round{% endif %}" {{ block.shopify_attributes }}>
+    <span class="rt-product-icon-text__icon" aria-hidden="true">
+      {% if block.settings.icon == 'return' %}
+        <span class="rt-product-icon-text__days">{{ block.settings.return_days }}<small>{{ 'rt_product.days_abbreviation' | t }}</small></span>
+      {% else %}
+        {% liquid
+          case block.settings.icon
+            when 'gift'
+              assign icon_asset = 'rt-product-gift.svg'
+            when 'price'
+              assign icon_asset = 'rt-product-price.svg'
+            when 'warranty'
+              assign icon_asset = 'rt-product-warranty.svg'
+            else
+              assign icon_asset = 'rt-product-official.svg'
+          endcase
+        %}
+        <img src="{{ icon_asset | asset_url }}" width="24" height="24" alt="" loading="lazy">
+      {% endif %}
+    </span>
+    <span>{{ block.settings.text | escape }}</span>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .rt-product-icon-text {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    min-inline-size: 0;
+    font-size: 14px;
+    line-height: 18px;
+    overflow-wrap: anywhere;
+  }
+
+  .rt-product-icon-text__icon {
+    display: flex;
+    flex: 0 0 24px;
+    align-items: center;
+    justify-content: center;
+    block-size: 24px;
+  }
+
+  .rt-product-icon-text--round {
+    gap: 12px;
+  }
+
+  .rt-product-icon-text--round .rt-product-icon-text__icon {
+    flex-basis: 40px;
+    block-size: 40px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-15));
+    border-radius: 50%;
+    background: var(--color-background);
+  }
+
+  .rt-product-icon-text__icon img {
+    inline-size: 24px;
+    block-size: 24px;
+  }
+
+  .rt-product-icon-text__days {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  .rt-product-icon-text__days small {
+    display: block;
+    font-size: 7px;
+    line-height: 8px;
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-icon-text {
+      align-items: start;
+    }
+
+    .rt-product-icon-text--round {
+      align-items: center;
+    }
+
+    .rt-product-icon-text--round .rt-product-icon-text__icon {
+      flex-basis: 32px;
+      block-size: 32px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:rt_product.icon_text",
+  "tag": null,
+  "settings": [
+    { "type": "text", "id": "text", "label": "t:settings.text" },
+    { "type": "select", "id": "icon", "label": "t:settings.icon", "default": "official", "options": [
+      { "value": "official", "label": "t:rt_product.feature_icon" },
+      { "value": "return", "label": "t:rt_product.return_icon" },
+      { "value": "gift", "label": "t:rt_product.gift_icon" },
+      { "value": "price", "label": "t:rt_product.price_icon" },
+      { "value": "warranty", "label": "t:rt_product.warranty_icon" }
+    ] },
+    { "type": "checkbox", "id": "round_icon", "label": "t:rt_product.round_icon", "default": false },
+    { "type": "range", "id": "return_days", "label": "t:rt_product.return_days", "min": 1, "max": 100, "step": 1, "default": 30, "visible_if": "{{ block.settings.icon == 'return' }}" }
+  ],
+  "presets": [{ "name": "t:rt_product.icon_text" }]
+}
+{% endschema %}

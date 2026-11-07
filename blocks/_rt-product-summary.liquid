@@ -1,0 +1,125 @@
+{% doc %}
+  Product title, sale price and rating from the current product's review metafields.
+  @example
+  <!-- Add inside the product-details block in the RT product template. -->
+{% enddoc %}
+{% liquid
+  assign product_resource = closest.product
+  assign rating = product_resource.metafields.reviews.rating.value
+  assign rating_count = product_resource.metafields.reviews.rating_count.value
+  if rating != blank
+    assign star_rating = rating.rating | times: 5.0 | divided_by: rating.scale_max
+  endif
+%}
+<div class="rt-product-summary" data-rt-product-fragment="summary-{{ block.id }}" {{ block.shopify_attributes }}>
+  <h1 class="rt-product-summary__title">{{ product_resource.title | escape }}</h1>
+  {% render 'rt-product-price', product_resource: product_resource, badge_first: true %}
+  {% if rating != blank and rating_count > 0 %}
+    <div class="rt-product-summary__reviews">
+      <span class="rt-product-summary__stars" role="img" aria-label="{{ 'accessibility.rating' | t: rating: rating.rating | escape }}">
+        {% for star in (1..5) %}
+          {% liquid
+            assign fill = star_rating | minus: star | plus: 1 | times: 100 | at_least: 0 | at_most: 100
+          %}
+          <span class="rt-product-summary__star" aria-hidden="true">
+            <img src="{{ 'rt-product-star.svg' | asset_url }}" width="24" height="24" alt="">
+            <span class="rt-product-summary__star-fill" style="inline-size: {{ fill }}%;">
+              <img src="{{ 'rt-product-star.svg' | asset_url }}" width="24" height="24" alt="">
+            </span>
+          </span>
+        {% endfor %}
+      </span>
+      <span>{{ rating.rating | round: 1 }}</span>
+      {% if block.settings.reviews_link != blank %}
+        <a class="rt-product-summary__review-link" href="{{ block.settings.reviews_link | escape }}">{{ 'rt_product.review_count' | t: count: rating_count }}</a>
+      {% else %}
+        <span class="rt-product-summary__review-count">{{ 'rt_product.review_count' | t: count: rating_count }}</span>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .rt-product-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    inline-size: 100%;
+  }
+
+  .rt-product-summary__title {
+    font-family: inherit;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .rt-product-summary__reviews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    align-items: center;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .rt-product-summary__stars {
+    display: flex;
+    flex: 0 0 auto;
+  }
+
+  .rt-product-summary__star {
+    position: relative;
+    inline-size: 24px;
+    block-size: 24px;
+  }
+
+  .rt-product-summary__star > img {
+    opacity: var(--opacity-20);
+  }
+
+  .rt-product-summary__star-fill {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    overflow: hidden;
+    block-size: 24px;
+  }
+
+  .rt-product-summary__star-fill img {
+    inline-size: 24px;
+    max-inline-size: none;
+  }
+
+  .rt-product-summary__review-link,
+  .rt-product-summary__review-count {
+    margin-inline-start: 10px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .rt-product-summary__review-link {
+    color: inherit;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-summary {
+      gap: 12px;
+      padding: 20px 16px;
+    }
+
+    .rt-product-summary__title {
+      font-size: 24px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:rt_product.summary",
+  "tag": null,
+  "settings": [{ "type": "url", "id": "reviews_link", "label": "t:rt_product.reviews_link" }],
+  "presets": [{ "name": "t:rt_product.summary", "category": "t:categories.product" }]
+}
+{% endschema %}

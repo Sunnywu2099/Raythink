@@ -366,5 +366,23 @@
       "default_title": "Tytuł domyślny",
       "sticky_add_to_cart": "Pasek szybkiego dodawania do koszyka"
     }
+  },
+  "rt_product": {
+    "variant_error": "Nie udało się zaktualizować tej opcji. Wybierz ją ponownie przed zakupem.",
+    "percent_off": "{{ percent }}% rabatu",
+    "review_count": "Opinie: {{ count }}",
+    "days_abbreviation": "DZIEŃ",
+    "delivery": "Dostawa",
+    "payment": "Metody płatności",
+    "media_gallery": "Galeria multimediów produktu",
+    "media_group": "Kategoria multimediów",
+    "media": "Multimedia",
+    "video": "Wideo",
+    "scenario": "Zastosowania",
+    "zoom_image": "Powiększ zdjęcie produktu",
+    "show_media": "Pokaż multimedia {{ index }}",
+    "learn_more": "Dowiedz się więcej",
+    "buy_now": "Kup teraz",
+    "checkout_error": "Nie udało się rozpocząć realizacji zakupu. Spróbuj ponownie."
   }
 }

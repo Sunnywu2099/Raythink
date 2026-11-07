@@ -1,0 +1,95 @@
+{% doc %}
+  One media group using the theme's native slideshow and product media renderers.
+  @param {media[]} media_items - Ordered media in this group.
+  @param {string} group - media, video, or scenario.
+  @param {string} active_group - Initially visible group.
+  @param {product} product_resource - Current product.
+  @param {media} selected_media - Variant media, when present.
+  @param {block} block - Owning gallery block.
+  @example
+  {% render 'rt-product-media-group', media_items: product.media, group: 'media', active_group: 'media', product_resource: product, selected_media: product.selected_or_first_available_variant.featured_media, block: block %}
+{% enddoc %}
+{% liquid
+  assign initial_index = 0
+  for media in media_items
+    if selected_media.id == media.id
+      assign initial_index = forloop.index0
+    endif
+  endfor
+  assign initial_count = initial_index | plus: 1
+%}
+<div class="rt-product-gallery__group" data-rt-gallery-group="{{ group }}" {% unless group == active_group %}hidden{% endunless %}>
+  {% capture slides %}
+    {% for media in media_items %}
+      {% liquid
+        assign loading = 'lazy'
+        assign is_critical = false
+        if group == active_group and forloop.index0 == initial_index
+          assign loading = 'eager'
+          assign is_critical = true
+        endif
+      %}
+      {% capture media_description %}{% render 'rt-product-media-alt', alt: media.alt, fallback: product_resource.title %}{% endcapture %}
+      {% capture children %}
+        {% if media.media_type == 'image' and block.settings.zoom %}
+          <a
+            class="rt-product-gallery__zoom-link"
+            href="{{ media | image_url: width: 3840 }}"
+            data-rt-zoom-src="{{ media | image_url: width: 3840 }}"
+            data-rt-zoom-alt="{{ media_description | escape }}"
+            aria-label="{{ 'rt_product.zoom_image' | t | escape }}"
+            on:click="rt-product-media-gallery/openZoom"
+          >
+        {% endif %}
+        {% render 'rt-product-media', media: media, description: media_description, block: block, selected_product: product_resource, sizes: '(min-width: 1264px) 680px, (min-width: 990px) 55vw, 100vw', widths: '320, 480, 680, 960, 1360', loading: loading, is_main_product_media: is_critical %}
+        {% if media.media_type == 'image' and block.settings.zoom %}</a>{% endif %}
+      {% endcapture %}
+      {% capture attributes %}data-rt-media-id="{{ media.id }}"{% endcapture %}
+      {% assign slide_id = group | append: '-' | append: media.id %}
+      {% assign slide_class = 'rt-product-gallery__slide product-media-container media-fit-contain product-media-container--' | append: media.media_type %}
+      {% render 'slideshow-slide', index: forloop.index0, children: children, class: slide_class, slide_id: slide_id, attributes: attributes, media_fit: 'contain' %}
+    {% endfor %}
+  {% endcapture %}
+  {% capture arrows %}
+    {% if media_items.size > 1 %}
+      <button class="rt-product-gallery__arrow" type="button" on:click="/previous" aria-label="{{ 'accessibility.slideshow_previous' | t | escape }}">
+        <img src="{{ 'rt-product-arrow-large.svg' | asset_url }}" width="32" height="32" alt="">
+      </button>
+      <button class="rt-product-gallery__arrow rt-product-gallery__arrow--next" type="button" on:click="/next" aria-label="{{ 'accessibility.slideshow_next' | t | escape }}">
+        <img src="{{ 'rt-product-arrow-large.svg' | asset_url }}" width="32" height="32" alt="">
+      </button>
+    {% endif %}
+  {% endcapture %}
+  {% render 'slideshow', slides: slides, slide_count: media_items.size, class: 'rt-product-gallery__slideshow', initial_slide: initial_index, slideshow_arrows: arrows, animate_arrows: false, infinite: false %}
+  <span class="rt-product-gallery__counter" data-rt-gallery-counter aria-hidden="true">{{ initial_count }}/{{ media_items.size }}</span>
+  {% comment %}Keep the navigation row when switching to a single-item group so the shared tabs stay below the image.{% endcomment %}
+  {% if media_items.size > 1 or product_resource.media.size > media_items.size %}
+    <div class="rt-product-gallery__controls">
+      {% if media_items.size > 1 %}
+      <button class="rt-product-gallery__thumbnail-arrow" type="button" on:click="/previous" aria-label="{{ 'accessibility.slideshow_previous' | t | escape }}"><img src="{{ 'rt-product-arrow-small.svg' | asset_url }}" width="24" height="24" alt=""></button>
+      <div class="rt-product-gallery__thumbnails">
+        {% for media in media_items %}
+          <button
+            class="rt-product-gallery__thumbnail"
+            type="button"
+            data-rt-slide="{{ forloop.index0 }}"
+            aria-current="{% if forloop.index0 == initial_index %}true{% else %}false{% endif %}"
+            aria-label="{{ 'rt_product.show_media' | t: index: forloop.index | escape }}"
+            on:click="/selectSlide"
+          >
+            {{ media.preview_image | image_url: width: 80 | image_tag: widths: '40, 80', sizes: '30px', loading: 'lazy', alt: '' }}
+          </button>
+        {% endfor %}
+      </div>
+      <button class="rt-product-gallery__thumbnail-arrow rt-product-gallery__thumbnail-arrow--next" type="button" on:click="/next" aria-label="{{ 'accessibility.slideshow_next' | t | escape }}"><img src="{{ 'rt-product-arrow-small.svg' | asset_url }}" width="24" height="24" alt=""></button>
+      {% endif %}
+    </div>
+    <div class="rt-product-gallery__dots" {% if media_items.size > 1 %}role="group" aria-label="{{ 'rt_product.media_gallery' | t | escape }}"{% else %}aria-hidden="true"{% endif %}>
+      {% if media_items.size > 1 %}
+      {% for media in media_items %}
+        <button class="rt-product-gallery__dot" type="button" data-rt-slide="{{ forloop.index0 }}" aria-current="{% if forloop.index0 == initial_index %}true{% else %}false{% endif %}" aria-label="{{ 'rt_product.show_media' | t: index: forloop.index | escape }}" on:click="/selectSlide"></button>
+      {% endfor %}
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
