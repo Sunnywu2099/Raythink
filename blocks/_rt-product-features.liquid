@@ -1,0 +1,85 @@
+{% doc %}
+  Merchant-managed features with optional Learn more expansion after three items.
+  Without JavaScript all descriptions remain readable.
+  @example
+  <!-- Add RT icon/text children in the product editor. -->
+{% enddoc %}
+{% capture features %}{% content_for 'blocks' %}{% endcapture %}
+{% if features != blank %}
+  <rt-product-features class="rt-product-features" data-show-learn-more="{{ block.settings.show_learn_more }}" {{ block.shopify_attributes }}>
+    <div class="rt-product-features__surface">
+      <div id="RTProductFeatures-{{ section.id }}-{{ block.id }}" class="rt-product-features__items" ref="items">{{ features }}</div>
+      <button
+        class="rt-product-features__toggle"
+        type="button"
+        ref="toggle"
+        aria-expanded="false"
+        aria-controls="RTProductFeatures-{{ section.id }}-{{ block.id }}"
+        data-expand-label="{{ 'rt_product.learn_more' | t | escape }}"
+        data-collapse-label="{{ 'actions.show_less' | t | escape }}"
+        on:click="/toggleFeatures"
+        hidden
+      >{{ 'rt_product.learn_more' | t }}</button>
+    </div>
+  </rt-product-features>
+  <script src="{{ 'rt-product-features.js' | asset_url }}" type="module"></script>
+{% endif %}
+
+{% stylesheet %}
+  .rt-product-features {
+    display: block;
+    inline-size: 100%;
+  }
+
+  .rt-product-features__surface {
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--rt-product-surface);
+  }
+
+  .rt-product-features__items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .rt-product-features__items > .rt-product-icon-text[hidden],
+  .rt-product-features__toggle[hidden] {
+    display: none;
+  }
+
+  .rt-product-features__toggle {
+    display: block;
+    inline-size: 100%;
+    padding: 12px 16px;
+    border: 0;
+    border-block-start: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10));
+    color: inherit;
+    background: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    text-decoration-line: underline;
+    text-decoration-color: currentcolor;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-features {
+      padding: 20px 24px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:rt_product.features",
+  "tag": null,
+  "blocks": [{ "type": "_rt-product-icon-text" }],
+  "settings": [{ "type": "checkbox", "id": "show_learn_more", "label": "t:rt_product.show_learn_more", "info": "t:rt_product.show_learn_more_info", "default": true }],
+  "presets": [{ "name": "t:rt_product.features", "category": "t:categories.product", "blocks": [{ "type": "_rt-product-icon-text" }] }]
+}
+{% endschema %}

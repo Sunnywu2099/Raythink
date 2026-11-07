@@ -366,5 +366,23 @@
       "default_title": "כותרת ברירת מחדל",
       "sticky_add_to_cart": "סרגל הוספה מהירה לסל"
     }
+  },
+  "rt_product": {
+    "variant_error": "לא ניתן לעדכן את האפשרות הזו. יש לבחור אותה שוב לפני הרכישה.",
+    "percent_off": "{{ percent }}% הנחה",
+    "review_count": "{{ count }} ביקורות",
+    "days_abbreviation": "יום",
+    "delivery": "משלוח",
+    "payment": "אמצעי תשלום",
+    "media_gallery": "גלריית מדיה של המוצר",
+    "media_group": "קטגוריית מדיה",
+    "media": "מדיה",
+    "video": "וידאו",
+    "scenario": "תרחישי שימוש",
+    "zoom_image": "הגדלת תמונת המוצר",
+    "show_media": "הצגת מדיה {{ index }}",
+    "learn_more": "מידע נוסף",
+    "buy_now": "קנייה עכשיו",
+    "checkout_error": "לא ניתן להתחיל את התשלום. יש לנסות שוב."
   }
 }

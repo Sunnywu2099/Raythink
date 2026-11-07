@@ -1,0 +1,67 @@
+{% doc %}
+  Independent service-benefits panel containing merchant-managed RT icon/text items.
+  @example
+  <!-- Place return policy, member benefits, price guarantee, and warranty here. -->
+{% enddoc %}
+{% capture services %}{% content_for 'blocks' %}{% endcapture %}
+{% if services != blank %}
+  <div class="rt-product-services" {{ block.shopify_attributes }}>
+    <div class="rt-product-services__items">{{ services }}</div>
+  </div>
+{% endif %}
+{% stylesheet %}
+  .rt-product-services {
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .rt-product-services__items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 16px;
+    border-radius: 8px;
+    background: var(--rt-product-surface);
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-services {
+      padding: 20px 24px;
+    }
+
+    .rt-product-services__items {
+      border-radius: 0;
+    }
+
+  }
+
+  @media (max-width: 359px) {
+    .rt-product-services__items {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:rt_product.services",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "_rt-product-icon-text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:rt_product.services",
+      "category": "t:categories.product",
+      "blocks": [
+        {
+          "type": "_rt-product-icon-text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

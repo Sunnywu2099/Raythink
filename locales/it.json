@@ -359,5 +359,23 @@
       "default_title": "Titolo predefinito",
       "sticky_add_to_cart": "Barra per l'aggiunta rapida al carrello"
     }
+  },
+  "rt_product": {
+    "variant_error": "Non è stato possibile aggiornare questa opzione. Selezionala di nuovo prima di acquistare.",
+    "percent_off": "{{ percent }}% di sconto",
+    "review_count": "{{ count }} recensioni",
+    "days_abbreviation": "GIORNO",
+    "delivery": "Consegna",
+    "payment": "Metodi di pagamento",
+    "media_gallery": "Galleria multimediale del prodotto",
+    "media_group": "Categoria multimediale",
+    "media": "Contenuti multimediali",
+    "video": "Video",
+    "scenario": "Casi d’uso",
+    "zoom_image": "Ingrandisci l’immagine del prodotto",
+    "show_media": "Mostra contenuto {{ index }}",
+    "learn_more": "Scopri di più",
+    "buy_now": "Acquista ora",
+    "checkout_error": "Non è stato possibile avviare il checkout. Riprova."
   }
 }

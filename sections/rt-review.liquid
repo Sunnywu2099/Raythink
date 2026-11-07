@@ -1,0 +1,555 @@
+{% comment %}
+  Section contract.
+  Product review summary, review list, and customer photo row.
+  @example
+  <!-- Add rt-review at the bottom of the product template white content. -->
+{% endcomment %}
+
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 48
+  assign pb_mobile = ss.padding_bottom_mobile | default: 48
+  assign pt_desktop = ss.padding_top_desktop | default: 80
+  assign pb_desktop = ss.padding_bottom_desktop | default: 80
+  assign bg_color = ss.background_color | default: '#ffffff'
+  assign has_photos = false
+  for block in section.blocks
+    if block.type == 'photo' and block.settings.image != blank
+      assign has_photos = true
+      break
+    endif
+  endfor
+-%}
+
+{% stylesheet %}
+  .rt-review-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .rt-review-bars {
+    width: min(100%, 360px);
+  }
+
+  .rt-review-bar {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    color: rgb(0 0 0 / 0.65);
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .rt-review-bar-track {
+    display: block;
+    height: 8px;
+    overflow: hidden;
+    background-color: #ececec;
+    border-radius: 999px;
+  }
+
+  .rt-review-bar-fill {
+    display: block;
+    height: 100%;
+    background-color: #f5a623;
+    border-radius: inherit;
+  }
+
+  .rt-review-score {
+    text-align: center;
+  }
+
+  .rt-review-score-value {
+    margin: 0;
+    color: rgb(0 0 0 / 0.88);
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .rt-review-count {
+    margin: 8px 0 0;
+    color: rgb(0 0 0 / 0.65);
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .rt-stars {
+    position: relative;
+    display: inline-block;
+    margin: 8px 0 0;
+    color: #d9d9d9;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+
+  .rt-stars-fill {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    width: calc(var(--rt-rating, 0) / 5 * 100%);
+    overflow: hidden;
+    color: #f5a623;
+    white-space: nowrap;
+  }
+
+  .rt-review-list {
+    margin-top: 32px;
+  }
+
+  .rt-review-item {
+    padding-block: 24px;
+    border-block-start: 1px solid rgb(0 0 0 / 0.15);
+  }
+
+  .rt-review-item-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .rt-review-author,
+  .rt-review-date,
+  .rt-review-item-title {
+    margin: 0;
+  }
+
+  .rt-review-author,
+  .rt-review-item-title {
+    color: rgb(0 0 0 / 0.88);
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+
+  .rt-review-date {
+    color: rgb(0 0 0 / 0.65);
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .rt-review-item-title {
+    margin-top: 12px;
+  }
+
+  .rt-review-body {
+    margin-top: 8px;
+    color: rgb(0 0 0 / 0.65);
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .rt-review-body > :first-child {
+    margin-top: 0;
+  }
+
+  .rt-review-body > :last-child {
+    margin-bottom: 0;
+  }
+
+  .rt-review-gallery {
+    margin-top: 32px;
+  }
+
+  .rt-review-gallery-title {
+    margin: 0 0 16px;
+    color: rgb(0 0 0 / 0.88);
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+
+  .rt-review-photos {
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 0 0 4px;
+    overflow-x: auto;
+    list-style: none;
+  }
+
+  .rt-review-photo {
+    flex: 0 0 140px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .rt-review-photo picture {
+    width: 100%;
+    height: 100%;
+  }
+
+  .rt-review-photo picture > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: 750px) {
+    .rt-review-summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      gap: 40px;
+    }
+
+    .rt-review-bars {
+      width: 100%;
+      justify-self: start;
+    }
+
+    .rt-review-action {
+      justify-self: end;
+    }
+
+    .rt-review-list {
+      margin-top: 40px;
+    }
+
+    .rt-review-photo {
+      flex-basis: 180px;
+    }
+  }
+{% endstylesheet %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section rt-pdp rt-review"
+  style="--rt-section-bg-color: {{ bg_color }}; --rt-pdp-heading-color: {{ ss.heading_color }};"
+>
+  <div
+    class="rt-ss-padding"
+    style="
+      {% render 'rt-section-padding',
+        section_pt_mobile: pt_mobile,
+        section_pb_mobile: pb_mobile,
+        section_pt_desktop: pt_desktop,
+        section_pb_desktop: pb_desktop
+      %}
+    "
+  >
+    <div class="rt-container">
+      <div class="rt-pdp-layout">
+      {%- if ss.heading != blank -%}
+        <div class="rt-pdp-heading">
+          {% render 'rt-heading', variant: 'title', text: ss.heading %}
+        </div>
+      {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'summary' -%}
+          {%- liquid
+            assign rating = block.settings.rating | default: '4.9'
+            assign review_count = block.settings.review_count | default: 0
+            assign star_5 = block.settings.star_5 | default: 0
+            assign star_4 = block.settings.star_4 | default: 0
+            assign star_3 = block.settings.star_3 | default: 0
+            assign star_2 = block.settings.star_2 | default: 0
+            assign star_1 = block.settings.star_1 | default: 0
+            assign max_count = star_5
+            if star_4 > max_count
+              assign max_count = star_4
+            endif
+            if star_3 > max_count
+              assign max_count = star_3
+            endif
+            if star_2 > max_count
+              assign max_count = star_2
+            endif
+            if star_1 > max_count
+              assign max_count = star_1
+            endif
+            if max_count == 0
+              assign max_count = 1
+            endif
+          -%}
+          <div class="rt-review-summary" {{ block.shopify_attributes }}>
+            <div class="rt-review-bars">
+              {%- assign star_rows = '5,4,3,2,1' | split: ',' -%}
+              {%- for star in star_rows -%}
+                {%- liquid
+                  case star
+                    when '5'
+                      assign count = star_5
+                    when '4'
+                      assign count = star_4
+                    when '3'
+                      assign count = star_3
+                    when '2'
+                      assign count = star_2
+                    else
+                      assign count = star_1
+                  endcase
+                  assign width = count | times: 100.0 | divided_by: max_count
+                -%}
+                <div class="rt-review-bar">
+                  <span class="visually-hidden">{{ 'rt_product.star_count' | t: stars: star, count: count }}</span>
+                  <span aria-hidden="true">{{ star }}</span>
+                  <span class="rt-review-bar-track" aria-hidden="true">
+                    <span class="rt-review-bar-fill" style="width: {{ width }}%;"></span>
+                  </span>
+                  <span aria-hidden="true">{{ count }}</span>
+                </div>
+              {%- endfor -%}
+            </div>
+
+            <div class="rt-review-score">
+              <p class="rt-review-score-value" aria-hidden="true">{{ rating | escape }}</p>
+              <p class="visually-hidden">{{ 'rt_product.rating_of_five' | t: rating: rating }}</p>
+              <p class="rt-stars" style="--rt-rating: {{ rating }};" aria-hidden="true">
+                <span class="rt-stars-base">★★★★★</span>
+                <span class="rt-stars-fill">★★★★★</span>
+              </p>
+              <p class="rt-review-count">{{ 'rt_product.review_count' | t: count: review_count }}</p>
+            </div>
+
+            <div class="rt-review-action">
+              {%- if block.settings.button_text != blank -%}
+                {%- if block.settings.button_url != blank -%}
+                  <a class="rt-button" href="{{ block.settings.button_url }}">{{ block.settings.button_text | escape }}</a>
+                {%- else -%}
+                  <span class="rt-button">{{ block.settings.button_text | escape }}</span>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+
+      <div class="rt-review-list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'review' -%}
+            {% render 'rt-review-item', block: block %}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- if has_photos -%}
+        <div class="rt-review-gallery">
+          {%- if ss.gallery_heading != blank -%}
+            <h3 class="rt-review-gallery-title">{{ ss.gallery_heading | escape }}</h3>
+          {%- endif -%}
+          <ul class="rt-review-photos">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'photo' -%}
+                {% render 'rt-review-photo', block: block %}
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "rt-review",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "标题",
+      "default": "Review"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "标题颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "gallery_heading",
+      "label": "买家图片标题",
+      "default": "Customer Images"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "上（移动端）",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "下（移动端）",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "上（桌面端）",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "下（桌面端）",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "summary",
+      "name": "评分概览",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "rating",
+          "label": "评分",
+          "default": "4.9"
+        },
+        {
+          "type": "number",
+          "id": "review_count",
+          "label": "评价数量",
+          "default": 130
+        },
+        {
+          "type": "number",
+          "id": "star_5",
+          "label": "5星数量",
+          "default": 120
+        },
+        {
+          "type": "number",
+          "id": "star_4",
+          "label": "4星数量",
+          "default": 6
+        },
+        {
+          "type": "number",
+          "id": "star_3",
+          "label": "3星数量",
+          "default": 2
+        },
+        {
+          "type": "number",
+          "id": "star_2",
+          "label": "2星数量",
+          "default": 1
+        },
+        {
+          "type": "number",
+          "id": "star_1",
+          "label": "1星数量",
+          "default": 1
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "按钮文字",
+          "default": "Write a Review"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "按钮链接"
+        }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "评价",
+      "settings": [
+        {
+          "type": "text",
+          "id": "author",
+          "label": "作者",
+          "default": "Customer"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "星级",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "日期",
+          "default": "August 20, 2025"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "标题",
+          "default": "Clear thermal images"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "内容",
+          "default": "<p>Useful for home checks. The image is clear and the temperature reading is easy to understand.</p>"
+        }
+      ]
+    },
+    {
+      "type": "photo",
+      "name": "买家图片",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "图片"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [
+    {
+      "name": "rt-review",
+      "category": "rt-product",
+      "blocks": {
+        "summary": { "type": "summary" },
+        "review_1": { "type": "review" }
+      },
+      "block_order": ["summary", "review_1"]
+    }
+  ]
+}
+{% endschema %}

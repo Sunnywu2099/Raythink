@@ -1,0 +1,27 @@
+{%- doc -%}
+  Removes a terminal media, video, or scenario marker from a media description.
+  Preserves other pipe-separated text. A marker without a description uses fallback.
+  Returns plain text; consumers must escape it for their HTML context.
+  @param {string} alt - Original product media alt text.
+  @param {string} fallback - Product title when the description is empty.
+  @example
+  {% capture description %}{% render 'rt-product-media-alt', alt: media.alt, fallback: product.title %}{% endcapture %}
+{%- enddoc -%}
+{%- liquid
+  assign segments = alt | append: ' ' | split: '|'
+  assign marker = segments | last | strip | downcase
+  assign description = alt | strip
+  if marker == 'scenario' or marker == 'media' or marker == 'video'
+    assign description = ''
+    for segment in segments
+      unless forloop.last
+        unless forloop.first
+          assign description = description | append: '|'
+        endunless
+        assign description = description | append: segment
+      endunless
+    endfor
+    assign description = description | strip
+  endif
+  echo description | default: fallback
+-%}

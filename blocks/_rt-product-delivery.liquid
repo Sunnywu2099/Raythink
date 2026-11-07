@@ -1,0 +1,55 @@
+{% doc %}
+  Editable dispatch message. The inert template is an output slot extracted by
+  RT details for the fixed bar, so both places share one merchant setting.
+  @example
+  <!-- Add RT delivery beside Quantity in the product details. -->
+{% enddoc %}
+{% if block.settings.delivery_text != blank %}
+  <div class="rt-product-dispatch" {{ block.shopify_attributes }}>
+    <h2 class="rt-product-purchase__heading">{{ 'rt_product.delivery' | t }}</h2>
+    <div class="rt-product-dispatch__message">{% render 'rt-product-delivery', text: block.settings.delivery_text %}</div>
+    <template data-rt-bottom-bar-delivery>{% render 'rt-product-delivery', text: block.settings.delivery_text, compact: true %}</template>
+  </div>
+{% endif %}
+{% stylesheet %}
+  .rt-product-dispatch {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .rt-product-dispatch__message {
+    padding: 4px 12px;
+    background: var(--rt-product-surface);
+    border-radius: 4px;
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-dispatch {
+      padding: 20px 24px;
+    }
+
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:rt_product.delivery_block",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "delivery_text",
+      "label": "t:rt_product.delivery_text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:rt_product.delivery_block",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

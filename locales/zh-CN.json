@@ -352,5 +352,23 @@
       "success_moderated": "评论已发布，等待审核",
       "success": "评论已发布"
     }
+  },
+  "rt_product": {
+    "variant_error": "无法更新此选项，请重新选择后再购买。",
+    "percent_off": "优惠 {{ percent }}%",
+    "review_count": "{{ count }} 条评价",
+    "days_abbreviation": "天",
+    "delivery": "配送",
+    "payment": "支付方式",
+    "media_gallery": "商品媒体图库",
+    "media_group": "媒体分类",
+    "media": "产品展示",
+    "video": "视频",
+    "scenario": "应用场景",
+    "zoom_image": "放大商品图片",
+    "show_media": "查看第 {{ index }} 个媒体",
+    "learn_more": "了解更多",
+    "buy_now": "立即购买",
+    "checkout_error": "无法开始结账，请重试。"
   }
 }

@@ -352,5 +352,23 @@
       "default_title": "ڈیفالٹ عنوان",
       "sticky_add_to_cart": "کوئیک ایڈ ٹو کارٹ بار"
     }
+  },
+  "rt_product": {
+    "variant_error": "یہ آپشن اپ ڈیٹ نہیں ہو سکا۔ خریدنے سے پہلے اسے دوبارہ منتخب کریں۔",
+    "percent_off": "{{ percent }}% رعایت",
+    "review_count": "{{ count }} جائزے",
+    "days_abbreviation": "دن",
+    "delivery": "ترسیل",
+    "payment": "ادائیگی کے طریقے",
+    "media_gallery": "مصنوعات کی میڈیا گیلری",
+    "media_group": "میڈیا کی قسم",
+    "media": "میڈیا",
+    "video": "ویڈیو",
+    "scenario": "استعمال کی صورتیں",
+    "zoom_image": "مصنوعات کی تصویر بڑی کریں",
+    "show_media": "میڈیا {{ index }} دکھائیں",
+    "learn_more": "مزید جانیں",
+    "buy_now": "ابھی خریدیں",
+    "checkout_error": "ادائیگی شروع نہیں ہو سکی۔ دوبارہ کوشش کریں۔"
   }
 }

@@ -359,5 +359,23 @@
       "default_title": "Titlu implicit",
       "sticky_add_to_cart": "Bara de adăugare rapidă în coș"
     }
+  },
+  "rt_product": {
+    "variant_error": "Nu am putut actualiza această opțiune. Selecteaz-o din nou înainte de a cumpăra.",
+    "percent_off": "Reducere de {{ percent }}%",
+    "review_count": "{{ count }} recenzii",
+    "days_abbreviation": "ZI",
+    "delivery": "Livrare",
+    "payment": "Metode de plată",
+    "media_gallery": "Galeria media a produsului",
+    "media_group": "Categorie media",
+    "media": "Media",
+    "video": "Video",
+    "scenario": "Scenarii de utilizare",
+    "zoom_image": "Mărește imaginea produsului",
+    "show_media": "Afișează conținutul media {{ index }}",
+    "learn_more": "Află mai multe",
+    "buy_now": "Cumpără acum",
+    "checkout_error": "Nu am putut începe finalizarea comenzii. Încearcă din nou."
   }
 }

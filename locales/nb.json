@@ -352,5 +352,23 @@
       "default_title": "Standardtittel",
       "sticky_add_to_cart": "Hurtiglinje for «Legg i handlekurv»"
     }
+  },
+  "rt_product": {
+    "variant_error": "Vi kunne ikke oppdatere dette alternativet. Velg det på nytt før du kjøper.",
+    "percent_off": "{{ percent }}% rabatt",
+    "review_count": "{{ count }} anmeldelser",
+    "days_abbreviation": "DAG",
+    "delivery": "Levering",
+    "payment": "Betalingsmåter",
+    "media_gallery": "Produktmediegalleri",
+    "media_group": "Mediekategori",
+    "media": "Medier",
+    "video": "Video",
+    "scenario": "Bruksområder",
+    "zoom_image": "Forstørr produktbildet",
+    "show_media": "Vis medium {{ index }}",
+    "learn_more": "Les mer",
+    "buy_now": "Kjøp nå",
+    "checkout_error": "Vi kunne ikke starte betalingen. Prøv igjen."
   }
 }

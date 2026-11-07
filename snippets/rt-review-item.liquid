@@ -1,0 +1,31 @@
+{%- doc -%}
+  One customer review row.
+
+  @param {object} block - Section block with author, rating, title, body, and date
+{%- enddoc -%}
+
+{%- assign rating = block.settings.rating | default: 5 -%}
+
+<article class="rt-review-item" {{ block.shopify_attributes }}>
+  <div class="rt-review-item-head">
+    <div class="rt-review-item-author">
+      {%- if block.settings.author != blank -%}
+        <p class="rt-review-author">{{ block.settings.author | escape }}</p>
+      {%- endif -%}
+      <p class="rt-stars" style="--rt-rating: {{ rating }};" aria-hidden="true">
+        <span class="rt-stars-base">★★★★★</span>
+        <span class="rt-stars-fill">★★★★★</span>
+      </p>
+      <p class="visually-hidden">{{ 'rt_product.rating_of_five' | t: rating: rating }}</p>
+    </div>
+    {%- if block.settings.date != blank -%}
+      <p class="rt-review-date">{{ block.settings.date | escape }}</p>
+    {%- endif -%}
+  </div>
+  {%- if block.settings.title != blank -%}
+    <h3 class="rt-review-item-title">{{ block.settings.title | escape }}</h3>
+  {%- endif -%}
+  {%- if block.settings.body != blank -%}
+    <div class="rt-review-body rte">{{ block.settings.body }}</div>
+  {%- endif -%}
+</article>
