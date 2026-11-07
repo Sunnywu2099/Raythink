@@ -352,5 +352,23 @@
       "default_title": "Standaardtitel",
       "sticky_add_to_cart": "Balk voor snel toevoegen aan winkelwagen"
     }
+  },
+  "rt_product": {
+    "variant_error": "Deze optie kon niet worden bijgewerkt. Selecteer deze opnieuw voordat je koopt.",
+    "percent_off": "{{ percent }}% korting",
+    "review_count": "{{ count }} beoordelingen",
+    "days_abbreviation": "DAG",
+    "delivery": "Levering",
+    "payment": "Betaalmethoden",
+    "media_gallery": "Productmediagalerij",
+    "media_group": "Mediacategorie",
+    "media": "Media",
+    "video": "Video",
+    "scenario": "Toepassingen",
+    "zoom_image": "Productafbeelding vergroten",
+    "show_media": "Media {{ index }} tonen",
+    "learn_more": "Meer informatie",
+    "buy_now": "Nu kopen",
+    "checkout_error": "Het afrekenen kon niet worden gestart. Probeer het opnieuw."
   }
 }

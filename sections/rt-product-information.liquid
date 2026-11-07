@@ -1,0 +1,141 @@
+{% comment %}
+  RT product purchase region. Keeps native product blocks and cart contracts inside
+  an isolated 1200px layout; its module owns variant display updates and bar sizing.
+  @example
+  <!-- Main section of the product.rt-product template. -->
+{% endcomment %}
+
+{% liquid
+  assign product_resource = closest.product | default: product
+  assign color_id = 'rt-product-' | append: section.id
+  render 'contrast-override', background_color: section.settings.background_color, text_color: section.settings.text_color, section_id: color_id
+%}
+
+<script type="application/ld+json">{{ product_resource | structured_data }}</script>
+<script src="{{ 'rt-product-information.js' | asset_url }}" type="module"></script>
+<script src="{{ 'rt-product-media-gallery.js' | asset_url }}" type="module"></script>
+
+<rt-product-information
+  id="RTProduct-{{ section.id }}"
+  class="rt-product-information color-custom-{{ color_id }}"
+  data-product-id="{{ product_resource.id }}"
+  data-variant-error="{{ 'rt_product.variant_error' | t | escape }}"
+  style="
+    --rt-product-surface: {{ section.settings.surface_background }};
+    --rt-product-sale-color: {{ section.settings.sale_color }};
+    --rt-product-sale-background: {{ section.settings.sale_background }};
+    --rt-product-minus: url('{{ 'rt-product-minus.svg' | asset_url }}');
+    --rt-product-plus: url('{{ 'rt-product-plus.svg' | asset_url }}');
+    --rt-product-minus-mobile: url('{{ 'rt-product-minus-mobile.svg' | asset_url }}');
+    --rt-product-plus-mobile: url('{{ 'rt-product-plus-mobile.svg' | asset_url }}');
+    {% render 'rt-section-padding', section_pt_mobile: section.settings.padding_top_mobile, section_pb_mobile: section.settings.padding_bottom_mobile, section_pt_desktop: section.settings.padding_top_desktop, section_pb_desktop: section.settings.padding_bottom_desktop %}
+  "
+>
+  <div class="rt-container rt-ss-padding">
+    {% assign product_href = '#ProductInformation-' | append: section.id %}
+    {% render 'skip-to-content-link', href: product_href, text: 'accessibility.skip_to_product_info' %}
+    <product-component
+      class="rt-product-information__grid"
+      data-product-grid-content
+      {% if product_resource != blank %}view-event-payload="{{ product_resource | standard_event_data: 'view' | escape }}"{% endif %}
+    >
+      {% content_for 'block', type: '_rt-product-media-gallery', id: 'media-gallery', closest.product: product_resource %}
+      {% content_for 'block', type: '_rt-product-details', id: 'product-details', closest.product: product_resource %}
+    </product-component>
+    {% content_for 'blocks' %}
+  </div>
+</rt-product-information>
+
+{% stylesheet %}
+  .rt-product-information {
+    display: block;
+    color: var(--color-foreground);
+    background: var(--color-background);
+    font-family: var(--font-body--family);
+  }
+
+  .rt-product-information__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 680fr) minmax(0, 472fr);
+    gap: 48px;
+    align-items: start;
+  }
+
+  .rt-product-information .product-details,
+  .rt-product-information .product-details .rt-product-details__form > .group-block {
+    display: block;
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .rt-product-information .product-details {
+    grid-column: auto;
+  }
+
+  .rt-product-information .product-details .group-block-content {
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .page-wrapper:has(.rt-product-bottom-bar) {
+    padding-block-end: var(--rt-product-bottom-height, 82px);
+  }
+
+  .rt-product-information :is(h1, h2, p) {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-information > .rt-container {
+      padding-inline: 0;
+    }
+
+    .rt-product-information__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+    }
+
+    .rt-product-information .rt-product-information__grid > * {
+      grid-column: 1 / -1;
+    }
+
+    .rt-product-information .product-details .rt-product-details__form > .group-block {
+      padding: 0;
+    }
+
+    .rt-product-information .product-details .group-block-content {
+      gap: 0;
+    }
+
+    .rt-product-information .product-details variant-picker {
+      padding: 20px 24px;
+    }
+
+    .page-wrapper:has(.rt-product-bottom-bar) {
+      padding-block-end: var(--rt-product-bottom-height, calc(128px + env(safe-area-inset-bottom, 0px)));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:rt_product.information",
+  "tag": "section",
+  "class": "rt-product-section",
+  "limit": 1,
+  "enabled_on": { "templates": ["product"] },
+  "blocks": [{ "type": "@theme" }, { "type": "@app" }],
+  "settings": [
+    { "type": "color", "id": "background_color", "label": "t:settings.background", "default": "{{ settings.color_palette.background }}" },
+    { "type": "color", "id": "text_color", "label": "t:settings.text", "default": "{{ settings.color_palette.foreground }}" },
+    { "type": "color", "id": "surface_background", "label": "t:rt_product.surface_background", "default": "#fafafa" },
+    { "type": "color", "id": "sale_color", "label": "t:rt_product.sale_color", "default": "#ff1919" },
+    { "type": "color", "id": "sale_background", "label": "t:rt_product.sale_background", "default": "#ffebeb" },
+    { "type": "range", "id": "padding_top_desktop", "label": "t:rt_product.padding_top_desktop", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom_desktop", "label": "t:rt_product.padding_bottom_desktop", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_top_mobile", "label": "t:rt_product.padding_top_mobile", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "t:rt_product.padding_bottom_mobile", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 0 }
+  ]
+}
+{% endschema %}

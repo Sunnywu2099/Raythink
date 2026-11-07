@@ -366,5 +366,23 @@
       "success_moderated": "Komentář odeslán, čeká na schválení",
       "success": "Komentář zveřejněn"
     }
+  },
+  "rt_product": {
+    "variant_error": "Tuto možnost se nepodařilo aktualizovat. Před nákupem ji vyberte znovu.",
+    "percent_off": "Sleva {{ percent }}%",
+    "review_count": "Recenze: {{ count }}",
+    "days_abbreviation": "DEN",
+    "delivery": "Doručení",
+    "payment": "Platební metody",
+    "media_gallery": "Mediální galerie produktu",
+    "media_group": "Kategorie médií",
+    "media": "Média",
+    "video": "Video",
+    "scenario": "Možnosti využití",
+    "zoom_image": "Zvětšit obrázek produktu",
+    "show_media": "Zobrazit médium {{ index }}",
+    "learn_more": "Zjistit více",
+    "buy_now": "Koupit nyní",
+    "checkout_error": "Nepodařilo se zahájit platbu. Zkuste to znovu."
   }
 }

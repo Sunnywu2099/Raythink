@@ -1,0 +1,452 @@
+{% doc %}
+  Product details with independent content blocks inside one native product form.
+  Purchase buttons stay static because their fixed bar is required, while content
+  blocks can be reordered. Native form refs remain in one Component scope.
+  @example
+  {% content_for 'block', type: '_rt-product-details', id: 'product-details', closest.product: product %}
+{% enddoc %}
+{% liquid
+  assign block_settings = block.settings
+  assign product_resource = closest.product
+  if request.visual_preview_mode and product_resource == blank
+    assign product_resource = collections.all.products.first
+  endif
+  assign product_form_id = 'RTProductForm-' | append: section.id | append: '-' | append: block.id
+%}
+{% capture content_blocks %}{% content_for 'blocks' %}{% endcapture %}
+{% liquid
+  # Nested block settings are isolated. Read the delivery block's inert output
+  # slot once, then pass its rendered markup to the static purchase bar.
+  assign delivery_markup = ''
+  if content_blocks contains '<template data-rt-bottom-bar-delivery>'
+    assign delivery_markup = content_blocks | split: '<template data-rt-bottom-bar-delivery>' | last | split: '</template>' | first
+    assign delivery_slot = '<template data-rt-bottom-bar-delivery>' | append: delivery_markup | append: '</template>'
+    assign content_blocks = content_blocks | remove: delivery_slot
+  endif
+%}
+{% if block_settings.height == 'fill' %}{% render 'measure-header-heights', only_on_desktop: true %}{% endif %}
+<div id="ProductInformation-{{ section.id }}" class="product-details rt-product-details{% if block_settings.sticky_details_desktop %} sticky-content--desktop{% endif %}{% if block_settings.height == 'fill' %} rt-product-details--fill{% endif %}" style="--details-position: {{ block_settings.details_position }};" data-testid="product-information-details" {% if settings.transition_to_main_product %}data-view-transition-type="product-details"{% endif %}>
+  <product-form-component
+    class="rt-product-purchase"
+    on:submit="rt-product-information/handleSubmit"
+    data-section-id="{{ section.id }}"
+    data-product-id="{{ product_resource.id }}"
+    data-product-url="{{ product_resource.url }}"
+    data-quantity-default="{{ product_resource.selected_or_first_available_variant.quantity_rule.min | default: 1 }}"
+    data-quantity-error-max="{{ 'products.product.quantity_error_max' | t | escape }}"
+  >
+    <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
+    <p class="rt-product-purchase__variant-error" data-rt-variant-error-text hidden></p>
+    <span class="product-form-text__error hidden" ref="addToCartTextError">
+      <span class="svg-wrapper">{{ 'icon-error.svg' | inline_asset_content }}</span>
+    </span>
+    {% form 'product', product_resource, id: product_form_id, class: 'rt-product-details__form', data-type: 'add-to-cart-form' %}
+      <input type="hidden" name="id" ref="variantId" value="{{ product_resource.selected_or_first_available_variant.id }}">
+      {% unless content_blocks contains 'name="quantity"' %}<input type="hidden" name="quantity" data-rt-product-fragment="quantity-default-{{ block.id }}" value="{{ product_resource.selected_or_first_available_variant.quantity_rule.min | default: 1 }}">{% endunless %}
+      {% unless product_resource.has_only_default_variant %}
+        <noscript><nav aria-label="{{ 'accessibility.product_details' | t | escape }}"><ul>
+          {% for variant_option in product_resource.variants %}
+            {% liquid
+              assign variant_url = variant_option.url
+              if template.suffix != blank
+                assign variant_url = variant_url | append: '&view=' | append: template.suffix
+              endif
+            %}
+            <li><a href="{{ variant_url | escape }}" {% if variant_option.id == product_resource.selected_or_first_available_variant.id %}aria-current="true"{% endif %}>{{ variant_option.title | escape }}</a></li>
+          {% endfor %}
+        </ul></nav></noscript>
+      {% endunless %}
+      {% capture children %}
+        {{ content_blocks }}
+        {% content_for 'block', type: '_rt-product-buy-buttons', id: 'rt_purchase', delivery_markup: delivery_markup %}
+      {% endcapture %}
+      {% render 'group', children: children, settings: block_settings, shopify_attributes: block.shopify_attributes, background_color: block_settings.background_color, block_id: block.id %}
+    {% endform %}
+  </product-form-component>
+</div>
+{% stylesheet %}
+  .rt-product-purchase, .rt-product-details__form {
+    display: block;
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .rt-product-purchase__heading {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .rt-product-information .rt-product-purchase :is(.product-form-text__error:not(.hidden), .rt-product-purchase__variant-error:not([hidden])) {
+    position: fixed;
+    z-index: var(--layer-sticky);
+    inset-inline-start: var(--rt-product-bar-start, 0px);
+    inset-block-end: var(--rt-product-bottom-height, 82px);
+    inline-size: var(--rt-product-page-width, 100%);
+    margin: 0;
+    padding: 12px 16px;
+    color: var(--color-foreground);
+    background: var(--color-background);
+    border-block-start: 1px solid var(--color-border);
+  }
+
+  .rt-product-purchase__variant-error:not([hidden]) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  @media (min-width: 990px) {
+    .rt-product-details--fill {
+      height: 100%;
+      max-height: calc(100vh - var(--header-group-height, 0));
+      min-height: fit-content;
+    }
+
+    .rt-product-details--fill .group-block {
+      align-self: var(--details-position, flex-start);
+    }
+
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-purchase__heading {
+      line-height: 22px;
+    }
+
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.details",
+  "blocks": [
+    {
+      "type": "_rt-product-summary"
+    },
+    {
+      "type": "_rt-product-features"
+    },
+    {
+      "type": "_rt-product-variant-picker"
+    },
+    {
+      "type": "_rt-product-quantity"
+    },
+    {
+      "type": "_rt-product-delivery"
+    },
+    {
+      "type": "_rt-product-payment"
+    },
+    {
+      "type": "_rt-product-services"
+    }
+  ],
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.size"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "t:options.fit_content"
+        },
+        {
+          "value": "fill",
+          "label": "t:options.fill"
+        },
+        {
+          "value": "custom",
+          "label": "t:options.custom"
+        }
+      ],
+      "default": "fill"
+    },
+    {
+      "type": "range",
+      "id": "custom_width",
+      "label": "t:settings.custom_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.width == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "width_mobile",
+      "label": "t:settings.width_mobile",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "t:options.fit_content"
+        },
+        {
+          "value": "fill",
+          "label": "t:options.fill"
+        },
+        {
+          "value": "custom",
+          "label": "t:options.custom"
+        }
+      ],
+      "default": "fill"
+    },
+    {
+      "type": "range",
+      "id": "custom_width_mobile",
+      "label": "t:settings.custom_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.width_mobile == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "t:settings.height",
+      "options": [
+        {
+          "value": "fit",
+          "label": "t:options.fit_content"
+        },
+        {
+          "value": "fill",
+          "label": "t:options.fill"
+        }
+      ],
+      "default": "fit"
+    },
+    {
+      "type": "header",
+      "content": "t:content.layout"
+    },
+    {
+      "type": "select",
+      "id": "details_position",
+      "label": "t:settings.position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:options.top"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:options.bottom"
+        }
+      ],
+      "default": "flex-start",
+      "visible_if": "{{ block.settings.height == \"fill\" }}"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_details_desktop",
+      "label": "t:settings.make_details_sticky_desktop",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:content.appearance"
+    },
+    {
+      "type": "select",
+      "id": "background_media",
+      "label": "t:settings.background_media",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "image",
+          "label": "t:options.image"
+        },
+        {
+          "value": "video",
+          "label": "t:options.video"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:settings.background_color",
+      "placeholder": "t:settings.default",
+      "visible_if": "{{ block.settings.background_media == 'none' }}"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:settings.video",
+      "visible_if": "{{ block.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "select",
+      "id": "video_position",
+      "label": "t:settings.video_position",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:options.cover"
+        },
+        {
+          "value": "contain",
+          "label": "t:options.contain"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ block.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:settings.image",
+      "visible_if": "{{ block.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "background_image_position",
+      "label": "t:settings.image_position",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:options.cover"
+        },
+        {
+          "value": "fit",
+          "label": "t:options.fit"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ block.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.borders"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "t:settings.style",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:settings.thickness",
+      "default": 1,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:settings.opacity",
+      "default": 100,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "t:settings.color",
+      "placeholder": "t:settings.default",
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "t:settings.border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

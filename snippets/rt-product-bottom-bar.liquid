@@ -1,0 +1,182 @@
+{% doc %}
+  Purchase actions fixed to the viewport. The bar fades out at the end of the page and fades back in when the visitor scrolls up.
+  @param {product} product_resource - Current product.
+  @param {string} [delivery_markup] - Compact dispatch markup rendered by the sibling delivery block.
+  @param {string} actions - Captured native add-to-cart and RT Buy now blocks.
+  @param {string} [shopify_attributes] - Owning purchase block editor attributes.
+  @param {string} block_id - Stable purchase block identity.
+  @example
+  {% render 'rt-product-bottom-bar', product_resource: closest.product, delivery_markup: delivery_markup, actions: actions, block_id: block.id %}
+{% enddoc %}
+<div class="rt-product-bottom-bar" {{ shopify_attributes }} data-rt-product-bar role="region" aria-label="{{ 'products.product.sticky_add_to_cart' | t | escape }}">
+  <div class="rt-product-bottom-bar__inner rt-container">
+    <div class="rt-product-bottom-bar__identity" data-rt-product-fragment="identity-{{ block_id }}">
+      <p class="rt-product-bottom-bar__title">{{ product_resource.title | escape }}</p>
+      {{ delivery_markup }}
+    </div>
+    <div class="rt-product-bottom-bar__summary" data-rt-product-fragment="price-{{ block_id }}">
+      {% render 'rt-product-price', product_resource: product_resource %}
+      {% if delivery_markup != blank %}<div class="rt-product-bottom-bar__mobile-delivery">{{ delivery_markup }}</div>{% endif %}
+    </div>
+    <div class="rt-product-bottom-bar__actions">{{ actions }}</div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .rt-product-bottom-bar {
+    position: fixed;
+    z-index: var(--layer-sticky);
+    inset-block-end: 0;
+    inset-inline-start: var(--rt-product-bar-start, 0px);
+    inline-size: var(--rt-product-page-width, 100%);
+    padding-block: 8px calc(8px + env(safe-area-inset-bottom, 0px));
+    border-block: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-5));
+    color: var(--color-foreground);
+    background: var(--color-background);
+    opacity: 1;
+    visibility: visible;
+    transition:
+      opacity var(--animation-speed-slow) var(--animation-timing-fade-in),
+      visibility 0s linear;
+  }
+
+  .rt-product-bottom-bar[data-rt-at-page-end] {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity var(--animation-speed-slow) var(--animation-timing-fade-out),
+      visibility 0s linear var(--animation-speed-slow);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rt-product-bottom-bar,
+    .rt-product-bottom-bar[data-rt-at-page-end] {
+      transition: none;
+    }
+  }
+
+  .rt-product-bottom-bar__inner {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .rt-product-bottom-bar__identity {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: 4px;
+    min-inline-size: 0;
+  }
+
+  .rt-product-bottom-bar__title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+  }
+
+  .rt-product-bottom-bar__identity .rt-product-delivery {
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-50));
+  }
+
+  .rt-product-bottom-bar__summary {
+    flex: 0 1 auto;
+    min-inline-size: 0;
+  }
+
+  .rt-product-bottom-bar__actions {
+    display: flex;
+    flex: 0 1 412px;
+    gap: 12px;
+    align-items: center;
+    min-inline-size: 0;
+  }
+
+  .rt-product-bottom-bar__actions > :is(span, .rt-product-buy-now) {
+    flex: 1 1 0;
+    min-inline-size: 0;
+  }
+
+  .rt-product-bottom-bar__actions add-to-cart-component {
+    display: block;
+  }
+
+  .rt-product-bottom-bar__actions :is(.add-to-cart-button, .rt-product-buy-now__button) {
+    inline-size: 100%;
+    min-inline-size: 0;
+    block-size: auto;
+    min-block-size: 48px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: normal;
+    text-transform: none;
+  }
+
+  .rt-product-bottom-bar__actions .add-to-cart-icon {
+    display: none;
+  }
+
+  .rt-product-buy-now__button:disabled {
+    cursor: progress;
+    opacity: var(--opacity-disabled);
+  }
+
+  .rt-product-bottom-bar__mobile-delivery {
+    display: none;
+  }
+
+  .rt-product-information[data-rt-variant-pending] .rt-product-buy-now,
+  .rt-product-information[data-rt-variant-error] .rt-product-buy-now {
+    pointer-events: none;
+    opacity: var(--opacity-disabled);
+  }
+
+  @media (max-width: 989px) {
+    .rt-product-bottom-bar {
+      padding-block: 12px calc(12px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .rt-product-bottom-bar__inner {
+      flex-direction: column;
+      gap: 8px;
+      align-items: stretch;
+      padding-inline: 16px;
+    }
+
+    .rt-product-bottom-bar__identity {
+      display: none;
+    }
+
+    .rt-product-bottom-bar__summary {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .rt-product-bottom-bar__mobile-delivery {
+      display: block;
+      color: rgb(var(--color-foreground-rgb) / var(--opacity-50));
+    }
+
+    .rt-product-bottom-bar__mobile-delivery .rt-product-delivery {
+      gap: 4px;
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .rt-product-bottom-bar__actions {
+      flex-basis: auto;
+      gap: 8px;
+    }
+
+    .rt-product-bottom-bar__actions :is(.add-to-cart-button, .rt-product-buy-now__button) {
+      min-block-size: 44px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+{% endstylesheet %}

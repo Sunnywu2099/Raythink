@@ -366,5 +366,23 @@
       "default_title": "Numatytasis pavadinimas",
       "sticky_add_to_cart": "Greito pridėjimo į krepšelį juosta"
     }
+  },
+  "rt_product": {
+    "variant_error": "Nepavyko atnaujinti šios parinkties. Prieš pirkdami pasirinkite ją dar kartą.",
+    "percent_off": "{{ percent }}% nuolaida",
+    "review_count": "Atsiliepimai: {{ count }}",
+    "days_abbreviation": "DIENA",
+    "delivery": "Pristatymas",
+    "payment": "Mokėjimo būdai",
+    "media_gallery": "Prekės medijos galerija",
+    "media_group": "Medijos kategorija",
+    "media": "Medija",
+    "video": "Vaizdo įrašas",
+    "scenario": "Naudojimo atvejai",
+    "zoom_image": "Padidinti prekės vaizdą",
+    "show_media": "Rodyti mediją {{ index }}",
+    "learn_more": "Sužinoti daugiau",
+    "buy_now": "Pirkti dabar",
+    "checkout_error": "Nepavyko pradėti atsiskaitymo. Bandykite dar kartą."
   }
 }

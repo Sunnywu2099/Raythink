@@ -359,5 +359,23 @@
       "success_moderated": "O comentário foi publicado, aguardando moderação",
       "success": "Comentário publicado"
     }
+  },
+  "rt_product": {
+    "variant_error": "Não foi possível atualizar esta opção. Selecione-a novamente antes de comprar.",
+    "percent_off": "{{ percent }}% de desconto",
+    "review_count": "{{ count }} avaliações",
+    "days_abbreviation": "DIA",
+    "delivery": "Entrega",
+    "payment": "Formas de pagamento",
+    "media_gallery": "Galeria de mídia do produto",
+    "media_group": "Categoria de mídia",
+    "media": "Mídia",
+    "video": "Vídeo",
+    "scenario": "Cenários de uso",
+    "zoom_image": "Ampliar imagem do produto",
+    "show_media": "Mostrar mídia {{ index }}",
+    "learn_more": "Saiba mais",
+    "buy_now": "Comprar agora",
+    "checkout_error": "Não foi possível iniciar o checkout. Tente novamente."
   }
 }

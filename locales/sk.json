@@ -366,5 +366,23 @@
       "default_title": "Predvolený názov",
       "sticky_add_to_cart": "Panel rýchleho pridania do košíka"
     }
+  },
+  "rt_product": {
+    "variant_error": "Túto možnosť sa nepodarilo aktualizovať. Pred nákupom ju vyberte znova.",
+    "percent_off": "Zľava {{ percent }}%",
+    "review_count": "Recenzie: {{ count }}",
+    "days_abbreviation": "DEŇ",
+    "delivery": "Doručenie",
+    "payment": "Spôsoby platby",
+    "media_gallery": "Galéria médií produktu",
+    "media_group": "Kategória médií",
+    "media": "Médiá",
+    "video": "Video",
+    "scenario": "Možnosti využitia",
+    "zoom_image": "Zväčšiť obrázok produktu",
+    "show_media": "Zobraziť médium {{ index }}",
+    "learn_more": "Zistiť viac",
+    "buy_now": "Kúpiť teraz",
+    "checkout_error": "Nepodarilo sa spustiť platbu. Skúste to znova."
   }
 }

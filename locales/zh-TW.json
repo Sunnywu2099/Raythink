@@ -352,5 +352,23 @@
       "default_title": "預設標題",
       "sticky_add_to_cart": "快速加入購物車列"
     }
+  },
+  "rt_product": {
+    "variant_error": "無法更新此選項。請重新選擇後再購買。",
+    "percent_off": "優惠 {{ percent }}%",
+    "review_count": "{{ count }} 則評價",
+    "days_abbreviation": "天",
+    "delivery": "配送",
+    "payment": "付款方式",
+    "media_gallery": "商品媒體圖庫",
+    "media_group": "媒體分類",
+    "media": "商品展示",
+    "video": "影片",
+    "scenario": "應用場景",
+    "zoom_image": "放大商品圖片",
+    "show_media": "查看第 {{ index }} 個媒體",
+    "learn_more": "瞭解更多",
+    "buy_now": "立即購買",
+    "checkout_error": "無法開始結帳，請重試。"
   }
 }

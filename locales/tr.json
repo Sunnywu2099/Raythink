@@ -352,5 +352,23 @@
       "default_title": "Varsayılan Başlık",
       "sticky_add_to_cart": "Sepete hızlı ekle çubuğu"
     }
+  },
+  "rt_product": {
+    "variant_error": "Bu seçenek güncellenemedi. Satın almadan önce lütfen tekrar seçin.",
+    "percent_off": "%{{ percent }} indirim",
+    "review_count": "{{ count }} değerlendirme",
+    "days_abbreviation": "GÜN",
+    "delivery": "Teslimat",
+    "payment": "Ödeme yöntemleri",
+    "media_gallery": "Ürün medya galerisi",
+    "media_group": "Medya kategorisi",
+    "media": "Medya",
+    "video": "Video",
+    "scenario": "Kullanım alanları",
+    "zoom_image": "Ürün görselini büyüt",
+    "show_media": "{{ index }}. medyayı göster",
+    "learn_more": "Daha fazla bilgi",
+    "buy_now": "Hemen satın al",
+    "checkout_error": "Ödeme işlemi başlatılamadı. Lütfen tekrar deneyin."
   }
 }
