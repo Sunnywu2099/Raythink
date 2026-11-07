@@ -496,7 +496,9 @@
           "type": "tab_slide",
           "settings": {
             "group": "detection",
-            "label": "Feature",
+            "label": "Temperature Analysis",
+            "desktop_image": "shopify://shop_images/EX10_PC_06.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_06.jpg",
             "caption": ""
           }
         },
