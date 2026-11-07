@@ -526,7 +526,9 @@
           "type": "tab_slide",
           "settings": {
             "group": "detection",
-            "label": "Feature",
+            "label": "Precision Measurement",
+            "desktop_image": "shopify://shop_images/EX10_PC_08.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_08.jpg",
             "caption": ""
           }
         },
