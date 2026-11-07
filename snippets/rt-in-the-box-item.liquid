@@ -1,0 +1,26 @@
+{%- doc -%}
+  One accessory card for the in-the-box section.
+
+  @param {object} block - Section block with image and title settings
+{%- enddoc -%}
+
+{%- liquid
+  assign image = block.settings.image
+  assign title = block.settings.title
+-%}
+
+<li class="rt-in-the-box-item" {{ block.shopify_attributes }}>
+  <div class="rt-in-the-box-media rt-radius-sm">
+    {% render 'rt-image2picture',
+      image_mobile: image,
+      image_desktop: image,
+      alt: title,
+      sizes: '(min-width: 750px) 360px, 45vw',
+      loading: 'lazy',
+      fetchpriority: 'low'
+    %}
+  </div>
+  {%- if title != blank -%}
+    <p class="rt-in-the-box-label">{{ title | escape }}</p>
+  {%- endif -%}
+</li>

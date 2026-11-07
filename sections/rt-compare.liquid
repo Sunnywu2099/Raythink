@@ -1,0 +1,339 @@
+{% comment %}
+  Section contract.
+  "Which is the Best for You?" comparison. Desktop lays cards in a row; mobile scrolls sideways.
+  Spec lines use one entry per line: value|label.
+  @example
+  <!-- Add rt-compare on the product template with one block per product. -->
+{% endcomment %}
+
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 48
+  assign pb_mobile = ss.padding_bottom_mobile | default: 48
+  assign pt_desktop = ss.padding_top_desktop | default: 80
+  assign pb_desktop = ss.padding_bottom_desktop | default: 80
+  assign bg_color = ss.background_color | default: '#ffffff'
+-%}
+
+{% stylesheet %}
+  .rt-compare-panel {
+    min-width: 0;
+    background-color: #f5f5f9;
+  }
+
+  .rt-compare-list {
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 20px 16px 24px;
+    overflow-x: auto;
+    list-style: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .rt-compare-card {
+    flex: 0 0 78%;
+    min-width: 0;
+    scroll-snap-align: start;
+    text-align: center;
+  }
+
+  .rt-compare-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    margin-bottom: 12px;
+  }
+
+  .rt-compare-media picture {
+    width: 100%;
+    height: 100%;
+  }
+
+  .rt-compare-media picture > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .rt-compare-name,
+  .rt-compare-subtitle,
+  .rt-compare-price,
+  .rt-compare-spec-value,
+  .rt-compare-spec-label {
+    margin: 0;
+  }
+
+  .rt-compare-name {
+    color: #000000;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+
+  .rt-compare-subtitle,
+  .rt-compare-spec-label {
+    margin-top: 4px;
+    color: #595959;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .rt-compare-price {
+    margin-top: 8px;
+    color: #000000;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .rt-compare-specs {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rt-compare-spec + .rt-compare-spec {
+    margin-top: 16px;
+  }
+
+  .rt-compare-spec-value {
+    color: #000000;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+
+  .rt-compare-link {
+    display: block;
+    margin: 24px 0 0;
+    color: #2458a7;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  @media (min-width: 750px) {
+    .rt-compare-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      padding: 40px 32px 32px;
+      overflow: visible;
+      scroll-snap-type: none;
+    }
+
+    .rt-compare-card {
+      flex: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rt-compare-list {
+      scroll-behavior: auto;
+    }
+  }
+{% endstylesheet %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section rt-compare"
+  style="--rt-section-bg-color: {{ bg_color }};"
+>
+  <div
+    class="rt-ss-padding"
+    style="
+      {% render 'rt-section-padding',
+        section_pt_mobile: pt_mobile,
+        section_pb_mobile: pb_mobile,
+        section_pt_desktop: pt_desktop,
+        section_pb_desktop: pb_desktop
+      %}
+    "
+  >
+    <div class="rt-container">
+      {%- if ss.heading != blank -%}
+        <div class="rt-pdp-heading rt-pdp-heading-center">
+          {% render 'rt-heading', variant: 'title', text: ss.heading, color: ss.heading_color %}
+        </div>
+      {%- endif -%}
+
+      <div class="rt-compare-panel rt-radius-lg">
+        <ul class="rt-compare-list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'product' -%}
+              {% render 'rt-compare-card', block: block %}
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- if ss.link_text != blank -%}
+        {%- if ss.link_url != blank -%}
+          <a class="rt-compare-link" href="{{ ss.link_url }}">{{ ss.link_text | escape }}</a>
+        {%- else -%}
+          <p class="rt-compare-link">{{ ss.link_text | escape }}</p>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "rt-compare",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "标题",
+      "default": "Which is the Best for You?"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "标题颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "底部链接文字",
+      "default": "View All Comparisons"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "底部链接"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "上（移动端）",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "下（移动端）",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "上（桌面端）",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "下（桌面端）",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "产品",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "图片"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "名称",
+          "default": "CX320"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "副标题",
+          "default": "256GB"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "价格",
+          "default": "USD 329"
+        },
+        {
+          "type": "textarea",
+          "id": "specs",
+          "label": "参数",
+          "info": "每行一条，格式为：数值|说明",
+          "default": "6.70\"|2.7\" OLED Display, 60Hz\n110Hz|OLED Display\n5G|5G Network\n8 Gen 2|Advanced Snapdragon\n50W|Wireless Charging"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "rt-compare",
+      "category": "rt-product",
+      "blocks": {
+        "product_1": {
+          "type": "product",
+          "settings": {
+            "title": "CX320",
+            "subtitle": "256GB",
+            "price": "USD 329"
+          }
+        },
+        "product_2": {
+          "type": "product",
+          "settings": {
+            "title": "CX20 Pro",
+            "subtitle": "256GB",
+            "price": "USD 399"
+          }
+        },
+        "product_3": {
+          "type": "product",
+          "settings": {
+            "title": "CX20 Ultra",
+            "subtitle": "256GB",
+            "price": "USD 459"
+          }
+        }
+      },
+      "block_order": ["product_1", "product_2", "product_3"]
+    }
+  ]
+}
+{% endschema %}

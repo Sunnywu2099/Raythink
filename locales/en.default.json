@@ -397,6 +397,8 @@
     "show_media": "Show media {{ index }}",
     "learn_more": "Learn more",
     "buy_now": "Buy now",
-    "checkout_error": "We could not start checkout. Please try again."
+    "checkout_error": "We could not start checkout. Please try again.",
+    "rating_of_five": "{{ rating }} out of 5 stars",
+    "star_count": "{{ stars }} star reviews: {{ count }}"
   }
 }

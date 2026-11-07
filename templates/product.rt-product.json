@@ -371,10 +371,149 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "rt_in_the_box": {
+      "type": "rt-in-the-box",
+      "blocks": {
+        "item_1": { "type": "item", "settings": { "title": "IX1 Go" } },
+        "item_2": { "type": "item", "settings": { "title": "Packaging Box" } },
+        "item_3": { "type": "item", "settings": { "title": "Carrying Bag" } },
+        "item_4": { "type": "item", "settings": { "title": "USB-C Cable" } },
+        "item_5": { "type": "item", "settings": { "title": "Certificate" } },
+        "item_6": { "type": "item", "settings": { "title": "Quick Start Guide" } }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "item_4", "item_5", "item_6"],
+      "settings": {
+        "heading": "What's in the box",
+        "heading_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_specification": {
+      "type": "rt-specification",
+      "blocks": {
+        "group_1": { "type": "group", "settings": { "title": "Processing Capacity" } },
+        "row_1": { "type": "row", "settings": { "label": "Operating System", "value": "OxygenOS based on Android™ 15" } },
+        "row_2": { "type": "row", "settings": { "label": "CPU", "value": "—" } },
+        "row_3": { "type": "row", "settings": { "label": "GPU", "value": "—" } },
+        "row_4": { "type": "row", "settings": { "label": "RAM", "value": "—" } },
+        "row_5": { "type": "row", "settings": { "label": "ROM", "value": "—" } },
+        "row_6": { "type": "row", "settings": { "label": "Storage", "value": "—" } },
+        "row_7": { "type": "row", "settings": { "label": "Battery", "value": "4,500mAh dual-cell (2250mAh) battery, non-removable" } },
+        "row_8": { "type": "row", "settings": { "label": "Weight", "value": "—" } },
+        "group_2": { "type": "group", "settings": { "title": "Processing Capacity" } },
+        "row_9": { "type": "row", "settings": { "label": "Operating System", "value": "OxygenOS based on Android™ 15" } },
+        "row_10": { "type": "row", "settings": { "label": "CPU", "value": "—" } },
+        "row_11": { "type": "row", "settings": { "label": "GPU", "value": "—" } },
+        "row_12": { "type": "row", "settings": { "label": "RAM", "value": "—" } },
+        "row_13": { "type": "row", "settings": { "label": "ROM", "value": "—" } },
+        "row_14": { "type": "row", "settings": { "label": "Storage", "value": "—" } },
+        "row_15": { "type": "row", "settings": { "label": "Battery", "value": "4,500mAh dual-cell (2250mAh) battery, non-removable" } },
+        "row_16": { "type": "row", "settings": { "label": "Weight", "value": "—" } }
+      },
+      "block_order": ["group_1", "row_1", "row_2", "row_3", "row_4", "row_5", "row_6", "row_7", "row_8", "group_2", "row_9", "row_10", "row_11", "row_12", "row_13", "row_14", "row_15", "row_16"],
+      "settings": {
+        "heading": "Specification",
+        "heading_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_compare": {
+      "type": "rt-compare",
+      "blocks": {
+        "product_1": {
+          "type": "product",
+          "settings": {
+            "title": "CX320",
+            "subtitle": "256GB",
+            "price": "USD 329",
+            "specs": "6.70\"|2.7\" OLED Display, 60Hz\n110Hz|OLED Display\n5G|5G Network\n8 Gen 2|Advanced Snapdragon\n50W|Wireless Charging"
+          }
+        },
+        "product_2": {
+          "type": "product",
+          "settings": {
+            "title": "CX20 Pro",
+            "subtitle": "256GB",
+            "price": "USD 399",
+            "specs": "6.70\"|2.7\" OLED Display, 60Hz\n110Hz|OLED Display\n5G|5G Network\n8 Gen 2|Advanced Snapdragon\n50W|Wireless Charging"
+          }
+        },
+        "product_3": {
+          "type": "product",
+          "settings": {
+            "title": "CX20 Ultra",
+            "subtitle": "256GB",
+            "price": "USD 459",
+            "specs": "6.70\"|2.7\" OLED Display, 60Hz\n110Hz|OLED Display\n5G|5G Network\n8 Gen 2|Advanced Snapdragon\n50W|Wireless Charging"
+          }
+        }
+      },
+      "block_order": ["product_1", "product_2", "product_3"],
+      "settings": {
+        "heading": "Which is the Best for You?",
+        "heading_color": "#000000",
+        "link_text": "View All Comparisons",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_faq": {
+      "type": "rt-faq",
+      "blocks": {
+        "item_1": { "type": "item", "settings": { "question": "Item" } },
+        "item_2": { "type": "item", "settings": { "question": "Item" } },
+        "item_3": { "type": "item", "settings": { "question": "Item" } },
+        "item_4": { "type": "item", "settings": { "question": "Item" } }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "item_4"],
+      "settings": {
+        "heading": "FAQ",
+        "heading_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_review": {
+      "type": "rt-review",
+      "blocks": {
+        "summary": { "type": "summary", "settings": {} },
+        "review_1": { "type": "review", "settings": {} }
+      },
+      "block_order": ["summary", "review_1"],
+      "settings": {
+        "heading": "Review",
+        "heading_color": "#000000",
+        "gallery_heading": "Customer Images",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
     }
   },
   "order": [
     "main",
+    "rt_in_the_box",
+    "rt_specification",
+    "rt_compare",
+    "rt_faq",
+    "rt_review",
     "product_recommendations_qggXJq"
   ]
 }

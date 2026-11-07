@@ -101,3 +101,28 @@
 .rt-footer.rt-section {
   overflow: visible;
 }
+
+.rt-pdp-heading {
+  margin-bottom: 24px;
+}
+
+.rt-pdp-heading .rt-title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.rt-pdp-heading-center {
+  text-align: center;
+}
+
+@media (min-width: 750px) {
+  .rt-pdp-heading {
+    margin-bottom: 40px;
+  }
+
+  .rt-pdp-heading .rt-title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
