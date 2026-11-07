@@ -24,43 +24,48 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    max-width: 720px;
+    gap: 16px;
+    max-width: 744px;
     margin-inline: auto;
   }
 
   .rt-view-switch .rt-pdp-heading .rt-title {
-    color: #ffffff;
+    color: #646464;
     font-size: 32px;
     line-height: 36px;
+    font-weight: 700;
   }
 
   .rt-view-switch .rt-description {
-    max-width: 640px;
-    color: rgb(255 255 255 / 0.62);
+    max-width: 744px;
+    margin: 0;
+    color: #484848;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: center;
   }
 
   .rt-view-tabs {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
-    margin-top: 20px;
+    gap: 4px;
+    margin-top: 16px;
   }
 
   .rt-view-tab {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 36px;
-    padding: 8px 18px;
+    height: 48px;
+    padding: 0 24px;
     border-radius: 999px;
-    background-color: #2a2a2a;
-    color: #ffffff;
+    background-color: #242424;
+    color: #6a6a6a;
     font-size: 14px;
     line-height: 18px;
+    font-weight: 600;
     cursor: pointer;
   }
 
@@ -96,7 +101,8 @@
   .rt-view-switch-root > .rt-view-input:nth-of-type(4):checked ~ .rt-view-tabs .rt-view-tab:nth-child(4),
   .rt-view-switch-root > .rt-view-input:nth-of-type(5):checked ~ .rt-view-tabs .rt-view-tab:nth-child(5),
   .rt-view-switch-root > .rt-view-input:nth-of-type(6):checked ~ .rt-view-tabs .rt-view-tab:nth-child(6) {
-    background-color: #5a5a5a;
+    background-color: #585858;
+    color: #1c1c1c;
   }
 
   .rt-view-switch-root > .rt-view-input:nth-of-type(1):focus-visible ~ .rt-view-tabs .rt-view-tab:nth-child(1),
@@ -122,10 +128,6 @@
     .rt-view-switch .rt-pdp-heading .rt-title {
       font-size: 40px;
       line-height: 44px;
-    }
-
-    .rt-view-tabs {
-      margin-top: 24px;
     }
 
     .rt-view-stage {
@@ -166,10 +168,10 @@
 
         <div class="rt-pdp-heading rt-pdp-heading-center">
           {%- if ss.heading != blank -%}
-            {% render 'rt-heading', variant: 'title', text: ss.heading, color: ss.heading_color %}
+            {% render 'rt-heading', variant: 'title', text: ss.heading %}
           {%- endif -%}
           {%- if ss.description != blank -%}
-            {% render 'rt-heading', variant: 'description', text: ss.description, color: ss.description_color %}
+            {% render 'rt-heading', variant: 'description', text: ss.description %}
           {%- endif -%}
         </div>
 
