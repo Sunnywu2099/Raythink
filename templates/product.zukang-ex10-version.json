@@ -486,7 +486,9 @@
           "type": "tab_slide",
           "settings": {
             "group": "detection",
-            "label": "Feature",
+            "label": "Wide Field of View",
+            "desktop_image": "shopify://shop_images/EX10_PC_05.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_05.jpg",
             "caption": ""
           }
         },
