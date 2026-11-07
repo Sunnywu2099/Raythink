@@ -372,6 +372,25 @@
         "padding-block-end": 48
       }
     },
+    "rt_view_switch": {
+      "type": "rt-view-switch",
+      "blocks": {
+        "view_1": { "type": "view", "settings": { "title": "IX One Go" } },
+        "view_2": { "type": "view", "settings": { "title": "IX One Go Pro" } }
+      },
+      "block_order": ["view_1", "view_2"],
+      "settings": {
+        "heading": "Choose the View That Fits the Job.",
+        "heading_color": "#ffffff",
+        "description": "Switch between thermal, visible-light camera, and picture-in-picture views to connect thermal information with the real-world scene.",
+        "description_color": "#b5b5b5",
+        "background_color": "#141414",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 48
+      }
+    },
     "rt_in_the_box": {
       "type": "rt-in-the-box",
       "blocks": {
@@ -432,28 +451,31 @@
         "product_1": {
           "type": "product",
           "settings": {
-            "title": "CX320",
-            "subtitle": "256GB",
-            "price": "USD 329",
-            "specs": "6.70\"|2.7\" OLED Display, 60Hz\n110Hz|OLED Display\n5G|5G Network\n8 Gen 2|Advanced Snapdragon\n50W|Wireless Charging"
+            "title": "CX20",
+            "price": "$389.00",
+            "viewing_label": "Currently viewing",
+            "learn_label": "Learn more",
+            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|Qualcomm® Snapdragon™\n50W|Wireless Charging"
           }
         },
         "product_2": {
           "type": "product",
           "settings": {
             "title": "CX20 Pro",
-            "subtitle": "256GB",
-            "price": "USD 399",
-            "specs": "6.70\"|2.7\" OLED Display, 60Hz\n110Hz|OLED Display\n5G|5G Network\n8 Gen 2|Advanced Snapdragon\n50W|Wireless Charging"
+            "price": "$489.00",
+            "buy_label": "Buy now",
+            "learn_label": "Learn more",
+            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|Qualcomm® Snapdragon™\n50W|Wireless Charging"
           }
         },
         "product_3": {
           "type": "product",
           "settings": {
             "title": "CX20 Ultra",
-            "subtitle": "256GB",
-            "price": "USD 459",
-            "specs": "6.70\"|2.7\" OLED Display, 60Hz\n110Hz|OLED Display\n5G|5G Network\n8 Gen 2|Advanced Snapdragon\n50W|Wireless Charging"
+            "price": "$589.00",
+            "buy_label": "Buy now",
+            "learn_label": "Learn more",
+            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|--\n50W|Wireless Charging"
           }
         }
       },
@@ -509,6 +531,7 @@
   },
   "order": [
     "main",
+    "rt_view_switch",
     "rt_in_the_box",
     "rt_specification",
     "rt_compare",

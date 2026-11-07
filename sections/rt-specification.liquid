@@ -16,60 +16,80 @@
 
 {% stylesheet %}
   .rt-spec-group + .rt-spec-group {
-    margin-top: 32px;
+    margin-top: 72px;
   }
 
   .rt-spec-group-title {
-    margin: 0 0 8px;
-    color: #000000;
-    font-size: 16px;
+    margin: 0;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e6e6e6;
+    color: rgb(0 0 0 / 0.88);
+    font-size: 18px;
     line-height: 22px;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .rt-spec-rows {
-    margin: 0;
+    margin: 24px 0 0;
   }
 
   .rt-spec-row {
-    display: grid;
-    grid-template-columns: minmax(7.5rem, 38%) minmax(0, 1fr);
-    gap: 12px 16px;
-    padding-block: 14px;
-    border-block-end: 1px solid #ececec;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rt-spec-row + .rt-spec-row {
+    margin-top: 24px;
   }
 
   .rt-spec-row dt,
   .rt-spec-row dd {
     margin: 0;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 18px;
+    font-weight: 600;
   }
 
   .rt-spec-row dt {
-    color: #595959;
+    color: rgb(0 0 0 / 0.88);
   }
 
   .rt-spec-row dd {
-    color: #000000;
+    color: rgb(0 0 0 / 0.65);
   }
 
   @media (min-width: 750px) {
     .rt-spec-group + .rt-spec-group {
-      margin-top: 48px;
+      margin-top: 64px;
+    }
+
+    .rt-spec-group-title {
+      padding-bottom: 32px;
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .rt-spec-rows {
+      margin-top: 32px;
     }
 
     .rt-spec-row {
-      grid-template-columns: 240px minmax(0, 1fr);
-      padding-block: 16px;
+      display: grid;
+      grid-template-columns: 264px minmax(0, 1fr);
+      gap: 96px;
+    }
+
+    .rt-spec-row + .rt-spec-row {
+      margin-top: 32px;
     }
   }
 {% endstylesheet %}
 
 <div
   id="{{ section.id }}"
-  class="rt-section rt-specification"
-  style="--rt-section-bg-color: {{ bg_color }};"
+  class="rt-section rt-pdp rt-specification"
+  style="--rt-section-bg-color: {{ bg_color }}; --rt-pdp-heading-color: {{ ss.heading_color }};"
 >
   <div
     class="rt-ss-padding"
@@ -83,9 +103,10 @@
     "
   >
     <div class="rt-container">
+      <div class="rt-pdp-layout">
       {%- if ss.heading != blank -%}
         <div class="rt-pdp-heading">
-          {% render 'rt-heading', variant: 'title', text: ss.heading, color: ss.heading_color %}
+          {% render 'rt-heading', variant: 'title', text: ss.heading %}
         </div>
       {%- endif -%}
 
@@ -119,6 +140,7 @@
         </dl>
         </div>
       {%- endif -%}
+      </div>
     </div>
   </div>
 </div>

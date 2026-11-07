@@ -1,6 +1,6 @@
 {% comment %}
   Section contract.
-  Product page "What's in the box" grid. Desktop shows three columns; mobile shows two.
+  Product page "What's in the box". Desktop uses five columns: item 1 spans three, items 2–3 are the tall cards, and the rest fill the next row. Mobile shows item 1 full width, then three columns.
   @example
   <!-- Add rt-in-the-box below the product purchase section on product.rt-product. -->
 {% endcomment %}
@@ -17,11 +17,26 @@
 {% stylesheet %}
   .rt-in-the-box-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 12px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+    min-width: 0;
+  }
+
+  .rt-in-the-box-side,
+  .rt-in-the-box-smalls {
+    display: contents;
+  }
+
+  .rt-in-the-box-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #fafafa;
+    border-radius: 0;
+  }
+
+  .rt-in-the-box-item--large {
+    grid-column: 1 / -1;
   }
 
   .rt-in-the-box-media {
@@ -29,15 +44,15 @@
     align-items: center;
     justify-content: center;
     aspect-ratio: 1;
-    background-color: #f5f5f9;
+  }
+
+  .rt-in-the-box-item--large .rt-in-the-box-media {
+    aspect-ratio: 327 / 249;
   }
 
   .rt-in-the-box-media picture {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 72%;
-    height: 72%;
+    width: 100%;
+    height: 100%;
   }
 
   .rt-in-the-box-media picture > img {
@@ -47,29 +62,61 @@
   }
 
   .rt-in-the-box-label {
-    margin: 12px 0 0;
-    color: #000000;
+    margin: 0;
+    padding: 8px;
+    color: rgb(0 0 0 / 0.88);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    text-align: start;
+  }
+
+  .rt-in-the-box-item--large .rt-in-the-box-label {
+    padding: 8px;
     font-size: 14px;
     line-height: 18px;
-    text-align: center;
+    font-weight: 600;
   }
 
   @media (min-width: 750px) {
     .rt-in-the-box-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 40px 24px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      column-gap: 20px;
+      row-gap: 16px;
     }
 
-    .rt-in-the-box-label {
-      margin-top: 16px;
+    .rt-in-the-box-item--large {
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+
+    .rt-in-the-box-item--large .rt-in-the-box-media {
+      aspect-ratio: 568 / 300;
+    }
+
+    .rt-in-the-box-item--side .rt-in-the-box-media {
+      aspect-ratio: 176 / 300;
+    }
+
+    .rt-in-the-box-label,
+    .rt-in-the-box-item--large .rt-in-the-box-label {
+      min-height: 50px;
+      padding: 16px;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 600;
+    }
+
+    .rt-in-the-box-item--large .rt-in-the-box-label {
+      padding-inline: 24px;
     }
   }
 {% endstylesheet %}
 
 <div
   id="{{ section.id }}"
-  class="rt-section rt-in-the-box"
-  style="--rt-section-bg-color: {{ bg_color }};"
+  class="rt-section rt-pdp rt-in-the-box"
+  style="--rt-section-bg-color: {{ bg_color }}; --rt-pdp-heading-color: {{ ss.heading_color }};"
 >
   <div
     class="rt-ss-padding"
@@ -83,19 +130,39 @@
     "
   >
     <div class="rt-container">
+      <div class="rt-pdp-layout">
       {%- if ss.heading != blank -%}
         <div class="rt-pdp-heading">
-          {% render 'rt-heading', variant: 'title', text: ss.heading, color: ss.heading_color %}
+          {% render 'rt-heading', variant: 'title', text: ss.heading %}
         </div>
       {%- endif -%}
 
-      <ul class="rt-in-the-box-grid">
+      <div class="rt-in-the-box-grid">
         {%- for block in section.blocks -%}
-          {%- if block.type == 'item' -%}
-            {% render 'rt-in-the-box-item', block: block %}
+          {%- if block.type == 'item' and forloop.index == 1 -%}
+            {% render 'rt-in-the-box-item', block: block, card_style: 'large' %}
           {%- endif -%}
         {%- endfor -%}
-      </ul>
+
+        <div class="rt-in-the-box-side">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'item' -%}
+              {%- if forloop.index == 2 or forloop.index == 3 -%}
+                {% render 'rt-in-the-box-item', block: block, card_style: 'side' %}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="rt-in-the-box-smalls">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'item' and forloop.index > 3 -%}
+              {% render 'rt-in-the-box-item', block: block, card_style: 'small' %}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+      </div>
     </div>
   </div>
 </div>

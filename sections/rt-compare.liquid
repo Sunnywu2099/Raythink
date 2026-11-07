@@ -1,6 +1,7 @@
 {% comment %}
   Section contract.
-  "Which is the Best for You?" comparison. Desktop lays cards in a row; mobile scrolls sideways.
+  "Which is the Best for You?" comparison.
+  Product cards sit above a shared spec table. Mobile scrolls the two together; desktop fits them in 960px.
   Spec lines use one entry per line: value|label.
   @example
   <!-- Add rt-compare on the product template with one block per product. -->
@@ -13,29 +14,54 @@
   assign pt_desktop = ss.padding_top_desktop | default: 80
   assign pb_desktop = ss.padding_bottom_desktop | default: 80
   assign bg_color = ss.background_color | default: '#ffffff'
+  assign compare_products = section.blocks | where: 'type', 'product'
+  assign product_count = compare_products.size
+  assign max_specs = 0
+  for block in compare_products
+    assign spec_lines = block.settings.specs | newline_to_br | replace: '<br />', '|||' | replace: '<br/>', '|||' | split: '|||'
+    if spec_lines.size > max_specs
+      assign max_specs = spec_lines.size
+    endif
+  endfor
 -%}
 
 {% stylesheet %}
-  .rt-compare-panel {
-    min-width: 0;
-    background-color: #f5f5f9;
+  .rt-compare-layout {
+    max-width: 960px;
+    margin-inline: auto;
   }
 
-  .rt-compare-list {
-    display: flex;
-    gap: 12px;
-    margin: 0;
-    padding: 20px 16px 24px;
+  .rt-compare .rt-pdp-heading {
+    text-align: start;
+  }
+
+  .rt-compare-scroll {
     overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .rt-compare-products,
+  .rt-compare-spec-panel {
+    width: calc(var(--rt-compare-count) * 200px + (var(--rt-compare-count) - 1) * 20px);
+  }
+
+  .rt-compare-products {
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
     list-style: none;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
   }
 
   .rt-compare-card {
-    flex: 0 0 78%;
+    display: flex;
+    flex: 0 0 200px;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
     min-width: 0;
-    scroll-snap-align: start;
+    padding-bottom: 24px;
+    border-radius: 4px;
     text-align: center;
   }
 
@@ -43,8 +69,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 1;
-    margin-bottom: 12px;
+    width: 100%;
+    height: 140px;
   }
 
   .rt-compare-media picture {
@@ -59,88 +85,195 @@
   }
 
   .rt-compare-name,
-  .rt-compare-subtitle,
   .rt-compare-price,
+  .rt-compare-viewing,
   .rt-compare-spec-value,
   .rt-compare-spec-label {
     margin: 0;
   }
 
   .rt-compare-name {
-    color: #000000;
-    font-size: 16px;
-    line-height: 22px;
+    width: 100%;
+    margin-top: 12px;
+    color: rgb(0 0 0 / 0.88);
+    font-size: 20px;
+    line-height: 24px;
     font-weight: 600;
-  }
-
-  .rt-compare-subtitle,
-  .rt-compare-spec-label {
-    margin-top: 4px;
-    color: #595959;
-    font-size: 12px;
-    line-height: 16px;
+    text-align: center;
   }
 
   .rt-compare-price {
-    margin-top: 8px;
-    color: #000000;
+    width: 100%;
+    margin-top: 4px;
+    color: rgb(0 0 0 / 0.65);
     font-size: 14px;
     line-height: 18px;
-  }
-
-  .rt-compare-specs {
-    margin: 20px 0 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .rt-compare-spec + .rt-compare-spec {
-    margin-top: 16px;
-  }
-
-  .rt-compare-spec-value {
-    color: #000000;
-    font-size: 16px;
-    line-height: 22px;
     font-weight: 600;
+    text-align: center;
   }
 
-  .rt-compare-link {
-    display: block;
-    margin: 24px 0 0;
-    color: #2458a7;
+  .rt-compare-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .rt-compare-viewing {
+    color: rgb(0 0 0 / 0.88);
     font-size: 14px;
     line-height: 18px;
+    font-weight: 600;
     text-align: center;
+  }
+
+  .rt-compare-buy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 28px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background-color: rgb(0 0 0 / 0.88);
+    color: rgb(255 255 255 / 0.96);
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
     text-decoration: none;
   }
 
+  .rt-compare-learn {
+    color: rgb(0 0 0 / 0.88);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .rt-compare-spec-panel {
+    margin-top: 12px;
+    padding: 20px 16px;
+    border-radius: 0;
+    background-color: #fafafa;
+  }
+
+  .rt-compare-spec-row {
+    display: grid;
+    grid-template-columns: repeat(var(--rt-compare-count), minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .rt-compare-spec-row + .rt-compare-spec-row {
+    margin-top: 24px;
+  }
+
+  .rt-compare-spec {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .rt-compare-spec-value,
+  .rt-compare-spec-label {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .rt-compare-spec-value {
+    color: rgb(0 0 0 / 0.88);
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 600;
+    text-align: start;
+  }
+
+  .rt-compare-spec-label {
+    margin-top: 8px;
+    color: rgb(0 0 0 / 0.5);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: start;
+  }
+
+  .rt-compare-link {
+    display: none;
+  }
+
   @media (min-width: 750px) {
-    .rt-compare-list {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-      padding: 40px 32px 32px;
+    .rt-compare-scroll {
       overflow: visible;
-      scroll-snap-type: none;
+    }
+
+    .rt-compare-products,
+    .rt-compare-spec-panel {
+      width: auto;
+    }
+
+    .rt-compare-products {
+      display: grid;
+      grid-template-columns: repeat(var(--rt-compare-count), minmax(0, 1fr));
     }
 
     .rt-compare-card {
       flex: none;
+      width: auto;
     }
-  }
 
-  @media (prefers-reduced-motion: reduce) {
-    .rt-compare-list {
-      scroll-behavior: auto;
+    .rt-compare-media {
+      height: 206px;
+    }
+
+    .rt-compare-name {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    .rt-compare-price {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .rt-compare-buy {
+      min-height: 32px;
+      padding: 7px 16px;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 600;
+    }
+
+    .rt-compare-spec-panel {
+      margin-top: 40px;
+      padding: 32px 64px;
+    }
+
+    .rt-compare-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      margin: 40px auto 0;
+      padding: 9px 20px;
+      border: 1px solid rgb(0 0 0 / 0.15);
+      border-radius: 999px;
+      color: rgb(0 0 0 / 0.88);
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 400;
+      text-align: center;
+      text-decoration: none;
     }
   }
 {% endstylesheet %}
 
 <div
   id="{{ section.id }}"
-  class="rt-section rt-compare"
-  style="--rt-section-bg-color: {{ bg_color }};"
+  class="rt-section rt-pdp rt-compare"
+  style="--rt-section-bg-color: {{ bg_color }}; --rt-pdp-heading-color: {{ ss.heading_color }}; --rt-compare-count: {{ product_count }};"
 >
   <div
     class="rt-ss-padding"
@@ -154,29 +287,64 @@
     "
   >
     <div class="rt-container">
-      {%- if ss.heading != blank -%}
-        <div class="rt-pdp-heading rt-pdp-heading-center">
-          {% render 'rt-heading', variant: 'title', text: ss.heading, color: ss.heading_color %}
-        </div>
-      {%- endif -%}
-
-      <div class="rt-compare-panel rt-radius-lg">
-        <ul class="rt-compare-list">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'product' -%}
-              {% render 'rt-compare-card', block: block %}
-            {%- endif -%}
-          {%- endfor -%}
-        </ul>
-      </div>
-
-      {%- if ss.link_text != blank -%}
-        {%- if ss.link_url != blank -%}
-          <a class="rt-compare-link" href="{{ ss.link_url }}">{{ ss.link_text | escape }}</a>
-        {%- else -%}
-          <p class="rt-compare-link">{{ ss.link_text | escape }}</p>
+      <div class="rt-compare-layout">
+        {%- if ss.heading != blank -%}
+          <div class="rt-pdp-heading">
+            {% render 'rt-heading', variant: 'title', text: ss.heading %}
+          </div>
         {%- endif -%}
-      {%- endif -%}
+
+        {%- if product_count > 0 -%}
+          <div class="rt-compare-scroll">
+            <ul class="rt-compare-products">
+              {%- for block in compare_products -%}
+                {% render 'rt-compare-card', block: block %}
+              {%- endfor -%}
+            </ul>
+
+            {%- if max_specs > 0 -%}
+              <div class="rt-compare-spec-panel">
+                {%- for row in (1..max_specs) -%}
+                  <div class="rt-compare-spec-row">
+                    {%- for block in compare_products -%}
+                      {%- liquid
+                        assign spec_lines = block.settings.specs | newline_to_br | replace: '<br />', '|||' | replace: '<br/>', '|||' | split: '|||'
+                        assign spec_index = row | minus: 1
+                        assign clean = spec_lines[spec_index] | strip
+                        assign spec_value = ''
+                        assign spec_label = ''
+                        if clean != blank
+                          assign parts = clean | split: '|'
+                          assign spec_value = parts | first | strip
+                          if parts.size > 1
+                            assign spec_label = parts | last | strip
+                          endif
+                        endif
+                      -%}
+                      <div class="rt-compare-spec">
+                        {%- if spec_value != blank -%}
+                          <p class="rt-compare-spec-value">{{ spec_value | escape }}</p>
+                        {%- endif -%}
+                        {%- if spec_label != blank -%}
+                          <p class="rt-compare-spec-label">{{ spec_label | escape }}</p>
+                        {%- endif -%}
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if ss.link_text != blank -%}
+          {%- if ss.link_url != blank -%}
+            <a class="rt-compare-link" href="{{ ss.link_url }}">{{ ss.link_text | escape }}</a>
+          {%- else -%}
+            <p class="rt-compare-link">{{ ss.link_text | escape }}</p>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
     </div>
   </div>
 </div>
@@ -277,26 +445,45 @@
           "type": "text",
           "id": "title",
           "label": "名称",
-          "default": "CX320"
-        },
-        {
-          "type": "text",
-          "id": "subtitle",
-          "label": "副标题",
-          "default": "256GB"
+          "default": "CX20"
         },
         {
           "type": "text",
           "id": "price",
           "label": "价格",
-          "default": "USD 329"
+          "default": "$389.00"
+        },
+        {
+          "type": "text",
+          "id": "viewing_label",
+          "label": "当前查看"
+        },
+        {
+          "type": "text",
+          "id": "buy_label",
+          "label": "购买按钮"
+        },
+        {
+          "type": "url",
+          "id": "buy_url",
+          "label": "购买链接"
+        },
+        {
+          "type": "text",
+          "id": "learn_label",
+          "label": "了解更多"
+        },
+        {
+          "type": "url",
+          "id": "learn_url",
+          "label": "了解更多链接"
         },
         {
           "type": "textarea",
           "id": "specs",
           "label": "参数",
           "info": "每行一条，格式为：数值|说明",
-          "default": "6.70\"|2.7\" OLED Display, 60Hz\n110Hz|OLED Display\n5G|5G Network\n8 Gen 2|Advanced Snapdragon\n50W|Wireless Charging"
+          "default": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|Qualcomm® Snapdragon™\n50W|Wireless Charging"
         }
       ]
     }
@@ -310,25 +497,29 @@
         "product_1": {
           "type": "product",
           "settings": {
-            "title": "CX320",
-            "subtitle": "256GB",
-            "price": "USD 329"
+            "title": "CX20",
+            "price": "$389.00",
+            "viewing_label": "Currently viewing",
+            "learn_label": "Learn more"
           }
         },
         "product_2": {
           "type": "product",
           "settings": {
             "title": "CX20 Pro",
-            "subtitle": "256GB",
-            "price": "USD 399"
+            "price": "$489.00",
+            "buy_label": "Buy now",
+            "learn_label": "Learn more"
           }
         },
         "product_3": {
           "type": "product",
           "settings": {
             "title": "CX20 Ultra",
-            "subtitle": "256GB",
-            "price": "USD 459"
+            "price": "$589.00",
+            "buy_label": "Buy now",
+            "learn_label": "Learn more",
+            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|--\n50W|Wireless Charging"
           }
         }
       },

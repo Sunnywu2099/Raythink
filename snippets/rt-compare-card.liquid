@@ -1,15 +1,20 @@
 {%- doc -%}
   One product card in the comparison section.
 
-  @param {object} block - Section block with product image, name, price, and spec lines
+  The card is the image, centered name, and centered price. Specs render in a separate row so every product stays aligned.
+
+  @param {object} block - Section block with product image, name, price, and optional actions
 {%- enddoc -%}
 
 {%- liquid
   assign image = block.settings.image
   assign title = block.settings.title
-  assign subtitle = block.settings.subtitle
   assign price = block.settings.price
-  assign spec_lines = block.settings.specs | newline_to_br | replace: '<br />', '|||' | replace: '<br/>', '|||' | split: '|||'
+  assign viewing_label = block.settings.viewing_label
+  assign buy_label = block.settings.buy_label
+  assign buy_url = block.settings.buy_url
+  assign learn_label = block.settings.learn_label
+  assign learn_url = block.settings.learn_url
 -%}
 
 <li class="rt-compare-card" {{ block.shopify_attributes }}>
@@ -18,7 +23,7 @@
       image_mobile: image,
       image_desktop: image,
       alt: title,
-      sizes: '(min-width: 750px) 320px, 70vw',
+      sizes: '(min-width: 750px) 320px, 200px',
       loading: 'lazy',
       fetchpriority: 'low'
     %}
@@ -26,36 +31,28 @@
   {%- if title != blank -%}
     <h3 class="rt-compare-name">{{ title | escape }}</h3>
   {%- endif -%}
-  {%- if subtitle != blank -%}
-    <p class="rt-compare-subtitle">{{ subtitle | escape }}</p>
-  {%- endif -%}
   {%- if price != blank -%}
     <p class="rt-compare-price">{{ price | escape }}</p>
   {%- endif -%}
-  {%- if block.settings.specs != blank -%}
-    <ul class="rt-compare-specs">
-      {%- for line in spec_lines -%}
-        {%- liquid
-          assign clean = line | strip
-          assign spec_value = ''
-          assign spec_label = ''
-          if clean != blank
-            assign parts = clean | split: '|'
-            assign spec_value = parts | first | strip
-            if parts.size > 1
-              assign spec_label = parts | last | strip
-            endif
-          endif
-        -%}
-        {%- if spec_value != blank -%}
-          <li class="rt-compare-spec">
-            <p class="rt-compare-spec-value">{{ spec_value | escape }}</p>
-            {%- if spec_label != blank -%}
-              <p class="rt-compare-spec-label">{{ spec_label | escape }}</p>
-            {%- endif -%}
-          </li>
+  {%- if viewing_label != blank or buy_label != blank or learn_label != blank -%}
+    <div class="rt-compare-actions">
+      {%- if viewing_label != blank -%}
+        <p class="rt-compare-viewing">{{ viewing_label | escape }}</p>
+      {%- endif -%}
+      {%- if buy_label != blank -%}
+        {%- if buy_url != blank -%}
+          <a class="rt-compare-buy" href="{{ buy_url }}">{{ buy_label | escape }}</a>
+        {%- else -%}
+          <span class="rt-compare-buy">{{ buy_label | escape }}</span>
         {%- endif -%}
-      {%- endfor -%}
-    </ul>
+      {%- endif -%}
+      {%- if learn_label != blank -%}
+        {%- if learn_url != blank -%}
+          <a class="rt-compare-learn" href="{{ learn_url }}">{{ learn_label | escape }}</a>
+        {%- else -%}
+          <span class="rt-compare-learn">{{ learn_label | escape }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
   {%- endif -%}
 </li>
