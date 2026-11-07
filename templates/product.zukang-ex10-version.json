@@ -506,7 +506,9 @@
           "type": "tab_slide",
           "settings": {
             "group": "detection",
-            "label": "Feature",
+            "label": "Six Color Palettes",
+            "desktop_image": "shopify://shop_images/EX10_PC_04.jpg",
+            "mobile_image": "shopify://shop_images/EX10_MO_04.jpg",
             "caption": ""
           }
         },
