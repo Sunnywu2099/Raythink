@@ -39,6 +39,7 @@
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
+            "icons_style": "arrow",
             "slideshow_controls_style": "counter",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "right",
@@ -117,6 +118,7 @@
                 "border_opacity": 100,
                 "border_color": "",
                 "border_radius": 0,
+                "link": "",
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 0,
@@ -466,10 +468,28 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "raythink_ex10_JD8UDY": {
+      "type": "raythink-ex10",
+      "name": "Raythink EX10 details",
+      "settings": {
+        "section_label": "EX10 Thermal Camera product details",
+        "show_benefits": false,
+        "detection_heading": "See More. Detect More.",
+        "detection_subheading": "Detailed thermal imaging and smart inspection tools for everyday diagnostics.",
+        "professional_heading": "Built for the Way You Work",
+        "professional_subheading": "Analyze, measure, capture and inspect with confidence.",
+        "scenes_heading": "Made for Real-World Inspections",
+        "scenes_subheading": "From home maintenance to electrical, HVAC and automotive checks.",
+        "content_width": 1280,
+        "background_color": "#06142c",
+        "accent_color": "#418fe9"
+      }
     }
   },
   "order": [
     "main",
-    "product_recommendations_qggXJq"
+    "product_recommendations_qggXJq",
+    "raythink_ex10_JD8UDY"
   ]
 }
