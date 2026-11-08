@@ -1,0 +1,195 @@
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 40
+  assign pb_mobile = ss.padding_bottom_mobile | default: 40
+  assign pt_desktop = ss.padding_top_desktop | default: 60
+  assign pb_desktop = ss.padding_bottom_desktop | default: 60
+  assign bg_color = ss.background_color | default: '#f5f5f9'
+  assign show_heading = false
+  for block in section.blocks
+    if block.type == 'title' or block.type == 'description'
+      if block.settings.text != blank
+        assign show_heading = true
+        break
+      endif
+    endif
+  endfor
+-%}
+
+{%- capture container_padding -%}
+  style="
+    {% render 'rt-section-padding',
+      section_pt_mobile: pt_mobile,
+      section_pb_mobile: pb_mobile,
+      section_pt_desktop: pt_desktop,
+      section_pb_desktop: pb_desktop
+    %}
+  "
+{%- endcapture -%}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section"
+  style="--rt-section-bg-color: {{ bg_color }};"
+>
+  <div class="rt-ss-padding" {{ container_padding }}>
+    <div class="rt-container ">
+      {%- if show_heading -%}
+        <div class="rt-heading-box">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'title' -%}
+                {% render 'rt-heading',
+                  variant: 'title',
+                  text: block.settings.text,
+                  color: block.settings.text_color,
+                  shopify_attributes: block.shopify_attributes
+                %}
+
+              {%- when 'description' -%}
+                {% render 'rt-heading',
+                  variant: 'subtitle',
+                  text: block.settings.text,
+                  color: block.settings.text_color,
+                  shopify_attributes: block.shopify_attributes
+                %}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <div class="rt-grid-box">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'grid-block' -%}
+              {% render 'rt-image2picture', image_mobile: block.settings.image_mobile, image_desktop: block.settings.image %}
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "rt-grid",
+    "tag": "section",
+    "max_blocks": 1,
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "背景颜色",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "间距"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "上（移动端）",
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "下（移动端）",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_top_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "上（桌面端）",
+        "default": 64
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "下（桌面端）",
+        "default": 120
+      }
+    ],
+    "blocks": [
+      {
+        "type": "title",
+        "name": "标题",
+        "settings": [
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "文字颜色",
+            "default": "#000000"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "标题",
+            "default": "Shop by Application"
+          }
+        ]
+      },
+      {
+        "type": "description",
+        "name": "描述",
+        "settings": [
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "文字颜色",
+            "default": "#595959"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "内容",
+            "default": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+          }
+        ]
+      },
+      {
+        "type": "grid-block",
+        "name": "grid-block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "图片"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "图片（移动端）"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "rt-grid",
+        "category": "rt-layout"
+      }
+    ]
+  }
+  {% endschema %}
