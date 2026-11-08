@@ -703,6 +703,7 @@
         "summary",
         "review_1"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Review",
         "heading_color": "#000000",
