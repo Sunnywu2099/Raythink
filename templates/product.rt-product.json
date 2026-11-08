@@ -305,11 +305,11 @@
       ],
       "name": "rt-grid",
       "settings": {
-        "background_color": "#ffffff",
-        "padding_top_mobile": 32,
+        "background_color": "#141414",
+        "padding_top_mobile": 80,
         "padding_bottom_mobile": 80,
-        "padding_top_desktop": 64,
-        "padding_bottom_desktop": 120
+        "padding_top_desktop": 160,
+        "padding_bottom_desktop": 160
       }
     },
     "rt_view_switch": {
