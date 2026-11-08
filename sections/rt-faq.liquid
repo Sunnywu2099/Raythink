@@ -83,27 +83,6 @@
   }
 
   @media (min-width: 750px) {
-    .rt-faq .rt-container {
-      max-width: 1920px;
-      width: calc(100% - 64px);
-      padding-inline: 0;
-    }
-
-    .rt-faq-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      align-items: center;
-    }
-
-    .rt-faq-layout > .rt-pdp-heading {
-      margin-block-end: 0;
-      padding-inline-end: 24px;
-    }
-
-    .rt-faq-list:only-child {
-      grid-column: 2;
-    }
-
     .rt-faq-question {
       font-size: 24px;
       line-height: 28px;
@@ -136,20 +115,21 @@
     "
   >
     <div class="rt-container">
-      <div class="rt-faq-layout">
-      {%- if ss.heading != blank -%}
-        <div class="rt-pdp-heading">
-          {% render 'rt-heading', variant: 'title', text: ss.heading %}
-        </div>
-      {%- endif -%}
+      <div class="rt-pdp-layout">
+        {%- if ss.heading != blank -%}
+          {%- assign heading = ss.heading | escape -%}
+          <div class="rt-pdp-heading">
+            {% render 'rt-heading', variant: 'title', text: heading %}
+          </div>
+        {%- endif -%}
 
-      <div class="rt-faq-list">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'item' -%}
-            {% render 'rt-faq-item', block: block, open: forloop.first %}
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
+        <div class="rt-faq-list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'item' -%}
+              {% render 'rt-faq-item', block: block, open: forloop.first %}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
       </div>
     </div>
   </div>
