@@ -1,0 +1,294 @@
+{% comment %}
+  Raythink EX10 — configurable responsive product storytelling section.
+  Add as sections/raythink-ex10.liquid in Shopify theme Edit code.
+  Add section to EX10 product template, then upload desktop/mobile A+ images via theme editor.
+{% endcomment %}
+
+<section id="rx-ex10-{{ section.id }}" class="rx-ex10" style="--rx-content-width: {{ section.settings.content_width }}px; --rx-bg: {{ section.settings.background_color }}; --rx-accent: {{ section.settings.accent_color }};" aria-label="{{ section.settings.section_label | escape }}">
+  {% if section.settings.hero_desktop != blank or section.settings.hero_mobile != blank %}
+    <div class="rx-ex10__full-image rx-ex10__hero">
+      <picture>
+        {% if section.settings.hero_mobile != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.hero_mobile | image_url: width: 1100 }}">{% endif %}
+        {% assign hero_image = section.settings.hero_desktop | default: section.settings.hero_mobile %}
+        {{ hero_image | image_url: width: 2200 | image_tag: widths: '750, 1100, 1500, 1800, 2200', sizes: '100vw', loading: 'eager', alt: 'EX10 Thermal Camera product highlights', class: 'rx-ex10__image' }}
+      </picture>
+    </div>
+  {% elsif request.design_mode %}
+    <div class="rx-ex10__empty">Please choose the EX10 hero images (PC and MO) in the section settings.</div>
+  {% endif %}
+
+  {% if section.settings.show_benefits %}
+    <div class="rx-ex10__benefits" aria-label="EX10 highlights">
+      <div><strong>320 × 240</strong><span>NUR Enhanced Clarity</span></div>
+      <div><strong>40mK</strong><span>Thermal Sensitivity</span></div>
+      <div><strong>25Hz</strong><span>Refresh Rate</span></div>
+      <div><strong>IP54</strong><span>Rugged Protection</span></div>
+    </div>
+  {% endif %}
+
+  {% if section.settings.nur_desktop != blank or section.settings.nur_mobile != blank %}
+    <div class="rx-ex10__feature" aria-label="NUR enhanced thermal clarity">
+      <picture>
+        {% if section.settings.nur_mobile != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.nur_mobile | image_url: width: 1100 }}">{% endif %}
+        {% assign nur_image = section.settings.nur_desktop | default: section.settings.nur_mobile %}
+        {{ nur_image | image_url: width: 2200 | image_tag: widths: '750, 1100, 1500, 1800, 2200', sizes: '100vw', loading: 'lazy', alt: 'Comparison of NUR off and NUR on thermal clarity', class: 'rx-ex10__image' }}
+      </picture>
+    </div>
+  {% endif %}
+
+  {% assign groups = 'detection,professional' | split: ',' %}
+  {% for group in groups %}
+    {% assign slides_count = 0 %}
+    {% for block in section.blocks %}
+      {% if block.type == 'tab_slide' and block.settings.group == group %}{% assign slides_count = slides_count | plus: 1 %}{% endif %}
+    {% endfor %}
+    {% if slides_count > 0 %}
+      <div class="rx-ex10__carousel-wrap" {% if group == 'professional' %}style="--rx-carousel-bg: #081527"{% endif %}>
+        <div class="rx-ex10__inner">
+          <header class="rx-ex10__section-head">
+            {% if group == 'detection' %}
+              <p class="rx-ex10__eyebrow">THERMAL PERFORMANCE</p>
+              <h2>{{ section.settings.detection_heading | escape }}</h2>
+              <p>{{ section.settings.detection_subheading | escape }}</p>
+            {% else %}
+              <p class="rx-ex10__eyebrow">EVERYDAY WORKFLOW</p>
+              <h2>{{ section.settings.professional_heading | escape }}</h2>
+              <p>{{ section.settings.professional_subheading | escape }}</p>
+            {% endif %}
+          </header>
+          <rx-ex10-slider class="rx-ex10__slider" aria-label="{% if group == 'detection' %}Detection performance{% else %}Professional tools{% endif %}">
+            <div class="rx-ex10__tabs" role="tablist" aria-label="Choose a feature">
+              {% assign tab_index = 0 %}
+              {% for block in section.blocks %}
+                {% if block.type == 'tab_slide' and block.settings.group == group %}
+                  <button type="button" class="rx-ex10__tab" role="tab" id="rx-tab-{{ section.id }}-{{ block.id }}" aria-controls="rx-panel-{{ section.id }}-{{ block.id }}" aria-selected="{% if tab_index == 0 %}true{% else %}false{% endif %}" tabindex="{% if tab_index == 0 %}0{% else %}-1{% endif %}" data-rx-index="{{ tab_index }}" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>
+                  {% assign tab_index = tab_index | plus: 1 %}
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="rx-ex10__panels">
+              {% assign panel_index = 0 %}
+              {% for block in section.blocks %}
+                {% if block.type == 'tab_slide' and block.settings.group == group %}
+                  <div class="rx-ex10__panel" role="tabpanel" id="rx-panel-{{ section.id }}-{{ block.id }}" aria-labelledby="rx-tab-{{ section.id }}-{{ block.id }}" {% unless panel_index == 0 %}hidden{% endunless %} data-rx-index="{{ panel_index }}">
+                    {% if block.settings.desktop_image != blank or block.settings.mobile_image != blank %}
+                      <picture>
+                        {% if block.settings.mobile_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mobile_image | image_url: width: 1100 }}">{% endif %}
+                        {% assign carousel_image = block.settings.desktop_image | default: block.settings.mobile_image %}
+                        {{ carousel_image | image_url: width: 2000 | image_tag: widths: '750, 1100, 1500, 1800, 2000', sizes: '(min-width: 1200px) 1200px, 100vw', loading: 'lazy', alt: block.settings.label, class: 'rx-ex10__image' }}
+                      </picture>
+                    {% elsif request.design_mode %}<div class="rx-ex10__empty">Add a PC/MO image to this slide.</div>{% endif %}
+                    {% if block.settings.caption != blank %}<p class="rx-ex10__caption">{{ block.settings.caption | escape }}</p>{% endif %}
+                  </div>
+                  {% assign panel_index = panel_index | plus: 1 %}
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="rx-ex10__controls">
+              <button class="rx-ex10__arrow" type="button" data-rx-prev aria-label="Previous feature"><span aria-hidden="true">‹</span></button>
+              <div class="rx-ex10__counter" aria-live="polite"><span data-rx-current>01</span><span class="rx-ex10__counter-divider">/</span><span data-rx-total>{{ slides_count | prepend: '0' | slice: -2, 2 }}</span></div>
+              <button class="rx-ex10__arrow" type="button" data-rx-next aria-label="Next feature"><span aria-hidden="true">›</span></button>
+            </div>
+          </rx-ex10-slider>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  {% if section.settings.durable_desktop != blank or section.settings.durable_mobile != blank %}
+    <div class="rx-ex10__full-image" aria-label="EX10 durability and protection">
+      <picture>
+        {% if section.settings.durable_mobile != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.durable_mobile | image_url: width: 1100 }}">{% endif %}
+        {% assign durable_image = section.settings.durable_desktop | default: section.settings.durable_mobile %}
+        {{ durable_image | image_url: width: 2200 | image_tag: widths: '750, 1100, 1500, 1800, 2200', sizes: '100vw', loading: 'lazy', alt: 'EX10 IP54 protection and 6.6-foot drop resistance', class: 'rx-ex10__image' }}
+      </picture>
+    </div>
+  {% endif %}
+
+  {% assign scenes_count = 0 %}
+  {% for block in section.blocks %}{% if block.type == 'scene' %}{% assign scenes_count = scenes_count | plus: 1 %}{% endif %}{% endfor %}
+  {% if scenes_count > 0 %}
+    <div class="rx-ex10__scenes">
+      <div class="rx-ex10__inner">
+        <header class="rx-ex10__section-head">
+          <p class="rx-ex10__eyebrow">APPLICATIONS</p>
+          <h2>{{ section.settings.scenes_heading | escape }}</h2>
+          <p>{{ section.settings.scenes_subheading | escape }}</p>
+        </header>
+        <div class="rx-ex10__scene-grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'scene' %}
+              <article class="rx-ex10__scene" {{ block.shopify_attributes }}>
+                {% if block.settings.desktop_image != blank or block.settings.mobile_image != blank %}
+                  <picture>
+                    {% if block.settings.mobile_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mobile_image | image_url: width: 900 }}">{% endif %}
+                    {% assign scene_image = block.settings.desktop_image | default: block.settings.mobile_image %}
+                    {{ scene_image | image_url: width: 1400 | image_tag: widths: '420, 750, 1000, 1400', sizes: '(min-width: 750px) 50vw, 100vw', loading: 'lazy', alt: block.settings.title, class: 'rx-ex10__image' }}
+                  </picture>
+                {% elsif request.design_mode %}<div class="rx-ex10__empty">Choose an application image.</div>{% endif %}
+                <div class="rx-ex10__scene-label"><h3>{{ block.settings.title | escape }}</h3>{% if block.settings.description != blank %}<p>{{ block.settings.description | escape }}</p>{% endif %}</div>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+<style>
+  #rx-ex10-{{ section.id }} {background: var(--rx-bg); color:#f7f9fd; font-family:inherit; overflow:hidden;}
+  #rx-ex10-{{ section.id }} *{box-sizing:border-box;}
+  #rx-ex10-{{ section.id }} .rx-ex10__image{display:block;width:100%;height:auto;}
+  #rx-ex10-{{ section.id }} picture{display:block;width:100%;}
+  #rx-ex10-{{ section.id }} .rx-ex10__inner{max-width:var(--rx-content-width);margin:0 auto;padding:0 24px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__full-image,#rx-ex10-{{ section.id }} .rx-ex10__feature{width:100%;line-height:0;}
+  #rx-ex10-{{ section.id }} .rx-ex10__benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#31405a;}
+  #rx-ex10-{{ section.id }} .rx-ex10__benefits>div{background:#08172f;text-align:center;padding:25px 10px;display:flex;flex-direction:column;gap:6px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__benefits strong{font-size:clamp(20px,2.2vw,30px);line-height:1.15;font-weight:650;color:white;}
+  #rx-ex10-{{ section.id }} .rx-ex10__benefits span{font-size:12px;color:#c2d1e8;}
+  #rx-ex10-{{ section.id }} .rx-ex10__carousel-wrap{--rx-carousel-bg:#071d3b;background:var(--rx-carousel-bg);padding:68px 0 54px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__section-head{text-align:center;margin:0 auto 28px;max-width:800px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__section-head .rx-ex10__eyebrow{font-size:12px;letter-spacing:.16em;color:#83b7ff;font-weight:700;margin:0 0 12px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__section-head h2{font-size:clamp(27px,3.2vw,44px);line-height:1.18;color:white;margin:0 0 12px;font-weight:650;}
+  #rx-ex10-{{ section.id }} .rx-ex10__section-head>p:last-child{color:#c2cfdf;font-size:15px;line-height:1.55;margin:0;}
+  #rx-ex10-{{ section.id }} .rx-ex10__tabs{display:flex;align-items:stretch;justify-content:center;gap:0;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#546b89 transparent;margin-bottom:0;border-bottom:1px solid #415776;}
+  #rx-ex10-{{ section.id }} .rx-ex10__tab{font-family:inherit;flex:0 0 auto;background:transparent;color:#e0e7f2;font-size:14px;font-weight:600;line-height:1.4;border:0;border-bottom:3px solid transparent;padding:16px 26px;cursor:pointer;white-space:nowrap;min-height:53px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__tab[aria-selected="true"]{color:#fff;border-bottom-color:var(--rx-accent);background:rgba(255,255,255,.07);}
+  #rx-ex10-{{ section.id }} button:focus-visible{outline:2px solid #99c4ff;outline-offset:-3px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__panels{position:relative;min-height:100px;background:#06142c;}
+  #rx-ex10-{{ section.id }} .rx-ex10__panel[hidden]{display:none!important;}
+  #rx-ex10-{{ section.id }} .rx-ex10__panel .rx-ex10__image{aspect-ratio: 1952 / 800;object-fit:contain;}
+  #rx-ex10-{{ section.id }} .rx-ex10__caption{text-align:center;color:#dce5f6;font-size:14px;line-height:1.45;margin:0;padding:12px 14px 14px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__controls{display:flex;align-items:center;justify-content:center;gap:25px;margin:18px 0 0;}
+  #rx-ex10-{{ section.id }} .rx-ex10__arrow{display:flex;align-items:center;justify-content:center;width:43px;height:43px;border-radius:50%;border:1px solid #8094b2;background:transparent;color:white;cursor:pointer;line-height:1;font-size:32px;font-family:Arial,sans-serif;padding:0 0 5px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__arrow:hover{background:#254f8a;}
+  #rx-ex10-{{ section.id }} .rx-ex10__counter{font-size:14px;font-variant-numeric:tabular-nums;color:#f6f8ff;display:flex;align-items:center;gap:12px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__counter-divider{color:#8393a9;}
+  #rx-ex10-{{ section.id }} .rx-ex10__scenes{background:#071529;padding:66px 0 80px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__scene-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__scene{position:relative;overflow:hidden;border-radius:8px;background:#243148;}
+  #rx-ex10-{{ section.id }} .rx-ex10__scene:after{content:"";position:absolute;inset:38% 0 0;background:linear-gradient(transparent,rgba(1,9,25,.78));pointer-events:none;}
+  #rx-ex10-{{ section.id }} .rx-ex10__scene .rx-ex10__image{width:100%;height:100%;aspect-ratio: 1.95 / 1;object-fit:cover;}
+  #rx-ex10-{{ section.id }} .rx-ex10__scene-label{position:absolute;bottom:0;left:0;right:0;z-index:1;padding:18px 22px;}
+  #rx-ex10-{{ section.id }} .rx-ex10__scene-label h3{font-size:20px;line-height:1.25;color:#fff;margin:0;font-weight:700;}
+  #rx-ex10-{{ section.id }} .rx-ex10__scene-label p{font-size:13px;line-height:1.4;color:#e0e8f7;margin:6px 0 0;}
+  #rx-ex10-{{ section.id }} .rx-ex10__empty{padding:40px;background:#122543;text-align:center;color:#fff;line-height:1.5;}
+  @media(max-width:749px){
+    #rx-ex10-{{ section.id }} .rx-ex10__inner{padding:0 0;}
+    #rx-ex10-{{ section.id }} .rx-ex10__benefits{grid-template-columns:repeat(2,minmax(0,1fr));}
+    #rx-ex10-{{ section.id }} .rx-ex10__benefits>div{padding:17px 8px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__benefits strong{font-size:21px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__benefits span{font-size:11px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__carousel-wrap{padding:40px 0 35px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__section-head{padding:0 20px;margin-bottom:23px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__section-head h2{font-size:28px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__section-head>p:last-child{font-size:13px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__tabs{justify-content:flex-start;padding:0 10px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__tab{padding:14px 18px;font-size:13px;min-height:48px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__panel .rx-ex10__image{aspect-ratio:auto;}
+    #rx-ex10-{{ section.id }} .rx-ex10__scenes{padding:42px 0 50px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__scene-grid{grid-template-columns:1fr;gap:12px;padding:0 12px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__scene .rx-ex10__image{aspect-ratio: 1.35 / 1;}
+    #rx-ex10-{{ section.id }} .rx-ex10__scene-label{padding:16px;}
+    #rx-ex10-{{ section.id }} .rx-ex10__scene-label h3{font-size:18px;}
+  }
+</style>
+
+<script>
+  if (!customElements.get('rx-ex10-slider')) {
+    customElements.define('rx-ex10-slider', class extends HTMLElement {
+      connectedCallback() {
+        if (this.dataset.rxReady) return;
+        this.dataset.rxReady = '1';
+        this.tabs = Array.from(this.querySelectorAll('[role="tab"]'));
+        this.panels = Array.from(this.querySelectorAll('[role="tabpanel"]'));
+        this.index = 0;
+        this.querySelectorAll('[data-rx-prev]').forEach(button => button.addEventListener('click', () => this.go(this.index - 1)));
+        this.querySelectorAll('[data-rx-next]').forEach(button => button.addEventListener('click', () => this.go(this.index + 1)));
+        this.tabs.forEach((button, i) => {
+          button.addEventListener('click', () => this.go(i));
+          button.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+              event.preventDefault();
+              this.go(this.index + (event.key === 'ArrowRight' ? 1 : -1), true);
+            } else if (event.key === 'Home' || event.key === 'End') {
+              event.preventDefault(); this.go(event.key === 'Home' ? 0 : this.tabs.length - 1, true);
+            }
+          });
+        });
+        let startX = 0, startY = 0;
+        const content = this.querySelector('.rx-ex10__panels');
+        if (content) {
+          content.addEventListener('touchstart', event => { startX = event.changedTouches[0].screenX; startY = event.changedTouches[0].screenY; }, {passive:true});
+          content.addEventListener('touchend', event => {
+            const dx = event.changedTouches[0].screenX - startX;
+            const dy = event.changedTouches[0].screenY - startY;
+            if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.3) this.go(this.index + (dx < 0 ? 1 : -1));
+          }, {passive:true});
+        }
+      }
+      go(target, focusTab = false) {
+        if (!this.tabs || !this.tabs.length) return;
+        const i = (target + this.tabs.length) % this.tabs.length;
+        this.index = i;
+        this.tabs.forEach((tab, n) => { tab.setAttribute('aria-selected', String(n === i)); tab.tabIndex = n === i ? 0 : -1; });
+        this.panels.forEach((panel, n) => { panel.hidden = n !== i; });
+        const num = this.querySelector('[data-rx-current]');
+        if (num) num.textContent = String(i + 1).padStart(2, '0');
+        if (focusTab) this.tabs[i].focus();
+        if (window.matchMedia('(max-width: 749px)').matches) this.tabs[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
+      }
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Raythink EX10 details",
+  "tag": "section",
+  "class": "section-raythink-ex10",
+  "settings": [
+    {"type":"text","id":"section_label","label":"Accessibility label","default":"EX10 Thermal Camera product details"},
+    {"type":"header","content":"1. Hero / first screen"},
+    {"type":"image_picker","id":"hero_desktop","label":"Hero image – desktop (PC 01)"},
+    {"type":"image_picker","id":"hero_mobile","label":"Hero image – mobile (MO 01)"},
+    {"type":"checkbox","id":"show_benefits","label":"Show four benefits below hero","default":false},
+    {"type":"header","content":"2. Main NUR feature"},
+    {"type":"image_picker","id":"nur_desktop","label":"NUR image – desktop (PC 02)"},
+    {"type":"image_picker","id":"nur_mobile","label":"NUR image – mobile (MO 02)"},
+    {"type":"header","content":"3. Detection carousel"},
+    {"type":"text","id":"detection_heading","label":"Heading","default":"See More. Detect More."},
+    {"type":"text","id":"detection_subheading","label":"Subheading","default":"Detailed thermal imaging and smart inspection tools for everyday diagnostics."},
+    {"type":"header","content":"4. Professional carousel"},
+    {"type":"text","id":"professional_heading","label":"Heading","default":"Built for the Way You Work"},
+    {"type":"text","id":"professional_subheading","label":"Subheading","default":"Analyze, measure, capture and inspect with confidence."},
+    {"type":"header","content":"5. Durability"},
+    {"type":"image_picker","id":"durable_desktop","label":"Durability image – desktop (PC 11)"},
+    {"type":"image_picker","id":"durable_mobile","label":"Durability image – mobile (MO 11)"},
+    {"type":"header","content":"6. Applications"},
+    {"type":"text","id":"scenes_heading","label":"Heading","default":"Made for Real-World Inspections"},
+    {"type":"text","id":"scenes_subheading","label":"Subheading","default":"From home maintenance to electrical, HVAC and automotive checks."},
+    {"type":"header","content":"Appearance"},
+    {"type":"range","id":"content_width","label":"Carousel content width","min":960,"max":1600,"step":40,"unit":"px","default":1280},
+    {"type":"color","id":"background_color","label":"Background color","default":"#06142c"},
+    {"type":"color","id":"accent_color","label":"Active tab color","default":"#418fe9"}
+  ],
+  "blocks": [
+    {"type":"tab_slide","name":"Feature tab + image","settings":[
+      {"type":"select","id":"group","label":"Carousel group","default":"detection","options":[{"value":"detection","label":"Detection performance"},{"value":"professional","label":"Professional tools"}]},
+      {"type":"text","id":"label","label":"Tab label","default":"Feature"},
+      {"type":"image_picker","id":"desktop_image","label":"Desktop image (PC)"},
+      {"type":"image_picker","id":"mobile_image","label":"Mobile image (MO)"},
+      {"type":"text","id":"caption","label":"Optional caption (leave empty if text is already in image)"}
+    ]},
+    {"type":"scene","name":"Application image card","limit":4,"settings":[
+      {"type":"text","id":"title","label":"Scene name","default":"Home Inspection"},
+      {"type":"text","id":"description","label":"Short description (optional)"},
+      {"type":"image_picker","id":"desktop_image","label":"Desktop scene image (PC)"},
+      {"type":"image_picker","id":"mobile_image","label":"Mobile scene image (MO)"}
+    ]}
+  ],
+  "presets":[{"name":"Raythink EX10 details"}]
+}
+{% endschema %}
