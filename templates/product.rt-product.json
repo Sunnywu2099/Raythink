@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -9,7 +18,8 @@
           "settings": {
             "zoom": true,
             "video_loop": false
-          }
+          },
+          "blocks": {}
         },
         "product-details": {
           "type": "_rt-product-details",
@@ -40,7 +50,10 @@
           "blocks": {
             "rt_summary": {
               "type": "_rt-product-summary",
-              "settings": {}
+              "settings": {
+                "reviews_link": ""
+              },
+              "blocks": {}
             },
             "rt_features": {
               "type": "_rt-product-features",
@@ -53,32 +66,40 @@
                   "settings": {
                     "text": "640 × 480 Screen Resolution",
                     "icon": "official",
-                    "round_icon": false
-                  }
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 },
                 "feature_2": {
                   "type": "_rt-product-icon-text",
                   "settings": {
                     "text": "Wireless APP Transfer & PC Analysis",
                     "icon": "official",
-                    "round_icon": false
-                  }
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 },
                 "feature_3": {
                   "type": "_rt-product-icon-text",
                   "settings": {
                     "text": "32GB Storage Handheld Infrared Camera for Daily Inspections",
                     "icon": "official",
-                    "round_icon": false
-                  }
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 },
                 "feature_4": {
                   "type": "_rt-product-icon-text",
                   "settings": {
                     "text": "USB-C Plug-In for Smartphones",
                     "icon": "official",
-                    "round_icon": false
-                  }
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
@@ -110,10 +131,90 @@
               },
               "blocks": {}
             },
+            "quantity": {
+              "type": "_rt-product-quantity",
+              "settings": {
+                "input_style": "default",
+                "input_background_color": "{{ settings.color_palette.background }}",
+                "input_text_color": "{{ settings.color_palette.foreground }}",
+                "input_border_color": "{{ settings.color_palette.foreground }}",
+                "border_width": 1,
+                "border_radius": 8
+              },
+              "blocks": {}
+            },
+            "rt_delivery": {
+              "type": "_rt-product-delivery",
+              "settings": {
+                "delivery_text": "Order today, ships in 3–5 business days"
+              },
+              "blocks": {}
+            },
+            "rt_payment": {
+              "type": "_rt-product-payment",
+              "settings": {
+                "show_payment_icons": true
+              },
+              "blocks": {}
+            },
+            "rt_services": {
+              "type": "_rt-product-services",
+              "settings": {},
+              "blocks": {
+                "returns": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "30-Day Return Policy",
+                    "icon": "return",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "members": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Member’s Benefits",
+                    "icon": "gift",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "guarantee": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Price Guarantee",
+                    "icon": "price",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "warranty": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "5-Year Warranty",
+                    "icon": "warranty",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "returns",
+                "members",
+                "guarantee",
+                "warranty"
+              ]
+            },
             "rt_purchase": {
               "type": "_rt-product-buy-buttons",
+              "static": true,
               "settings": {
-                "show_accelerated_checkout": true
+                "show_accelerated_checkout": true,
+                "text_color": ""
               },
               "blocks": {
                 "add-to-cart": {
@@ -130,80 +231,16 @@
                 "accelerated-checkout": {
                   "type": "_rt-product-buy-now",
                   "static": true,
-                  "settings": {},
+                  "settings": {
+                    "style_class": "button-custom",
+                    "custom_button_background": "#1f1f1f",
+                    "custom_button_text": "#ffffff",
+                    "custom_button_border": "#1f1f1f"
+                  },
                   "blocks": {}
                 }
               },
-              "static": true
-            },
-            "quantity": {
-              "type": "_rt-product-quantity",
-              "settings": {
-                "input_style": "default",
-                "border_width": 1,
-                "border_radius": 8
-              },
-              "blocks": {}
-            },
-            "rt_delivery": {
-              "type": "_rt-product-delivery",
-              "settings": {
-                "delivery_text": "Order today, ships in 3–5 business days"
-              }
-            },
-            "rt_payment": {
-              "type": "_rt-product-payment",
-              "settings": {
-                "show_payment_icons": true
-              }
-            },
-            "rt_services": {
-              "type": "_rt-product-services",
-              "settings": {},
-              "blocks": {
-                "returns": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "30-Day Return Policy",
-                    "icon": "return",
-                    "round_icon": true,
-                    "return_days": 30
-                  }
-                },
-                "members": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "Member’s Benefits",
-                    "icon": "gift",
-                    "round_icon": true,
-                    "return_days": 30
-                  }
-                },
-                "guarantee": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "Price Guarantee",
-                    "icon": "price",
-                    "round_icon": true,
-                    "return_days": 30
-                  }
-                },
-                "warranty": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "5-Year Warranty",
-                    "icon": "warranty",
-                    "round_icon": true,
-                    "return_days": 30
-                  }
-                }
-              },
-              "block_order": [
-                "returns",
-                "members",
-                "guarantee",
-                "warranty"
-              ]
+              "block_order": []
             }
           },
           "block_order": [
@@ -217,7 +254,6 @@
           ]
         }
       },
-      "block_order": [],
       "settings": {
         "background_color": "#ffffff",
         "text_color": "#1f1f1f",
@@ -228,6 +264,1282 @@
         "padding_bottom_desktop": 40,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0
+      }
+    },
+    "rt_overview": {
+      "type": "section",
+      "blocks": {
+        "image": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "image"
+      ],
+      "disabled": true,
+      "name": "Product overview",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 40,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#ffffff",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_highlights": {
+      "type": "section",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "image": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "image"
+      ],
+      "disabled": true,
+      "name": "Feature highlights",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 40,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#141414",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_view_switch": {
+      "type": "rt-view-switch",
+      "blocks": {
+        "view_1": {
+          "type": "view",
+          "settings": {
+            "title": "IX One Go"
+          }
+        },
+        "view_2": {
+          "type": "view",
+          "settings": {
+            "title": "IX One Go Pro"
+          }
+        }
+      },
+      "block_order": [
+        "view_1",
+        "view_2"
+      ],
+      "settings": {
+        "heading": "Choose the View That Fits the Job.",
+        "heading_color": "#ffffff",
+        "description": "Switch between thermal, visible-light camera, and picture-in-picture views to connect thermal information with the real-world scene.",
+        "description_color": "#b5b5b5",
+        "background_color": "#141414",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 48
+      }
+    },
+    "rt_feature_split_1": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h2",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "description": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading",
+            "description"
+          ]
+        }
+      },
+      "disabled": true,
+      "name": "Feature spotlight 1",
+      "settings": {
+        "media_position": "right",
+        "media_width": "wide",
+        "media_height": "auto",
+        "section_width": "page-width",
+        "extend_media": false,
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_media_1": {
+      "type": "section",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "image": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "image"
+      ],
+      "disabled": true,
+      "name": "Feature media 1",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 40,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#141414",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_cards": {
+      "type": "section",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "cards": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 20,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_1": {
+              "type": "image",
+              "settings": {
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "image_2": {
+              "type": "image",
+              "settings": {
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "image_3": {
+              "type": "image",
+              "settings": {
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_1",
+            "image_2",
+            "image_3"
+          ]
+        }
+      },
+      "block_order": [
+        "heading",
+        "cards"
+      ],
+      "disabled": true,
+      "name": "Feature cards",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 40,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#141414",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_media_2": {
+      "type": "section",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "image": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "image"
+      ],
+      "disabled": true,
+      "name": "Feature media 2",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 40,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#141414",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_split_2": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h2",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "description": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading",
+            "description"
+          ]
+        }
+      },
+      "disabled": true,
+      "name": "Feature spotlight 2",
+      "settings": {
+        "media_position": "right",
+        "media_width": "wide",
+        "media_height": "auto",
+        "section_width": "page-width",
+        "extend_media": false,
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_split_3": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h2",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "description": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading",
+            "description"
+          ]
+        }
+      },
+      "disabled": true,
+      "name": "Feature spotlight 3",
+      "settings": {
+        "media_position": "left",
+        "media_width": "wide",
+        "media_height": "auto",
+        "section_width": "page-width",
+        "extend_media": false,
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_ti_studio": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Powered by TI Studio</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h2",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "description": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading",
+            "description"
+          ]
+        }
+      },
+      "disabled": true,
+      "name": "Powered by TI Studio",
+      "settings": {
+        "media_position": "right",
+        "media_width": "wide",
+        "media_height": "auto",
+        "section_width": "page-width",
+        "extend_media": false,
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_in_the_box": {
+      "type": "rt-in-the-box",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "title": "IX1 Go"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "title": "Packaging Box"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "title": "Carrying Bag"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "title": "USB-C Cable"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "title": "Certificate"
+          }
+        },
+        "item_6": {
+          "type": "item",
+          "settings": {
+            "title": "Quick Start Guide"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5",
+        "item_6"
+      ],
+      "settings": {
+        "heading": "What's in the box",
+        "heading_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_specification": {
+      "type": "rt-specification",
+      "blocks": {
+        "group_1": {
+          "type": "group",
+          "settings": {
+            "title": "Processing Capacity"
+          }
+        },
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "label": "Operating System",
+            "value": "OxygenOS based on Android™ 15"
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "label": "CPU",
+            "value": "—"
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "label": "GPU",
+            "value": "—"
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "label": "RAM",
+            "value": "—"
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "label": "ROM",
+            "value": "—"
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "label": "Storage",
+            "value": "—"
+          }
+        },
+        "row_7": {
+          "type": "row",
+          "settings": {
+            "label": "Battery",
+            "value": "4,500mAh dual-cell (2250mAh) battery, non-removable"
+          }
+        },
+        "row_8": {
+          "type": "row",
+          "settings": {
+            "label": "Weight",
+            "value": "—"
+          }
+        },
+        "group_2": {
+          "type": "group",
+          "settings": {
+            "title": "Processing Capacity"
+          }
+        },
+        "row_9": {
+          "type": "row",
+          "settings": {
+            "label": "Operating System",
+            "value": "OxygenOS based on Android™ 15"
+          }
+        },
+        "row_10": {
+          "type": "row",
+          "settings": {
+            "label": "CPU",
+            "value": "—"
+          }
+        },
+        "row_11": {
+          "type": "row",
+          "settings": {
+            "label": "GPU",
+            "value": "—"
+          }
+        },
+        "row_12": {
+          "type": "row",
+          "settings": {
+            "label": "RAM",
+            "value": "—"
+          }
+        },
+        "row_13": {
+          "type": "row",
+          "settings": {
+            "label": "ROM",
+            "value": "—"
+          }
+        },
+        "row_14": {
+          "type": "row",
+          "settings": {
+            "label": "Storage",
+            "value": "—"
+          }
+        },
+        "row_15": {
+          "type": "row",
+          "settings": {
+            "label": "Battery",
+            "value": "4,500mAh dual-cell (2250mAh) battery, non-removable"
+          }
+        },
+        "row_16": {
+          "type": "row",
+          "settings": {
+            "label": "Weight",
+            "value": "—"
+          }
+        }
+      },
+      "block_order": [
+        "group_1",
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6",
+        "row_7",
+        "row_8",
+        "group_2",
+        "row_9",
+        "row_10",
+        "row_11",
+        "row_12",
+        "row_13",
+        "row_14",
+        "row_15",
+        "row_16"
+      ],
+      "settings": {
+        "heading": "Specification",
+        "heading_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_compare": {
+      "type": "rt-compare",
+      "blocks": {
+        "product_1": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "title": "CX20",
+            "price": "$389.00",
+            "viewing_label": "Currently viewing",
+            "buy_label": "",
+            "buy_url": "",
+            "learn_label": "Learn more",
+            "learn_url": "",
+            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|Qualcomm® Snapdragon™\n50W|Wireless Charging"
+          }
+        },
+        "product_2": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "title": "CX20 Pro",
+            "price": "$489.00",
+            "viewing_label": "",
+            "buy_label": "Buy now",
+            "buy_url": "",
+            "learn_label": "Learn more",
+            "learn_url": "",
+            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|Qualcomm® Snapdragon™\n50W|Wireless Charging"
+          }
+        },
+        "product_3": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "title": "CX20 Ultra",
+            "price": "$589.00",
+            "viewing_label": "",
+            "buy_label": "Buy now",
+            "buy_url": "",
+            "learn_label": "Learn more",
+            "learn_url": "",
+            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|--\n50W|Wireless Charging"
+          }
+        }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3"
+      ],
+      "settings": {
+        "heading": "Which is the Best for You?",
+        "heading_color": "#000000",
+        "link_text": "View All Comparisons",
+        "link_url": "",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_faq": {
+      "type": "rt-faq",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+      "settings": {
+        "heading": "FAQ",
+        "heading_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_review": {
+      "type": "rt-review",
+      "blocks": {
+        "summary": {
+          "type": "summary",
+          "settings": {
+            "rating": "4.9",
+            "review_count": 130,
+            "star_5": 120,
+            "star_4": 6,
+            "star_3": 2,
+            "star_2": 1,
+            "star_1": 1,
+            "button_text": "Write a Review",
+            "button_url": ""
+          }
+        },
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "author": "Customer",
+            "rating": 5,
+            "date": "August 20, 2025",
+            "title": "Clear thermal images",
+            "body": "<p>Useful for home checks. The image is clear and the temperature reading is easy to understand.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "summary",
+        "review_1"
+      ],
+      "settings": {
+        "heading": "Review",
+        "heading_color": "#000000",
+        "gallery_heading": "Customer Images",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
       }
     },
     "product_recommendations_qggXJq": {
@@ -352,6 +1664,7 @@
       "block_order": [
         "text_cbcgyb"
       ],
+      "disabled": true,
       "name": "t:names.product_recommendations",
       "settings": {
         "product": "{{ closest.product }}",
@@ -370,562 +1683,6 @@
         "background_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 48,
         "padding-block-end": 48
-      }
-    },
-    "rt_overview": {
-      "type": "section",
-      "name": "Product overview",
-      "disabled": true,
-      "blocks": {
-        "image": {
-          "type": "image",
-          "settings": {
-            "image_ratio": "adapt",
-            "width": "fill",
-            "width_mobile": "fill"
-          }
-        }
-      },
-      "block_order": [
-        "image"
-      ],
-      "settings": {
-        "section_width": "page-width",
-        "gap": 40,
-        "background_color": "#ffffff",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
-    },
-    "rt_feature_highlights": {
-      "type": "section",
-      "name": "Feature highlights",
-      "disabled": true,
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "type_preset": "h2",
-            "width": "100%",
-            "alignment": "center"
-          }
-        },
-        "image": {
-          "type": "image",
-          "settings": {
-            "image_ratio": "adapt",
-            "width": "fill",
-            "width_mobile": "fill"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "image"
-      ],
-      "settings": {
-        "section_width": "page-width",
-        "gap": 40,
-        "background_color": "#141414",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
-    },
-    "rt_feature_split_1": {
-      "type": "media-with-content",
-      "name": "Feature spotlight 1",
-      "disabled": true,
-      "blocks": {
-        "media": {
-          "type": "_media-without-appearance",
-          "static": true,
-          "settings": {
-            "media_type": "image"
-          }
-        },
-        "content": {
-          "type": "_content-without-appearance",
-          "static": true,
-          "settings": {
-            "horizontal_alignment_flex_direction_column": "flex-start"
-          },
-          "blocks": {
-            "heading": {
-              "type": "text",
-              "settings": {
-                "text": "",
-                "type_preset": "h2"
-              }
-            },
-            "description": {
-              "type": "text",
-              "settings": {
-                "text": "",
-                "type_preset": "rte"
-              }
-            }
-          },
-          "block_order": [
-            "heading",
-            "description"
-          ]
-        }
-      },
-      "settings": {
-        "media_position": "right",
-        "media_width": "wide",
-        "media_height": "auto",
-        "extend_media": false,
-        "section_width": "page-width",
-        "background_color": "#141414",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
-    },
-    "rt_feature_media_1": {
-      "type": "section",
-      "name": "Feature media 1",
-      "disabled": true,
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "type_preset": "h2",
-            "width": "100%",
-            "alignment": "center"
-          }
-        },
-        "image": {
-          "type": "image",
-          "settings": {
-            "image_ratio": "adapt",
-            "width": "fill",
-            "width_mobile": "fill"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "image"
-      ],
-      "settings": {
-        "section_width": "page-width",
-        "gap": 40,
-        "background_color": "#141414",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
-    },
-    "rt_feature_cards": {
-      "type": "section",
-      "name": "Feature cards",
-      "disabled": true,
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "type_preset": "h2",
-            "width": "100%",
-            "alignment": "center"
-          }
-        },
-        "cards": {
-          "type": "group",
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": true,
-            "gap": 20
-          },
-          "blocks": {
-            "image_1": {
-              "type": "image",
-              "settings": {
-                "image_ratio": "adapt",
-                "width": "fill",
-                "width_mobile": "fill"
-              }
-            },
-            "image_2": {
-              "type": "image",
-              "settings": {
-                "image_ratio": "adapt",
-                "width": "fill",
-                "width_mobile": "fill"
-              }
-            },
-            "image_3": {
-              "type": "image",
-              "settings": {
-                "image_ratio": "adapt",
-                "width": "fill",
-                "width_mobile": "fill"
-              }
-            }
-          },
-          "block_order": [
-            "image_1",
-            "image_2",
-            "image_3"
-          ]
-        }
-      },
-      "block_order": [
-        "heading",
-        "cards"
-      ],
-      "settings": {
-        "section_width": "page-width",
-        "gap": 40,
-        "background_color": "#141414",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
-    },
-    "rt_feature_media_2": {
-      "type": "section",
-      "name": "Feature media 2",
-      "disabled": true,
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "type_preset": "h2",
-            "width": "100%",
-            "alignment": "center"
-          }
-        },
-        "image": {
-          "type": "image",
-          "settings": {
-            "image_ratio": "adapt",
-            "width": "fill",
-            "width_mobile": "fill"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "image"
-      ],
-      "settings": {
-        "section_width": "page-width",
-        "gap": 40,
-        "background_color": "#141414",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
-    },
-    "rt_feature_split_2": {
-      "type": "media-with-content",
-      "name": "Feature spotlight 2",
-      "disabled": true,
-      "blocks": {
-        "media": {
-          "type": "_media-without-appearance",
-          "static": true,
-          "settings": {
-            "media_type": "image"
-          }
-        },
-        "content": {
-          "type": "_content-without-appearance",
-          "static": true,
-          "settings": {
-            "horizontal_alignment_flex_direction_column": "flex-start"
-          },
-          "blocks": {
-            "heading": {
-              "type": "text",
-              "settings": {
-                "text": "",
-                "type_preset": "h2"
-              }
-            },
-            "description": {
-              "type": "text",
-              "settings": {
-                "text": "",
-                "type_preset": "rte"
-              }
-            }
-          },
-          "block_order": [
-            "heading",
-            "description"
-          ]
-        }
-      },
-      "settings": {
-        "media_position": "right",
-        "media_width": "wide",
-        "media_height": "auto",
-        "extend_media": false,
-        "section_width": "page-width",
-        "background_color": "#141414",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
-    },
-    "rt_feature_split_3": {
-      "type": "media-with-content",
-      "name": "Feature spotlight 3",
-      "disabled": true,
-      "blocks": {
-        "media": {
-          "type": "_media-without-appearance",
-          "static": true,
-          "settings": {
-            "media_type": "image"
-          }
-        },
-        "content": {
-          "type": "_content-without-appearance",
-          "static": true,
-          "settings": {
-            "horizontal_alignment_flex_direction_column": "flex-start"
-          },
-          "blocks": {
-            "heading": {
-              "type": "text",
-              "settings": {
-                "text": "",
-                "type_preset": "h2"
-              }
-            },
-            "description": {
-              "type": "text",
-              "settings": {
-                "text": "",
-                "type_preset": "rte"
-              }
-            }
-          },
-          "block_order": [
-            "heading",
-            "description"
-          ]
-        }
-      },
-      "settings": {
-        "media_position": "left",
-        "media_width": "wide",
-        "media_height": "auto",
-        "extend_media": false,
-        "section_width": "page-width",
-        "background_color": "#141414",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
-    },
-    "rt_ti_studio": {
-      "type": "media-with-content",
-      "name": "Powered by TI Studio",
-      "disabled": true,
-      "blocks": {
-        "media": {
-          "type": "_media-without-appearance",
-          "static": true,
-          "settings": {
-            "media_type": "image"
-          }
-        },
-        "content": {
-          "type": "_content-without-appearance",
-          "static": true,
-          "settings": {
-            "horizontal_alignment_flex_direction_column": "flex-start"
-          },
-          "blocks": {
-            "heading": {
-              "type": "text",
-              "settings": {
-                "text": "<h2>Powered by TI Studio</h2>",
-                "type_preset": "h2"
-              }
-            },
-            "description": {
-              "type": "text",
-              "settings": {
-                "text": "",
-                "type_preset": "rte"
-              }
-            }
-          },
-          "block_order": [
-            "heading",
-            "description"
-          ]
-        }
-      },
-      "settings": {
-        "media_position": "right",
-        "media_width": "wide",
-        "media_height": "auto",
-        "extend_media": false,
-        "section_width": "page-width",
-        "background_color": "#141414",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
-    },
-    "rt_view_switch": {
-      "type": "rt-view-switch",
-      "blocks": {
-        "view_1": { "type": "view", "settings": { "title": "IX One Go" } },
-        "view_2": { "type": "view", "settings": { "title": "IX One Go Pro" } }
-      },
-      "block_order": ["view_1", "view_2"],
-      "settings": {
-        "heading": "Choose the View That Fits the Job.",
-        "heading_color": "#ffffff",
-        "description": "Switch between thermal, visible-light camera, and picture-in-picture views to connect thermal information with the real-world scene.",
-        "description_color": "#b5b5b5",
-        "background_color": "#141414",
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 32,
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 48
-      }
-    },
-    "rt_in_the_box": {
-      "type": "rt-in-the-box",
-      "blocks": {
-        "item_1": { "type": "item", "settings": { "title": "IX1 Go" } },
-        "item_2": { "type": "item", "settings": { "title": "Packaging Box" } },
-        "item_3": { "type": "item", "settings": { "title": "Carrying Bag" } },
-        "item_4": { "type": "item", "settings": { "title": "USB-C Cable" } },
-        "item_5": { "type": "item", "settings": { "title": "Certificate" } },
-        "item_6": { "type": "item", "settings": { "title": "Quick Start Guide" } }
-      },
-      "block_order": ["item_1", "item_2", "item_3", "item_4", "item_5", "item_6"],
-      "settings": {
-        "heading": "What's in the box",
-        "heading_color": "#000000",
-        "background_color": "#ffffff",
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48,
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 80
-      }
-    },
-    "rt_specification": {
-      "type": "rt-specification",
-      "blocks": {
-        "group_1": { "type": "group", "settings": { "title": "Processing Capacity" } },
-        "row_1": { "type": "row", "settings": { "label": "Operating System", "value": "OxygenOS based on Android™ 15" } },
-        "row_2": { "type": "row", "settings": { "label": "CPU", "value": "—" } },
-        "row_3": { "type": "row", "settings": { "label": "GPU", "value": "—" } },
-        "row_4": { "type": "row", "settings": { "label": "RAM", "value": "—" } },
-        "row_5": { "type": "row", "settings": { "label": "ROM", "value": "—" } },
-        "row_6": { "type": "row", "settings": { "label": "Storage", "value": "—" } },
-        "row_7": { "type": "row", "settings": { "label": "Battery", "value": "4,500mAh dual-cell (2250mAh) battery, non-removable" } },
-        "row_8": { "type": "row", "settings": { "label": "Weight", "value": "—" } },
-        "group_2": { "type": "group", "settings": { "title": "Processing Capacity" } },
-        "row_9": { "type": "row", "settings": { "label": "Operating System", "value": "OxygenOS based on Android™ 15" } },
-        "row_10": { "type": "row", "settings": { "label": "CPU", "value": "—" } },
-        "row_11": { "type": "row", "settings": { "label": "GPU", "value": "—" } },
-        "row_12": { "type": "row", "settings": { "label": "RAM", "value": "—" } },
-        "row_13": { "type": "row", "settings": { "label": "ROM", "value": "—" } },
-        "row_14": { "type": "row", "settings": { "label": "Storage", "value": "—" } },
-        "row_15": { "type": "row", "settings": { "label": "Battery", "value": "4,500mAh dual-cell (2250mAh) battery, non-removable" } },
-        "row_16": { "type": "row", "settings": { "label": "Weight", "value": "—" } }
-      },
-      "block_order": ["group_1", "row_1", "row_2", "row_3", "row_4", "row_5", "row_6", "row_7", "row_8", "group_2", "row_9", "row_10", "row_11", "row_12", "row_13", "row_14", "row_15", "row_16"],
-      "settings": {
-        "heading": "Specification",
-        "heading_color": "#000000",
-        "background_color": "#ffffff",
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48,
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 80
-      }
-    },
-    "rt_compare": {
-      "type": "rt-compare",
-      "blocks": {
-        "product_1": {
-          "type": "product",
-          "settings": {
-            "title": "CX20",
-            "price": "$389.00",
-            "viewing_label": "Currently viewing",
-            "learn_label": "Learn more",
-            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|Qualcomm® Snapdragon™\n50W|Wireless Charging"
-          }
-        },
-        "product_2": {
-          "type": "product",
-          "settings": {
-            "title": "CX20 Pro",
-            "price": "$489.00",
-            "buy_label": "Buy now",
-            "learn_label": "Learn more",
-            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|Qualcomm® Snapdragon™\n50W|Wireless Charging"
-          }
-        },
-        "product_3": {
-          "type": "product",
-          "settings": {
-            "title": "CX20 Ultra",
-            "price": "$589.00",
-            "buy_label": "Buy now",
-            "learn_label": "Learn more",
-            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|--\n50W|Wireless Charging"
-          }
-        }
-      },
-      "block_order": ["product_1", "product_2", "product_3"],
-      "settings": {
-        "heading": "Which is the Best for You?",
-        "heading_color": "#000000",
-        "link_text": "View All Comparisons",
-        "background_color": "#ffffff",
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48,
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 80
-      }
-    },
-    "rt_faq": {
-      "type": "rt-faq",
-      "blocks": {
-        "item_1": { "type": "item", "settings": { "question": "Item" } },
-        "item_2": { "type": "item", "settings": { "question": "Item" } },
-        "item_3": { "type": "item", "settings": { "question": "Item" } },
-        "item_4": { "type": "item", "settings": { "question": "Item" } }
-      },
-      "block_order": ["item_1", "item_2", "item_3", "item_4"],
-      "settings": {
-        "heading": "FAQ",
-        "heading_color": "#000000",
-        "background_color": "#ffffff",
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48,
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 80
-      }
-    },
-    "rt_review": {
-      "type": "rt-review",
-      "blocks": {
-        "summary": { "type": "summary", "settings": {} },
-        "review_1": { "type": "review", "settings": {} }
-      },
-      "block_order": ["summary", "review_1"],
-      "settings": {
-        "heading": "Review",
-        "heading_color": "#000000",
-        "gallery_heading": "Customer Images",
-        "background_color": "#ffffff",
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48,
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 80
       }
     }
   },
