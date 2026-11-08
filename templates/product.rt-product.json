@@ -372,6 +372,406 @@
         "padding-block-end": 48
       }
     },
+    "rt_overview": {
+      "type": "section",
+      "name": "Product overview",
+      "disabled": true,
+      "blocks": {
+        "image": {
+          "type": "image",
+          "settings": {
+            "image_ratio": "adapt",
+            "width": "fill",
+            "width_mobile": "fill"
+          }
+        }
+      },
+      "block_order": [
+        "image"
+      ],
+      "settings": {
+        "section_width": "page-width",
+        "gap": 40,
+        "background_color": "#ffffff",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_highlights": {
+      "type": "section",
+      "name": "Feature highlights",
+      "disabled": true,
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "type_preset": "h2",
+            "width": "100%",
+            "alignment": "center"
+          }
+        },
+        "image": {
+          "type": "image",
+          "settings": {
+            "image_ratio": "adapt",
+            "width": "fill",
+            "width_mobile": "fill"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "image"
+      ],
+      "settings": {
+        "section_width": "page-width",
+        "gap": 40,
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_split_1": {
+      "type": "media-with-content",
+      "name": "Feature spotlight 1",
+      "disabled": true,
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image"
+          }
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start"
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "type_preset": "h2"
+              }
+            },
+            "description": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "type_preset": "rte"
+              }
+            }
+          },
+          "block_order": [
+            "heading",
+            "description"
+          ]
+        }
+      },
+      "settings": {
+        "media_position": "right",
+        "media_width": "wide",
+        "media_height": "auto",
+        "extend_media": false,
+        "section_width": "page-width",
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_media_1": {
+      "type": "section",
+      "name": "Feature media 1",
+      "disabled": true,
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "type_preset": "h2",
+            "width": "100%",
+            "alignment": "center"
+          }
+        },
+        "image": {
+          "type": "image",
+          "settings": {
+            "image_ratio": "adapt",
+            "width": "fill",
+            "width_mobile": "fill"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "image"
+      ],
+      "settings": {
+        "section_width": "page-width",
+        "gap": 40,
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_cards": {
+      "type": "section",
+      "name": "Feature cards",
+      "disabled": true,
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "type_preset": "h2",
+            "width": "100%",
+            "alignment": "center"
+          }
+        },
+        "cards": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "gap": 20
+          },
+          "blocks": {
+            "image_1": {
+              "type": "image",
+              "settings": {
+                "image_ratio": "adapt",
+                "width": "fill",
+                "width_mobile": "fill"
+              }
+            },
+            "image_2": {
+              "type": "image",
+              "settings": {
+                "image_ratio": "adapt",
+                "width": "fill",
+                "width_mobile": "fill"
+              }
+            },
+            "image_3": {
+              "type": "image",
+              "settings": {
+                "image_ratio": "adapt",
+                "width": "fill",
+                "width_mobile": "fill"
+              }
+            }
+          },
+          "block_order": [
+            "image_1",
+            "image_2",
+            "image_3"
+          ]
+        }
+      },
+      "block_order": [
+        "heading",
+        "cards"
+      ],
+      "settings": {
+        "section_width": "page-width",
+        "gap": 40,
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_media_2": {
+      "type": "section",
+      "name": "Feature media 2",
+      "disabled": true,
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "type_preset": "h2",
+            "width": "100%",
+            "alignment": "center"
+          }
+        },
+        "image": {
+          "type": "image",
+          "settings": {
+            "image_ratio": "adapt",
+            "width": "fill",
+            "width_mobile": "fill"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "image"
+      ],
+      "settings": {
+        "section_width": "page-width",
+        "gap": 40,
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_split_2": {
+      "type": "media-with-content",
+      "name": "Feature spotlight 2",
+      "disabled": true,
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image"
+          }
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start"
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "type_preset": "h2"
+              }
+            },
+            "description": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "type_preset": "rte"
+              }
+            }
+          },
+          "block_order": [
+            "heading",
+            "description"
+          ]
+        }
+      },
+      "settings": {
+        "media_position": "right",
+        "media_width": "wide",
+        "media_height": "auto",
+        "extend_media": false,
+        "section_width": "page-width",
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_feature_split_3": {
+      "type": "media-with-content",
+      "name": "Feature spotlight 3",
+      "disabled": true,
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image"
+          }
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start"
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "type_preset": "h2"
+              }
+            },
+            "description": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "type_preset": "rte"
+              }
+            }
+          },
+          "block_order": [
+            "heading",
+            "description"
+          ]
+        }
+      },
+      "settings": {
+        "media_position": "left",
+        "media_width": "wide",
+        "media_height": "auto",
+        "extend_media": false,
+        "section_width": "page-width",
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "rt_ti_studio": {
+      "type": "media-with-content",
+      "name": "Powered by TI Studio",
+      "disabled": true,
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image"
+          }
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start"
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Powered by TI Studio</h2>",
+                "type_preset": "h2"
+              }
+            },
+            "description": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "type_preset": "rte"
+              }
+            }
+          },
+          "block_order": [
+            "heading",
+            "description"
+          ]
+        }
+      },
+      "settings": {
+        "media_position": "right",
+        "media_width": "wide",
+        "media_height": "auto",
+        "extend_media": false,
+        "section_width": "page-width",
+        "background_color": "#141414",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
     "rt_view_switch": {
       "type": "rt-view-switch",
       "blocks": {
@@ -531,7 +931,16 @@
   },
   "order": [
     "main",
+    "rt_overview",
+    "rt_feature_highlights",
     "rt_view_switch",
+    "rt_feature_split_1",
+    "rt_feature_media_1",
+    "rt_feature_cards",
+    "rt_feature_media_2",
+    "rt_feature_split_2",
+    "rt_feature_split_3",
+    "rt_ti_studio",
     "rt_in_the_box",
     "rt_specification",
     "rt_compare",
