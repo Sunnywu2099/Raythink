@@ -266,6 +266,29 @@
         "padding_bottom_mobile": 0
       }
     },
+    "rt_grid_Uc873h": {
+      "type": "rt-grid",
+      "blocks": {
+        "grid_block_kKtXnD": {
+          "type": "grid-block",
+          "settings": {
+            "image": "shopify://shop_images/image_1075.png",
+            "image_mobile": "shopify://shop_images/image_1080.png"
+          }
+        }
+      },
+      "block_order": [
+        "grid_block_kKtXnD"
+      ],
+      "name": "rt-grid",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 120
+      }
+    },
     "rt_view_switch": {
       "type": "rt-view-switch",
       "blocks": {
@@ -671,6 +694,7 @@
   },
   "order": [
     "main",
+    "rt_grid_Uc873h",
     "rt_view_switch",
     "rt_in_the_box",
     "rt_specification",
