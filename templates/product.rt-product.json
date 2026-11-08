@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -9,7 +18,8 @@
           "settings": {
             "zoom": true,
             "video_loop": false
-          }
+          },
+          "blocks": {}
         },
         "product-details": {
           "type": "_rt-product-details",
@@ -40,7 +50,10 @@
           "blocks": {
             "rt_summary": {
               "type": "_rt-product-summary",
-              "settings": {}
+              "settings": {
+                "reviews_link": ""
+              },
+              "blocks": {}
             },
             "rt_features": {
               "type": "_rt-product-features",
@@ -53,32 +66,40 @@
                   "settings": {
                     "text": "640 × 480 Screen Resolution",
                     "icon": "official",
-                    "round_icon": false
-                  }
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 },
                 "feature_2": {
                   "type": "_rt-product-icon-text",
                   "settings": {
                     "text": "Wireless APP Transfer & PC Analysis",
                     "icon": "official",
-                    "round_icon": false
-                  }
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 },
                 "feature_3": {
                   "type": "_rt-product-icon-text",
                   "settings": {
                     "text": "32GB Storage Handheld Infrared Camera for Daily Inspections",
                     "icon": "official",
-                    "round_icon": false
-                  }
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 },
                 "feature_4": {
                   "type": "_rt-product-icon-text",
                   "settings": {
                     "text": "USB-C Plug-In for Smartphones",
                     "icon": "official",
-                    "round_icon": false
-                  }
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
@@ -110,10 +131,90 @@
               },
               "blocks": {}
             },
+            "quantity": {
+              "type": "_rt-product-quantity",
+              "settings": {
+                "input_style": "default",
+                "input_background_color": "{{ settings.color_palette.background }}",
+                "input_text_color": "{{ settings.color_palette.foreground }}",
+                "input_border_color": "{{ settings.color_palette.foreground }}",
+                "border_width": 1,
+                "border_radius": 8
+              },
+              "blocks": {}
+            },
+            "rt_delivery": {
+              "type": "_rt-product-delivery",
+              "settings": {
+                "delivery_text": "Order today, ships in 3–5 business days"
+              },
+              "blocks": {}
+            },
+            "rt_payment": {
+              "type": "_rt-product-payment",
+              "settings": {
+                "show_payment_icons": true
+              },
+              "blocks": {}
+            },
+            "rt_services": {
+              "type": "_rt-product-services",
+              "settings": {},
+              "blocks": {
+                "returns": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "30-Day Return Policy",
+                    "icon": "return",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "members": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Member’s Benefits",
+                    "icon": "gift",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "guarantee": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Price Guarantee",
+                    "icon": "price",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "warranty": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "5-Year Warranty",
+                    "icon": "warranty",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "returns",
+                "members",
+                "guarantee",
+                "warranty"
+              ]
+            },
             "rt_purchase": {
               "type": "_rt-product-buy-buttons",
+              "static": true,
               "settings": {
-                "show_accelerated_checkout": true
+                "show_accelerated_checkout": true,
+                "text_color": ""
               },
               "blocks": {
                 "add-to-cart": {
@@ -130,80 +231,16 @@
                 "accelerated-checkout": {
                   "type": "_rt-product-buy-now",
                   "static": true,
-                  "settings": {},
+                  "settings": {
+                    "style_class": "button-custom",
+                    "custom_button_background": "#1f1f1f",
+                    "custom_button_text": "#ffffff",
+                    "custom_button_border": "#1f1f1f"
+                  },
                   "blocks": {}
                 }
               },
-              "static": true
-            },
-            "quantity": {
-              "type": "_rt-product-quantity",
-              "settings": {
-                "input_style": "default",
-                "border_width": 1,
-                "border_radius": 8
-              },
-              "blocks": {}
-            },
-            "rt_delivery": {
-              "type": "_rt-product-delivery",
-              "settings": {
-                "delivery_text": "Order today, ships in 3–5 business days"
-              }
-            },
-            "rt_payment": {
-              "type": "_rt-product-payment",
-              "settings": {
-                "show_payment_icons": true
-              }
-            },
-            "rt_services": {
-              "type": "_rt-product-services",
-              "settings": {},
-              "blocks": {
-                "returns": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "30-Day Return Policy",
-                    "icon": "return",
-                    "round_icon": true,
-                    "return_days": 30
-                  }
-                },
-                "members": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "Member’s Benefits",
-                    "icon": "gift",
-                    "round_icon": true,
-                    "return_days": 30
-                  }
-                },
-                "guarantee": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "Price Guarantee",
-                    "icon": "price",
-                    "round_icon": true,
-                    "return_days": 30
-                  }
-                },
-                "warranty": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "5-Year Warranty",
-                    "icon": "warranty",
-                    "round_icon": true,
-                    "return_days": 30
-                  }
-                }
-              },
-              "block_order": [
-                "returns",
-                "members",
-                "guarantee",
-                "warranty"
-              ]
+              "block_order": []
             }
           },
           "block_order": [
@@ -217,7 +254,6 @@
           ]
         }
       },
-      "block_order": [],
       "settings": {
         "background_color": "#ffffff",
         "text_color": "#1f1f1f",
@@ -230,155 +266,26 @@
         "padding_bottom_mobile": 0
       }
     },
-    "product_recommendations_qggXJq": {
-      "type": "product-recommendations",
-      "blocks": {
-        "text_cbcgyb": {
-          "type": "text",
-          "name": "t:names.header",
-          "settings": {
-            "text": "<h3>You may also like </h3>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h4",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 8,
-            "background_color": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 8,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_DNizbJ": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_M7MJkb": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_gLWgA6": {
-              "type": "price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "text_color": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_DNizbJ",
-            "product_title_M7MJkb",
-            "price_gLWgA6"
-          ]
-        }
-      },
-      "block_order": [
-        "text_cbcgyb"
-      ],
-      "name": "t:names.product_recommendations",
-      "settings": {
-        "product": "{{ closest.product }}",
-        "recommendation_type": "related",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 4,
-        "columns": 4,
-        "mobile_columns": "2",
-        "columns_gap": 12,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "gap": 28,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
     "rt_view_switch": {
       "type": "rt-view-switch",
       "blocks": {
-        "view_1": { "type": "view", "settings": { "title": "IX One Go" } },
-        "view_2": { "type": "view", "settings": { "title": "IX One Go Pro" } }
+        "view_1": {
+          "type": "view",
+          "settings": {
+            "title": "IX One Go"
+          }
+        },
+        "view_2": {
+          "type": "view",
+          "settings": {
+            "title": "IX One Go Pro"
+          }
+        }
       },
-      "block_order": ["view_1", "view_2"],
+      "block_order": [
+        "view_1",
+        "view_2"
+      ],
       "settings": {
         "heading": "Choose the View That Fits the Job.",
         "heading_color": "#ffffff",
@@ -394,14 +301,51 @@
     "rt_in_the_box": {
       "type": "rt-in-the-box",
       "blocks": {
-        "item_1": { "type": "item", "settings": { "title": "IX1 Go" } },
-        "item_2": { "type": "item", "settings": { "title": "Packaging Box" } },
-        "item_3": { "type": "item", "settings": { "title": "Carrying Bag" } },
-        "item_4": { "type": "item", "settings": { "title": "USB-C Cable" } },
-        "item_5": { "type": "item", "settings": { "title": "Certificate" } },
-        "item_6": { "type": "item", "settings": { "title": "Quick Start Guide" } }
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "title": "IX1 Go"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "title": "Packaging Box"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "title": "Carrying Bag"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "title": "USB-C Cable"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "title": "Certificate"
+          }
+        },
+        "item_6": {
+          "type": "item",
+          "settings": {
+            "title": "Quick Start Guide"
+          }
+        }
       },
-      "block_order": ["item_1", "item_2", "item_3", "item_4", "item_5", "item_6"],
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5",
+        "item_6"
+      ],
       "settings": {
         "heading": "What's in the box",
         "heading_color": "#000000",
@@ -415,26 +359,151 @@
     "rt_specification": {
       "type": "rt-specification",
       "blocks": {
-        "group_1": { "type": "group", "settings": { "title": "Processing Capacity" } },
-        "row_1": { "type": "row", "settings": { "label": "Operating System", "value": "OxygenOS based on Android™ 15" } },
-        "row_2": { "type": "row", "settings": { "label": "CPU", "value": "—" } },
-        "row_3": { "type": "row", "settings": { "label": "GPU", "value": "—" } },
-        "row_4": { "type": "row", "settings": { "label": "RAM", "value": "—" } },
-        "row_5": { "type": "row", "settings": { "label": "ROM", "value": "—" } },
-        "row_6": { "type": "row", "settings": { "label": "Storage", "value": "—" } },
-        "row_7": { "type": "row", "settings": { "label": "Battery", "value": "4,500mAh dual-cell (2250mAh) battery, non-removable" } },
-        "row_8": { "type": "row", "settings": { "label": "Weight", "value": "—" } },
-        "group_2": { "type": "group", "settings": { "title": "Processing Capacity" } },
-        "row_9": { "type": "row", "settings": { "label": "Operating System", "value": "OxygenOS based on Android™ 15" } },
-        "row_10": { "type": "row", "settings": { "label": "CPU", "value": "—" } },
-        "row_11": { "type": "row", "settings": { "label": "GPU", "value": "—" } },
-        "row_12": { "type": "row", "settings": { "label": "RAM", "value": "—" } },
-        "row_13": { "type": "row", "settings": { "label": "ROM", "value": "—" } },
-        "row_14": { "type": "row", "settings": { "label": "Storage", "value": "—" } },
-        "row_15": { "type": "row", "settings": { "label": "Battery", "value": "4,500mAh dual-cell (2250mAh) battery, non-removable" } },
-        "row_16": { "type": "row", "settings": { "label": "Weight", "value": "—" } }
+        "group_1": {
+          "type": "group",
+          "settings": {
+            "title": "Processing Capacity"
+          }
+        },
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "label": "Operating System",
+            "value": "OxygenOS based on Android™ 15"
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "label": "CPU",
+            "value": "—"
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "label": "GPU",
+            "value": "—"
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "label": "RAM",
+            "value": "—"
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "label": "ROM",
+            "value": "—"
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "label": "Storage",
+            "value": "—"
+          }
+        },
+        "row_7": {
+          "type": "row",
+          "settings": {
+            "label": "Battery",
+            "value": "4,500mAh dual-cell (2250mAh) battery, non-removable"
+          }
+        },
+        "row_8": {
+          "type": "row",
+          "settings": {
+            "label": "Weight",
+            "value": "—"
+          }
+        },
+        "group_2": {
+          "type": "group",
+          "settings": {
+            "title": "Processing Capacity"
+          }
+        },
+        "row_9": {
+          "type": "row",
+          "settings": {
+            "label": "Operating System",
+            "value": "OxygenOS based on Android™ 15"
+          }
+        },
+        "row_10": {
+          "type": "row",
+          "settings": {
+            "label": "CPU",
+            "value": "—"
+          }
+        },
+        "row_11": {
+          "type": "row",
+          "settings": {
+            "label": "GPU",
+            "value": "—"
+          }
+        },
+        "row_12": {
+          "type": "row",
+          "settings": {
+            "label": "RAM",
+            "value": "—"
+          }
+        },
+        "row_13": {
+          "type": "row",
+          "settings": {
+            "label": "ROM",
+            "value": "—"
+          }
+        },
+        "row_14": {
+          "type": "row",
+          "settings": {
+            "label": "Storage",
+            "value": "—"
+          }
+        },
+        "row_15": {
+          "type": "row",
+          "settings": {
+            "label": "Battery",
+            "value": "4,500mAh dual-cell (2250mAh) battery, non-removable"
+          }
+        },
+        "row_16": {
+          "type": "row",
+          "settings": {
+            "label": "Weight",
+            "value": "—"
+          }
+        }
       },
-      "block_order": ["group_1", "row_1", "row_2", "row_3", "row_4", "row_5", "row_6", "row_7", "row_8", "group_2", "row_9", "row_10", "row_11", "row_12", "row_13", "row_14", "row_15", "row_16"],
+      "block_order": [
+        "group_1",
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6",
+        "row_7",
+        "row_8",
+        "group_2",
+        "row_9",
+        "row_10",
+        "row_11",
+        "row_12",
+        "row_13",
+        "row_14",
+        "row_15",
+        "row_16"
+      ],
       "settings": {
         "heading": "Specification",
         "heading_color": "#000000",
@@ -451,39 +520,56 @@
         "product_1": {
           "type": "product",
           "settings": {
+            "product": "",
             "title": "CX20",
             "price": "$389.00",
             "viewing_label": "Currently viewing",
+            "buy_label": "",
+            "buy_url": "",
             "learn_label": "Learn more",
+            "learn_url": "",
             "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|Qualcomm® Snapdragon™\n50W|Wireless Charging"
           }
         },
         "product_2": {
           "type": "product",
           "settings": {
+            "product": "",
             "title": "CX20 Pro",
             "price": "$489.00",
+            "viewing_label": "",
             "buy_label": "Buy now",
+            "buy_url": "",
             "learn_label": "Learn more",
+            "learn_url": "",
             "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|Qualcomm® Snapdragon™\n50W|Wireless Charging"
           }
         },
         "product_3": {
           "type": "product",
           "settings": {
+            "product": "",
             "title": "CX20 Ultra",
             "price": "$589.00",
+            "viewing_label": "",
             "buy_label": "Buy now",
+            "buy_url": "",
             "learn_label": "Learn more",
+            "learn_url": "",
             "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|--\n50W|Wireless Charging"
           }
         }
       },
-      "block_order": ["product_1", "product_2", "product_3"],
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3"
+      ],
       "settings": {
         "heading": "Which is the Best for You?",
         "heading_color": "#000000",
         "link_text": "View All Comparisons",
+        "link_url": "",
         "background_color": "#ffffff",
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48,
@@ -494,12 +580,41 @@
     "rt_faq": {
       "type": "rt-faq",
       "blocks": {
-        "item_1": { "type": "item", "settings": { "question": "Item" } },
-        "item_2": { "type": "item", "settings": { "question": "Item" } },
-        "item_3": { "type": "item", "settings": { "question": "Item" } },
-        "item_4": { "type": "item", "settings": { "question": "Item" } }
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        }
       },
-      "block_order": ["item_1", "item_2", "item_3", "item_4"],
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
       "settings": {
         "heading": "FAQ",
         "heading_color": "#000000",
@@ -513,10 +628,35 @@
     "rt_review": {
       "type": "rt-review",
       "blocks": {
-        "summary": { "type": "summary", "settings": {} },
-        "review_1": { "type": "review", "settings": {} }
+        "summary": {
+          "type": "summary",
+          "settings": {
+            "rating": "4.9",
+            "review_count": 130,
+            "star_5": 120,
+            "star_4": 6,
+            "star_3": 2,
+            "star_2": 1,
+            "star_1": 1,
+            "button_text": "Write a Review",
+            "button_url": ""
+          }
+        },
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "author": "Customer",
+            "rating": 5,
+            "date": "August 20, 2025",
+            "title": "Clear thermal images",
+            "body": "<p>Useful for home checks. The image is clear and the temperature reading is easy to understand.</p>"
+          }
+        }
       },
-      "block_order": ["summary", "review_1"],
+      "block_order": [
+        "summary",
+        "review_1"
+      ],
       "settings": {
         "heading": "Review",
         "heading_color": "#000000",
@@ -536,7 +676,6 @@
     "rt_specification",
     "rt_compare",
     "rt_faq",
-    "rt_review",
-    "product_recommendations_qggXJq"
+    "rt_review"
   ]
 }
