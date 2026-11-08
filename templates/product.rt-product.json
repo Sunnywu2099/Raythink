@@ -295,6 +295,7 @@
       "block_order": [
         "image"
       ],
+      "disabled": true,
       "name": "Product overview",
       "settings": {
         "content_direction": "column",
