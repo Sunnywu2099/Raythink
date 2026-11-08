@@ -32,7 +32,8 @@
     flex-direction: column;
     min-width: 0;
     background-color: #fafafa;
-    border-radius: 0;
+    overflow: hidden;
+    border-radius: 8px;
   }
 
   .rt-in-the-box-item--large {
@@ -65,17 +66,11 @@
     margin: 0;
     padding: 8px;
     color: rgb(0 0 0 / 0.88);
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 500;
-    text-align: start;
-  }
-
-  .rt-in-the-box-item--large .rt-in-the-box-label {
-    padding: 8px;
     font-size: 14px;
     line-height: 18px;
     font-weight: 600;
+    text-align: start;
+    overflow-wrap: anywhere;
   }
 
   @media (min-width: 750px) {
@@ -98,13 +93,9 @@
       aspect-ratio: 176 / 300;
     }
 
-    .rt-in-the-box-label,
-    .rt-in-the-box-item--large .rt-in-the-box-label {
+    .rt-in-the-box-label {
       min-height: 50px;
       padding: 16px;
-      font-size: 14px;
-      line-height: 18px;
-      font-weight: 600;
     }
 
     .rt-in-the-box-item--large .rt-in-the-box-label {

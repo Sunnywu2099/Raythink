@@ -22,58 +22,74 @@
 -%}
 
 {% stylesheet %}
+  .rt-review {
+    --rt-review-star-color: #fa8f2c;
+  }
+
   .rt-review-summary {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 24px;
+    padding-inline: 6px;
   }
 
   .rt-review-bars {
-    width: min(100%, 360px);
+    min-width: 0;
   }
 
   .rt-review-bar {
     position: relative;
     display: grid;
-    grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+    grid-template-columns: 1.5rem minmax(0, 1fr) minmax(4ch, auto);
     align-items: center;
     gap: 8px;
     margin-top: 8px;
     color: rgb(0 0 0 / 0.65);
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .rt-review-bar-track {
     display: block;
-    height: 8px;
+    height: 18px;
     overflow: hidden;
-    background-color: #ececec;
+    background-color: #dedede;
     border-radius: 999px;
   }
 
   .rt-review-bar-fill {
     display: block;
     height: 100%;
-    background-color: #f5a623;
-    border-radius: inherit;
+    background-color: var(--rt-review-star-color);
   }
 
   .rt-review-score {
-    text-align: center;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 4px 16px;
+    align-items: center;
+    justify-items: start;
+    position: relative;
+  }
+
+  .rt-review-score .rt-stars {
+    align-self: end;
+    margin: 0;
   }
 
   .rt-review-score-value {
+    grid-row: span 2;
     margin: 0;
-    color: rgb(0 0 0 / 0.88);
+    color: rgb(0 0 0 / 0.65);
     font-size: 48px;
     line-height: 1;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .rt-review-count {
-    margin: 8px 0 0;
+    align-self: start;
+    margin: 0;
     color: rgb(0 0 0 / 0.65);
     font-size: 14px;
     line-height: 18px;
@@ -95,7 +111,7 @@
     inset-inline-start: 0;
     width: calc(var(--rt-rating, 0) / 5 * 100%);
     overflow: hidden;
-    color: #f5a623;
+    color: var(--rt-review-star-color);
     white-space: nowrap;
   }
 
@@ -156,19 +172,22 @@
 
   .rt-review-gallery {
     margin-top: 32px;
+    padding-block-start: 8px;
+    border-block-start: 1px solid rgb(0 0 0 / 0.15);
   }
 
   .rt-review-gallery-title {
-    margin: 0 0 16px;
+    margin: 0 0 8px;
     color: rgb(0 0 0 / 0.88);
     font-size: 16px;
     line-height: 22px;
-    font-weight: 600;
+    font-weight: 400;
+    text-align: center;
   }
 
   .rt-review-photos {
     display: flex;
-    gap: 12px;
+    gap: 4px;
     margin: 0;
     padding: 0 0 4px;
     overflow-x: auto;
@@ -177,7 +196,7 @@
 
   .rt-review-photo {
     flex: 0 0 140px;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1;
     overflow: hidden;
   }
 
@@ -195,26 +214,38 @@
   @media (min-width: 750px) {
     .rt-review-summary {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-      align-items: center;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
       gap: 40px;
+      padding-inline: 24px;
     }
 
-    .rt-review-bars {
-      width: 100%;
-      justify-self: start;
+    .rt-review-bar {
+      font-size: 14px;
+      line-height: 18px;
     }
 
-    .rt-review-action {
-      justify-self: end;
+    .rt-review-bar-track {
+      height: 14px;
     }
 
     .rt-review-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
       margin-top: 40px;
     }
 
-    .rt-review-photo {
-      flex-basis: 180px;
+    .rt-review-item {
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid rgb(0 0 0 / 0.25);
+      border-radius: 8px;
+      overflow-wrap: anywhere;
+    }
+
+    .rt-review-item:only-child {
+      grid-column: 1 / -1;
     }
   }
 {% endstylesheet %}
@@ -253,22 +284,7 @@
             assign star_3 = block.settings.star_3 | default: 0
             assign star_2 = block.settings.star_2 | default: 0
             assign star_1 = block.settings.star_1 | default: 0
-            assign max_count = star_5
-            if star_4 > max_count
-              assign max_count = star_4
-            endif
-            if star_3 > max_count
-              assign max_count = star_3
-            endif
-            if star_2 > max_count
-              assign max_count = star_2
-            endif
-            if star_1 > max_count
-              assign max_count = star_1
-            endif
-            if max_count == 0
-              assign max_count = 1
-            endif
+            assign total_stars = star_5 | plus: star_4 | plus: star_3 | plus: star_2 | plus: star_1 | at_least: 1
           -%}
           <div class="rt-review-summary" {{ block.shopify_attributes }}>
             <div class="rt-review-bars">
@@ -287,7 +303,7 @@
                     else
                       assign count = star_1
                   endcase
-                  assign width = count | times: 100.0 | divided_by: max_count
+                  assign width = count | times: 100.0 | divided_by: total_stars | at_least: 0 | at_most: 100
                 -%}
                 <div class="rt-review-bar">
                   <span class="visually-hidden">{{ 'rt_product.star_count' | t: stars: star, count: count }}</span>
