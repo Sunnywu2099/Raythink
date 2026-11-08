@@ -50,6 +50,19 @@
     text-align: center;
   }
 
+  .rt-view-switch-root {
+    position: relative;
+  }
+
+  /* Keep native radios out of the layout while their labels show keyboard focus. */
+  .rt-view-input {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: 0;
+    clip-path: inset(50%);
+  }
+
   .rt-view-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -63,7 +76,7 @@
     background-color: #202020;
   }
 
-  .rt-pdp-heading + .rt-view-tabs {
+  .rt-pdp-heading ~ .rt-view-tabs {
     margin-block-start: 16px;
   }
 
@@ -179,10 +192,17 @@
   >
     <div class="rt-container">
       <div class="rt-view-switch-root">
+        {%- if ss.heading != blank or ss.description != blank -%}
+          <div class="rt-pdp-heading rt-pdp-heading-center">
+            {% render 'rt-heading', variant: 'title', text: heading, color: ss.heading_color %}
+            {% render 'rt-heading', variant: 'description', text: description, color: ss.description_color %}
+          </div>
+        {%- endif -%}
+
         {%- for block in section.blocks -%}
           {%- if block.type == 'view' -%}
             <input
-              class="rt-view-input visually-hidden"
+              class="rt-view-input"
               type="radio"
               name="rt-view-{{ section.id }}"
               id="rt-view-{{ section.id }}-{{ forloop.index }}"
@@ -190,13 +210,6 @@
             >
           {%- endif -%}
         {%- endfor -%}
-
-        {%- if ss.heading != blank or ss.description != blank -%}
-          <div class="rt-pdp-heading rt-pdp-heading-center">
-            {% render 'rt-heading', variant: 'title', text: heading, color: ss.heading_color %}
-            {% render 'rt-heading', variant: 'description', text: description, color: ss.description_color %}
-          </div>
-        {%- endif -%}
 
         {%- if section.blocks.size > 0 -%}
           <div class="rt-view-tabs">
