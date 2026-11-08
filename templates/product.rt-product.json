@@ -289,6 +289,29 @@
         "padding_bottom_desktop": 120
       }
     },
+    "rt_grid_4d4UL3": {
+      "type": "rt-grid",
+      "blocks": {
+        "grid_block_mkwPU9": {
+          "type": "grid-block",
+          "settings": {
+            "image": "shopify://shop_images/Powered_by_TI_Studio.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130478.png"
+          }
+        }
+      },
+      "block_order": [
+        "grid_block_mkwPU9"
+      ],
+      "name": "rt-grid",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 120
+      }
+    },
     "rt_view_switch": {
       "type": "rt-view-switch",
       "blocks": {
@@ -837,6 +860,7 @@
   "order": [
     "main",
     "rt_grid_pzFUYq",
+    "rt_grid_4d4UL3",
     "rt_view_switch",
     "rt_in_the_box",
     "rt_specification",
