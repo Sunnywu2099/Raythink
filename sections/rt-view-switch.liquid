@@ -8,6 +8,8 @@
 
 {%- liquid
   assign ss = section.settings
+  assign heading = ss.heading | escape
+  assign description = ss.description | escape
   assign pt_mobile = ss.padding_top_mobile | default: 48
   assign pb_mobile = ss.padding_bottom_mobile | default: 32
   assign pt_desktop = ss.padding_top_desktop | default: 80
@@ -16,8 +18,10 @@
 -%}
 
 {% stylesheet %}
-  .rt-view-switch {
-    color: #ffffff;
+  @media (max-width: 749px) {
+    .rt-view-switch .rt-ss-padding > .rt-container {
+      padding-inline: 24px;
+    }
   }
 
   .rt-view-switch .rt-pdp-heading {
@@ -26,11 +30,12 @@
     align-items: center;
     gap: 16px;
     max-width: 744px;
-    margin-inline: auto;
+    margin: 0 auto;
+    overflow-wrap: anywhere;
   }
 
   .rt-view-switch .rt-pdp-heading .rt-title {
-    color: #646464;
+    font-family: var(--font-body--family);
     font-size: 32px;
     line-height: 36px;
     font-weight: 700;
@@ -39,7 +44,6 @@
   .rt-view-switch .rt-description {
     max-width: 744px;
     margin: 0;
-    color: #484848;
     font-size: 14px;
     line-height: 18px;
     font-weight: 600;
@@ -51,7 +55,16 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 4px;
-    margin-top: 16px;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    padding: 4px;
+    border-radius: 68px;
+    background-color: #202020;
+  }
+
+  .rt-pdp-heading + .rt-view-tabs {
+    margin-block-start: 16px;
   }
 
   .rt-view-tab {
@@ -59,43 +72,48 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    height: 48px;
+    min-height: 48px;
+    min-width: 0;
+    max-width: 100%;
     margin: 0;
-    padding: 0 24px;
-    border: 0;
+    padding: 15px 24px;
     border-radius: 999px;
-    background-color: #181818;
-    color: #585858;
+    color: rgb(255 255 255 / 96%);
     font-size: 14px;
     line-height: 18px;
     font-weight: 600;
+    text-align: center;
+    overflow-wrap: anywhere;
     cursor: pointer;
   }
 
   .rt-view-stage {
-    margin-top: 28px;
+    margin-block-start: 24px;
     overflow: hidden;
-    border-radius: 24px;
+    border-radius: 16px;
     background-color: #000000;
   }
 
   .rt-view-panel {
     display: none;
+    position: relative;
+    aspect-ratio: 327 / 470;
   }
 
-  .rt-view-panel--empty {
-    aspect-ratio: 16 / 7;
+  .rt-view-panel picture {
+    position: absolute;
+    inset: 0;
   }
 
   .rt-view-panel picture,
   .rt-view-panel img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
   }
 
   .rt-view-panel picture > img {
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .rt-view-switch-root > .rt-view-input:nth-of-type(1):checked ~ .rt-view-tabs .rt-view-tab:nth-child(1),
@@ -104,8 +122,8 @@
   .rt-view-switch-root > .rt-view-input:nth-of-type(4):checked ~ .rt-view-tabs .rt-view-tab:nth-child(4),
   .rt-view-switch-root > .rt-view-input:nth-of-type(5):checked ~ .rt-view-tabs .rt-view-tab:nth-child(5),
   .rt-view-switch-root > .rt-view-input:nth-of-type(6):checked ~ .rt-view-tabs .rt-view-tab:nth-child(6) {
-    background-color: #585858;
-    color: #161616;
+    background-color: rgb(255 255 255 / 96%);
+    color: rgb(0 0 0 / 88%);
   }
 
   .rt-view-switch-root > .rt-view-input:nth-of-type(1):focus-visible ~ .rt-view-tabs .rt-view-tab:nth-child(1),
@@ -134,7 +152,11 @@
     }
 
     .rt-view-stage {
-      margin-top: 36px;
+      margin-block-start: 40px;
+    }
+
+    .rt-view-panel {
+      aspect-ratio: 3 / 1;
     }
   }
 {% endstylesheet %}
@@ -169,45 +191,45 @@
           {%- endif -%}
         {%- endfor -%}
 
-        <div class="rt-pdp-heading rt-pdp-heading-center">
-          {%- if ss.heading != blank -%}
-            {% render 'rt-heading', variant: 'title', text: ss.heading %}
-          {%- endif -%}
-          {%- if ss.description != blank -%}
-            {% render 'rt-heading', variant: 'description', text: ss.description %}
-          {%- endif -%}
-        </div>
+        {%- if ss.heading != blank or ss.description != blank -%}
+          <div class="rt-pdp-heading rt-pdp-heading-center">
+            {% render 'rt-heading', variant: 'title', text: heading, color: ss.heading_color %}
+            {% render 'rt-heading', variant: 'description', text: description, color: ss.description_color %}
+          </div>
+        {%- endif -%}
 
-        <div class="rt-view-tabs">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'view' -%}
-              <label class="rt-view-tab" for="rt-view-{{ section.id }}-{{ forloop.index }}" {{ block.shopify_attributes }}>
-                {{ block.settings.title | escape }}
-              </label>
-            {%- endif -%}
-          {%- endfor -%}
-        </div>
+        {%- if section.blocks.size > 0 -%}
+          <div class="rt-view-tabs">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'view' -%}
+                <label class="rt-view-tab" for="rt-view-{{ section.id }}-{{ forloop.index }}" {{ block.shopify_attributes }}>
+                  {{ block.settings.title | escape }}
+                </label>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
 
-        <div class="rt-view-stage">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'view' -%}
-              {%- liquid
-                assign image_desktop = block.settings.image_desktop
-                assign image_mobile = block.settings.image_mobile | default: image_desktop
-              -%}
-              <div class="rt-view-panel{% if image_desktop == blank and image_mobile == blank %} rt-view-panel--empty{% endif %}">
-                {% render 'rt-image2picture',
-                  image_mobile: image_mobile,
-                  image_desktop: image_desktop,
-                  alt: block.settings.title,
-                  sizes: '(min-width: 1200px) 1200px, 100vw',
-                  loading: 'lazy',
-                  fetchpriority: 'low'
-                %}
-              </div>
-            {%- endif -%}
-          {%- endfor -%}
-        </div>
+          <div class="rt-view-stage">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'view' -%}
+                {%- liquid
+                  assign image_desktop = block.settings.image_desktop | default: block.settings.image_mobile
+                  assign image_mobile = block.settings.image_mobile | default: image_desktop
+                -%}
+                <div class="rt-view-panel">
+                  {% render 'rt-image2picture',
+                    image_mobile: image_mobile,
+                    image_desktop: image_desktop,
+                    alt: block.settings.title,
+                    sizes: '(max-width: 749px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 64px), 1200px',
+                    loading: 'lazy',
+                    fetchpriority: 'low'
+                  %}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
       </div>
     </div>
   </div>
