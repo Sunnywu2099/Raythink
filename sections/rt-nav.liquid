@@ -1,0 +1,78 @@
+{%- liquid
+  assign ss = section.settings
+  assign bg_color = ss.background_color | default: '#f5f5f9'
+  assign bb_color = ss.bb_color | default: '#e5e5e5'
+-%}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section"
+  style="--rt-section-bg-color: {{ bg_color }};"
+>
+  <div class="rt-nav-container">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'nav_block' -%}
+          <div class="rt-nav-item">
+            <a href="#">{{ block.settings.nav_text }}</a>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "rt-nav",
+    "tag": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "背景颜色",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "bb_color",
+        "label": "下边框颜色",
+        "default": "#e5e5e5"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "nav_block",
+        "name": "导航块",
+        "settings": [
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "文字颜色",
+            "default": "#000000"
+          },
+          {
+            "type": "text",
+            "id": "nav_text",
+            "label": "导航文字",
+            "default": "Overview"
+          },
+          {
+            "type": "text",
+            "id": "nav_id",
+            "label": "需要定位的模块ID",
+            "info": "无需加#号"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "rt-nav",
+        "category": "rt-navigation"
+      }
+    ]
+  }
+  {% endschema %}
