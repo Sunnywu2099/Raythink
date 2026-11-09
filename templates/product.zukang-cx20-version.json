@@ -540,14 +540,18 @@
           "type": "feature",
           "settings": {
             "slide_no": "11",
-            "label": "Seven color palettes"
+            "label": "Seven color palettes",
+            "pc_image": "shopify://shop_images/cx20-11-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-11-mo.jpg"
           }
         },
         "feature_q3znAY": {
           "type": "feature",
           "settings": {
             "slide_no": "12",
-            "label": "Zoom and tripod support"
+            "label": "Zoom and tripod support",
+            "pc_image": "shopify://shop_images/cx20-12-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-12-mo.jpg"
           }
         },
         "feature_fdmh6J": {
