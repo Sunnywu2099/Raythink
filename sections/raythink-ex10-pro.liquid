@@ -1,0 +1,432 @@
+{% comment %} Raythink EX10 Pro A+ configurable section. Put below your native main-product section. {% endcomment %}
+<section class="rtpro-{{ section.id }}" id="rtpro-{{ section.id }}" aria-label="EX10 Pro product highlights">
+  <div class="rtpro-inner">
+    {% if section.settings.hero_pc != blank or section.settings.hero_mo != blank %}
+      <picture class="rtpro-picture">
+        {% if section.settings.hero_mo != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.hero_mo | image_url: width: 1500 }}">{% endif %}
+        {% assign hero_image = section.settings.hero_pc | default: section.settings.hero_mo %}
+        <img src="{{ hero_image | image_url: width: 2048 }}" width="{{ hero_image.width }}" height="{{ hero_image.height }}" alt="EX10 Pro thermal camera product overview" loading="lazy">
+      </picture>
+    {% endif %}
+    {% if section.settings.nur_pc != blank or section.settings.nur_mo != blank %}
+      <picture class="rtpro-picture">
+        {% if section.settings.nur_mo != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.nur_mo | image_url: width: 1500 }}">{% endif %}
+        {% assign nur_image = section.settings.nur_pc | default: section.settings.nur_mo %}
+        <img src="{{ nur_image | image_url: width: 2048 }}" width="{{ nur_image.width }}" height="{{ nur_image.height }}" alt="EX10 Pro NUR thermal clarity comparison" loading="lazy">
+      </picture>
+    {% endif %}
+
+    {% for group in (1..2) %}
+      {% assign group_key = 'detection' %}
+      {% assign panel_heading = section.settings.detection_title %}
+      {% assign panel_subheading = section.settings.detection_subtitle %}
+      {% if group == 2 %}
+        {% assign group_key = 'professional' %}
+        {% assign panel_heading = section.settings.professional_title %}
+        {% assign panel_subheading = section.settings.professional_subtitle %}
+      {% endif %}
+      {% assign slide_count = 0 %}
+      {% for block in section.blocks %}{% if block.type == 'feature' and block.settings.group == group_key %}{% assign slide_count = slide_count | plus: 1 %}{% endif %}{% endfor %}
+      {% if slide_count > 0 %}
+      <div class="rtpro-panel" data-rtpro-carousel="{{ group_key }}">
+        <h2 class="rtpro-title">{{ panel_heading | escape }}</h2>
+        {% if panel_subheading != blank %}<p class="rtpro-subtitle">{{ panel_subheading | escape }}</p>{% endif %}
+        <div class="rtpro-tabs" role="tablist" aria-label="{{ panel_heading | escape }}">
+          {% assign tab_index = 0 %}
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' and block.settings.group == group_key %}
+              <button type="button" role="tab" id="rtpro-tab-{{ section.id }}-{{ group_key }}-{{ tab_index }}" aria-controls="rtpro-slide-{{ section.id }}-{{ group_key }}-{{ tab_index }}" aria-selected="{% if tab_index == 0 %}true{% else %}false{% endif %}" tabindex="{% if tab_index == 0 %}0{% else %}-1{% endif %}" class="rtpro-tab" data-rtpro-index="{{ tab_index }}">{{ block.settings.label | escape }}</button>
+              {% assign tab_index = tab_index | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="rtpro-frame">
+          {% assign slide_index = 0 %}
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' and block.settings.group == group_key %}
+              <div class="rtpro-slide {% if slide_index == 0 %}is-active{% endif %}" id="rtpro-slide-{{ section.id }}-{{ group_key }}-{{ slide_index }}" role="tabpanel" aria-labelledby="rtpro-tab-{{ section.id }}-{{ group_key }}-{{ slide_index }}" {% unless slide_index == 0 %}hidden{% endunless %} {{ block.shopify_attributes }}>
+                {% assign item_image = block.settings.image_pc | default: block.settings.image_mo %}
+                {% if item_image != blank %}
+                  <picture class="rtpro-picture">
+                    {% if block.settings.image_mo != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.image_mo | image_url: width: 1500 }}">{% endif %}
+                    <img src="{{ item_image | image_url: width: 2048 }}" width="{{ item_image.width }}" height="{{ item_image.height }}" alt="{{ block.settings.label | escape }}" loading="lazy">
+                  </picture>
+                {% else %}<div class="rtpro-empty">Upload images for {{ block.settings.label | escape }}</div>{% endif %}
+              </div>
+              {% assign slide_index = slide_index | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% if slide_count > 1 %}
+          <div class="rtpro-actions">
+            <button class="rtpro-arrow" type="button" data-rtpro-prev aria-label="Previous feature">&#8249;</button>
+            <span class="rtpro-counter" aria-live="polite">1 / {{ slide_count }}</span>
+            <button class="rtpro-arrow" type="button" data-rtpro-next aria-label="Next feature">&#8250;</button>
+          </div>
+        {% endif %}
+      </div>
+      {% endif %}
+    {% endfor %}
+
+    {% if section.settings.durable_pc != blank or section.settings.durable_mo != blank %}
+      <picture class="rtpro-picture">
+        {% if section.settings.durable_mo != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.durable_mo | image_url: width: 1500 }}">{% endif %}
+        {% assign durable_image = section.settings.durable_pc | default: section.settings.durable_mo %}
+        <img src="{{ durable_image | image_url: width: 2048 }}" width="{{ durable_image.width }}" height="{{ durable_image.height }}" alt="EX10 Pro IP54 protection and drop resistance" loading="lazy">
+      </picture>
+    {% endif %}
+
+    {% assign app_count = 0 %}
+    {% for block in section.blocks %}{% if block.type == 'application' %}{% assign app_count = app_count | plus: 1 %}{% endif %}{% endfor %}
+    {% if app_count > 0 %}
+      <div class="rtpro-apps">
+        <h2 class="rtpro-title">{{ section.settings.application_title | escape }}</h2>
+        <div class="rtpro-grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'application' %}
+              <div class="rtpro-app" {{ block.shopify_attributes }}>
+                {% assign app_image = block.settings.image_pc | default: block.settings.image_mo %}
+                {% if app_image != blank %}
+                  <picture>
+                    {% if block.settings.image_mo != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.image_mo | image_url: width: 1500 }}">{% endif %}
+                    <img src="{{ app_image | image_url: width: 1400 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="{{ app_image.width }}" height="{{ app_image.height }}">
+                  </picture>
+                {% else %}<div class="rtpro-empty">Upload application image</div>{% endif %}
+                <div class="rtpro-app-title">{{ block.settings.title | escape }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+<style>
+
+.rtpro-{{ section.id }}{--rt-bg:{{ section.settings.background_color }};--rt-accent:{{ section.settings.accent_color }};background:var(--rt-bg);color:#fff;width:100%;overflow:hidden}
+.rtpro-{{ section.id }} *{box-sizing:border-box}
+.rtpro-{{ section.id }} .rtpro-inner{max-width:{{ section.settings.max_width }}px;margin:auto}
+.rtpro-{{ section.id }} .rtpro-picture{display:block;width:100%;line-height:0}
+.rtpro-{{ section.id }} .rtpro-picture img{width:100%;height:auto;display:block}
+.rtpro-{{ section.id }} .rtpro-panel{padding:48px 22px 52px}
+.rtpro-{{ section.id }} .rtpro-title{font-size:clamp(24px,3vw,42px);text-align:center;line-height:1.15;margin:0 0 12px;font-weight:650;letter-spacing:-.02em}
+.rtpro-{{ section.id }} .rtpro-subtitle{text-align:center;margin:0 auto 26px;max-width:800px;color:#bdcce3;font-size:clamp(13px,1.2vw,17px)}
+.rtpro-{{ section.id }} .rtpro-tabs{display:flex;justify-content:center;gap:7px;overflow-x:auto;scrollbar-width:none;padding:2px 0 15px;margin:0 auto 8px;scroll-snap-type:x proximity}
+.rtpro-{{ section.id }} .rtpro-tabs::-webkit-scrollbar{display:none}
+.rtpro-{{ section.id }} .rtpro-tab{font:inherit;white-space:nowrap;color:#c5d2e8;border:1px solid #334765;background:transparent;padding:11px 17px;cursor:pointer;border-radius:4px;font-size:13px;font-weight:600;scroll-snap-align:center}
+.rtpro-{{ section.id }} .rtpro-tab[aria-selected='true']{color:#fff;border-color:var(--rt-accent);background:#163d79}
+.rtpro-{{ section.id }} .rtpro-frame{position:relative;margin:auto;max-width:100%;overflow:hidden}
+.rtpro-{{ section.id }} .rtpro-slide{display:none}
+.rtpro-{{ section.id }} .rtpro-slide.is-active{display:block}
+.rtpro-{{ section.id }} .rtpro-actions{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px}
+.rtpro-{{ section.id }} .rtpro-arrow{width:36px;height:36px;border:1px solid #6c82a0;color:white;background:transparent;border-radius:50%;cursor:pointer;font-size:24px;line-height:1}
+.rtpro-{{ section.id }} .rtpro-counter{font-size:13px;color:#c0cfe2;min-width:50px;text-align:center}
+.rtpro-{{ section.id }} .rtpro-apps{padding:48px 22px 66px}
+.rtpro-{{ section.id }} .rtpro-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:28px}
+.rtpro-{{ section.id }} .rtpro-app{position:relative;overflow:hidden;background:#10203a;border-radius:5px}
+.rtpro-{{ section.id }} .rtpro-app img{width:100%;height:100%;object-fit:cover;display:block}
+.rtpro-{{ section.id }} .rtpro-app picture{display:block;aspect-ratio:2.44}
+.rtpro-{{ section.id }} .rtpro-app-title{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(1,8,20,.83));padding:32px 18px 16px;font-weight:650;font-size:clamp(14px,1.5vw,21px);text-shadow:0 2px 8px #000}
+.rtpro-{{ section.id }} .rtpro-empty{padding:55px 15px;text-align:center;color:#aabbcf;border:1px dashed #4c6488}
+@media(max-width:749px){.rtpro-{{ section.id }} .rtpro-panel{padding:25px 0 32px}.rtpro-{{ section.id }} .rtpro-title,.rtpro-{{ section.id }} .rtpro-subtitle{padding-left:16px;padding-right:16px}.rtpro-{{ section.id }} .rtpro-tabs{justify-content:flex-start;padding-left:12px;padding-right:12px}.rtpro-{{ section.id }} .rtpro-tab{padding:9px 12px;font-size:12px}.rtpro-{{ section.id }} .rtpro-apps{padding:32px 12px 45px}.rtpro-{{ section.id }} .rtpro-grid{gap:10px;grid-template-columns:1fr}.rtpro-{{ section.id }} .rtpro-app picture{aspect-ratio:4/3}.rtpro-{{ section.id }} .rtpro-app-title{font-size:19px}.rtpro-{{ section.id }} .rtpro-actions{margin-top:12px}}
+</style>
+<script>
+(function(){
+  function init(root){
+    if(!root || root.dataset.rtproReady === '1') return;
+    root.dataset.rtproReady='1';
+    root.querySelectorAll('[data-rtpro-carousel]').forEach(function(carousel){
+      var tabs=Array.prototype.slice.call(carousel.querySelectorAll('[data-rtpro-index]'));
+      var slides=Array.prototype.slice.call(carousel.querySelectorAll('.rtpro-slide'));
+      var counter=carousel.querySelector('.rtpro-counter');
+      var active=0,startX=null;
+      function select(i,focus){
+        if(!slides.length)return;
+        active=(i+slides.length)%slides.length;
+        slides.forEach(function(slide,j){var on=j===active;slide.classList.toggle('is-active',on);slide.hidden=!on;});
+        tabs.forEach(function(tab,j){var on=j===active;tab.setAttribute('aria-selected',on?'true':'false');tab.tabIndex=on?0:-1;});
+        if(counter)counter.textContent=(active+1)+' / '+slides.length;
+        if(focus && tabs[active])tabs[active].focus({preventScroll:true});
+      }
+      tabs.forEach(function(tab,i){tab.addEventListener('click',function(){select(i,false)});tab.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();select(active+(e.key==='ArrowRight'?1:-1),true)}})});
+      var prev=carousel.querySelector('[data-rtpro-prev]'),next=carousel.querySelector('[data-rtpro-next]');
+      if(prev)prev.addEventListener('click',function(){select(active-1,false)});
+      if(next)next.addEventListener('click',function(){select(active+1,false)});
+      var frame=carousel.querySelector('.rtpro-frame');
+      if(frame){frame.addEventListener('touchstart',function(e){startX=e.changedTouches[0].screenX},{passive:true});frame.addEventListener('touchend',function(e){if(startX===null)return;var d=e.changedTouches[0].screenX-startX;if(Math.abs(d)>45)select(active+(d<0?1:-1),false);startX=null},{passive:true})}
+      select(0,false);
+    });
+  }
+  init(document.getElementById('rtpro-{{ section.id }}'));
+  document.addEventListener('shopify:section:load',function(e){var element=e.target.querySelector('#rtpro-{{ section.id }}');if(element)init(element)});
+  document.addEventListener('shopify:block:select',function(e){var slide=e.target.closest('.rtpro-slide');if(!slide)return;var carousel=slide.closest('[data-rtpro-carousel]');if(!carousel)return;var index=Array.prototype.indexOf.call(carousel.querySelectorAll('.rtpro-slide'),slide);var tabs=carousel.querySelectorAll('[data-rtpro-index]');if(tabs[index])tabs[index].click()});
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Raythink EX10 Pro details",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero / NUR / Durability images"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_pc",
+      "label": "Hero image - PC"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_mo",
+      "label": "Hero image - MO"
+    },
+    {
+      "type": "image_picker",
+      "id": "nur_pc",
+      "label": "NUR image - PC"
+    },
+    {
+      "type": "image_picker",
+      "id": "nur_mo",
+      "label": "NUR image - MO"
+    },
+    {
+      "type": "image_picker",
+      "id": "durable_pc",
+      "label": "Durability image - PC"
+    },
+    {
+      "type": "image_picker",
+      "id": "durable_mo",
+      "label": "Durability image - MO"
+    },
+    {
+      "type": "header",
+      "content": "Carousel groups"
+    },
+    {
+      "type": "text",
+      "id": "detection_title",
+      "label": "Carousel 1 title",
+      "default": "Imaging & Detection"
+    },
+    {
+      "type": "text",
+      "id": "detection_subtitle",
+      "label": "Carousel 1 subtitle",
+      "default": "See more. Detect faster."
+    },
+    {
+      "type": "text",
+      "id": "professional_title",
+      "label": "Carousel 2 title",
+      "default": "Professional Tools"
+    },
+    {
+      "type": "text",
+      "id": "professional_subtitle",
+      "label": "Carousel 2 subtitle",
+      "default": "Tools designed for efficient inspections."
+    },
+    {
+      "type": "text",
+      "id": "application_title",
+      "label": "Application title",
+      "default": "Built for Every Inspection"
+    },
+    {
+      "type": "header",
+      "content": "Colors and width"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#06152c"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#377fe8"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum content width",
+      "min": 1000,
+      "max": 2000,
+      "step": 50,
+      "default": 1600,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature tab image",
+      "settings": [
+        {
+          "type": "select",
+          "id": "group",
+          "label": "Carousel group",
+          "options": [
+            {
+              "value": "detection",
+              "label": "Imaging & Detection"
+            },
+            {
+              "value": "professional",
+              "label": "Professional Tools"
+            }
+          ],
+          "default": "detection"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tab label",
+          "default": "Feature"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_pc",
+          "label": "PC image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mo",
+          "label": "Mobile image"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "Application card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Application title",
+          "default": "Inspection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_pc",
+          "label": "PC image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mo",
+          "label": "Mobile image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 24,
+  "presets": [
+    {
+      "name": "Raythink EX10 Pro details",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "group": "detection",
+            "label": "40mK & 25Hz"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "group": "detection",
+            "label": "4 Imaging Modes"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "group": "detection",
+            "label": "9 Color Palettes"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "group": "detection",
+            "label": "Wide Field of View"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "group": "detection",
+            "label": "Temperature Analysis"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "group": "professional",
+            "label": "Wireless & Laser"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "group": "professional",
+            "label": "PC Thermal Analysis"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "group": "professional",
+            "label": "Precision Measurement"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "group": "professional",
+            "label": "10-Hour Runtime"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "group": "professional",
+            "label": "8GB Storage"
+          }
+        },
+        {
+          "type": "application",
+          "settings": {
+            "title": "Home Inspection"
+          }
+        },
+        {
+          "type": "application",
+          "settings": {
+            "title": "Electrical Inspection"
+          }
+        },
+        {
+          "type": "application",
+          "settings": {
+            "title": "HVAC Diagnostics"
+          }
+        },
+        {
+          "type": "application",
+          "settings": {
+            "title": "Automotive Inspection"
+          }
+        }
+      ]
+    }
+  ],
+  "class": "section-raythink-ex10-pro"
+}
+{% endschema %}
