@@ -869,6 +869,7 @@
         "product_2",
         "product_3"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Which is the Best for You?",
         "heading_color": "#000000",
