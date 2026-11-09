@@ -406,9 +406,9 @@
         "description": "Switch between thermal, visible-light camera, and picture-in-picture views to connect thermal information with the real-world scene.",
         "description_color": "#b5b5b5",
         "background_color": "#141414",
-        "padding_top_mobile": 48,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 32,
-        "padding_top_desktop": 80,
+        "padding_top_desktop": 0,
         "padding_bottom_desktop": 48
       }
     },
