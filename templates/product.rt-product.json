@@ -289,61 +289,6 @@
         "padding_bottom_desktop": 120
       }
     },
-    "rt_view_switch": {
-      "type": "rt-view-switch",
-      "blocks": {
-        "view_1": {
-          "type": "view",
-          "settings": {
-            "title": "IX One Go"
-          }
-        },
-        "view_2": {
-          "type": "view",
-          "settings": {
-            "title": "IX One Go Pro"
-          }
-        }
-      },
-      "block_order": [
-        "view_1",
-        "view_2"
-      ],
-      "settings": {
-        "heading": "Choose the View That Fits the Job.",
-        "heading_color": "#ffffff",
-        "description": "Switch between thermal, visible-light camera, and picture-in-picture views to connect thermal information with the real-world scene.",
-        "description_color": "#b5b5b5",
-        "background_color": "#141414",
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 32,
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 48
-      }
-    },
-    "rt_grid_p8xYMw": {
-      "type": "rt-grid",
-      "blocks": {
-        "grid_block_WywzJi": {
-          "type": "grid-block",
-          "settings": {
-            "image": "shopify://shop_images/Powered_by_TI_Studio.png",
-            "image_mobile": "shopify://shop_images/Frame_2117130478.png"
-          }
-        }
-      },
-      "block_order": [
-        "grid_block_WywzJi"
-      ],
-      "name": "rt-grid",
-      "settings": {
-        "background_color": "#141414",
-        "padding_top_mobile": 32,
-        "padding_bottom_mobile": 80,
-        "padding_top_desktop": 64,
-        "padding_bottom_desktop": 120
-      }
-    },
     "rt_text_with_image_VnaR7W": {
       "type": "rt-text-with-image",
       "blocks": {
@@ -433,6 +378,61 @@
         "padding_bottom_mobile": 80,
         "padding_top_desktop": 0,
         "padding_bottom_desktop": 160
+      }
+    },
+    "rt_view_switch": {
+      "type": "rt-view-switch",
+      "blocks": {
+        "view_1": {
+          "type": "view",
+          "settings": {
+            "title": "IX One Go"
+          }
+        },
+        "view_2": {
+          "type": "view",
+          "settings": {
+            "title": "IX One Go Pro"
+          }
+        }
+      },
+      "block_order": [
+        "view_1",
+        "view_2"
+      ],
+      "settings": {
+        "heading": "Choose the View That Fits the Job.",
+        "heading_color": "#ffffff",
+        "description": "Switch between thermal, visible-light camera, and picture-in-picture views to connect thermal information with the real-world scene.",
+        "description_color": "#b5b5b5",
+        "background_color": "#141414",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 48
+      }
+    },
+    "rt_grid_p8xYMw": {
+      "type": "rt-grid",
+      "blocks": {
+        "grid_block_WywzJi": {
+          "type": "grid-block",
+          "settings": {
+            "image": "shopify://shop_images/Powered_by_TI_Studio.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130478.png"
+          }
+        }
+      },
+      "block_order": [
+        "grid_block_WywzJi"
+      ],
+      "name": "rt-grid",
+      "settings": {
+        "background_color": "#141414",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 120
       }
     },
     "rt_in_the_box": {
@@ -810,9 +810,9 @@
   "order": [
     "main",
     "rt_grid_Uc873h",
+    "rt_text_with_image_VnaR7W",
     "rt_view_switch",
     "rt_grid_p8xYMw",
-    "rt_text_with_image_VnaR7W",
     "rt_in_the_box",
     "rt_specification",
     "rt_compare",
