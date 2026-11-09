@@ -375,6 +375,9 @@
     }
   },
   "rt": {
+    "nav": {
+      "label": "Page sections"
+    },
     "footer": {
       "social_facebook": "Facebook",
       "social_x": "X",
