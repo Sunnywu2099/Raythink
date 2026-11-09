@@ -166,7 +166,7 @@
           "type": "title",
           "settings": {
             "text_color": "#000000",
-            "text": "Shop by Application"
+            "text": "Built for Real-World Inspections"
           }
         },
         "application_block_wR7cYB": {
@@ -194,7 +194,7 @@
         "application_block_XeKxJK": {
           "type": "application-block",
           "settings": {
-            "image": "shopify://shop_images/Left_top_2.png",
+            "image": "shopify://shop_images/IX1GO_Home_Building.png",
             "title": "Home & Building",
             "title_color": "#ffffff",
             "link_text": "",
