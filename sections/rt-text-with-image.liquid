@@ -77,7 +77,15 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'image_block' -%}
-              {% render 'rt-image2picture', image_mobile: block.settings.image_mobile, image_desktop: block.settings.image %}
+              <div class="rt-text-with-image-item">
+                <div class="rt-text-with-image-item-image">
+                  {% render 'rt-image2picture', image_mobile: block.settings.image_mobile, image_desktop: block.settings.image %}
+                </div>
+                <div class="rt-text-with-image-item-content">
+                  <div class="rt-text-with-image-item-content-title">{{ block.settings.title }}</div>
+                </div>
+                <div class="rt-text-with-image-item-content-description">{{ block.settings.description }}</div>
+              </div>
           {%- endcase -%}
         {%- endfor -%}
       </div>
