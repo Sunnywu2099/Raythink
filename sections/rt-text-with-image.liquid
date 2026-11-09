@@ -41,6 +41,8 @@
     display: flex;
     gap: 0px;
     flex-direction: column;
+    border-radius: 16px;
+    overflow: hidden;
   }
   
   #{{ section.id }} .rt-twi-image {
@@ -84,6 +86,8 @@
       width: 54%;
       max-width: 652px;
       overflow: hidden;
+      border-radius: 16px;
+      overflow: hidden;
     }
     #{{ section.id }} .rt-twi-content {
       display: flex;
@@ -92,6 +96,8 @@
       justify-content: center;
       padding: 40px;
       width: 43%;
+      overflow: hidden;
+      border-radius: 16px;
       overflow: hidden;
     }
     #{{ section.id }} .rt-twi-content.text-align-left {
@@ -139,10 +145,10 @@
           {%- case block.type -%}
             {%- when 'image_block' -%}
               <div class="rt-twi-item image-position-{{ block.settings.image_position }}">
-                <div class="rt-twi-image rt-radius-lg">
+                <div class="rt-twi-image">
                   {% render 'rt-image2picture', image_mobile: block.settings.image_mobile, image_desktop: block.settings.image %}
                 </div>
-                <div class="rt-twi-content rt-radius-lg text-align-{{ block.settings.text_align }}" style="background-color: {{ block.settings.background_color }};">
+                <div class="rt-twi-content text-align-{{ block.settings.text_align }}" style="background-color: {{ block.settings.background_color }};">
                   <div class="rt-twi-title" style="color: {{ block.settings.title_color }};">{{ block.settings.title }}</div>
                   <div class="rt-twi-desc" style="color: {{ block.settings.description_color }};">{{ block.settings.description }}</div>
                 </div>
