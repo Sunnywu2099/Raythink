@@ -98,7 +98,7 @@
               "type": "_rt-header-menu-products",
               "name": "产品菜单",
               "settings": {
-                "title": "Handheld",
+                "title": "Handheld Thermal Camera",
                 "url": ""
               },
               "blocks": {
@@ -253,7 +253,7 @@
               "type": "_rt-header-menu-products",
               "name": "产品菜单",
               "settings": {
-                "title": "Plug-In",
+                "title": "Plug-In Thermal Camera",
                 "url": ""
               },
               "blocks": {
