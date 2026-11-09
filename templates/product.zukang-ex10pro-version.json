@@ -343,28 +343,36 @@
           "type": "feature",
           "settings": {
             "group": "detection",
-            "label": "4 Imaging Modes"
+            "label": "4 Imaging Modes",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_04.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_04.jpg"
           }
         },
         "feature_7fpg6E": {
           "type": "feature",
           "settings": {
             "group": "detection",
-            "label": "9 Color Palettes"
+            "label": "9 Color Palettes",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_05.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_05.jpg"
           }
         },
         "feature_yz94YV": {
           "type": "feature",
           "settings": {
             "group": "detection",
-            "label": "Wide Field of View"
+            "label": "Wide Field of View",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_06.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_06.jpg"
           }
         },
         "feature_9XcQnp": {
           "type": "feature",
           "settings": {
             "group": "detection",
-            "label": "Temperature Analysis"
+            "label": "Temperature Analysis",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_07.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_07.jpg"
           }
         },
         "feature_w9kmiz": {
