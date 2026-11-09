@@ -1,0 +1,150 @@
+{% comment %}
+  Section contract.
+  Sticky page navigation. Each item scrolls to the section matching its module id.
+{% endcomment %}
+
+{%- liquid
+  assign ss = section.settings
+  assign bg_color = ss.background_color | default: '#f5f5f9'
+  assign bb_color = ss.bb_color | default: '#e5e5e5'
+-%}
+
+{% render 'measure-header-heights' %}
+
+{% style %}
+  .rt-nav-section{
+    position: sticky;
+    top: var(--rt-nav-top, 0px);
+    z-index: 7;
+  }
+  .rt-nav-container{
+    display: flex;
+    gap: 24px;
+    padding: 0px 24px;
+    justify-content: safe center;
+    align-items: center;
+    border-bottom: 1px solid {{ bb_color }};
+    overflow-x: auto;
+    scrollbar-width: none;
+    background-color: {{ bg_color }};
+  }
+  .rt-nav-container::-webkit-scrollbar{
+    display: none;
+  }
+  .rt-nav-item{
+    flex-shrink: 0;
+    margin: 0;
+    padding: 12px 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .rt-nav-item.active{
+    border-bottom: 2px solid;
+    border-bottom-color: var(--text-color, #000000);
+    opacity: 1;
+  }
+  @media (min-width: 1024px){
+    .rt-nav-container{
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      align-items: center;
+      overflow-x: visible;
+      border-bottom: 1px solid {{ bb_color }};
+    }
+    .rt-nav-item{
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+{% endstyle %}
+
+<rt-nav
+  id="{{ section.id }}"
+  class="rt-section"
+  style="--rt-section-bg-color: {{ bg_color }};"
+>
+  <div class="rt-nav-container" role="navigation" aria-label="{{ 'rt.nav.label' | t }}">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'nav_block' and block.settings.nav_text != blank -%}
+        <button
+          type="button"
+          class="rt-nav-item"
+          data-rt-nav-target="{{ block.settings.nav_id | escape }}"
+          style="color: {{ block.settings.text_color }}; border-bottom-color: {{ block.settings.text_color }};"
+          {{ block.shopify_attributes }}
+        >
+          {{ block.settings.nav_text | escape }}
+        </button>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</rt-nav>
+
+<script src="{{ 'rt-nav.js' | asset_url }}" type="module"></script>
+
+{% schema %}
+  {
+    "name": "rt-nav",
+    "tag": "section",
+    "class": "rt-nav-section",
+    "limit": 1,
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "背景颜色",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "bb_color",
+        "label": "下边框颜色",
+        "default": "#e5e5e5"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "nav_block",
+        "name": "导航块",
+        "settings": [
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "文字颜色",
+            "default": "#000000"
+          },
+          {
+            "type": "text",
+            "id": "nav_text",
+            "label": "导航文字",
+            "default": "Overview"
+          },
+          {
+            "type": "text",
+            "id": "nav_id",
+            "label": "需要定位的模块ID",
+            "info": "无需加#号"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "rt-nav",
+        "category": "rt-navigation"
+      }
+    ]
+  }
+  {% endschema %}
