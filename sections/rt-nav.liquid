@@ -1,10 +1,22 @@
+{% comment %}
+  Section contract.
+  Sticky page navigation. Each item scrolls to the section matching its module id.
+{% endcomment %}
+
 {%- liquid
   assign ss = section.settings
   assign bg_color = ss.background_color | default: '#f5f5f9'
   assign bb_color = ss.bb_color | default: '#e5e5e5'
 -%}
 
+{% render 'measure-header-heights' %}
+
 {% style %}
+  .rt-nav-section{
+    position: sticky;
+    top: var(--rt-nav-top, 0px);
+    z-index: var(--layer-sticky);
+  }
   .rt-nav-container{
     display: flex;
     gap: 24px;
@@ -20,12 +32,18 @@
   }
   .rt-nav-item{
     flex-shrink: 0;
+    margin: 0;
+    padding: 12px 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
     font-size: 16px;
     line-height: 20px;
     font-weight: 600;
-    padding: 12px 0;
-    opacity: 0.5;
     white-space: nowrap;
+    opacity: 0.5;
+    cursor: pointer;
   }
   .rt-nav-item.active{
     border-bottom-color: var(--text-color, #000000);
@@ -47,27 +65,35 @@
   }
 {% endstyle %}
 
-<div
+<rt-nav
   id="{{ section.id }}"
   class="rt-section"
   style="--rt-section-bg-color: {{ bg_color }};"
 >
-  <div class="rt-nav-container">
+  <div class="rt-nav-container" role="navigation" aria-label="{{ 'rt.nav.label' | t }}">
     {%- for block in section.blocks -%}
-      {%- case block.type -%}
-        {%- when 'nav_block' -%}
-          <div class="rt-nav-item" style="color: {{ block.settings.text_color }};border-bottom-color: {{ block.settings.text_color }};">
-            <a href="#">{{ block.settings.nav_text }}</a>
-          </div>
-      {%- endcase -%}
+      {%- if block.type == 'nav_block' and block.settings.nav_text != blank -%}
+        <button
+          type="button"
+          class="rt-nav-item"
+          data-rt-nav-target="{{ block.settings.nav_id | escape }}"
+          style="color: {{ block.settings.text_color }}; border-bottom-color: {{ block.settings.text_color }};"
+          {{ block.shopify_attributes }}
+        >
+          {{ block.settings.nav_text | escape }}
+        </button>
+      {%- endif -%}
     {%- endfor -%}
   </div>
-</div>
+</rt-nav>
+
+<script src="{{ 'rt-nav.js' | asset_url }}" type="module"></script>
 
 {% schema %}
   {
     "name": "rt-nav",
     "tag": "section",
+    "class": "rt-nav-section",
     "limit": 1,
     "disabled_on": {
       "groups": ["header", "footer"]
