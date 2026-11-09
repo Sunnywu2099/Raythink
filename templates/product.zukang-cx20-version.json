@@ -486,42 +486,54 @@
           "type": "feature",
           "settings": {
             "slide_no": "5",
-            "label": "25Hz smooth imaging"
+            "label": "25Hz smooth imaging",
+            "pc_image": "shopify://shop_images/cx20-05-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-05-mo.jpg"
           }
         },
         "feature_Ja4LyN": {
           "type": "feature",
           "settings": {
             "slide_no": "6",
-            "label": "Automatic temperature tracking"
+            "label": "Automatic temperature tracking",
+            "pc_image": "shopify://shop_images/cx20-06-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-06-mo.jpg"
           }
         },
         "feature_qWDXNQ": {
           "type": "feature",
           "settings": {
             "slide_no": "7",
-            "label": "High and low temperature alerts"
+            "label": "High and low temperature alerts",
+            "pc_image": "shopify://shop_images/cx20-07-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-07-mo.jpg"
           }
         },
         "feature_rtUkLB": {
           "type": "feature",
           "settings": {
             "slide_no": "8",
-            "label": "Wide temperature range"
+            "label": "Wide temperature range",
+            "pc_image": "shopify://shop_images/cx20-08-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-08-mo.jpg"
           }
         },
         "feature_LGVETw": {
           "type": "feature",
           "settings": {
             "slide_no": "9",
-            "label": "Instant Wi-Fi image transfer"
+            "label": "Instant Wi-Fi image transfer",
+            "pc_image": "shopify://shop_images/cx20-09-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-09-mo.jpg"
           }
         },
         "feature_KTecj7": {
           "type": "feature",
           "settings": {
             "slide_no": "10",
-            "label": "Professional thermal reporting"
+            "label": "Professional thermal reporting",
+            "pc_image": "shopify://shop_images/cx20-10-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-10-mo.jpg"
           }
         },
         "feature_PBLb36": {
