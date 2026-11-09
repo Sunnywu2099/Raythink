@@ -39,6 +39,7 @@
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
+            "icons_style": "arrow",
             "slideshow_controls_style": "counter",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "right",
@@ -117,6 +118,7 @@
                 "border_opacity": 100,
                 "border_color": "",
                 "border_radius": 0,
+                "link": "",
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 0,
@@ -466,10 +468,21 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "raythink_cx20ultra_qbWFKa": {
+      "type": "raythink-cx20ultra",
+      "name": "CX20 Ultra A+ Images",
+      "settings": {
+        "image_count": 21,
+        "pc_prefix": "cx20-ultra-pc-",
+        "mo_prefix": "cx20-ultra-mo-",
+        "max_width": 0
+      }
     }
   },
   "order": [
     "main",
-    "product_recommendations_qggXJq"
+    "product_recommendations_qggXJq",
+    "raythink_cx20ultra_qbWFKa"
   ]
 }
