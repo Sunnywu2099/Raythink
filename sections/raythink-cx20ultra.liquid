@@ -1,0 +1,53 @@
+{% comment %}
+Raythink CX20 Ultra – Amazon A+ responsive product detail imagery.
+Upload images/cx20-ultra-pc-01.jpg ... 21.jpg and mo-01 ... 21.jpg
+into Shopify Admin > Content > Files. Keep exact names.
+Only add this section to the CX20 Ultra product template.
+{% endcomment %}
+{%- style -%}
+#shopify-section-{{ section.id }} { margin:0!important; padding:0!important; }
+#shopify-section-{{ section.id }} .rt-ultra-a-plus {
+  width:100%; margin:0 auto; padding:0; line-height:0; font-size:0; background:#090d14;
+}
+#shopify-section-{{ section.id }} .rt-ultra-a-plus__item,
+#shopify-section-{{ section.id }} .rt-ultra-a-plus__item picture { display:block; width:100%; margin:0; padding:0; }
+#shopify-section-{{ section.id }} .rt-ultra-a-plus img {
+  display:block; width:100%; max-width:100%; height:auto; margin:0; padding:0;
+  border:0; border-radius:0; object-fit:contain; vertical-align:top;
+}
+{%- if section.settings.max_width > 0 -%}
+#shopify-section-{{ section.id }} .rt-ultra-a-plus { max-width:{{ section.settings.max_width }}px; }
+{%- endif -%}
+{%- endstyle -%}
+<div class="rt-ultra-a-plus" aria-label="Raythink CX20 Ultra thermal camera features">
+  {%- for i in (1..section.settings.image_count) -%}
+    {%- assign n = i | prepend: '0' | slice: -2, 2 -%}
+    {%- assign desktop_file = section.settings.pc_prefix | append: n | append: '.jpg' -%}
+    {%- assign mobile_file = section.settings.mo_prefix | append: n | append: '.jpg' -%}
+    <div class="rt-ultra-a-plus__item">
+      <picture>
+        <source media="(max-width: 749px)" srcset="{{ mobile_file | file_url }}">
+        <img src="{{ desktop_file | file_url }}"
+             alt="Raythink CX20 Ultra handheld thermal camera — product details image {{ i }}"
+             width="2048" height="839"
+             {% if i == 1 %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+             decoding="async">
+      </picture>
+    </div>
+  {%- endfor -%}
+</div>
+{% schema %}
+{
+  "name": "CX20 Ultra A+ Images",
+  "tag": "section",
+  "class": "rt-ultra-section",
+  "settings": [
+    {"type":"paragraph","content":"Upload the matching PC/MO photos from this package to Content > Files. Image names must be unchanged."},
+    {"type":"range","id":"image_count","label":"Number of image pairs","min":1,"max":21,"step":1,"default":21},
+    {"type":"text","id":"pc_prefix","label":"Desktop filename prefix","default":"cx20-ultra-pc-"},
+    {"type":"text","id":"mo_prefix","label":"Mobile filename prefix","default":"cx20-ultra-mo-"},
+    {"type":"range","id":"max_width","label":"Max image width (0 = full width)","min":0,"max":2400,"step":100,"unit":"px","default":0}
+  ],
+  "presets": [{"name":"CX20 Ultra A+ Images"}]
+}
+{% endschema %}
