@@ -39,6 +39,7 @@
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
+            "icons_style": "arrow",
             "slideshow_controls_style": "counter",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "right",
@@ -117,6 +118,7 @@
                 "border_opacity": 100,
                 "border_color": "",
                 "border_radius": 0,
+                "link": "",
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 0,
@@ -325,6 +327,138 @@
         "padding-block-end": 0
       }
     },
+    "raythink_ex10_pro_6iUU9W": {
+      "type": "raythink-ex10-pro",
+      "blocks": {
+        "feature_iYpnzU": {
+          "type": "feature",
+          "settings": {
+            "group": "detection",
+            "label": "40mK & 25Hz",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_03.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_03.jpg"
+          }
+        },
+        "feature_nBeGVG": {
+          "type": "feature",
+          "settings": {
+            "group": "detection",
+            "label": "4 Imaging Modes"
+          }
+        },
+        "feature_7fpg6E": {
+          "type": "feature",
+          "settings": {
+            "group": "detection",
+            "label": "9 Color Palettes"
+          }
+        },
+        "feature_yz94YV": {
+          "type": "feature",
+          "settings": {
+            "group": "detection",
+            "label": "Wide Field of View"
+          }
+        },
+        "feature_9XcQnp": {
+          "type": "feature",
+          "settings": {
+            "group": "detection",
+            "label": "Temperature Analysis"
+          }
+        },
+        "feature_w9kmiz": {
+          "type": "feature",
+          "settings": {
+            "group": "professional",
+            "label": "Wireless & Laser"
+          }
+        },
+        "feature_kWVzBY": {
+          "type": "feature",
+          "settings": {
+            "group": "professional",
+            "label": "PC Thermal Analysis"
+          }
+        },
+        "feature_DttmU8": {
+          "type": "feature",
+          "settings": {
+            "group": "professional",
+            "label": "Precision Measurement"
+          }
+        },
+        "feature_6Ab9J8": {
+          "type": "feature",
+          "settings": {
+            "group": "professional",
+            "label": "10-Hour Runtime"
+          }
+        },
+        "feature_eBgjrN": {
+          "type": "feature",
+          "settings": {
+            "group": "professional",
+            "label": "8GB Storage"
+          }
+        },
+        "application_iTEa7t": {
+          "type": "application",
+          "settings": {
+            "title": "Home Inspection"
+          }
+        },
+        "application_QCqWKg": {
+          "type": "application",
+          "settings": {
+            "title": "Electrical Inspection"
+          }
+        },
+        "application_zdBXCY": {
+          "type": "application",
+          "settings": {
+            "title": "HVAC Diagnostics"
+          }
+        },
+        "application_pRaYwk": {
+          "type": "application",
+          "settings": {
+            "title": "Automotive Inspection"
+          }
+        }
+      },
+      "block_order": [
+        "feature_iYpnzU",
+        "feature_nBeGVG",
+        "feature_7fpg6E",
+        "feature_yz94YV",
+        "feature_9XcQnp",
+        "feature_w9kmiz",
+        "feature_kWVzBY",
+        "feature_DttmU8",
+        "feature_6Ab9J8",
+        "feature_eBgjrN",
+        "application_iTEa7t",
+        "application_QCqWKg",
+        "application_zdBXCY",
+        "application_pRaYwk"
+      ],
+      "name": "Raythink EX10 Pro details",
+      "settings": {
+        "hero_pc": "shopify://shop_images/EX10_PRO_PC_01.jpg",
+        "hero_mo": "shopify://shop_images/EX10_PRO_MO_01.jpg",
+        "nur_pc": "shopify://shop_images/EX10_PRO_PC_02.jpg",
+        "nur_mo": "shopify://shop_images/EX10_PRO_MO_02.jpg",
+        "detection_title": "Imaging & Detection",
+        "detection_subtitle": "See more. Detect faster.",
+        "professional_title": "Professional Tools",
+        "professional_subtitle": "Tools designed for efficient inspections.",
+        "application_title": "Built for Every Inspection",
+        "background_color": "#06152c",
+        "accent_color": "#377fe8",
+        "max_width": 1600
+      }
+    },
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
@@ -447,6 +581,7 @@
       "block_order": [
         "text_cbcgyb"
       ],
+      "disabled": true,
       "name": "t:names.product_recommendations",
       "settings": {
         "product": "{{ closest.product }}",
@@ -470,6 +605,7 @@
   },
   "order": [
     "main",
+    "raythink_ex10_pro_6iUU9W",
     "product_recommendations_qggXJq"
   ]
 }
