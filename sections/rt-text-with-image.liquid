@@ -35,18 +35,14 @@
   #{{ section.id }} .rt-twi {
     display: flex;
     flex-direction: column;
-    gap: 90px;
+    gap: 72px;
   }
   #{{ section.id }} .rt-twi-item {
     display: flex;
-    gap: 32px;
+    gap: 0px;
+    flex-direction: column;
   }
-  #{{ section.id }} .image-position-left {
-    flex-direction: row;
-  }
-  #{{ section.id }} .image-position-right {
-    flex-direction: row-reverse;
-  }
+  
   #{{ section.id }} .rt-twi-image {
     width: 54%;
     max-width: 652px;
@@ -74,6 +70,21 @@
   }
   #{{ section.id }} .text-align-center {
     text-align: center;
+  }
+  @media (min-width: 750px) {
+    #{{ section.id }} .rt-twi {
+      gap: 90px;
+    }
+    #{{ section.id }} .rt-twi-item {
+      gap: 32px;
+      flex-direction: row;
+    }
+    #{{ section.id }} .image-position-left {
+      flex-direction: row;
+    }
+    #{{ section.id }} .image-position-right {
+      flex-direction: row-reverse;
+    }
   }
 {% endstyle %}
 
