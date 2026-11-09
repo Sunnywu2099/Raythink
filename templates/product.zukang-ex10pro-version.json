@@ -388,14 +388,18 @@
           "type": "feature",
           "settings": {
             "group": "professional",
-            "label": "PC Thermal Analysis"
+            "label": "PC Thermal Analysis",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_09.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_09.jpg"
           }
         },
         "feature_DttmU8": {
           "type": "feature",
           "settings": {
             "group": "professional",
-            "label": "Precision Measurement"
+            "label": "Precision Measurement",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_10.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_10.jpg"
           }
         },
         "feature_6Ab9J8": {
