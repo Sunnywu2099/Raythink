@@ -172,7 +172,7 @@
         "application_block_wR7cYB": {
           "type": "application-block",
           "settings": {
-            "image": "shopify://shop_images/Left_top.png",
+            "image": "shopify://shop_images/HVAC_Scenario_New.png",
             "title": "HVAC Inspection",
             "title_color": "#ffffff",
             "link_text": "Learn More",
