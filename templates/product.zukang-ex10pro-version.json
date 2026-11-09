@@ -423,19 +423,25 @@
         "application_iTEa7t": {
           "type": "application",
           "settings": {
-            "title": "Home Inspection"
+            "title": "Home Inspection",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_14.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_14.jpg"
           }
         },
         "application_QCqWKg": {
           "type": "application",
           "settings": {
-            "title": "Electrical Inspection"
+            "title": "Electrical Inspection",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_15.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_15.jpg"
           }
         },
         "application_zdBXCY": {
           "type": "application",
           "settings": {
-            "title": "HVAC Diagnostics"
+            "title": "HVAC Diagnostics",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_16.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_16.jpg"
           }
         },
         "application_pRaYwk": {
