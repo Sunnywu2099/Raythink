@@ -105,7 +105,7 @@
                   "type": "_rt-product-icon-text",
                   "name": "t:rt_product.icon_text",
                   "settings": {
-                    "text": "Measure from -20°C to 550°C (-4°F to 1022°F).",
+                    "text": "Wide Temperature Range: Measure from -20°C to 550°C (-4°F to 1022°F).",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
