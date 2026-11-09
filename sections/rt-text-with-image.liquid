@@ -57,6 +57,12 @@
     font-size: 24px;
     font-weight: 700;
   }
+  #{{ section.id }} .text-align-left {
+    text-align: left;
+  }
+  #{{ section.id }} .text-align-center {
+    text-align: center;
+  }
 {% endstyle %}
 
 <div
@@ -98,7 +104,7 @@
                 <div class="rt-twi-image rt-radius-lg">
                   {% render 'rt-image2picture', image_mobile: block.settings.image_mobile, image_desktop: block.settings.image %}
                 </div>
-                <div class="rt-twi-content rt-radius-lg" style="background-color: {{ block.settings.background_color }};">
+                <div class="rt-twi-content rt-radius-lg text-align-{{ block.settings.text_align }}" style="background-color: {{ block.settings.background_color }};">
                   <div class="rt-twi-title" style="color: {{ block.settings.title_color }};">{{ block.settings.title }}</div>
                   <div class="rt-twi-desc" style="color: {{ block.settings.description_color }};">{{ block.settings.description }}</div>
                 </div>
