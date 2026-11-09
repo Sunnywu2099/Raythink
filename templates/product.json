@@ -64,7 +64,7 @@
                 "feature_1": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "640 × 480 Screen Resolution",
+                    "text": "See More with AI Super Resolution:  Enjoy clearer thermal images with up to 640 × 480 AI Super Resolution and 15× digital zoom to easily spot hidden temperature differences.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -74,7 +74,7 @@
                 "feature_2": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "Wireless APP Transfer & PC Analysis",
+                    "text": "Smarter HVAC Inspections: AI HVAC Mode automatically optimizes settings and alerts you to temperature differences over 10.8°F (6°C), making inspections easier.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -84,7 +84,7 @@
                 "feature_3": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "32GB Storage Handheld Infrared Camera for Daily Inspections",
+                    "text": "Plug & Play, Take It Anywhere:  Weighing just 27g, the IX1 GO turns your compatible USB-C smartphone into a thermal camera in seconds.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -94,7 +94,18 @@
                 "feature_4": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "USB-C Plug-In for Smartphones",
+                    "text": "Find Hidden Issues Around Your Home:  Spot potential heat loss, insulation gaps, HVAC issues, and overheating components—ideal for DIY and home inspections.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_xhnfFk": {
+                  "type": "_rt-product-icon-text",
+                  "name": "t:rt_product.icon_text",
+                  "settings": {
+                    "text": "Wide Temperature Range:  Measure from -4°F to 1022°F (-20°C to 550°C), with multiple imaging modes and 6 color palettes for versatile inspections.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -106,7 +117,8 @@
                 "feature_1",
                 "feature_2",
                 "feature_3",
-                "feature_4"
+                "feature_4",
+                "rt_product_icon_text_xhnfFk"
               ]
             },
             "variant_picker_R3rGDr": {
