@@ -7,7 +7,8 @@
 {% style %}
   .rt-nav-container{
     display: flex;
-    gap: 32px;
+    gap: 24px;
+    padding: 0px 24px;
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid {{ bb_color }};
@@ -24,6 +25,13 @@
     opacity: 1;
   }
   @media (min-width: 1024px){
+    .rt-nav-container{
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid {{ bb_color }};
+    }
     .rt-nav-item{
       font-size: 18px;
       line-height: 22px;
