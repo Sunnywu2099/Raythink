@@ -58,10 +58,10 @@
         </div>
       {%- endif -%}
 
-      <div class="rt-grid-box">
+      <div class="rt-text-with-image-box">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
-            {%- when 'grid-block' -%}
+            {%- when 'image_block' -%}
               {% render 'rt-image2picture', image_mobile: block.settings.image_mobile, image_desktop: block.settings.image %}
           {%- endcase -%}
         {%- endfor -%}
