@@ -567,7 +567,9 @@
           "type": "feature",
           "settings": {
             "slide_no": "14",
-            "label": "Long-lasting battery"
+            "label": "Long-lasting battery",
+            "pc_image": "shopify://shop_images/cx20-14-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-14-mo.jpg"
           }
         },
         "feature_CwMyxz": {
