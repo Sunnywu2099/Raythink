@@ -13,8 +13,8 @@
     border-bottom: 1px solid {{ bb_color }};
   }
   .rt-nav-item{
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 20px;
     font-weight: 600;
     padding: 12px 0;
     opacity: 0.5;
@@ -22,6 +22,12 @@
   .rt-nav-item.active{
     border-bottom-color: var(--text-color, #000000);
     opacity: 1;
+  }
+  @media (min-width: 1024px){
+    .rt-nav-item{
+      font-size: 18px;
+      line-height: 22px;
+    }
   }
 {% endstyle %}
 
