@@ -312,6 +312,7 @@
       "blocks": {
         "title_LNh4hF": {
           "type": "title",
+          "disabled": true,
           "settings": {
             "text_color": "#000000",
             "text": "Engineered for Clarity and Diagnostic Confidence"
@@ -319,6 +320,7 @@
         },
         "description_Kb9tEC": {
           "type": "description",
+          "disabled": true,
           "settings": {
             "text_color": "#595959",
             "text": "Every Raythink thermal system is calibrated against blackbody standards to guarantee accurate, actionable thermal data in mission-critical environments."
@@ -327,40 +329,40 @@
         "application_block_bUA4HH": {
           "type": "application-block",
           "settings": {
-            "icon": "shopify://shop_images/Thermal.png",
+            "icon": "shopify://shop_images/Warranty.png",
             "title": "Clear Thermal Imaging",
             "title_color": "#000000",
-            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text": "",
             "text_color": "#595959"
           }
         },
         "application_block_mzBhp3": {
           "type": "application-block",
           "settings": {
-            "icon": "shopify://shop_images/Temperature.png",
+            "icon": "shopify://shop_images/Shipping.png",
             "title": "Precise Temperature Measurement",
             "title_color": "#000000",
-            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text": "",
             "text_color": "#595959"
           }
         },
         "application_block_hRzNnH": {
           "type": "application-block",
           "settings": {
-            "icon": "shopify://shop_images/Inspection.png",
+            "icon": "shopify://shop_images/Checkout.png",
             "title": "Smart Inspection Tools",
             "title_color": "#000000",
-            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text": "",
             "text_color": "#595959"
           }
         },
         "application_block_hQP36M": {
           "type": "application-block",
           "settings": {
-            "icon": "shopify://shop_images/Home-Checks.png",
+            "icon": "shopify://shop_images/Support.png",
             "title": "Built for Real-World Use",
             "title_color": "#000000",
-            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text": "",
             "text_color": "#595959"
           }
         }
