@@ -447,7 +447,9 @@
         "application_pRaYwk": {
           "type": "application",
           "settings": {
-            "title": "Automotive Inspection"
+            "title": "Automotive Inspection",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_17.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_17.jpg"
           }
         }
       },
