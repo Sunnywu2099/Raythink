@@ -406,7 +406,9 @@
           "type": "feature",
           "settings": {
             "group": "professional",
-            "label": "10-Hour Runtime"
+            "label": "10-Hour Runtime",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_11.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_11.jpg"
           }
         },
         "feature_eBgjrN": {
