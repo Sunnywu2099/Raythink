@@ -585,7 +585,9 @@
           "type": "feature",
           "settings": {
             "slide_no": "16",
-            "label": "IP54 and 2m drop resistance"
+            "label": "IP54 and 2m drop resistance",
+            "pc_image": "shopify://shop_images/cx20-16-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-16-mo.jpg"
           }
         }
       },
