@@ -41,6 +41,12 @@
     display: flex;
     gap: 32px;
   }
+  #{{ section.id }} .image-position-left {
+    flex-direction: row;
+  }
+  #{{ section.id }} .image-position-right {
+    flex-direction: row-reverse;
+  }
   #{{ section.id }} .rt-twi-image {
     width: 54%;
     max-width: 652px;
@@ -102,7 +108,7 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'image_block' -%}
-              <div class="rt-twi-item">
+              <div class="rt-twi-item image-position-{{ block.settings.image_position }}">
                 <div class="rt-twi-image rt-radius-lg">
                   {% render 'rt-image2picture', image_mobile: block.settings.image_mobile, image_desktop: block.settings.image %}
                 </div>
