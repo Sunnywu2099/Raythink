@@ -558,7 +558,9 @@
           "type": "feature",
           "settings": {
             "slide_no": "13",
-            "label": "Wide field of view"
+            "label": "Wide field of view",
+            "pc_image": "shopify://shop_images/cx20-13-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-13-mo.jpg"
           }
         },
         "feature_wtMqt7": {
