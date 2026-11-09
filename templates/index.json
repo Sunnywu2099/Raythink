@@ -307,6 +307,83 @@
         "padding_bottom_desktop": 160
       }
     },
+    "rt_icons_with_text_hXCnqm": {
+      "type": "rt-icons-with-text",
+      "blocks": {
+        "title_LNh4hF": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "Engineered for Clarity and Diagnostic Confidence"
+          }
+        },
+        "description_Kb9tEC": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text": "Every Raythink thermal system is calibrated against blackbody standards to guarantee accurate, actionable thermal data in mission-critical environments."
+          }
+        },
+        "application_block_bUA4HH": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Thermal.png",
+            "title": "Clear Thermal Imaging",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_mzBhp3": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Temperature.png",
+            "title": "Precise Temperature Measurement",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_hRzNnH": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Inspection.png",
+            "title": "Smart Inspection Tools",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_hQP36M": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Home-Checks.png",
+            "title": "Built for Real-World Use",
+            "title_color": "#000000",
+            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text_color": "#595959"
+          }
+        }
+      },
+      "block_order": [
+        "title_LNh4hF",
+        "description_Kb9tEC",
+        "application_block_bUA4HH",
+        "application_block_mzBhp3",
+        "application_block_hRzNnH",
+        "application_block_hQP36M"
+      ],
+      "name": "rt-icons-with-text",
+      "settings": {
+        "background_color": "#f5f5f9",
+        "block_background_color": "#ffffff",
+        "is_center": false,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
     "rt_sharing_AFBAzL": {
       "type": "rt-sharing",
       "blocks": {
@@ -566,6 +643,7 @@
     "rt_main_products_mzwqzD",
     "rt_application_AAPGAq",
     "rt_icons_with_text_WQCMRx",
+    "rt_icons_with_text_hXCnqm",
     "rt_sharing_AFBAzL",
     "rt_blogs_swiper_yUhdkM",
     "rt_icons_with_text_AdcmBa",
