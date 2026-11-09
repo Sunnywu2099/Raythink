@@ -374,9 +374,9 @@
       "name": "rt-text-with-image",
       "settings": {
         "background_color": "#141414",
-        "padding_top_mobile": 0,
+        "padding_top_mobile": 120,
         "padding_bottom_mobile": 80,
-        "padding_top_desktop": 0,
+        "padding_top_desktop": 80,
         "padding_bottom_desktop": 160
       }
     },
