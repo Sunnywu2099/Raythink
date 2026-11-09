@@ -48,6 +48,12 @@ class RtNav extends HTMLElement {
   /** @type {number | null} */
   #frame = null;
 
+  /** @type {HTMLButtonElement | null} */
+  #lockedButton = null;
+
+  /** @type {number | undefined} */
+  #unlockTimer;
+
   connectedCallback() {
     if (this.#ready) return;
     this.#ready = true;
@@ -55,6 +61,9 @@ class RtNav extends HTMLElement {
     const { signal } = this.#abort;
 
     this.addEventListener('click', this.#onClick, { signal });
+    const scrollTarget = getScrollEventTarget();
+    scrollTarget.addEventListener('wheel', this.#releaseLock, { passive: true, signal });
+    scrollTarget.addEventListener('touchstart', this.#releaseLock, { passive: true, signal });
     this.#bindScroll();
     scrollContainerMediaQuery.addEventListener('change', this.#bindScroll, { signal });
 
@@ -76,6 +85,8 @@ class RtNav extends HTMLElement {
     this.#headerObserver = undefined;
     if (this.#frame !== null) cancelAnimationFrame(this.#frame);
     this.#frame = null;
+    window.clearTimeout(this.#unlockTimer);
+    this.#lockedButton = null;
     this.#ready = false;
   }
 
@@ -101,8 +112,26 @@ class RtNav extends HTMLElement {
     const offset = stickyHeaderOffset();
     const section = this.closest('.shopify-section');
     (section instanceof HTMLElement ? section : this).style.setProperty('--rt-nav-top', `${offset}px`);
+
+    if (this.#lockedButton) {
+      this.#setActive(this.#lockedButton);
+      window.clearTimeout(this.#unlockTimer);
+      this.#unlockTimer = window.setTimeout(() => {
+        this.#lockedButton = null;
+        this.#sync();
+      }, 120);
+      return;
+    }
+
     this.#syncActive(offset + this.offsetHeight);
   }
+
+  #releaseLock = () => {
+    if (!this.#lockedButton) return;
+    window.clearTimeout(this.#unlockTimer);
+    this.#lockedButton = null;
+    this.#sync();
+  };
 
   /**
    * @param {number} line
@@ -163,11 +192,12 @@ class RtNav extends HTMLElement {
     const top = container.scrollTop + target.getBoundingClientRect().top - containerTop - offset;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    this.#lockedButton = button;
+    this.#setActive(button);
     container.scrollTo({
       top: Math.max(0, top),
       behavior: reduce ? 'auto' : 'smooth',
     });
-    this.#setActive(button);
     this.#reveal(button);
   };
 }
