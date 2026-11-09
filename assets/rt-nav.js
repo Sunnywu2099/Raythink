@@ -126,8 +126,10 @@ class RtNav extends HTMLElement {
     this.#syncActive(offset + this.offsetHeight);
   }
 
-  #releaseLock = () => {
+  /** @param {Event} event */
+  #releaseLock = (event) => {
     if (!this.#lockedButton) return;
+    if (event.target instanceof Node && this.contains(event.target)) return;
     window.clearTimeout(this.#unlockTimer);
     this.#lockedButton = null;
     this.#sync();
