@@ -100,12 +100,6 @@
       border-radius: 16px;
       overflow: hidden;
     }
-    #{{ section.id }} .rt-twi-content.text-align-left {
-      text-align: left;
-    }
-    #{{ section.id }} .rt-twi-content.text-align-center {
-      text-align: center;
-    }
   }
 {% endstyle %}
 
@@ -126,7 +120,7 @@
                   {% render 'rt-image2picture', image_mobile: block.settings.image_mobile, image_desktop: block.settings.image %}
                 </div>
                 {%- if show_heading -%}
-                  <div class="rt-pdp-heading rt-pdp-heading-center">
+                  <div class="rt-twi-content">
                     {%- for block in section.blocks -%}
                       {%- case block.type -%}
                         {%- when 'title' -%}
