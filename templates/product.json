@@ -64,7 +64,7 @@
                 "feature_1": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "See more detail with up to 640 × 480 resolution and 15× digital zoom.",
+                    "text": "AI Super Resolution: See more detail with up to 640 × 480 resolution and 15× digital zoom.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -74,7 +74,7 @@
                 "feature_2": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "Easily spot temperature differences with AI-assisted HVAC inspections.",
+                    "text": "Smart AI HVAC Mode: Easily spot temperature differences with AI-assisted HVAC inspections.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -84,7 +84,7 @@
                 "feature_3": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "Turn your compatible USB-C smartphone into a thermal camera in seconds.",
+                    "text": "Plug & Play: Turn your compatible USB-C smartphone into a thermal camera in seconds.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
