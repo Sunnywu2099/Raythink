@@ -99,7 +99,8 @@ class RtNav extends HTMLElement {
 
   #sync() {
     const offset = stickyHeaderOffset();
-    this.style.setProperty('--rt-nav-top', `${offset}px`);
+    const section = this.closest('.shopify-section');
+    (section instanceof HTMLElement ? section : this).style.setProperty('--rt-nav-top', `${offset}px`);
     this.#syncActive(offset + this.offsetHeight);
   }
 
