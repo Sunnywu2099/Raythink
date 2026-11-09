@@ -339,11 +339,25 @@
           "settings": {
             "background_color": "#1f1f1f",
             "image": "shopify://shop_images/Frame_2085661962_edc8e946-1014-47ba-8a52-4e0d46c79dc7.png",
-            "image_mobile": "shopify://shop_images/Frame_2117130450.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130450_b0a17e0b-b9c9-4bfb-b93f-a962c3e8473b.png",
             "image_position": "left",
-            "title": "See More Thermal Detail with AI.",
+            "title": "Highlight What Matters.",
             "title_color": "#ffffff",
-            "description": "Up to 640×480* AI Super Resolution reveals finer thermal details, helping you spot hidden heat across surfaces, pipes, appliances, vehicles, and more.",
+            "description": "Isolate a selected temperature range to make areas of interest stand out at a glance.",
+            "description_color": "#a6a6a6",
+            "text_align": "center"
+          }
+        },
+        "image_block_ygRMLX": {
+          "type": "image_block",
+          "settings": {
+            "background_color": "#1f1f1f",
+            "image": "shopify://shop_images/Frame_2085661962_edc8e946-1014-47ba-8a52-4e0d46c79dc7.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130450_b0a17e0b-b9c9-4bfb-b93f-a962c3e8473b.png",
+            "image_position": "right",
+            "title": "Highlight What Matters.",
+            "title_color": "#ffffff",
+            "description": "Isolate a selected temperature range to make areas of interest stand out at a glance.",
             "description_color": "#a6a6a6",
             "text_align": "center"
           }
@@ -354,7 +368,8 @@
         "description_4X3bQf",
         "image_block_UmFDF7",
         "image_block_FTBbLY",
-        "image_block_HNdMCc"
+        "image_block_HNdMCc",
+        "image_block_ygRMLX"
       ],
       "name": "rt-text-with-image",
       "settings": {
