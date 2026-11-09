@@ -1,0 +1,497 @@
+{% comment %}CX20 responsive A+ story. Assign PC/MO images in theme customizer; leave empty to hide. {% endcomment %}
+<style>
+.cx20-story{max-width:100%;margin:0 auto;color:#fff;background:#071224;font-family:inherit}
+.cx20-story *{box-sizing:border-box}
+.cx20-story .cx20-image{display:block;width:100%;height:auto;vertical-align:middle}
+.cx20-story .cx20-image-frame{line-height:0;overflow:hidden}
+.cx20-story .cx20-wide{max-width:var(--cx20-max,1600px);margin:0 auto}
+.cx20-story .cx20-slider-section{max-width:var(--cx20-max,1600px);margin:0 auto;padding:32px 0 22px}
+.cx20-story .cx20-section-heading{font-size:clamp(18px,2.3vw,30px);font-weight:650;line-height:1.3;letter-spacing:.01em;text-align:center;margin:0 12px 20px}
+.cx20-story .cx20-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 12px 16px;justify-content:safe center}
+.cx20-story .cx20-tabs::-webkit-scrollbar{display:none}
+.cx20-story .cx20-tab{flex:0 0 auto;border:1px solid #536b91;color:#dfeafa;background:#14263f;border-radius:4px;padding:10px 16px;font:inherit;font-size:13px;line-height:1.25;cursor:pointer}
+.cx20-story .cx20-tab[aria-selected="true"]{color:#fff;background:#2565b2;border-color:#579cfa}
+.cx20-story .cx20-stage{position:relative;background:#06142c;overflow:hidden}
+.cx20-story .cx20-slide[hidden]{display:none!important}
+.cx20-story .cx20-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;border:1px solid #ffffff80;background:#0a1b31b5;color:#fff;border-radius:50%;width:42px;height:42px;font-size:25px;line-height:1;display:grid;place-items:center;cursor:pointer}
+.cx20-story .cx20-arrow--prev{left:12px}.cx20-story .cx20-arrow--next{right:12px}
+.cx20-story .cx20-counter{text-align:center;color:#aebed6;font-size:12px;letter-spacing:.05em;padding-top:12px}
+.cx20-story .cx20-placeholder{padding:70px 16px;text-align:center;color:#c7d7eb;border:1px dashed #516585;line-height:1.5}
+@media(max-width:749px){.cx20-story .cx20-slider-section{padding:22px 0 10px}.cx20-story .cx20-tabs{justify-content:flex-start}.cx20-story .cx20-tab{font-size:12px;padding:9px 12px}.cx20-story .cx20-arrow{width:32px;height:32px;font-size:21px}.cx20-story .cx20-arrow--prev{left:7px}.cx20-story .cx20-arrow--next{right:7px}}
+</style>
+<section id="cx20-{{ section.id }}" class="cx20-story" style="--cx20-max: {{ section.settings.content_width }}px" aria-label="CX20 product features">
+<div class="cx20-wide">{% if section.settings.pc_1 != blank or section.settings.mo_1 != blank %}
+<div class="cx20-image-frame"><picture>
+{% if section.settings.mo_1 != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.mo_1 | image_url: width: 750 }} 750w, {{ section.settings.mo_1 | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = section.settings.pc_1 | default: section.settings.mo_1 %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="Hero · CX20 introduction" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="eager">
+</picture></div>{% endif %}</div>
+<div class="cx20-wide">{% if section.settings.pc_2 != blank or section.settings.mo_2 != blank %}
+<div class="cx20-image-frame"><picture>
+{% if section.settings.mo_2 != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.mo_2 | image_url: width: 750 }} 750w, {{ section.settings.mo_2 | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = section.settings.pc_2 | default: section.settings.mo_2 %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="At-a-glance product highlights" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}</div>
+<div class="cx20-wide">{% if section.settings.pc_3 != blank or section.settings.mo_3 != blank %}
+<div class="cx20-image-frame"><picture>
+{% if section.settings.mo_3 != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.mo_3 | image_url: width: 750 }} 750w, {{ section.settings.mo_3 | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = section.settings.pc_3 | default: section.settings.mo_3 %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="NUR enhanced thermal clarity" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}</div>
+<div class="cx20-slider-section" data-cx20-carousel><h2 class="cx20-section-heading">Imaging Performance</h2><div class="cx20-tabs" role="tablist" aria-label="Imaging Performance">
+{% for block in section.blocks %}{% if block.settings.slide_no == '4' %}<button type="button" class="cx20-tab" role="tab" aria-selected="true" data-cx20-tab="4" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '5' %}<button type="button" class="cx20-tab" role="tab" aria-selected="false" data-cx20-tab="5" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+</div><div class="cx20-stage"><button type="button" class="cx20-arrow cx20-arrow--prev" aria-label="Previous feature">&#8249;</button>
+{% for block in section.blocks %}{% if block.settings.slide_no == '4' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="4"  >
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="3.5-inch HD display" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '5' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="5" hidden>
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="25Hz smooth imaging" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+<button type="button" class="cx20-arrow cx20-arrow--next" aria-label="Next feature">&#8250;</button></div><div class="cx20-counter" aria-live="polite"></div></div>
+<div class="cx20-slider-section" data-cx20-carousel><h2 class="cx20-section-heading">Temperature Measurement</h2><div class="cx20-tabs" role="tablist" aria-label="Temperature Measurement">
+{% for block in section.blocks %}{% if block.settings.slide_no == '6' %}<button type="button" class="cx20-tab" role="tab" aria-selected="true" data-cx20-tab="6" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '7' %}<button type="button" class="cx20-tab" role="tab" aria-selected="false" data-cx20-tab="7" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '8' %}<button type="button" class="cx20-tab" role="tab" aria-selected="false" data-cx20-tab="8" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+</div><div class="cx20-stage"><button type="button" class="cx20-arrow cx20-arrow--prev" aria-label="Previous feature">&#8249;</button>
+{% for block in section.blocks %}{% if block.settings.slide_no == '6' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="6"  >
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="Automatic temperature tracking" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '7' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="7" hidden>
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="High and low temperature alerts" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '8' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="8" hidden>
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="Wide temperature range" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+<button type="button" class="cx20-arrow cx20-arrow--next" aria-label="Next feature">&#8250;</button></div><div class="cx20-counter" aria-live="polite"></div></div>
+<div class="cx20-slider-section" data-cx20-carousel><h2 class="cx20-section-heading">Connected Workflow & Tools</h2><div class="cx20-tabs" role="tablist" aria-label="Connected Workflow & Tools">
+{% for block in section.blocks %}{% if block.settings.slide_no == '9' %}<button type="button" class="cx20-tab" role="tab" aria-selected="true" data-cx20-tab="9" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '10' %}<button type="button" class="cx20-tab" role="tab" aria-selected="false" data-cx20-tab="10" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '11' %}<button type="button" class="cx20-tab" role="tab" aria-selected="false" data-cx20-tab="11" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '12' %}<button type="button" class="cx20-tab" role="tab" aria-selected="false" data-cx20-tab="12" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '13' %}<button type="button" class="cx20-tab" role="tab" aria-selected="false" data-cx20-tab="13" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+</div><div class="cx20-stage"><button type="button" class="cx20-arrow cx20-arrow--prev" aria-label="Previous feature">&#8249;</button>
+{% for block in section.blocks %}{% if block.settings.slide_no == '9' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="9"  >
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="Instant Wi-Fi image transfer" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '10' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="10" hidden>
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="Professional thermal reporting" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '11' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="11" hidden>
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="Seven color palettes" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '12' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="12" hidden>
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="Zoom and tripod support" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '13' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="13" hidden>
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="Wide field of view" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+<button type="button" class="cx20-arrow cx20-arrow--next" aria-label="Next feature">&#8250;</button></div><div class="cx20-counter" aria-live="polite"></div></div>
+<div class="cx20-slider-section" data-cx20-carousel><h2 class="cx20-section-heading">Power & Durability</h2><div class="cx20-tabs" role="tablist" aria-label="Power & Durability">
+{% for block in section.blocks %}{% if block.settings.slide_no == '14' %}<button type="button" class="cx20-tab" role="tab" aria-selected="true" data-cx20-tab="14" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '15' %}<button type="button" class="cx20-tab" role="tab" aria-selected="false" data-cx20-tab="15" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '16' %}<button type="button" class="cx20-tab" role="tab" aria-selected="false" data-cx20-tab="16" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>{% endif %}{% endfor %}
+</div><div class="cx20-stage"><button type="button" class="cx20-arrow cx20-arrow--prev" aria-label="Previous feature">&#8249;</button>
+{% for block in section.blocks %}{% if block.settings.slide_no == '14' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="14"  >
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="Long-lasting battery" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '15' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="15" hidden>
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="32GB internal storage" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+{% for block in section.blocks %}{% if block.settings.slide_no == '16' %}<div class="cx20-slide" role="tabpanel" data-cx20-slide="16" hidden>
+{% if block.settings.pc_image != blank or block.settings.mo_image != blank %}
+<div class="cx20-image-frame"><picture>
+{% if block.settings.mo_image != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo_image | image_url: width: 750 }} 750w, {{ block.settings.mo_image | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = block.settings.pc_image | default: block.settings.mo_image %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="IP54 and 2m drop resistance" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}
+</div>{% endif %}{% endfor %}
+<button type="button" class="cx20-arrow cx20-arrow--next" aria-label="Next feature">&#8250;</button></div><div class="cx20-counter" aria-live="polite"></div></div>
+<div class="cx20-wide">{% if section.settings.pc_17 != blank or section.settings.mo_17 != blank %}
+<div class="cx20-image-frame"><picture>
+{% if section.settings.mo_17 != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.mo_17 | image_url: width: 750 }} 750w, {{ section.settings.mo_17 | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = section.settings.pc_17 | default: section.settings.mo_17 %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="Application scenarios" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}</div>
+<div class="cx20-wide">{% if section.settings.pc_18 != blank or section.settings.mo_18 != blank %}
+<div class="cx20-image-frame"><picture>
+{% if section.settings.mo_18 != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.mo_18 | image_url: width: 750 }} 750w, {{ section.settings.mo_18 | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = section.settings.pc_18 | default: section.settings.mo_18 %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="13 supported languages" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}</div>
+<div class="cx20-wide">{% if section.settings.pc_19 != blank or section.settings.mo_19 != blank %}
+<div class="cx20-image-frame"><picture>
+{% if section.settings.mo_19 != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.mo_19 | image_url: width: 750 }} 750w, {{ section.settings.mo_19 | image_url: width: 1500 }} 1500w" sizes="100vw">{% endif %}
+{% assign cx20_fallback = section.settings.pc_19 | default: section.settings.mo_19 %}
+<img class="cx20-image" src="{{ cx20_fallback | image_url: width: 2000 }}" alt="What's in the box" width="{{ cx20_fallback.width }}" height="{{ cx20_fallback.height }}" loading="lazy">
+</picture></div>{% endif %}</div>
+</section>
+<script>
+(function(){
+  var root=document.getElementById('cx20-{{ section.id }}');if(!root)return;
+  root.querySelectorAll('[data-cx20-carousel]').forEach(function(carousel){
+    var tabs=[].slice.call(carousel.querySelectorAll('[data-cx20-tab]'));
+    var slides=[].slice.call(carousel.querySelectorAll('[data-cx20-slide]'));
+    var counter=carousel.querySelector('.cx20-counter');var idx=0;
+    if(!tabs.length){carousel.hidden=true;return;}
+    function show(i){idx=(i+tabs.length)%tabs.length;var active=tabs[idx].dataset.cx20Tab;
+      tabs.forEach(function(t){var on=t.dataset.cx20Tab===active;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;});
+      slides.forEach(function(s){s.hidden=s.dataset.cx20Slide!==active;});
+      counter.textContent=(idx+1)+' / '+tabs.length;
+      tabs[idx].scrollIntoView({block:'nearest',inline:'nearest'});
+    }
+    tabs.forEach(function(tab,i){tab.addEventListener('click',function(){show(i);});tab.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(idx+(e.key==='ArrowRight'?1:-1));tabs[idx].focus();}});});
+    carousel.querySelector('.cx20-arrow--prev').addEventListener('click',function(){show(idx-1);});
+    carousel.querySelector('.cx20-arrow--next').addEventListener('click',function(){show(idx+1);});
+    var x=null;carousel.querySelector('.cx20-stage').addEventListener('touchstart',function(e){x=e.touches[0].clientX;},{passive:true});
+    carousel.querySelector('.cx20-stage').addEventListener('touchend',function(e){if(x===null)return;var dx=e.changedTouches[0].clientX-x;if(Math.abs(dx)>55)show(idx+(dx<0?1:-1));x=null;},{passive:true});
+    show(0);
+  });
+})();
+</script>
+{% schema %}
+{
+  "name": "CX20 A+ Product Story",
+  "tag": "section",
+  "class": "cx20-a-plus-section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Maximum content width",
+      "min": 900,
+      "max": 2000,
+      "step": 50,
+      "unit": "px",
+      "default": 1600
+    },
+    {
+      "type": "header",
+      "content": "01 · Hero · CX20 introduction"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_1",
+      "label": "PC image 01"
+    },
+    {
+      "type": "image_picker",
+      "id": "mo_1",
+      "label": "Mobile image 01"
+    },
+    {
+      "type": "header",
+      "content": "02 · At-a-glance product highlights"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_2",
+      "label": "PC image 02"
+    },
+    {
+      "type": "image_picker",
+      "id": "mo_2",
+      "label": "Mobile image 02"
+    },
+    {
+      "type": "header",
+      "content": "03 · NUR enhanced thermal clarity"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_3",
+      "label": "PC image 03"
+    },
+    {
+      "type": "image_picker",
+      "id": "mo_3",
+      "label": "Mobile image 03"
+    },
+    {
+      "type": "header",
+      "content": "17 · Application scenarios"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_17",
+      "label": "PC image 17"
+    },
+    {
+      "type": "image_picker",
+      "id": "mo_17",
+      "label": "Mobile image 17"
+    },
+    {
+      "type": "header",
+      "content": "18 · 13 supported languages"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_18",
+      "label": "PC image 18"
+    },
+    {
+      "type": "image_picker",
+      "id": "mo_18",
+      "label": "Mobile image 18"
+    },
+    {
+      "type": "header",
+      "content": "19 · What's in the box"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_19",
+      "label": "PC image 19"
+    },
+    {
+      "type": "image_picker",
+      "id": "mo_19",
+      "label": "Mobile image 19"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature tab",
+      "settings": [
+        {
+          "type": "select",
+          "id": "slide_no",
+          "label": "Material number",
+          "options": [
+            {
+              "value": "4",
+              "label": "04 · 3.5-inch HD display"
+            },
+            {
+              "value": "5",
+              "label": "05 · 25Hz smooth imaging"
+            },
+            {
+              "value": "6",
+              "label": "06 · Automatic temperature tracking"
+            },
+            {
+              "value": "7",
+              "label": "07 · High and low temperature alerts"
+            },
+            {
+              "value": "8",
+              "label": "08 · Wide temperature range"
+            },
+            {
+              "value": "9",
+              "label": "09 · Instant Wi-Fi image transfer"
+            },
+            {
+              "value": "10",
+              "label": "10 · Professional thermal reporting"
+            },
+            {
+              "value": "11",
+              "label": "11 · Seven color palettes"
+            },
+            {
+              "value": "12",
+              "label": "12 · Zoom and tripod support"
+            },
+            {
+              "value": "13",
+              "label": "13 · Wide field of view"
+            },
+            {
+              "value": "14",
+              "label": "14 · Long-lasting battery"
+            },
+            {
+              "value": "15",
+              "label": "15 · 32GB internal storage"
+            },
+            {
+              "value": "16",
+              "label": "16 · IP54 and 2m drop resistance"
+            }
+          ],
+          "default": "4"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tab label",
+          "default": "Feature"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_image",
+          "label": "PC image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mo_image",
+          "label": "Mobile image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 13,
+  "presets": [
+    {
+      "name": "CX20 A+ Product Story",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "4",
+            "label": "3.5-inch HD display"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "5",
+            "label": "25Hz smooth imaging"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "6",
+            "label": "Automatic temperature tracking"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "7",
+            "label": "High and low temperature alerts"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "8",
+            "label": "Wide temperature range"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "9",
+            "label": "Instant Wi-Fi image transfer"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "10",
+            "label": "Professional thermal reporting"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "11",
+            "label": "Seven color palettes"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "12",
+            "label": "Zoom and tripod support"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "13",
+            "label": "Wide field of view"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "14",
+            "label": "Long-lasting battery"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "15",
+            "label": "32GB internal storage"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "slide_no": "16",
+            "label": "IP54 and 2m drop resistance"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
