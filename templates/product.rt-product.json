@@ -346,6 +346,39 @@
     },
     "rt_text_with_image_VnaR7W": {
       "type": "rt-text-with-image",
+      "blocks": {
+        "title_FKeBgn": {
+          "type": "title",
+          "settings": {
+            "text_color": "#ffffff",
+            "text": "See Clearer. Look Closer. Measure More."
+          }
+        },
+        "description_xFigkH": {
+          "type": "description",
+          "settings": {
+            "text_color": "#a6a6a6",
+            "text": "From home inspections to HVAC, electrical and automotive checks."
+          }
+        },
+        "image_block_AYXBE9": {
+          "type": "image_block",
+          "settings": {
+            "background_color": "#1f1f1f",
+            "image_position": "left",
+            "title": "See More Thermal Detail with AI.",
+            "title_color": "#ffffff",
+            "description": "Up to 640×480* AI Super Resolution reveals finer thermal details, helping you spot hidden heat across surfaces, pipes, appliances, vehicles, and more.",
+            "description_color": "#a6a6a6",
+            "text_align": "center"
+          }
+        }
+      },
+      "block_order": [
+        "title_FKeBgn",
+        "description_xFigkH",
+        "image_block_AYXBE9"
+      ],
       "name": "rt-text-with-image",
       "settings": {
         "background_color": "#141414",
