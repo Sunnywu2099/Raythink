@@ -55,6 +55,7 @@
     padding: 24px;
     width: 100%;
     overflow: hidden;
+    text-align: center;
   }
   #{{ section.id }} .rt-twi-title {
     font-size: 20px;
@@ -64,12 +65,7 @@
     font-size: 14px;
     line-height: 18px;
   }
-  #{{ section.id }} .text-align-left {
-    text-align: left;
-  }
-  #{{ section.id }} .text-align-center {
-    text-align: center;
-  }
+  
   @media (min-width: 750px) {
     #{{ section.id }} .rt-twi {
       gap: 90px;
@@ -97,6 +93,13 @@
       padding: 40px;
       width: 43%;
       overflow: hidden;
+      text-align: left;
+    }
+    #{{ section.id }} .text-align-left {
+      text-align: left;
+    }
+    #{{ section.id }} .text-align-center {
+      text-align: center;
     }
   }
 {% endstyle %}
