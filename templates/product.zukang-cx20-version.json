@@ -39,6 +39,7 @@
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
+            "icons_style": "arrow",
             "slideshow_controls_style": "counter",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "right",
@@ -117,6 +118,7 @@
                 "border_opacity": 100,
                 "border_color": "",
                 "border_radius": 0,
+                "link": "",
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 0,
@@ -447,6 +449,7 @@
       "block_order": [
         "text_cbcgyb"
       ],
+      "disabled": true,
       "name": "t:names.product_recommendations",
       "settings": {
         "product": "{{ closest.product }}",
@@ -466,10 +469,138 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "raythink_cx20_D7KAkR": {
+      "type": "raythink-cx20",
+      "blocks": {
+        "feature_FDBpkD": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "4",
+            "label": "3.5-inch HD display"
+          }
+        },
+        "feature_GATJJJ": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "5",
+            "label": "25Hz smooth imaging"
+          }
+        },
+        "feature_Ja4LyN": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "6",
+            "label": "Automatic temperature tracking"
+          }
+        },
+        "feature_qWDXNQ": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "7",
+            "label": "High and low temperature alerts"
+          }
+        },
+        "feature_rtUkLB": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "8",
+            "label": "Wide temperature range"
+          }
+        },
+        "feature_LGVETw": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "9",
+            "label": "Instant Wi-Fi image transfer"
+          }
+        },
+        "feature_KTecj7": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "10",
+            "label": "Professional thermal reporting"
+          }
+        },
+        "feature_PBLb36": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "11",
+            "label": "Seven color palettes"
+          }
+        },
+        "feature_q3znAY": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "12",
+            "label": "Zoom and tripod support"
+          }
+        },
+        "feature_fdmh6J": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "13",
+            "label": "Wide field of view"
+          }
+        },
+        "feature_wtMqt7": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "14",
+            "label": "Long-lasting battery"
+          }
+        },
+        "feature_CwMyxz": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "15",
+            "label": "32GB internal storage"
+          }
+        },
+        "feature_gPhhTj": {
+          "type": "feature",
+          "settings": {
+            "slide_no": "16",
+            "label": "IP54 and 2m drop resistance"
+          }
+        }
+      },
+      "block_order": [
+        "feature_FDBpkD",
+        "feature_GATJJJ",
+        "feature_Ja4LyN",
+        "feature_qWDXNQ",
+        "feature_rtUkLB",
+        "feature_LGVETw",
+        "feature_KTecj7",
+        "feature_PBLb36",
+        "feature_q3znAY",
+        "feature_fdmh6J",
+        "feature_wtMqt7",
+        "feature_CwMyxz",
+        "feature_gPhhTj"
+      ],
+      "name": "CX20 A+ Product Story",
+      "settings": {
+        "content_width": 1600,
+        "pc_1": "shopify://shop_images/cx20-01-pc.jpg",
+        "mo_1": "shopify://shop_images/cx20-01-mo.jpg",
+        "pc_2": "shopify://shop_images/cx20-02-pc.jpg",
+        "mo_2": "shopify://shop_images/cx20-02-mo.jpg",
+        "pc_3": "shopify://shop_images/cx20-03-pc.jpg",
+        "mo_3": "shopify://shop_images/cx20-03-mo.jpg",
+        "pc_17": "shopify://shop_images/cx20-17-pc.jpg",
+        "mo_17": "shopify://shop_images/cx20-17-mo.jpg",
+        "pc_18": "shopify://shop_images/cx20-18-pc.jpg",
+        "mo_18": "shopify://shop_images/cx20-18-mo.jpg",
+        "pc_19": "shopify://shop_images/cx20-19-pc.jpg",
+        "mo_19": "shopify://shop_images/cx20-19-mo.jpg"
+      }
     }
   },
   "order": [
     "main",
-    "product_recommendations_qggXJq"
+    "product_recommendations_qggXJq",
+    "raythink_cx20_D7KAkR"
   ]
 }
