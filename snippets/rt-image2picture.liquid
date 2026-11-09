@@ -1,8 +1,10 @@
 {%- doc -%}
   Renders a <picture> element using separate mobile/desktop Shopify images.
+  When only one image is set, that image is used at every viewport.
+  Candidate widths never exceed the file's real width.
 
-  @param {image} image_mobile - Mobile image object
-  @param {image} image_desktop - Desktop image object
+  @param {image} [image_mobile] - Mobile image object; at least one image is required
+  @param {image} [image_desktop] - Desktop image object; at least one image is required
   @param {string} [class] - Additional class for the <img>
   @param {string} [alt] - Alt text override
   @param {string} [sizes] - Sizes attribute (default: 100vw)
@@ -15,8 +17,6 @@
 {%- enddoc -%}
 
 {%- liquid
-  assign image_mobile = image_mobile
-  assign image_desktop = image_desktop
   assign img_base = image_mobile | default: image_desktop
   assign loading_value = loading | default: 'eager'
   assign decoding_value = decoding | default: 'async'
@@ -40,20 +40,43 @@
   }
 {% endstylesheet %}
 
-{% if img_base != blank %}
-  {%- capture mobile_srcset -%}
-    {{ image_mobile | image_url: width: 320 }} 320w, {{ image_mobile | image_url: width: 375 }} 375w, {{ image_mobile | image_url: width: 480 }} 480w, {{ image_mobile | image_url: width: 640 }} 640w, {{ image_mobile | image_url: width: 750 }} 750w
-  {%- endcapture -%}
+{%- if img_base != blank -%}
+  {%- liquid
+    assign src_width = img_base.width | at_most: 750
+    assign widths = '320,480,750,1100,1500,1920,2560,3840' | split: ','
+  -%}
 
-  {%- capture desktop_srcset -%}
-    {{ image_desktop | image_url: width: 750 }} 750w, {{ image_desktop | image_url: width: 990 }} 990w, {{ image_desktop | image_url: width: 1200 }} 1200w, {{ image_desktop | image_url: width: 1500 }} 1500w, {{ image_desktop | image_url: width: 1800 }} 1800w, {{ image_desktop | image_url: width: 2100 }} 2100w
+  {%- comment -%}Clamp the last candidate to the real width, then stop to avoid duplicates.{%- endcomment -%}
+  {%- capture img_srcset -%}
+    {%- for width in widths -%}
+      {%- assign candidate_width = width | plus: 0 | at_most: img_base.width -%}
+      {{- img_base | image_url: width: candidate_width }} {{ candidate_width }}w
+      {%- if candidate_width == img_base.width -%}{%- break -%}{%- endif -%}
+      {%- unless forloop.last -%}, {% endunless -%}
+    {%- endfor -%}
   {%- endcapture -%}
 
   <picture>
-    <source media="(min-width: 750px)" srcset="{{ desktop_srcset | strip }}" sizes="{{ sizes_value | escape }}">
+    {%- if image_desktop != blank and image_mobile != blank and image_desktop != image_mobile -%}
+      {%- capture desktop_srcset -%}
+        {%- for width in widths -%}
+          {%- assign candidate_width = width | plus: 0 | at_most: image_desktop.width -%}
+          {{- image_desktop | image_url: width: candidate_width }} {{ candidate_width }}w
+          {%- if candidate_width == image_desktop.width -%}{%- break -%}{%- endif -%}
+          {%- unless forloop.last -%}, {% endunless -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+      <source
+        media="(min-width: 750px)"
+        srcset="{{ desktop_srcset | escape }}"
+        sizes="{{ sizes_value | escape }}"
+        width="{{ image_desktop.width }}"
+        height="{{ image_desktop.height }}"
+      >
+    {%- endif -%}
     <img
-      src="{{ img_base | image_url: width: 750 }}"
-      srcset="{{ mobile_srcset | strip }}"
+      src="{{ img_base | image_url: width: src_width }}"
+      srcset="{{ img_srcset | escape }}"
       sizes="{{ sizes_value | escape }}"
       width="{{ img_base.width }}"
       height="{{ img_base.height }}"
@@ -62,8 +85,8 @@
       decoding="{{ decoding_value }}"
       fetchpriority="{{ fetchpriority_value }}"
       {% if class != blank %}
-        class="{{ class }}"
+        class="{{ class | escape }}"
       {% endif %}
     >
   </picture>
-{% endif %}
+{%- endif -%}
