@@ -498,14 +498,14 @@
           "type": "title",
           "settings": {
             "text_color": "#ffffff",
-            "text": "Smarter HVAC Checks. Less Guesswork."
+            "text": "Capture Thermal Photos & Videos"
           }
         },
         "description_tXcfKt": {
           "type": "description",
           "settings": {
             "text_color": "#a6a6a6",
-            "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
+            "text": "Record field thermal data effortlessly for reports and post-inspection analysis."
           }
         },
         "image_block_CJPN6V": {
