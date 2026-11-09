@@ -379,7 +379,9 @@
           "type": "feature",
           "settings": {
             "group": "professional",
-            "label": "Wireless & Laser"
+            "label": "Wireless & Laser",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_08.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_08.jpg"
           }
         },
         "feature_kWVzBY": {
