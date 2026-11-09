@@ -1,0 +1,346 @@
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 40
+  assign pb_mobile = ss.padding_bottom_mobile | default: 40
+  assign pt_desktop = ss.padding_top_desktop | default: 60
+  assign pb_desktop = ss.padding_bottom_desktop | default: 60
+  assign bg_color = ss.background_color | default: '#f5f5f9'
+  assign show_heading = false
+  for block in section.blocks
+    if block.type == 'title' or block.type == 'description'
+      if block.settings.text != blank
+        assign show_heading = true
+        break
+      endif
+    endif
+  endfor
+-%}
+
+{%- capture container_padding -%}
+  style="
+    {% render 'rt-section-padding',
+      section_pt_mobile: pt_mobile,
+      section_pb_mobile: pb_mobile,
+      section_pt_desktop: pt_desktop,
+      section_pb_desktop: pb_desktop
+    %}
+  "
+{%- endcapture -%}
+
+{% style %}
+  #{{ section.id }} .rt-twi {
+    margin-top: 40px;
+  }
+  
+  #{{ section.id }} .rt-twi {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+  }
+  #{{ section.id }} .rt-twi-item {
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  
+  #{{ section.id }} .rt-twi-image {
+    width: 100%;
+    overflow: hidden;
+  }
+  #{{ section.id }} .rt-twi-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    padding: 24px;
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+  }
+  #{{ section.id }} .rt-twi-title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  #{{ section.id }} .rt-twi-desc {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  @media (min-width: 750px) {
+    #{{ section.id }} .rt-twi {
+      gap: 90px;
+    }
+    #{{ section.id }} .rt-twi-item {
+      gap: 32px;
+      flex-direction: row;
+    }
+    #{{ section.id }} .image-position-left {
+      flex-direction: row;
+    }
+    #{{ section.id }} .image-position-right {
+      flex-direction: row-reverse;
+    }
+    #{{ section.id }} .rt-twi-image {
+      width: 54%;
+      max-width: 652px;
+      overflow: hidden;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    #{{ section.id }} .rt-twi-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+      padding: 40px;
+      width: 43%;
+      overflow: hidden;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    #{{ section.id }} .rt-twi-content.text-align-left {
+      text-align: left;
+    }
+    #{{ section.id }} .rt-twi-content.text-align-center {
+      text-align: center;
+    }
+  }
+{% endstyle %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section"
+  style="--rt-section-bg-color: {{ bg_color }};"
+>
+  <div class="rt-ss-padding" {{ container_padding }}>
+    <div class="rt-container ">
+      {%- if show_heading -%}
+        <div class="rt-pdp-heading rt-pdp-heading-center">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'title' -%}
+                {% render 'rt-heading',
+                  variant: 'title',
+                  text: block.settings.text,
+                  color: block.settings.text_color,
+                  shopify_attributes: block.shopify_attributes
+                %}
+
+              {%- when 'description' -%}
+                {% render 'rt-heading',
+                  variant: 'subtitle',
+                  text: block.settings.text,
+                  color: block.settings.text_color,
+                  shopify_attributes: block.shopify_attributes
+                %}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <div class="rt-twi">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'image_block' -%}
+              <div class="rt-twi-item image-position-{{ block.settings.image_position }}">
+                <div class="rt-twi-image">
+                  {% render 'rt-image2picture', image_mobile: block.settings.image_mobile, image_desktop: block.settings.image %}
+                </div>
+                <div class="rt-twi-content text-align-{{ block.settings.text_align }}" style="background-color: {{ block.settings.background_color }};">
+                  <div class="rt-twi-title" style="color: {{ block.settings.title_color }};">{{ block.settings.title }}</div>
+                  <div class="rt-twi-desc" style="color: {{ block.settings.description_color }};">{{ block.settings.description }}</div>
+                </div>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "rt-text-with-image",
+    "tag": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "背景颜色",
+        "default": "#141414"
+      },
+      {
+        "type": "header",
+        "content": "间距"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "上（移动端）",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "下（移动端）",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_top_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "上（桌面端）",
+        "default": 160
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "unit": "px",
+        "label": "下（桌面端）",
+        "default": 160
+      }
+    ],
+    "blocks": [
+      {
+        "type": "title",
+        "name": "标题",
+        "settings": [
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "文字颜色",
+            "default": "#ffffff"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "标题",
+            "default": "See Clearer. Look Closer. Measure More."
+          }
+        ]
+      },
+      {
+        "type": "description",
+        "name": "描述",
+        "settings": [
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "文字颜色",
+            "default": "#a6a6a6"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "内容",
+            "default": "From home inspections to HVAC, electrical and automotive checks."
+          }
+        ]
+      },
+      {
+        "type": "image_block",
+        "name": "图片块",
+        "settings": [
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "背景颜色",
+            "default": "#1f1f1f"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "图片"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "图片（移动端）"
+          },
+          {
+            "type": "select",
+            "id": "image_position",
+            "label": "图片位置",
+            "options": [
+              {
+                "value": "left",
+                "label": "左图右文"
+              },
+              {
+                "value": "right",
+                "label": "右图左文"
+              }
+            ],
+            "default": "left"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "标题",
+            "default": "See More Thermal Detail with AI."
+          },
+          {
+            "type": "color",
+            "id": "title_color",
+            "label": "标题颜色",
+            "default": "#ffffff"
+          },
+          {
+            "type": "text",
+            "id": "description",
+            "label": "描述",
+            "default": "Up to 640×480* AI Super Resolution reveals finer thermal details, helping you spot hidden heat across surfaces, pipes, appliances, vehicles, and more."
+          },
+          {
+            "type": "color",
+            "id": "description_color",
+            "label": "描述颜色",
+            "default": "#a6a6a6"
+          },
+          {
+            "type": "select",
+            "id": "text_align",
+            "label": "文字对齐方式",
+            "options": [
+              {
+                "value": "left",
+                "label": "左对齐"
+              },
+              {
+                "value": "center",
+                "label": "居中"
+              }
+            ],
+            "default": "center"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "rt-text-with-image",
+        "category": "rt-layout"
+      }
+    ]
+  }
+  {% endschema %}

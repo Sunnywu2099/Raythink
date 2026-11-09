@@ -289,6 +289,97 @@
         "padding_bottom_desktop": 120
       }
     },
+    "rt_text_with_image_VnaR7W": {
+      "type": "rt-text-with-image",
+      "blocks": {
+        "title_FKeBgn": {
+          "type": "title",
+          "settings": {
+            "text_color": "#ffffff",
+            "text": "See Clearer. Look Closer. Measure More."
+          }
+        },
+        "description_xFigkH": {
+          "type": "description",
+          "settings": {
+            "text_color": "#a6a6a6",
+            "text": "From home inspections to HVAC, electrical and automotive checks."
+          }
+        },
+        "image_block_AYXBE9": {
+          "type": "image_block",
+          "settings": {
+            "background_color": "#1f1f1f",
+            "image": "shopify://shop_images/Frame_2085661962.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130450.png",
+            "image_position": "left",
+            "title": "See More Thermal Detail with AI.",
+            "title_color": "#ffffff",
+            "description": "Up to 640×480* AI Super Resolution reveals finer thermal details, helping you spot hidden heat across surfaces, pipes, appliances, vehicles, and more.",
+            "description_color": "#a6a6a6",
+            "text_align": "center"
+          }
+        },
+        "image_block_QUqYyW": {
+          "type": "image_block",
+          "settings": {
+            "background_color": "#1f1f1f",
+            "image": "shopify://shop_images/Frame_2117130520.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130450_5ec4fe19-62af-450c-aff8-dddf79c09d40.png",
+            "image_position": "right",
+            "title": "Measure Wide. Focus on What Matters.",
+            "title_color": "#ffffff",
+            "description": "Measure temperatures from -20°C to 550°C and use isotherms to highlight areas that deserve closer attention.",
+            "description_color": "#a6a6a6",
+            "text_align": "center"
+          }
+        },
+        "image_block_ifCAph": {
+          "type": "image_block",
+          "settings": {
+            "background_color": "#1f1f1f",
+            "image": "shopify://shop_images/Frame_2085661962_edc8e946-1014-47ba-8a52-4e0d46c79dc7.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130450_b0a17e0b-b9c9-4bfb-b93f-a962c3e8473b.png",
+            "image_position": "left",
+            "title": "Highlight What Matters.",
+            "title_color": "#ffffff",
+            "description": "Isolate a selected temperature range to make areas of interest stand out at a glance.",
+            "description_color": "#a6a6a6",
+            "text_align": "center"
+          }
+        },
+        "image_block_tJfJrC": {
+          "type": "image_block",
+          "settings": {
+            "background_color": "#1f1f1f",
+            "image": "shopify://shop_images/Frame_2085661962.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130450.png",
+            "image_position": "right",
+            "title": "See More Thermal Detail with AI.",
+            "title_color": "#ffffff",
+            "description": "Up to 640×480* AI Super Resolution reveals finer thermal details, helping you spot hidden heat across surfaces, pipes, appliances, vehicles, and more.",
+            "description_color": "#a6a6a6",
+            "text_align": "center"
+          }
+        }
+      },
+      "block_order": [
+        "title_FKeBgn",
+        "description_xFigkH",
+        "image_block_AYXBE9",
+        "image_block_QUqYyW",
+        "image_block_ifCAph",
+        "image_block_tJfJrC"
+      ],
+      "name": "rt-text-with-image",
+      "settings": {
+        "background_color": "#141414",
+        "padding_top_mobile": 120,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 160
+      }
+    },
     "rt_view_switch": {
       "type": "rt-view-switch",
       "blocks": {
@@ -324,6 +415,20 @@
     "rt_grid_p8xYMw": {
       "type": "rt-grid",
       "blocks": {
+        "title_yt8FiJ": {
+          "type": "title",
+          "settings": {
+            "text_color": "{{ settings.color_palette.background }}",
+            "text": "One Compact Tool. Multiple Applications."
+          }
+        },
+        "description_wDprkU": {
+          "type": "description",
+          "settings": {
+            "text_color": "#A6A6A6",
+            "text": "Explore underfloor heating, HVAC pipes, heat loss, and DIY with thermal imaging."
+          }
+        },
         "grid_block_WywzJi": {
           "type": "grid-block",
           "settings": {
@@ -333,7 +438,32 @@
         }
       },
       "block_order": [
+        "title_yt8FiJ",
+        "description_wDprkU",
         "grid_block_WywzJi"
+      ],
+      "name": "rt-grid",
+      "settings": {
+        "background_color": "#141414",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_grid_WCTTyB": {
+      "type": "rt-grid",
+      "blocks": {
+        "grid_block_iPeBXn": {
+          "type": "grid-block",
+          "settings": {
+            "image": "shopify://shop_images/Powered_by_TI_Studio.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130478.png"
+          }
+        }
+      },
+      "block_order": [
+        "grid_block_iPeBXn"
       ],
       "name": "rt-grid",
       "settings": {
@@ -719,8 +849,10 @@
   "order": [
     "main",
     "rt_grid_Uc873h",
+    "rt_text_with_image_VnaR7W",
     "rt_view_switch",
     "rt_grid_p8xYMw",
+    "rt_grid_WCTTyB",
     "rt_in_the_box",
     "rt_specification",
     "rt_compare",
