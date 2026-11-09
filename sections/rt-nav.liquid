@@ -4,6 +4,23 @@
   assign bb_color = ss.bb_color | default: '#e5e5e5'
 -%}
 
+{% style %}
+  .rt-nav-container{
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid {{ bb_color }};
+  }
+  .rt-nav-item{
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+    padding: 12px 0;
+    border-bottom: 2px solid var(--text-color, #000000);
+  }
+{% endstyle %}
+
 <div
   id="{{ section.id }}"
   class="rt-section"
@@ -13,7 +30,7 @@
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'nav_block' -%}
-          <div class="rt-nav-item">
+          <div class="rt-nav-item" style="color: {{ block.settings.text_color }};border-bottom-color: {{ block.settings.text_color }};">
             <a href="#">{{ block.settings.nav_text }}</a>
           </div>
       {%- endcase -%}
@@ -25,6 +42,7 @@
   {
     "name": "rt-nav",
     "tag": "section",
+    "limit": 1,
     "disabled_on": {
       "groups": ["header", "footer"]
     },
