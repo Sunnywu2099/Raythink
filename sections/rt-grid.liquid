@@ -35,7 +35,7 @@
   <div class="rt-ss-padding" {{ container_padding }}>
     <div class="rt-container ">
       {%- if show_heading -%}
-        <div class="rt-heading-box">
+        <div class="rt-pdp-heading rt-pdp-heading-center">
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'title' -%}
@@ -62,7 +62,7 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'grid-block' -%}
-              {% render 'rt-image2picture', image_mobile: block.settings.image_mobile, image_desktop: block.settings.image %}
+              {% render 'rt-image2picture', image_mobile: block.settings.image_mobile,image_desktop: block.settings.image %}
           {%- endcase -%}
         {%- endfor -%}
       </div>
@@ -75,7 +75,6 @@
   {
     "name": "rt-grid",
     "tag": "section",
-    "max_blocks": 1,
     "disabled_on": {
       "groups": ["header", "footer"]
     },
