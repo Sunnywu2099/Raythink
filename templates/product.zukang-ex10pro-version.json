@@ -415,7 +415,9 @@
           "type": "feature",
           "settings": {
             "group": "professional",
-            "label": "8GB Storage"
+            "label": "8GB Storage",
+            "image_pc": "shopify://shop_images/EX10_PRO_PC_12.jpg",
+            "image_mo": "shopify://shop_images/EX10_PRO_MO_12.jpg"
           }
         },
         "application_iTEa7t": {
@@ -465,6 +467,8 @@
         "hero_mo": "shopify://shop_images/EX10_PRO_MO_01.jpg",
         "nur_pc": "shopify://shop_images/EX10_PRO_PC_02.jpg",
         "nur_mo": "shopify://shop_images/EX10_PRO_MO_02.jpg",
+        "durable_pc": "shopify://shop_images/EX10_PRO_PC_13.jpg",
+        "durable_mo": "shopify://shop_images/EX10_PRO_MO_13.jpg",
         "detection_title": "Imaging & Detection",
         "detection_subtitle": "See more. Detect faster.",
         "professional_title": "Professional Tools",
