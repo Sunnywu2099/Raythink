@@ -17,7 +17,7 @@
           "settings": {
             "img_desktop": "shopify://shop_images/IX1_Go_KV_PC_47c5bc38-a072-4b63-a0c1-915c6ac5076f.png",
             "img_mobile": "shopify://shop_images/IX1_Go_KV_MO_eb1c8595-0232-4e8c-a0e1-2180d207d67e.png",
-            "slogan": "",
+            "slogan": "GO EASY, GO SMART",
             "title": "Raythink IX1GO",
             "description": "",
             "text_color": "{{ settings.color_palette.foreground }}",
