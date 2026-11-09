@@ -576,7 +576,9 @@
           "type": "feature",
           "settings": {
             "slide_no": "15",
-            "label": "32GB internal storage"
+            "label": "32GB internal storage",
+            "pc_image": "shopify://shop_images/cx20-15-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-15-mo.jpg"
           }
         },
         "feature_gPhhTj": {
