@@ -45,6 +45,16 @@
   margin-bottom: 24px;
 }
 
+.rt-pdp-heading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 744px;
+  margin: 0 auto;
+  overflow-wrap: anywhere;
+}
+
 @media (min-width: 750px) {
   .rt-ss-padding {
     padding-top: var(--rt-section-pt-desktop);
