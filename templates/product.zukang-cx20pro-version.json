@@ -470,7 +470,7 @@
         "padding-block-end": 48
       }
     },
-    "raythink_cx20pro_HWDkEA": {
+    "raythink_cx20pro_WzXymn": {
       "type": "raythink-cx20pro",
       "name": "CX20 Pro A+ Images",
       "settings": {
@@ -484,6 +484,6 @@
   "order": [
     "main",
     "product_recommendations_qggXJq",
-    "raythink_cx20pro_HWDkEA"
+    "raythink_cx20pro_WzXymn"
   ]
 }
