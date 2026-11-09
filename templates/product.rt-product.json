@@ -194,7 +194,7 @@
                 "warranty": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "5-Year Warranty",
+                    "text": "2-Year Warranty",
                     "icon": "warranty",
                     "round_icon": true,
                     "return_days": 30
