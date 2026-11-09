@@ -418,15 +418,15 @@
         "title_yt8FiJ": {
           "type": "title",
           "settings": {
-            "text_color": "#000000",
-            "text": "Shop by Application"
+            "text_color": "{{ settings.color_palette.background }}",
+            "text": "One Compact Tool. Multiple Applications."
           }
         },
         "description_wDprkU": {
           "type": "description",
           "settings": {
-            "text_color": "#595959",
-            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+            "text_color": "#A6A6A6",
+            "text": "Explore underfloor heating, HVAC pipes, heat loss, and DIY with thermal imaging."
           }
         },
         "grid_block_WywzJi": {
