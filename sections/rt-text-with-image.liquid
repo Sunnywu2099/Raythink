@@ -44,17 +44,16 @@
   }
   
   #{{ section.id }} .rt-twi-image {
-    width: 54%;
-    max-width: 652px;
+    width: 100%;
     overflow: hidden;
   }
   #{{ section.id }} .rt-twi-content {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
     justify-content: center;
-    padding: 40px;
-    width: 43%;
+    padding: 24px;
+    width: 100%;
     overflow: hidden;
   }
   #{{ section.id }} .rt-twi-title {
@@ -84,6 +83,20 @@
     }
     #{{ section.id }} .image-position-right {
       flex-direction: row-reverse;
+    }
+    #{{ section.id }} .rt-twi-image {
+      width: 54%;
+      max-width: 652px;
+      overflow: hidden;
+    }
+    #{{ section.id }} .rt-twi-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+      padding: 40px;
+      width: 43%;
+      overflow: hidden;
     }
   }
 {% endstyle %}
