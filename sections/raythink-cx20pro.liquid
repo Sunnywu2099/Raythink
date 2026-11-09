@@ -1,0 +1,127 @@
+{% comment %}
+  Raythink CX20 Pro – responsive Amazon A+ image gallery
+  Upload cx20-pro-pc-01.jpg ... cx20-pro-pc-21.jpg and
+         cx20-pro-mo-01.jpg ... cx20-pro-mo-21.jpg
+  to Shopify Admin > Content > Files.
+  This section is only for product detail imagery, not the buy box.
+{% endcomment %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #shopify-section-{{ section.id }} .rt-cx20pro-a-plus {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #080c14;
+    line-height: 0;
+    font-size: 0;
+  }
+  #shopify-section-{{ section.id }} .rt-cx20pro-a-plus__item,
+  #shopify-section-{{ section.id }} .rt-cx20pro-a-plus__item picture {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  #shopify-section-{{ section.id }} .rt-cx20pro-a-plus__image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    object-fit: contain;
+    vertical-align: top;
+  }
+  {%- if section.settings.max_width > 0 -%}
+    #shopify-section-{{ section.id }} .rt-cx20pro-a-plus {
+      max-width: {{ section.settings.max_width }}px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  {%- endif -%}
+{%- endstyle -%}
+
+<div class="rt-cx20pro-a-plus" aria-label="Raythink CX20 Pro product features">
+  {%- for i in (1..section.settings.image_count) -%}
+    {%- assign file_number = i | prepend: '0' | slice: -2, 2 -%}
+    {%- assign pc_file = section.settings.pc_prefix | append: file_number | append: '.jpg' -%}
+    {%- assign mo_file = section.settings.mo_prefix | append: file_number | append: '.jpg' -%}
+    {%- assign pc_url = pc_file | file_url -%}
+    {%- assign mo_url = mo_file | file_url -%}
+    <div class="rt-cx20pro-a-plus__item">
+      <picture>
+        <source media="(max-width: 749px)" srcset="{{ mo_url }}" width="1500" height="1125">
+        <img
+          class="rt-cx20pro-a-plus__image"
+          src="{{ pc_url }}"
+          alt="Raythink CX20 Pro thermal camera — product feature {{ i }}"
+          width="2048"
+          height="839"
+          {% if i <= 2 %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+          decoding="async"
+        >
+      </picture>
+    </div>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "CX20 Pro A+ Images",
+  "tag": "section",
+  "class": "rt-cx20pro-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Upload images to Content > Files"
+    },
+    {
+      "type": "paragraph",
+      "content": "Uses matching PC/MO file names automatically. Upload all images from the provided folder first. No image blocks needed."
+    },
+    {
+      "type": "range",
+      "id": "image_count",
+      "label": "Number of image pairs",
+      "min": 1,
+      "max": 21,
+      "step": 1,
+      "default": 21
+    },
+    {
+      "type": "text",
+      "id": "pc_prefix",
+      "label": "Desktop filename prefix",
+      "default": "cx20-pro-pc-"
+    },
+    {
+      "type": "text",
+      "id": "mo_prefix",
+      "label": "Mobile filename prefix",
+      "default": "cx20-pro-mo-"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max image width (0 = full width)",
+      "min": 0,
+      "max": 2400,
+      "step": 100,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "CX20 Pro A+ Images"
+    }
+  ]
+}
+{% endschema %}
