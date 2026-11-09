@@ -27,6 +27,21 @@
   "
 {%- endcapture -%}
 
+{% style %}
+  #{{ section.id }} .rt-text-with-image-box {
+    
+  }
+  .rt-pdp-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 744px;
+    margin: 0 auto;
+    overflow-wrap: anywhere;
+  }
+{% endstyle %}
+
 <div
   id="{{ section.id }}"
   class="rt-section"
