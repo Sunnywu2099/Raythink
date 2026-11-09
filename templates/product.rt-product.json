@@ -425,7 +425,7 @@
         "description_wDprkU": {
           "type": "description",
           "settings": {
-            "text_color": "#A6A6A6",
+            "text_color": "#a6a6a6",
             "text": "Explore underfloor heating, HVAC pipes, heat loss, and DIY with thermal imaging."
           }
         },
@@ -445,6 +445,47 @@
       "name": "rt-grid",
       "settings": {
         "background_color": "#141414",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_text_with_image_2_nQ9JHk": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_87kWYA": {
+          "type": "title",
+          "settings": {
+            "text_color": "#ffffff",
+            "text": "Smarter HVAC Checks. Less Guesswork."
+          }
+        },
+        "description_j3bkJd": {
+          "type": "description",
+          "settings": {
+            "text_color": "#a6a6a6",
+            "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
+          }
+        },
+        "image_block_4hwtG7": {
+          "type": "image_block",
+          "settings": {
+            "background_color": "#1f1f1f",
+            "image": "shopify://shop_images/cx20-pro-mo-11.jpg",
+            "image_mobile": "shopify://shop_images/cx20-pro-mo-03.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "title_87kWYA",
+        "description_j3bkJd",
+        "image_block_4hwtG7"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#141414",
+        "image_position": "left",
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 96,
         "padding_top_desktop": 0,
@@ -852,6 +893,7 @@
     "rt_text_with_image_VnaR7W",
     "rt_view_switch",
     "rt_grid_p8xYMw",
+    "rt_text_with_image_2_nQ9JHk",
     "rt_grid_WCTTyB",
     "rt_in_the_box",
     "rt_specification",
