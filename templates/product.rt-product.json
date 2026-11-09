@@ -471,7 +471,6 @@
         "image_block_4hwtG7": {
           "type": "image_block",
           "settings": {
-            "background_color": "#1f1f1f",
             "image": "shopify://shop_images/cx20-pro-mo-11.jpg",
             "image_mobile": "shopify://shop_images/cx20-pro-mo-03.jpg"
           }
@@ -486,6 +485,46 @@
       "settings": {
         "background_color": "#141414",
         "image_position": "left",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_text_with_image_2_BDftf4": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_jDpgzi": {
+          "type": "title",
+          "settings": {
+            "text_color": "#ffffff",
+            "text": "Smarter HVAC Checks. Less Guesswork."
+          }
+        },
+        "description_tXcfKt": {
+          "type": "description",
+          "settings": {
+            "text_color": "#a6a6a6",
+            "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
+          }
+        },
+        "image_block_CJPN6V": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/cx20-pro-mo-11.jpg",
+            "image_mobile": "shopify://shop_images/cx20-pro-mo-03.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "title_jDpgzi",
+        "description_tXcfKt",
+        "image_block_CJPN6V"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#141414",
+        "image_position": "right",
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 96,
         "padding_top_desktop": 0,
@@ -894,6 +933,7 @@
     "rt_view_switch",
     "rt_grid_p8xYMw",
     "rt_text_with_image_2_nQ9JHk",
+    "rt_text_with_image_2_BDftf4",
     "rt_grid_WCTTyB",
     "rt_in_the_box",
     "rt_specification",
