@@ -175,7 +175,7 @@
             "image": "shopify://shop_images/HVAC_Scenario_New.png",
             "title": "HVAC Inspection",
             "title_color": "#ffffff",
-            "link_text": "Learn More",
+            "link_text": "",
             "link_url": "",
             "link_color": "#ffffff"
           }
@@ -186,7 +186,7 @@
             "image": "shopify://shop_images/IX1GO_Electrical_Inspection.png",
             "title": "Electrical Inspection",
             "title_color": "#ffffff",
-            "link_text": "Learn More",
+            "link_text": "",
             "link_url": "",
             "link_color": "#ffffff"
           }
@@ -197,7 +197,7 @@
             "image": "shopify://shop_images/Left_top_2.png",
             "title": "Home & Building",
             "title_color": "#ffffff",
-            "link_text": "Learn More",
+            "link_text": "",
             "link_url": "",
             "link_color": "#ffffff"
           }
@@ -208,7 +208,7 @@
             "image": "shopify://shop_images/Left_top_3.png",
             "title": "Automotive Diagnostics",
             "title_color": "#ffffff",
-            "link_text": "Learn More",
+            "link_text": "",
             "link_url": "",
             "link_color": "#ffffff"
           }
