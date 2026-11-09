@@ -477,7 +477,9 @@
           "type": "feature",
           "settings": {
             "slide_no": "4",
-            "label": "3.5-inch HD display"
+            "label": "3.5-inch HD display",
+            "pc_image": "shopify://shop_images/cx20-04-pc.jpg",
+            "mo_image": "shopify://shop_images/cx20-04-mo.jpg"
           }
         },
         "feature_GATJJJ": {
