@@ -64,7 +64,7 @@
                 "feature_1": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "640 × 480 Screen Resolution",
+                    "text": "Sharper Thermal Imaging: 512 × 384 NUR super-resolution with 256 × 192 native resolution and <40mK sensitivity for clearer thermal details.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -74,7 +74,7 @@
                 "feature_2": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "Wireless APP Transfer & PC Analysis",
+                    "text": "Focused Thermal Inspection: 40° × 30° field of view with a 4.3mm lens for more detailed thermal observation of distant targets.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -84,7 +84,7 @@
                 "feature_3": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "32GB Storage Handheld Infrared Camera for Daily Inspections",
+                    "text": "4m Laser Rangefinding: Built-in laser distance measurement up to 4m for convenient target distance measurement and inspection setup.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -94,7 +94,17 @@
                 "feature_4": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "USB-C Plug-In for Smartphones",
+                    "text": "Dual-Imaging Fusion & Advanced Measurement: Combines a 2MP visible-light camera with thermal imaging, 6 customizable temperature points, and smart temperature alerts.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_w3HR8e": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Built for Tough Jobs: Up to 8 hours of battery life, 32GB storage, IP54 protection, and 2m drop resistance for demanding professional inspections.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -106,7 +116,8 @@
                 "feature_1",
                 "feature_2",
                 "feature_3",
-                "feature_4"
+                "feature_4",
+                "rt_product_icon_text_w3HR8e"
               ]
             },
             "variant_picker_R3rGDr": {
