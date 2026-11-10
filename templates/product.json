@@ -443,6 +443,46 @@
         "padding_bottom_desktop": 160
       }
     },
+    "rt_text_with_image_2_nQ9JHk": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_87kWYA": {
+          "type": "title",
+          "settings": {
+            "text_color": "#ffffff",
+            "text": "Smarter HVAC Checks. Less Guesswork."
+          }
+        },
+        "description_j3bkJd": {
+          "type": "description",
+          "settings": {
+            "text_color": "#a6a6a6",
+            "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
+          }
+        },
+        "image_block_4hwtG7": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2085661929.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130584.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_87kWYA",
+        "description_j3bkJd",
+        "image_block_4hwtG7"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#141414",
+        "image_position": "left",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
     "rt_view_switch": {
       "type": "rt-view-switch",
       "blocks": {
@@ -509,46 +549,6 @@
       "name": "rt-grid",
       "settings": {
         "background_color": "#141414",
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 96,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 160
-      }
-    },
-    "rt_text_with_image_2_nQ9JHk": {
-      "type": "rt-text-with-image-2",
-      "blocks": {
-        "title_87kWYA": {
-          "type": "title",
-          "settings": {
-            "text_color": "#ffffff",
-            "text": "Smarter HVAC Checks. Less Guesswork."
-          }
-        },
-        "description_j3bkJd": {
-          "type": "description",
-          "settings": {
-            "text_color": "#a6a6a6",
-            "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
-          }
-        },
-        "image_block_4hwtG7": {
-          "type": "image_block",
-          "settings": {
-            "image": "shopify://shop_images/Frame_2085661929.png",
-            "image_mobile": "shopify://shop_images/Frame_2117130584.png"
-          }
-        }
-      },
-      "block_order": [
-        "title_87kWYA",
-        "description_j3bkJd",
-        "image_block_4hwtG7"
-      ],
-      "name": "rt-text-with-image-2",
-      "settings": {
-        "background_color": "#141414",
-        "image_position": "left",
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 96,
         "padding_top_desktop": 0,
@@ -998,10 +998,10 @@
     "rt_nav_BjnEQH",
     "rt_grid_Uc873h",
     "rt_text_with_image_VnaR7W",
-    "rt_view_switch",
-    "rt_grid_p8xYMw",
     "rt_text_with_image_2_nQ9JHk",
     "rt_text_with_image_2_BDftf4",
+    "rt_view_switch",
+    "rt_grid_p8xYMw",
     "rt_grid_WCTTyB",
     "rt_in_the_box",
     "rt_specification",
