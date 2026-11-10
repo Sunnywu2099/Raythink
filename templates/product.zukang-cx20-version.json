@@ -262,8 +262,8 @@
         "sale_background": "#ffebeb",
         "padding_top_desktop": 40,
         "padding_bottom_desktop": 40,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0
+        "padding_top_mobile": 80,
+        "padding_bottom_mobile": 100
       }
     },
     "product_recommendations_qggXJq": {
