@@ -631,15 +631,17 @@
             "title": "IX1 Go"
           }
         },
-        "item_2": {
+        "item_yyhRBa": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/Frame_2117130592_3.png",
             "title": "Packaging Box"
           }
         },
-        "item_3": {
+        "item_kL88Yj": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/Frame_2117130592_2.png",
             "title": "Carrying Bag"
           }
         },
@@ -664,8 +666,8 @@
       },
       "block_order": [
         "item_1",
-        "item_2",
-        "item_3",
+        "item_yyhRBa",
+        "item_kL88Yj",
         "item_4",
         "item_5",
         "item_6"
