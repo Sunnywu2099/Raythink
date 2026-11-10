@@ -320,6 +320,7 @@
         "nav_block_DEEYdA",
         "nav_block_zphccF"
       ],
+      "disabled": true,
       "name": "rt-nav",
       "settings": {
         "background_color": "#ffffff",
@@ -340,6 +341,7 @@
       "block_order": [
         "grid_block_kKtXnD"
       ],
+      "disabled": true,
       "name": "rt-grid",
       "settings": {
         "background_color": "#ffffff",
