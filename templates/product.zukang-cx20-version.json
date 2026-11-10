@@ -90,12 +90,34 @@
                     "return_days": 30
                   },
                   "blocks": {}
+                },
+                "rt_product_icon_text_z7cm7W": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Smart Alerts & Auto Capture: Get instant alerts and automatically capture thermal images when preset temperature thresholds are exceeded.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_yPgUGg": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Built for Tough Jobs: Up to 8 hours of battery life, 32GB storage, IP54 protection, and 2m drop resistance for reliable daily inspections.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "feature_1",
                 "rt_product_icon_text_Bb7UVf",
-                "rt_product_icon_text_4DFibj"
+                "rt_product_icon_text_4DFibj",
+                "rt_product_icon_text_z7cm7W",
+                "rt_product_icon_text_yPgUGg"
               ]
             },
             "variant_picker_R3rGDr": {
