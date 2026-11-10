@@ -412,6 +412,7 @@
         },
         "image_block_tJfJrC": {
           "type": "image_block",
+          "disabled": true,
           "settings": {
             "background_color": "#1f1f1f",
             "image": "shopify://shop_images/Frame_2085661962.png",
