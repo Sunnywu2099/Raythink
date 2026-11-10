@@ -37,7 +37,7 @@
       <a class="rt-product-card__title" href="{{ menu_product.url }}">{{ menu_product.title | escape }}</a>
       <p class="rt-product-card__description">{{ card_description | escape }}</p>
       <p class="rt-product-card__actions">
-        <a class="rt-product-card__link" href="{{ menu_product.url }}">{{ 'actions.learn_more' | t }}</a>
+        {% comment %} <a class="rt-product-card__link" href="{{ menu_product.url }}">{{ 'actions.learn_more' | t }}</a> {% endcomment %}
         <a class="rt-product-card__link" href="{{ menu_product.url }}">{{ 'actions.buy_now' | t }}</a>
       </p>
     </div>
