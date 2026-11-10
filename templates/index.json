@@ -102,7 +102,7 @@
           "type": "half-block",
           "settings": {
             "image": "shopify://shop_images/main-product2.png",
-            "title": "IX1 GO Pro",
+            "title": "IX1 Go Pro",
             "title_color": "#000000",
             "description": "Dual-Lens Thermal Imaging for Smarter Inspections",
             "description_color": "#595959",
@@ -116,7 +116,7 @@
           "type": "half-block",
           "settings": {
             "image": "shopify://shop_images/IX1_Go_Front.png",
-            "title": "IX1 GO",
+            "title": "IX1 Go",
             "title_color": "#000000",
             "description": "Compact Thermal Imaging for Everyday Inspections",
             "description_color": "#595959",
