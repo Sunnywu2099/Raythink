@@ -194,17 +194,22 @@
     var slides=[].slice.call(carousel.querySelectorAll('[data-cx20-slide]'));
     var counter=carousel.querySelector('.cx20-counter');var idx=0;
     if(!tabs.length){carousel.hidden=true;return;}
-    function show(i){idx=(i+tabs.length)%tabs.length;var active=tabs[idx].dataset.cx20Tab;
+    function show(i, reveal){idx=(i+tabs.length)%tabs.length;var active=tabs[idx].dataset.cx20Tab;
       tabs.forEach(function(t){var on=t.dataset.cx20Tab===active;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;});
       slides.forEach(function(s){s.hidden=s.dataset.cx20Slide!==active;});
       counter.textContent=(idx+1)+' / '+tabs.length;
-      tabs[idx].scrollIntoView({block:'nearest',inline:'nearest'});
+      if(!reveal)return;
+      var tab=tabs[idx];
+      var scroller=tab.parentElement;
+      if(!scroller)return;
+      var left=tab.offsetLeft-(scroller.clientWidth-tab.offsetWidth)/2;
+      scroller.scrollTo({left:Math.max(0,left),behavior:'smooth'});
     }
-    tabs.forEach(function(tab,i){tab.addEventListener('click',function(){show(i);});tab.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(idx+(e.key==='ArrowRight'?1:-1));tabs[idx].focus();}});});
-    carousel.querySelector('.cx20-arrow--prev').addEventListener('click',function(){show(idx-1);});
-    carousel.querySelector('.cx20-arrow--next').addEventListener('click',function(){show(idx+1);});
+    tabs.forEach(function(tab,i){tab.addEventListener('click',function(){show(i,true);});tab.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(idx+(e.key==='ArrowRight'?1:-1),true);tabs[idx].focus();}});});
+    carousel.querySelector('.cx20-arrow--prev').addEventListener('click',function(){show(idx-1,true);});
+    carousel.querySelector('.cx20-arrow--next').addEventListener('click',function(){show(idx+1,true);});
     var x=null;carousel.querySelector('.cx20-stage').addEventListener('touchstart',function(e){x=e.touches[0].clientX;},{passive:true});
-    carousel.querySelector('.cx20-stage').addEventListener('touchend',function(e){if(x===null)return;var dx=e.changedTouches[0].clientX-x;if(Math.abs(dx)>55)show(idx+(dx<0?1:-1));x=null;},{passive:true});
+    carousel.querySelector('.cx20-stage').addEventListener('touchend',function(e){if(x===null)return;var dx=e.changedTouches[0].clientX-x;if(Math.abs(dx)>55)show(idx+(dx<0?1:-1),true);x=null;},{passive:true});
     show(0);
   });
 })();
