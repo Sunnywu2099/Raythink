@@ -823,6 +823,7 @@
         "row_15",
         "row_16"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Specification",
         "heading_color": "#000000",
@@ -935,6 +936,7 @@
         "item_3",
         "item_4"
       ],
+      "disabled": true,
       "settings": {
         "heading": "FAQ",
         "heading_color": "#000000",
