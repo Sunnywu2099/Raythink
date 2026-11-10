@@ -64,37 +64,27 @@
                 "feature_1": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "640 × 480 Screen Resolution",
+                    "text": "Sharper Thermal Imaging: 512 × 384 NUR super-resolution with 256 × 192 native resolution and <40mK sensitivity for clearer thermal details.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
                   },
                   "blocks": {}
                 },
-                "feature_2": {
+                "rt_product_icon_text_Bb7UVf": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "Wireless APP Transfer & PC Analysis",
+                    "text": "Wider Coverage: 56° × 42° wide field of view and a 3.5-inch display for faster, more efficient inspections.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
                   },
                   "blocks": {}
                 },
-                "feature_3": {
+                "rt_product_icon_text_4DFibj": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "32GB Storage Handheld Infrared Camera for Daily Inspections",
-                    "icon": "official",
-                    "round_icon": false,
-                    "return_days": 30
-                  },
-                  "blocks": {}
-                },
-                "feature_4": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "USB-C Plug-In for Smartphones",
+                    "text": "Precise Temperature Measurement: -4°F to 1022°F (-20°C to 550°C) measurement range with 3 customizable temperature points and isotherm analysis.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -104,9 +94,8 @@
               },
               "block_order": [
                 "feature_1",
-                "feature_2",
-                "feature_3",
-                "feature_4"
+                "rt_product_icon_text_Bb7UVf",
+                "rt_product_icon_text_4DFibj"
               ]
             },
             "variant_picker_R3rGDr": {
