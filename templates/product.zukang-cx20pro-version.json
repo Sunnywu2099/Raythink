@@ -100,13 +100,24 @@
                     "return_days": 30
                   },
                   "blocks": {}
+                },
+                "rt_product_icon_text_fHmcmi": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Built for Tough Jobs: Up to 8 hours of battery life, 32GB storage, IP54 protection, and 2m drop resistance for reliable professional inspections.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "feature_1",
                 "feature_2",
                 "feature_3",
-                "feature_4"
+                "feature_4",
+                "rt_product_icon_text_fHmcmi"
               ]
             },
             "variant_picker_R3rGDr": {
