@@ -348,7 +348,7 @@
           "type": "application-block",
           "settings": {
             "icon": "shopify://shop_images/Checkout.png",
-            "title": "Smart Inspection Tools",
+            "title": "Secure & Easy Checkout",
             "title_color": "#000000",
             "text": "",
             "text_color": "#595959"
@@ -358,7 +358,7 @@
           "type": "application-block",
           "settings": {
             "icon": "shopify://shop_images/Support.png",
-            "title": "Built for Real-World Use",
+            "title": "Expert Technical Support",
             "title_color": "#000000",
             "text": "",
             "text_color": "#595959"
