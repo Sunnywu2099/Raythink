@@ -16,10 +16,9 @@
           "type": "main-banner-block",
           "settings": {
             "img_desktop": "shopify://shop_images/IX1_Go_KV_PC.jpg",
-            "img_mobile": "shopify://shop_images/IX1_Go_KV_MO.png",
             "slogan": "GO EASY, GO SMART",
-            "title": "Raythink IX1 Go",
-            "description": "",
+            "title": "Raythink IX1 Go Pro",
+            "description": "Dual-Lens Thermal Imaging for Smarter Inspections",
             "text_color": "{{ settings.color_palette.foreground }}",
             "button_text": "Learn More",
             "button_url": "",
