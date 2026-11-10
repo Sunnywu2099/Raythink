@@ -539,7 +539,9 @@
           "type": "view",
           "disabled": true,
           "settings": {
-            "title": "IX One Go Pro"
+            "title": "IX1 Go Pro",
+            "image_desktop": "shopify://shop_images/IX1GOPRO_4_image_modes.png",
+            "image_mobile": "shopify://shop_images/IX1GOPRO_4_Image_Modes_MO.png"
           }
         }
       },
