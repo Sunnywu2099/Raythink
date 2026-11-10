@@ -219,7 +219,7 @@
                       "name": "产品",
                       "settings": {
                         "product": "cx20-pro-handheld-thermal-camera",
-                        "badge_text": "",
+                        "badge_text": "New",
                         "badge_color": "#1b8f3a"
                       },
                       "blocks": {}
@@ -229,7 +229,7 @@
                       "name": "产品",
                       "settings": {
                         "product": "cx20-ultra-handheld-thermal-camera",
-                        "badge_text": "",
+                        "badge_text": "New",
                         "badge_color": "#1b8f3a"
                       },
                       "blocks": {}
@@ -583,7 +583,7 @@
         "enable_transparent_header_home": false,
         "home_inverse_logo": false,
         "text_color_transparent_home": "",
-        "enable_transparent_header_product": false,
+        "enable_transparent_header_product": true,
         "product_inverse_logo": false,
         "text_color_transparent_product": "",
         "enable_transparent_header_collection": false,
