@@ -529,11 +529,13 @@
         "view_1": {
           "type": "view",
           "settings": {
-            "title": "IX One Go"
+            "title": "IX1 Go",
+            "image_desktop": "shopify://shop_images/IX1GO_3_Image_Modes.png"
           }
         },
         "view_2": {
           "type": "view",
+          "disabled": true,
           "settings": {
             "title": "IX One Go Pro"
           }
