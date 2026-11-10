@@ -483,6 +483,46 @@
         "padding_bottom_desktop": 160
       }
     },
+    "rt_text_with_image_2_BDftf4": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_jDpgzi": {
+          "type": "title",
+          "settings": {
+            "text_color": "#ffffff",
+            "text": "Capture Thermal Photos & Videos"
+          }
+        },
+        "description_tXcfKt": {
+          "type": "description",
+          "settings": {
+            "text_color": "#a6a6a6",
+            "text": "Record field thermal data effortlessly for reports and post-inspection analysis."
+          }
+        },
+        "image_block_CJPN6V": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2085661929_80fae308-d1ee-4bfb-adaf-7f2fac4cc175.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130584_fa78fa77-7da6-4191-88aa-c8f21a218825.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_jDpgzi",
+        "description_tXcfKt",
+        "image_block_CJPN6V"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#141414",
+        "image_position": "right",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
     "rt_view_switch": {
       "type": "rt-view-switch",
       "blocks": {
@@ -555,46 +595,6 @@
         "padding_bottom_desktop": 160
       }
     },
-    "rt_text_with_image_2_BDftf4": {
-      "type": "rt-text-with-image-2",
-      "blocks": {
-        "title_jDpgzi": {
-          "type": "title",
-          "settings": {
-            "text_color": "#ffffff",
-            "text": "Capture Thermal Photos & Videos"
-          }
-        },
-        "description_tXcfKt": {
-          "type": "description",
-          "settings": {
-            "text_color": "#a6a6a6",
-            "text": "Record field thermal data effortlessly for reports and post-inspection analysis."
-          }
-        },
-        "image_block_CJPN6V": {
-          "type": "image_block",
-          "settings": {
-            "image": "shopify://shop_images/Frame_2085661929_80fae308-d1ee-4bfb-adaf-7f2fac4cc175.png",
-            "image_mobile": "shopify://shop_images/Frame_2117130584_fa78fa77-7da6-4191-88aa-c8f21a218825.png"
-          }
-        }
-      },
-      "block_order": [
-        "title_jDpgzi",
-        "description_tXcfKt",
-        "image_block_CJPN6V"
-      ],
-      "name": "rt-text-with-image-2",
-      "settings": {
-        "background_color": "#141414",
-        "image_position": "right",
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 96,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 160
-      }
-    },
     "rt_grid_WCTTyB": {
       "type": "rt-grid",
       "blocks": {
@@ -609,6 +609,7 @@
       "block_order": [
         "grid_block_iPeBXn"
       ],
+      "disabled": true,
       "name": "rt-grid",
       "settings": {
         "background_color": "#141414",
