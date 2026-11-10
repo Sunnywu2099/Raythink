@@ -411,17 +411,16 @@
             "text_align": "center"
           }
         },
-        "image_block_tJfJrC": {
+        "image_block_cNbQLc": {
           "type": "image_block",
-          "disabled": true,
           "settings": {
             "background_color": "#1f1f1f",
-            "image": "shopify://shop_images/Frame_2085661962.png",
-            "image_mobile": "shopify://shop_images/Frame_2117130450.png",
+            "image": "shopify://shop_images/IX1GO_15X_PC.png",
+            "image_mobile": "shopify://shop_images/IX1GO_15X_MO.png",
             "image_position": "right",
-            "title": "See More Thermal Detail with AI.",
+            "title": "See Distant and Hard-to-Reach Targets Up Close.",
             "title_color": "#ffffff",
-            "description": "Up to 640×480* AI Super Resolution reveals finer thermal details, helping you spot hidden heat across surfaces, pipes, appliances, vehicles, and more.",
+            "description": "Zoom in up to 15× to inspect distant, elevated, or hard-to-reach areas without moving closer.",
             "description_color": "#a6a6a6",
             "text_align": "center"
           }
@@ -433,7 +432,7 @@
         "image_block_AYXBE9",
         "image_block_QUqYyW",
         "image_block_ifCAph",
-        "image_block_tJfJrC"
+        "image_block_cNbQLc"
       ],
       "name": "rt-text-with-image",
       "settings": {
