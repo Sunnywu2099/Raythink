@@ -1,0 +1,1017 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "rt-product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_rt-product-media-gallery",
+          "static": true,
+          "settings": {
+            "zoom": true,
+            "video_loop": false
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_rt-product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 48,
+            "sticky_details_desktop": false,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "rt_summary": {
+              "type": "_rt-product-summary",
+              "settings": {
+                "reviews_link": ""
+              },
+              "blocks": {}
+            },
+            "rt_features": {
+              "type": "_rt-product-features",
+              "settings": {
+                "show_learn_more": true
+              },
+              "blocks": {
+                "feature_1": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "AI Super Resolution: See more detail with up to 640 × 480 resolution and 15× digital zoom.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "feature_2": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Smart AI HVAC Mode: Easily spot temperature differences with AI-assisted HVAC inspections.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "feature_3": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Plug & Play: Turn your compatible USB-C smartphone into a thermal camera in seconds.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "feature_4": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Everyday Home Inspections: Check heat loss, insulation gaps, and overheating components with ease.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_xhnfFk": {
+                  "type": "_rt-product-icon-text",
+                  "name": "t:rt_product.icon_text",
+                  "settings": {
+                    "text": "Wide Temperature Range: Measure from -20°C to 550°C (-4°F to 1022°F).",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "feature_1",
+                "feature_2",
+                "feature_3",
+                "feature_4",
+                "rt_product_icon_text_xhnfFk"
+              ]
+            },
+            "variant_picker_R3rGDr": {
+              "type": "_rt-product-variant-picker",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": false,
+                "option_label_text_color": "",
+                "variant_style_class": "default",
+                "custom_variant_background": "{{ settings.color_palette.background }}",
+                "custom_variant_text": "{{ settings.color_palette.foreground }}",
+                "custom_variant_border": "{{ settings.color_palette.foreground }}",
+                "selected_variant_style_class": "default",
+                "custom_selected_variant_background": "{{ settings.color_palette.foreground }}",
+                "custom_selected_variant_text": "{{ settings.color_palette.background }}",
+                "custom_selected_variant_border": "{{ settings.color_palette.foreground }}",
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "quantity": {
+              "type": "_rt-product-quantity",
+              "settings": {
+                "input_style": "default",
+                "input_background_color": "{{ settings.color_palette.background }}",
+                "input_text_color": "{{ settings.color_palette.foreground }}",
+                "input_border_color": "{{ settings.color_palette.foreground }}",
+                "border_width": 1,
+                "border_radius": 8
+              },
+              "blocks": {}
+            },
+            "rt_delivery": {
+              "type": "_rt-product-delivery",
+              "settings": {
+                "delivery_text": "Order today, ships in 3–7 business days"
+              },
+              "blocks": {}
+            },
+            "rt_payment": {
+              "type": "_rt-product-payment",
+              "settings": {
+                "show_payment_icons": true
+              },
+              "blocks": {}
+            },
+            "rt_services": {
+              "type": "_rt-product-services",
+              "settings": {},
+              "blocks": {
+                "returns": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "30-Day Return Policy",
+                    "icon": "return",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "members": {
+                  "type": "_rt-product-icon-text",
+                  "disabled": true,
+                  "settings": {
+                    "text": "Member’s Benefits",
+                    "icon": "gift",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "guarantee": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Price Guarantee",
+                    "icon": "price",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "warranty": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "2-Year Warranty",
+                    "icon": "warranty",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "returns",
+                "members",
+                "guarantee",
+                "warranty"
+              ]
+            },
+            "rt_purchase": {
+              "type": "_rt-product-buy-buttons",
+              "static": true,
+              "settings": {
+                "show_accelerated_checkout": true,
+                "text_color": ""
+              },
+              "blocks": {
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button-custom",
+                    "custom_button_background": "#ffffff",
+                    "custom_button_text": "#1f1f1f",
+                    "custom_button_border": "#d9d9d9"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "_rt-product-buy-now",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button-custom",
+                    "custom_button_background": "#1f1f1f",
+                    "custom_button_text": "#ffffff",
+                    "custom_button_border": "#1f1f1f"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            }
+          },
+          "block_order": [
+            "rt_summary",
+            "rt_features",
+            "variant_picker_R3rGDr",
+            "quantity",
+            "rt_delivery",
+            "rt_payment",
+            "rt_services"
+          ]
+        }
+      },
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#1f1f1f",
+        "surface_background": "#fafafa",
+        "sale_color": "#ff1919",
+        "sale_background": "#ffebeb",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "rt_nav_BjnEQH": {
+      "type": "rt-nav",
+      "blocks": {
+        "nav_block_BWDGFy": {
+          "type": "nav_block",
+          "settings": {
+            "text_color": "#000000",
+            "nav_text": "Overview",
+            "nav_id": "shopify-section-template--22366096720033__rt_grid_Uc873h"
+          }
+        },
+        "nav_block_TPwhzD": {
+          "type": "nav_block",
+          "settings": {
+            "text_color": "#000000",
+            "nav_text": "What’s in the box",
+            "nav_id": "shopify-section-template--22366096720033__rt_in_the_box"
+          }
+        },
+        "nav_block_DEEYdA": {
+          "type": "nav_block",
+          "settings": {
+            "text_color": "#000000",
+            "nav_text": "Specs",
+            "nav_id": ""
+          }
+        },
+        "nav_block_zphccF": {
+          "type": "nav_block",
+          "settings": {
+            "text_color": "#000000",
+            "nav_text": "Reviews",
+            "nav_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "nav_block_BWDGFy",
+        "nav_block_TPwhzD",
+        "nav_block_DEEYdA",
+        "nav_block_zphccF"
+      ],
+      "disabled": true,
+      "name": "rt-nav",
+      "settings": {
+        "background_color": "#ffffff",
+        "bb_color": "#e5e5e5"
+      }
+    },
+    "rt_grid_Uc873h": {
+      "type": "rt-grid",
+      "blocks": {
+        "grid_block_kKtXnD": {
+          "type": "grid-block",
+          "settings": {
+            "image": "shopify://shop_images/image_1075.png",
+            "image_mobile": "shopify://shop_images/image_1080.png"
+          }
+        }
+      },
+      "block_order": [
+        "grid_block_kKtXnD"
+      ],
+      "disabled": true,
+      "name": "rt-grid",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 120
+      }
+    },
+    "rt_text_with_image_VnaR7W": {
+      "type": "rt-text-with-image",
+      "blocks": {
+        "title_FKeBgn": {
+          "type": "title",
+          "settings": {
+            "text_color": "#ffffff",
+            "text": "See Clearer. Look Closer. Measure More."
+          }
+        },
+        "description_xFigkH": {
+          "type": "description",
+          "settings": {
+            "text_color": "#a6a6a6",
+            "text": "From home inspections to HVAC, electrical and automotive checks."
+          }
+        },
+        "image_block_AYXBE9": {
+          "type": "image_block",
+          "settings": {
+            "background_color": "#1f1f1f",
+            "image": "shopify://shop_images/IX1GO_NUR_Resolution_PC.png",
+            "image_mobile": "shopify://shop_images/IX1GO_NUR_Resolution_MO.png",
+            "image_position": "left",
+            "title": "See More Thermal Detail with AI.",
+            "title_color": "#ffffff",
+            "description": "Up to 640×480* AI Super Resolution reveals finer thermal details, helping you spot hidden heat across surfaces, pipes, appliances, vehicles, and more.",
+            "description_color": "#a6a6a6",
+            "text_align": "center"
+          }
+        },
+        "image_block_QUqYyW": {
+          "type": "image_block",
+          "settings": {
+            "background_color": "#1f1f1f",
+            "image": "shopify://shop_images/Frame_2117130520.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130450_5ec4fe19-62af-450c-aff8-dddf79c09d40.png",
+            "image_position": "right",
+            "title": "Measure Wide. Focus on What Matters.",
+            "title_color": "#ffffff",
+            "description": "Measure temperatures from -20°C to 550°C and use isotherms to highlight areas that deserve closer attention.",
+            "description_color": "#a6a6a6",
+            "text_align": "center"
+          }
+        },
+        "image_block_ifCAph": {
+          "type": "image_block",
+          "settings": {
+            "background_color": "#1f1f1f",
+            "image": "shopify://shop_images/Frame_2085661962_edc8e946-1014-47ba-8a52-4e0d46c79dc7.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130450_b0a17e0b-b9c9-4bfb-b93f-a962c3e8473b.png",
+            "image_position": "left",
+            "title": "Highlight What Matters.",
+            "title_color": "#ffffff",
+            "description": "Isolate a selected temperature range to make areas of interest stand out at a glance.",
+            "description_color": "#a6a6a6",
+            "text_align": "center"
+          }
+        },
+        "image_block_tJfJrC": {
+          "type": "image_block",
+          "disabled": true,
+          "settings": {
+            "background_color": "#1f1f1f",
+            "image": "shopify://shop_images/Frame_2085661962.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130450.png",
+            "image_position": "right",
+            "title": "See More Thermal Detail with AI.",
+            "title_color": "#ffffff",
+            "description": "Up to 640×480* AI Super Resolution reveals finer thermal details, helping you spot hidden heat across surfaces, pipes, appliances, vehicles, and more.",
+            "description_color": "#a6a6a6",
+            "text_align": "center"
+          }
+        }
+      },
+      "block_order": [
+        "title_FKeBgn",
+        "description_xFigkH",
+        "image_block_AYXBE9",
+        "image_block_QUqYyW",
+        "image_block_ifCAph",
+        "image_block_tJfJrC"
+      ],
+      "name": "rt-text-with-image",
+      "settings": {
+        "background_color": "#141414",
+        "padding_top_mobile": 120,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_text_with_image_2_nQ9JHk": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_87kWYA": {
+          "type": "title",
+          "settings": {
+            "text_color": "#ffffff",
+            "text": "Smarter HVAC Checks. Less Guesswork."
+          }
+        },
+        "description_j3bkJd": {
+          "type": "description",
+          "settings": {
+            "text_color": "#a6a6a6",
+            "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
+          }
+        },
+        "image_block_4hwtG7": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2085661929.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130584.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_87kWYA",
+        "description_j3bkJd",
+        "image_block_4hwtG7"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#141414",
+        "image_position": "left",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_text_with_image_2_BDftf4": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_jDpgzi": {
+          "type": "title",
+          "settings": {
+            "text_color": "#ffffff",
+            "text": "Capture Thermal Photos & Videos"
+          }
+        },
+        "description_tXcfKt": {
+          "type": "description",
+          "settings": {
+            "text_color": "#a6a6a6",
+            "text": "Record field thermal data effortlessly for reports and post-inspection analysis."
+          }
+        },
+        "image_block_CJPN6V": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2085661929_80fae308-d1ee-4bfb-adaf-7f2fac4cc175.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130584_fa78fa77-7da6-4191-88aa-c8f21a218825.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_jDpgzi",
+        "description_tXcfKt",
+        "image_block_CJPN6V"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#141414",
+        "image_position": "right",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_view_switch": {
+      "type": "rt-view-switch",
+      "blocks": {
+        "view_1": {
+          "type": "view",
+          "settings": {
+            "title": "IX1 Go",
+            "image_desktop": "shopify://shop_images/IX1GO_3_Image_Modes.png",
+            "image_mobile": "shopify://shop_images/IX1GO_3_Image_Modes_MO.png"
+          }
+        },
+        "view_2": {
+          "type": "view",
+          "disabled": true,
+          "settings": {
+            "title": "IX One Go Pro"
+          }
+        }
+      },
+      "block_order": [
+        "view_1",
+        "view_2"
+      ],
+      "settings": {
+        "heading": "Choose the View That Fits the Job.",
+        "heading_color": "#ffffff",
+        "description": "Switch between thermal, visible-light camera, and picture-in-picture views to connect thermal information with the real-world scene.",
+        "description_color": "#b5b5b5",
+        "background_color": "#141414",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_grid_p8xYMw": {
+      "type": "rt-grid",
+      "blocks": {
+        "title_yt8FiJ": {
+          "type": "title",
+          "settings": {
+            "text_color": "{{ settings.color_palette.background }}",
+            "text": "One Compact Tool. Multiple Applications."
+          }
+        },
+        "description_wDprkU": {
+          "type": "description",
+          "settings": {
+            "text_color": "#a6a6a6",
+            "text": "Explore underfloor heating, HVAC pipes, heat loss, and DIY with thermal imaging."
+          }
+        },
+        "grid_block_WywzJi": {
+          "type": "grid-block",
+          "settings": {
+            "image": "shopify://shop_images/Powered_by_TI_Studio.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130478.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_yt8FiJ",
+        "description_wDprkU",
+        "grid_block_WywzJi"
+      ],
+      "name": "rt-grid",
+      "settings": {
+        "background_color": "#141414",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_grid_WCTTyB": {
+      "type": "rt-grid",
+      "blocks": {
+        "grid_block_iPeBXn": {
+          "type": "grid-block",
+          "settings": {
+            "image": "shopify://shop_images/Powered_by_TI_Studio.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130478.png"
+          }
+        }
+      },
+      "block_order": [
+        "grid_block_iPeBXn"
+      ],
+      "disabled": true,
+      "name": "rt-grid",
+      "settings": {
+        "background_color": "#141414",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 120
+      }
+    },
+    "rt_in_the_box": {
+      "type": "rt-in-the-box",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "title": "IX1 Go"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "title": "Packaging Box"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "title": "Carrying Bag"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "title": "USB-C Cable"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "title": "Certificate"
+          }
+        },
+        "item_6": {
+          "type": "item",
+          "settings": {
+            "title": "Quick Start Guide"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5",
+        "item_6"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "What's in the box",
+        "heading_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_specification": {
+      "type": "rt-specification",
+      "blocks": {
+        "group_1": {
+          "type": "group",
+          "settings": {
+            "title": "Processing Capacity"
+          }
+        },
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "label": "Operating System",
+            "value": "OxygenOS based on Android™ 15"
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "label": "CPU",
+            "value": "—"
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "label": "GPU",
+            "value": "—"
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "label": "RAM",
+            "value": "—"
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "label": "ROM",
+            "value": "—"
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "label": "Storage",
+            "value": "—"
+          }
+        },
+        "row_7": {
+          "type": "row",
+          "settings": {
+            "label": "Battery",
+            "value": "4,500mAh dual-cell (2250mAh) battery, non-removable"
+          }
+        },
+        "row_8": {
+          "type": "row",
+          "settings": {
+            "label": "Weight",
+            "value": "—"
+          }
+        },
+        "group_2": {
+          "type": "group",
+          "settings": {
+            "title": "Processing Capacity"
+          }
+        },
+        "row_9": {
+          "type": "row",
+          "settings": {
+            "label": "Operating System",
+            "value": "OxygenOS based on Android™ 15"
+          }
+        },
+        "row_10": {
+          "type": "row",
+          "settings": {
+            "label": "CPU",
+            "value": "—"
+          }
+        },
+        "row_11": {
+          "type": "row",
+          "settings": {
+            "label": "GPU",
+            "value": "—"
+          }
+        },
+        "row_12": {
+          "type": "row",
+          "settings": {
+            "label": "RAM",
+            "value": "—"
+          }
+        },
+        "row_13": {
+          "type": "row",
+          "settings": {
+            "label": "ROM",
+            "value": "—"
+          }
+        },
+        "row_14": {
+          "type": "row",
+          "settings": {
+            "label": "Storage",
+            "value": "—"
+          }
+        },
+        "row_15": {
+          "type": "row",
+          "settings": {
+            "label": "Battery",
+            "value": "4,500mAh dual-cell (2250mAh) battery, non-removable"
+          }
+        },
+        "row_16": {
+          "type": "row",
+          "settings": {
+            "label": "Weight",
+            "value": "—"
+          }
+        }
+      },
+      "block_order": [
+        "group_1",
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6",
+        "row_7",
+        "row_8",
+        "group_2",
+        "row_9",
+        "row_10",
+        "row_11",
+        "row_12",
+        "row_13",
+        "row_14",
+        "row_15",
+        "row_16"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Specification",
+        "heading_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_compare": {
+      "type": "rt-compare",
+      "blocks": {
+        "product_1": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "title": "CX20",
+            "price": "$389.00",
+            "viewing_label": "Currently viewing",
+            "buy_label": "",
+            "buy_url": "",
+            "learn_label": "Learn more",
+            "learn_url": "",
+            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|Qualcomm® Snapdragon™\n50W|Wireless Charging"
+          }
+        },
+        "product_2": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "title": "CX20 Pro",
+            "price": "$489.00",
+            "viewing_label": "",
+            "buy_label": "Buy now",
+            "buy_url": "",
+            "learn_label": "Learn more",
+            "learn_url": "",
+            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|Qualcomm® Snapdragon™\n50W|Wireless Charging"
+          }
+        },
+        "product_3": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "title": "CX20 Ultra",
+            "price": "$589.00",
+            "viewing_label": "",
+            "buy_label": "Buy now",
+            "buy_url": "",
+            "learn_label": "Learn more",
+            "learn_url": "",
+            "specs": "6.70\"|2K+Fluid Display With LTPO\n120Hz|Ultra Smooth\n5G|Transformed\n8 Gen 2|--\n50W|Wireless Charging"
+          }
+        }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Which is the Best for You?",
+        "heading_color": "#000000",
+        "link_text": "View All Comparisons",
+        "link_url": "",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_faq": {
+      "type": "rt-faq",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "question": "Item",
+            "answer": "<p>This thermal camera is designed for everyday inspection. Connect it to the Raythink app to transfer images and review temperature data.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "FAQ",
+        "heading_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    },
+    "rt_review": {
+      "type": "rt-review",
+      "blocks": {
+        "summary": {
+          "type": "summary",
+          "settings": {
+            "rating": "4.9",
+            "review_count": 130,
+            "star_5": 120,
+            "star_4": 6,
+            "star_3": 2,
+            "star_2": 1,
+            "star_1": 1,
+            "button_text": "Write a Review",
+            "button_url": ""
+          }
+        },
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "author": "Customer",
+            "rating": 5,
+            "date": "August 20, 2025",
+            "title": "Clear thermal images",
+            "body": "<p>Useful for home checks. The image is clear and the temperature reading is easy to understand.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "summary",
+        "review_1"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Review",
+        "heading_color": "#000000",
+        "gallery_heading": "Customer Images",
+        "background_color": "#ffffff",
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rt_nav_BjnEQH",
+    "rt_grid_Uc873h",
+    "rt_text_with_image_VnaR7W",
+    "rt_text_with_image_2_nQ9JHk",
+    "rt_text_with_image_2_BDftf4",
+    "rt_view_switch",
+    "rt_grid_p8xYMw",
+    "rt_grid_WCTTyB",
+    "rt_in_the_box",
+    "rt_specification",
+    "rt_compare",
+    "rt_faq",
+    "rt_review"
+  ]
+}
