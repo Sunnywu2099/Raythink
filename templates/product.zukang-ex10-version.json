@@ -185,6 +185,7 @@
                 },
                 "members": {
                   "type": "_rt-product-icon-text",
+                  "disabled": true,
                   "settings": {
                     "text": "Member’s Benefits",
                     "icon": "gift",
