@@ -100,13 +100,25 @@
                     "return_days": 30
                   },
                   "blocks": {}
+                },
+                "rt_product_icon_text_E787WJ": {
+                  "type": "_rt-product-icon-text",
+                  "name": "t:rt_product.icon_text",
+                  "settings": {
+                    "text": "Wide Temperature Range: Measure from -4°F to 1022°F (-20°C to 550°C) for versatile inspections.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "feature_1",
                 "feature_2",
                 "feature_3",
-                "feature_4"
+                "feature_4",
+                "rt_product_icon_text_E787WJ"
               ]
             },
             "variant_picker_R3rGDr": {
