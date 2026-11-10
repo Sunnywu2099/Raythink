@@ -253,7 +253,7 @@
             "icon": "shopify://shop_images/Thermal.png",
             "title": "Clear Thermal Imaging",
             "title_color": "#000000",
-            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text": "See hidden heat patterns and temperature differences with enhanced thermal clarity.",
             "text_color": "#595959"
           }
         },
@@ -263,7 +263,7 @@
             "icon": "shopify://shop_images/Temperature.png",
             "title": "Precise Temperature Measurement",
             "title_color": "#000000",
-            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text": "Get reliable temperature readings to identify potential issues with confidence.",
             "text_color": "#595959"
           }
         },
