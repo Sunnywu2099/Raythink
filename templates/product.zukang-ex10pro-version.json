@@ -100,13 +100,24 @@
                     "return_days": 30
                   },
                   "blocks": {}
+                },
+                "rt_product_icon_text_mrHQYz": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Laser-Assisted Inspection: Easily locate inspection targets with the built-in laser pointer, even during complex inspections.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "feature_1",
                 "feature_2",
                 "feature_3",
-                "feature_4"
+                "feature_4",
+                "rt_product_icon_text_mrHQYz"
               ]
             },
             "variant_picker_R3rGDr": {
