@@ -64,7 +64,7 @@
                 "feature_1": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "640 × 480 Screen Resolution",
+                    "text": "Sharper Thermal Imaging: 512 × 384 NUR super-resolution with 256 × 192 native resolution and <40mK sensitivity for clearer thermal details.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -74,7 +74,7 @@
                 "feature_2": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "Wireless APP Transfer & PC Analysis",
+                    "text": "Dual-Imaging Fusion: Combines thermal imaging with a 2MP visible-light camera to help identify heat anomalies and locate faulty components.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -84,7 +84,7 @@
                 "feature_3": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "32GB Storage Handheld Infrared Camera for Daily Inspections",
+                    "text": "Wide-View Inspection & Laser Pointer: 56° × 42° wide field of view with laser pointing for efficient scanning and precise target identification.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -94,7 +94,7 @@
                 "feature_4": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "USB-C Plug-In for Smartphones",
+                    "text": "Precise Temperature Measurement & Smart Alerts: Measures -4°F to 1022°F (-20°C to 550°C), with 3 customizable points, isotherm analysis, and automatic temperature alerts.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
