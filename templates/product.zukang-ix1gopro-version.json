@@ -628,7 +628,8 @@
         "item_1": {
           "type": "item",
           "settings": {
-            "title": "IX1 Go"
+            "image": "shopify://shop_images/Frame_2117130594_1.png",
+            "title": "IX1 Go Pro"
           }
         },
         "item_yyhRBa": {
@@ -645,21 +646,24 @@
             "title": "Carrying Bag"
           }
         },
-        "item_4": {
+        "item_mV4PpA": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/Frame_2117130591.png",
             "title": "USB-C Cable"
           }
         },
-        "item_5": {
+        "item_w7BfLt": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/Frame_2117130591_1.png",
             "title": "Certificate"
           }
         },
-        "item_6": {
+        "item_eUCwPj": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/Frame_2117130591_2.png",
             "title": "Quick Start Guide"
           }
         }
@@ -668,9 +672,9 @@
         "item_1",
         "item_yyhRBa",
         "item_kL88Yj",
-        "item_4",
-        "item_5",
-        "item_6"
+        "item_mV4PpA",
+        "item_w7BfLt",
+        "item_eUCwPj"
       ],
       "settings": {
         "heading": "What's in the box",
