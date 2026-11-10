@@ -319,7 +319,6 @@
         },
         "description_Kb9tEC": {
           "type": "description",
-          "disabled": true,
           "settings": {
             "text_color": "#595959",
             "text": "Every Raythink thermal system is calibrated against blackbody standards to guarantee accurate, actionable thermal data in mission-critical environments."
@@ -329,7 +328,7 @@
           "type": "application-block",
           "settings": {
             "icon": "shopify://shop_images/Warranty.png",
-            "title": "Clear Thermal Imaging",
+            "title": "Official Warranty",
             "title_color": "#000000",
             "text": "",
             "text_color": "#595959"
@@ -339,7 +338,7 @@
           "type": "application-block",
           "settings": {
             "icon": "shopify://shop_images/Shipping.png",
-            "title": "Precise Temperature Measurement",
+            "title": "Fast & Reliable Shipping",
             "title_color": "#000000",
             "text": "",
             "text_color": "#595959"
