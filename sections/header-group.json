@@ -343,7 +343,7 @@
                       "type": "_rt-header-menu-card",
                       "settings": {
                         "title": "Contact Us",
-                        "url": "/"
+                        "url": "shopify://pages/contact"
                       },
                       "blocks": {}
                     }
@@ -485,6 +485,7 @@
                     "rt_header_menu_card_APwLFK": {
                       "type": "_rt-header-menu-card",
                       "name": "卡片",
+                      "disabled": true,
                       "settings": {
                         "image": "shopify://shop_images/Rectangle_562_ba59898a-cffc-4928-90d2-f6827098f8d0.png",
                         "title": "Blog",
@@ -496,14 +497,14 @@
                       "type": "_rt-header-menu-card",
                       "name": "卡片",
                       "settings": {
-                        "image": "shopify://shop_images/Rectangle_562_812b0469-bdd5-4fc2-9813-9aa9fb45be2d.png",
                         "title": "About Us",
-                        "url": "/"
+                        "url": "shopify://pages/our-story"
                       },
                       "blocks": {}
                     },
                     "rt_header_menu_card_44nkPA": {
                       "type": "_rt-header-menu-card",
+                      "disabled": true,
                       "settings": {
                         "image": "shopify://shop_images/Rectangle_562_e5608ec7-52d6-45c3-85f0-c2d6b3ee1462.png",
                         "title": "Membership",
