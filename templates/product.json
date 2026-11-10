@@ -444,6 +444,42 @@
         "padding_bottom_desktop": 160
       }
     },
+    "rt_view_switch_bQBHhd": {
+      "type": "rt-view-switch",
+      "blocks": {
+        "view_YkpR9m": {
+          "type": "view",
+          "settings": {
+            "title": "IX1 Go Pro",
+            "image_desktop": "shopify://shop_images/IX1GOPRO_4_image_modes.png",
+            "image_mobile": "shopify://shop_images/IX1GOPRO_4_Image_Modes_MO.png"
+          }
+        },
+        "view_gNLUaY": {
+          "type": "view",
+          "settings": {
+            "title": "IX1 Go",
+            "image_desktop": "shopify://shop_images/IX1GO_3_Image_Modes.png",
+            "image_mobile": "shopify://shop_images/IX1GO_3_Image_Modes_MO.png"
+          }
+        }
+      },
+      "block_order": [
+        "view_YkpR9m",
+        "view_gNLUaY"
+      ],
+      "settings": {
+        "heading": "Choose the View That Fits the Job.",
+        "heading_color": "#ffffff",
+        "description": "Switch between thermal, visible-light camera, and picture-in-picture views to connect thermal information with the real-world scene.",
+        "description_color": "#b5b5b5",
+        "background_color": "#141414",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
     "rt_text_with_image_2_nQ9JHk": {
       "type": "rt-text-with-image-2",
       "blocks": {
@@ -518,42 +554,6 @@
       "settings": {
         "background_color": "#141414",
         "image_position": "right",
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 96,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 160
-      }
-    },
-    "rt_view_switch_bQBHhd": {
-      "type": "rt-view-switch",
-      "blocks": {
-        "view_YkpR9m": {
-          "type": "view",
-          "settings": {
-            "title": "IX1 Go Pro",
-            "image_desktop": "shopify://shop_images/IX1GOPRO_4_image_modes.png",
-            "image_mobile": "shopify://shop_images/IX1GOPRO_4_Image_Modes_MO.png"
-          }
-        },
-        "view_gNLUaY": {
-          "type": "view",
-          "settings": {
-            "title": "IX1 Go",
-            "image_desktop": "shopify://shop_images/IX1GO_3_Image_Modes.png",
-            "image_mobile": "shopify://shop_images/IX1GO_3_Image_Modes_MO.png"
-          }
-        }
-      },
-      "block_order": [
-        "view_YkpR9m",
-        "view_gNLUaY"
-      ],
-      "settings": {
-        "heading": "Choose the View That Fits the Job.",
-        "heading_color": "#ffffff",
-        "description": "Switch between thermal, visible-light camera, and picture-in-picture views to connect thermal information with the real-world scene.",
-        "description_color": "#b5b5b5",
-        "background_color": "#141414",
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 96,
         "padding_top_desktop": 0,
@@ -1004,9 +1004,9 @@
     "rt_nav_BjnEQH",
     "rt_grid_Uc873h",
     "rt_text_with_image_VnaR7W",
+    "rt_view_switch_bQBHhd",
     "rt_text_with_image_2_nQ9JHk",
     "rt_text_with_image_2_BDftf4",
-    "rt_view_switch_bQBHhd",
     "rt_grid_p8xYMw",
     "rt_grid_WCTTyB",
     "rt_in_the_box",
