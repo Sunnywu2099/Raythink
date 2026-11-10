@@ -269,7 +269,7 @@
                       "name": "产品",
                       "settings": {
                         "product": "ix1go-pro-smartphone-thermal-camera",
-                        "badge_text": "Dual-Lens Thermal Imaging for Smarter Inspections",
+                        "badge_text": "",
                         "badge_color": "#1b8f3a"
                       },
                       "blocks": {}
