@@ -21,9 +21,9 @@
             "description": "Dual-Lens Thermal Imaging for Smarter Inspections",
             "text_color": "{{ settings.color_palette.foreground }}",
             "button_text": "Learn More",
-            "button_url": "",
+            "button_url": "shopify://products/ix1go-pro-smartphone-thermal-camera",
             "button_text_2": "",
-            "button_url_2": "",
+            "button_url_2": "shopify://products/ix1go-pro-smartphone-thermal-camera",
             "layout": "left"
           }
         },
