@@ -543,7 +543,6 @@
         "view_1",
         "view_2"
       ],
-      "disabled": true,
       "settings": {
         "heading": "Choose the View That Fits the Job.",
         "heading_color": "#ffffff",
