@@ -262,7 +262,7 @@
         "sale_background": "#ffebeb",
         "padding_top_desktop": 40,
         "padding_bottom_desktop": 40,
-        "padding_top_mobile": 80,
+        "padding_top_mobile": 60,
         "padding_bottom_mobile": 100
       }
     },
