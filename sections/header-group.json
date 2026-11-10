@@ -144,7 +144,7 @@
                       "name": "产品",
                       "settings": {
                         "product": "ex10-handheld-thermal-camera",
-                        "badge_text": "New",
+                        "badge_text": "Essential",
                         "badge_color": "#00ad2e"
                       },
                       "blocks": {}
@@ -154,7 +154,7 @@
                       "name": "产品",
                       "settings": {
                         "product": "ex10-pro-handheld-thermal-camera",
-                        "badge_text": "New",
+                        "badge_text": "Advanced",
                         "badge_color": "#00ad2e"
                       },
                       "blocks": {}
