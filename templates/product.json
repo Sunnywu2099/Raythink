@@ -447,14 +447,6 @@
     "rt_view_switch_bQBHhd": {
       "type": "rt-view-switch",
       "blocks": {
-        "view_YkpR9m": {
-          "type": "view",
-          "settings": {
-            "title": "IX1 Go Pro",
-            "image_desktop": "shopify://shop_images/IX1GOPRO_4_image_modes.png",
-            "image_mobile": "shopify://shop_images/IX1GOPRO_4_Image_Modes_MO.png"
-          }
-        },
         "view_gNLUaY": {
           "type": "view",
           "settings": {
@@ -462,11 +454,19 @@
             "image_desktop": "shopify://shop_images/IX1GO_3_Image_Modes.png",
             "image_mobile": "shopify://shop_images/IX1GO_3_Image_Modes_MO.png"
           }
+        },
+        "view_YkpR9m": {
+          "type": "view",
+          "settings": {
+            "title": "IX1 Go Pro",
+            "image_desktop": "shopify://shop_images/IX1GOPRO_4_image_modes.png",
+            "image_mobile": "shopify://shop_images/IX1GOPRO_4_Image_Modes_MO.png"
+          }
         }
       },
       "block_order": [
-        "view_YkpR9m",
-        "view_gNLUaY"
+        "view_gNLUaY",
+        "view_YkpR9m"
       ],
       "settings": {
         "heading": "Choose the View That Fits the Job.",
