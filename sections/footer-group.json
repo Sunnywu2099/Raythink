@@ -96,6 +96,7 @@
             "rt_footer_region_C7pp36": {
               "type": "_rt-footer-region",
               "name": "地区项",
+              "disabled": true,
               "settings": {
                 "group": "North America",
                 "region": "United States",
