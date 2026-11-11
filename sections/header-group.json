@@ -228,7 +228,7 @@
                       "type": "_rt-header-menu-product",
                       "name": "产品",
                       "settings": {
-                        "product": "cx20-ultra-handheld-thermal-camera",
+                        "product": "cx20ultra-handheld-thermal-camera",
                         "badge_text": "Professional",
                         "badge_color": "#1b8f3a"
                       },
