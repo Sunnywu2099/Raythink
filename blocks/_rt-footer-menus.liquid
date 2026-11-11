@@ -10,16 +10,18 @@
   {%- if section.settings.contact_email != blank or section.settings.address != blank -%}
     <div class="rt-footer__contact">
       {%- if section.settings.contact_email != blank -%}
-        <p class="rt-footer__contact-line">
-          <span class="rt-footer__contact-label">{{ 'rt.footer.contact' | t }}:</span>
-          <a href="mailto:{{ section.settings.contact_email | escape }}">{{ section.settings.contact_email | escape }}</a>
-        </p>
+        <div class="rt-footer__contact-item">
+          <p class="rt-footer__contact-label">{{ 'rt.footer.contact' | t }}</p>
+          <a class="rt-footer__contact-value" href="mailto:{{ section.settings.contact_email | escape }}">
+            {{ section.settings.contact_email | escape }}
+          </a>
+        </div>
       {%- endif -%}
       {%- if section.settings.address != blank -%}
-        <p class="rt-footer__contact-line">
-          <span class="rt-footer__contact-label">{{ 'rt.footer.address' | t }}:</span>
-          {{ section.settings.address | escape }}
-        </p>
+        <div class="rt-footer__contact-item">
+          <p class="rt-footer__contact-label">{{ 'rt.footer.address' | t }}</p>
+          <p class="rt-footer__contact-value">{{ section.settings.address | escape }}</p>
+        </div>
       {%- endif -%}
     </div>
   {%- endif -%}
