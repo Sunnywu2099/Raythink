@@ -381,7 +381,9 @@
     "footer": {
       "social_facebook": "Facebook",
       "social_x": "X",
-      "social_instagram": "Instagram"
+      "social_instagram": "Instagram",
+      "contact": "Contact",
+      "address": "Address"
     }
   },
   "rt_product": {

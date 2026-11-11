@@ -1,6 +1,6 @@
 {%- comment %}
   Section contract.
-  Footer navigation columns plus an isolated newsletter form. Mobile stacks accordion menus above the form. From 750px to 1023px menus are two columns and the form sits below. From 1024px menus are four columns with the form on the right.
+  Footer navigation columns plus an isolated newsletter form. Contact email and address render as one column inside the menu group. Mobile stacks accordion menus above the form. From 750px to 1023px menus are two columns and the form sits below. From 1024px menus are four columns with the form on the right.
 {% endcomment %}
 
 {%- liquid
@@ -52,6 +52,62 @@
 
   .footer_bottom__logo {
     max-width: 82px;
+  }
+
+  .rt-footer__contact {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .rt-footer__contact-item {
+    min-width: 0;
+    border-block-end: 1px solid #e8e8e8;
+  }
+
+  .rt-footer__contact-label {
+    margin: 0;
+    padding: 18px 0 12px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #000000;
+    text-align: start;
+  }
+
+  .rt-footer__contact-value {
+    display: block;
+    margin: 0;
+    padding: 0 0 16px 12px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    color: #565657;
+    text-decoration: none;
+  }
+
+  .rt-footer__contact-value:hover {
+    color: #000000;
+  }
+
+  @media (min-width: 750px) {
+    .rt-footer__contact {
+      gap: 16px;
+    }
+
+    .rt-footer__contact-item {
+      border-block-end: none;
+    }
+
+    .rt-footer__contact-label {
+      padding: 0 0 8px;
+    }
+
+    .rt-footer__contact-value {
+      padding: 0;
+    }
   }
 
   @media (min-width: 750px) and (max-width: 1023px) {
@@ -159,6 +215,22 @@
         "id": "background_color",
         "label": "Footer背景颜色",
         "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "联系信息"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "联系邮箱",
+        "default": "support@raythink.com"
+      },
+      {
+        "type": "textarea",
+        "id": "address",
+        "label": "地址",
+        "default": "Room A08, 2/F, Leek Ka Industrial Building, 8 Ng Fong Street, San Po Kong, Kowloon, HongKong"
       },
       {
         "type": "header",
