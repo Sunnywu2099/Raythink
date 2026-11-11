@@ -128,7 +128,6 @@
         },
         "half_block_cQRNFw": {
           "type": "half-block",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/EX10_Front.png",
             "title": "EX10",
@@ -143,9 +142,8 @@
         },
         "half_block_zEDA3B": {
           "type": "half-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Raythink_EX10_Pro_transparent_background.png",
+            "image": "shopify://shop_images/Raythink_EX10_Pro_2000x2000_Matched.png",
             "title": "EX10 Pro",
             "title_color": "#000000",
             "description": "Dual-Camera Handheld Thermal Imaging for Detailed Inspections",
