@@ -218,7 +218,7 @@
                       "type": "_rt-header-menu-product",
                       "name": "产品",
                       "settings": {
-                        "product": "cx20-pro-handheld-thermal-camera",
+                        "product": "cx20pro-handheld-thermal-camera",
                         "badge_text": "Advanced",
                         "badge_color": "#1b8f3a"
                       },
