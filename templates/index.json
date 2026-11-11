@@ -84,10 +84,9 @@
       "blocks": {
         "title_npk7e3": {
           "type": "title",
-          "disabled": true,
           "settings": {
             "text_color": "#000000",
-            "text": "Engineered for Clarity and Diagnostic Confidence"
+            "text": "Explore Innovative Tools Built for Every Challenge"
           }
         },
         "description_xXMd33": {
@@ -126,6 +125,34 @@
             "secondary_link": ""
           }
         },
+        "half_block_cQRNFw": {
+          "type": "half-block",
+          "settings": {
+            "image": "shopify://shop_images/EX10_Front.png",
+            "title": "EX10",
+            "title_color": "{{ settings.color_palette.foreground }}",
+            "description": "Essential Handheld Thermal Imaging for Everyday Inspections",
+            "description_color": "{{ settings.color_palette.color1 }}",
+            "primary_button_text": "Learn More",
+            "primary_link": "shopify://products/ex10-handheld-thermal-camera",
+            "secondary_button_text": "",
+            "secondary_link": ""
+          }
+        },
+        "half_block_zEDA3B": {
+          "type": "half-block",
+          "settings": {
+            "image": "shopify://shop_images/Raythink_EX10_Pro_2000x2000_Matched.png",
+            "title": "EX10 Pro",
+            "title_color": "#000000",
+            "description": "Dual-Camera Handheld Thermal Imaging for Detailed Inspections",
+            "description_color": "{{ settings.color_palette.color1 }}",
+            "primary_button_text": "Learn More",
+            "primary_link": "shopify://products/ex10pro-handheld-thermal-camera",
+            "secondary_button_text": "",
+            "secondary_link": ""
+          }
+        },
         "full_block_GUJFid": {
           "type": "full-block",
           "disabled": true,
@@ -148,6 +175,8 @@
         "description_xXMd33",
         "half_block_qtQXMP",
         "half_block_bkKfRb",
+        "half_block_cQRNFw",
+        "half_block_zEDA3B",
         "full_block_GUJFid"
       ],
       "name": "rt-main-products",
