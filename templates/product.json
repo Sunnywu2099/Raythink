@@ -450,8 +450,8 @@
           "type": "view",
           "settings": {
             "title": "IX1 Go",
-            "image_desktop": "shopify://shop_images/IX1GO_3_Image_Modes.png",
-            "image_mobile": "shopify://shop_images/IX1GO_3_Image_Modes_MO.png"
+            "image_desktop": "shopify://shop_images/IX1GO_3_IMG_Modes.png",
+            "image_mobile": "shopify://shop_images/MO_IX1Go_3_Image_Modes.png"
           }
         },
         "view_YkpR9m": {
