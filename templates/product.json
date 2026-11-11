@@ -373,8 +373,8 @@
           "type": "image_block",
           "settings": {
             "background_color": "#1f1f1f",
-            "image": "shopify://shop_images/IX1GO_NUR_Resolution_PC.png",
-            "image_mobile": "shopify://shop_images/IX1GO_NUR_Resolution_MO.png",
+            "image": "shopify://shop_images/IX1GO_AI_Super_Resolution_PC.png",
+            "image_mobile": "shopify://shop_images/IX1GO_AI_Super_Resolution_MO.png",
             "image_position": "left",
             "title": "See More Thermal Detail with AI.",
             "title_color": "#ffffff",
@@ -392,7 +392,7 @@
             "image_position": "right",
             "title": "Measure Wide. Focus on What Matters.",
             "title_color": "#ffffff",
-            "description": "Measure temperatures from -20°C to 550°C and use isotherms to highlight areas that deserve closer attention.",
+            "description": "Measure temperatures from  -4°F to  1022°F and use isotherms to highlight areas that deserve closer attention.",
             "description_color": "#a6a6a6",
             "text_align": "center"
           }
@@ -401,8 +401,8 @@
           "type": "image_block",
           "settings": {
             "background_color": "#1f1f1f",
-            "image": "shopify://shop_images/Frame_2085661962_edc8e946-1014-47ba-8a52-4e0d46c79dc7.png",
-            "image_mobile": "shopify://shop_images/Frame_2117130450_b0a17e0b-b9c9-4bfb-b93f-a962c3e8473b.png",
+            "image": "shopify://shop_images/IX1GO_Isothem_PC.png",
+            "image_mobile": "shopify://shop_images/IX1GO_Isothem_MO.png",
             "image_position": "left",
             "title": "Highlight What Matters.",
             "title_color": "#ffffff",
@@ -450,8 +450,8 @@
           "type": "view",
           "settings": {
             "title": "IX1 Go",
-            "image_desktop": "shopify://shop_images/IX1GO_3_Image_Modes.png",
-            "image_mobile": "shopify://shop_images/IX1GO_3_Image_Modes_MO.png"
+            "image_desktop": "shopify://shop_images/IX1GO_3_IMG_Modes.png",
+            "image_mobile": "shopify://shop_images/MO_IX1Go_3_Image_Modes.png"
           }
         },
         "view_YkpR9m": {
@@ -628,42 +628,42 @@
         "item_1": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Frame_2117130594.png",
+            "image": "shopify://shop_images/Frame_2117130594_1_2cde5f5a-91da-4f97-884d-4f0f1f8d866a.png",
             "title": "IX1 Go"
           }
         },
         "item_2": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Frame_2117130592_3.png",
+            "image": "shopify://shop_images/Frame_2117130592_f199d7a5-9a5a-4d63-b3d3-8cd1cdeee96b.png",
             "title": "Packaging Box"
           }
         },
         "item_3": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Frame_2117130592_2.png",
+            "image": "shopify://shop_images/Frame_2117130592_1_05b7d3fe-94da-4687-9a3a-6362a4cc459e.png",
             "title": "Carrying Bag"
           }
         },
         "item_4": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Frame_2117130591.png",
+            "image": "shopify://shop_images/Frame_2117130591_2f6cc129-f7f0-4841-b96d-11e75df0b9af.png",
             "title": "USB-C Cable"
           }
         },
         "item_5": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Frame_2117130591_1.png",
+            "image": "shopify://shop_images/Frame_2117130591_5.png",
             "title": "Certificate"
           }
         },
         "item_6": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Frame_2117130591_2.png",
+            "image": "shopify://shop_images/Frame_2117130591_4.png",
             "title": "Quick Start Guide"
           }
         }

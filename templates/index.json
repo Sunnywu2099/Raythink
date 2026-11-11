@@ -15,7 +15,8 @@
         "main_banner_block_3tkL8h": {
           "type": "main-banner-block",
           "settings": {
-            "img_desktop": "shopify://shop_images/IX1_Go_KV_PC.jpg",
+            "img_desktop": "shopify://shop_images/IX1_Go_KV_PC_1920__4X_a84989e9-ceed-4d43-bf60-5c015df884df.jpg",
+            "img_mobile": "shopify://shop_images/IX1_Go_KV_MO_4X_eef8ec84-5f1b-4025-9453-33d571c8dff3.jpg",
             "slogan": "GO EASY, GO SMART",
             "title": "Raythink IX1 Go Pro",
             "description": "Dual-Lens Thermal Imaging for Smarter Inspections",
@@ -243,7 +244,7 @@
           "type": "description",
           "settings": {
             "text_color": "#595959",
-            "text": "Every Raythink thermal system is calibrated against blackbody standards to guarantee accurate, actionable thermal data in mission-critical environments."
+            "text": "From clear thermal imaging to accurate temperature measurement, Raythink delivers intelligent tools that make every inspection easier and more reliable."
           }
         },
         "application_block_Yned4p": {
@@ -252,7 +253,7 @@
             "icon": "shopify://shop_images/Thermal.png",
             "title": "Clear Thermal Imaging",
             "title_color": "#000000",
-            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text": "See hidden heat patterns and temperature differences with enhanced thermal clarity.",
             "text_color": "#595959"
           }
         },
@@ -262,7 +263,7 @@
             "icon": "shopify://shop_images/Temperature.png",
             "title": "Precise Temperature Measurement",
             "title_color": "#000000",
-            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text": "Get reliable temperature readings to identify potential issues with confidence.",
             "text_color": "#595959"
           }
         },
@@ -272,7 +273,7 @@
             "icon": "shopify://shop_images/Inspection.png",
             "title": "Smart Inspection Tools",
             "title_color": "#000000",
-            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text": "Streamline inspections with intelligent features designed to make troubleshooting easier.",
             "text_color": "#595959"
           }
         },
@@ -282,7 +283,7 @@
             "icon": "shopify://shop_images/Home-Checks.png",
             "title": "Built for Real-World Use",
             "title_color": "#000000",
-            "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+            "text": "Designed for dependable performance across home, HVAC, electrical, and industrial inspections.",
             "text_color": "#595959"
           }
         }
@@ -318,7 +319,6 @@
         },
         "description_Kb9tEC": {
           "type": "description",
-          "disabled": true,
           "settings": {
             "text_color": "#595959",
             "text": "Every Raythink thermal system is calibrated against blackbody standards to guarantee accurate, actionable thermal data in mission-critical environments."
@@ -328,7 +328,7 @@
           "type": "application-block",
           "settings": {
             "icon": "shopify://shop_images/Warranty.png",
-            "title": "Clear Thermal Imaging",
+            "title": "Official Warranty",
             "title_color": "#000000",
             "text": "",
             "text_color": "#595959"
@@ -338,7 +338,7 @@
           "type": "application-block",
           "settings": {
             "icon": "shopify://shop_images/Shipping.png",
-            "title": "Precise Temperature Measurement",
+            "title": "Fast & Reliable Shipping",
             "title_color": "#000000",
             "text": "",
             "text_color": "#595959"
@@ -348,7 +348,7 @@
           "type": "application-block",
           "settings": {
             "icon": "shopify://shop_images/Checkout.png",
-            "title": "Smart Inspection Tools",
+            "title": "Secure & Easy Checkout",
             "title_color": "#000000",
             "text": "",
             "text_color": "#595959"
@@ -358,7 +358,7 @@
           "type": "application-block",
           "settings": {
             "icon": "shopify://shop_images/Support.png",
-            "title": "Built for Real-World Use",
+            "title": "Expert Technical Support",
             "title_color": "#000000",
             "text": "",
             "text_color": "#595959"
