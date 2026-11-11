@@ -1,6 +1,6 @@
 {%- comment %}
   Section contract.
-  Footer navigation columns plus an isolated newsletter form. Mobile stacks accordion menus above the form. From 750px to 1023px menus are two columns and the form sits below. From 1024px menus are four columns with the form on the right.
+  Footer navigation columns plus an isolated newsletter form. Contact email and address render as one column inside the menu group. Mobile stacks accordion menus above the form. From 750px to 1023px menus are two columns and the form sits below. From 1024px menus are four columns with the form on the right.
 {% endcomment %}
 
 {%- liquid
@@ -58,16 +58,23 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-top: 32px;
+    min-width: 0;
+    padding: 18px 0 12px;
+    border-block-end: 1px solid #e8e8e8;
     font-size: 14px;
     line-height: 18px;
-    color: #000000;
+    font-weight: 600;
+    color: #565657;
   }
 
   .rt-footer__contact-line {
     margin: 0;
     min-width: 0;
     overflow-wrap: anywhere;
+  }
+
+  .rt-footer__contact-label {
+    color: #000000;
   }
 
   .rt-footer__contact a {
@@ -86,6 +93,11 @@
     .rt-footer__form {
       max-width: 420px;
     }
+
+    .rt-footer__contact {
+      padding: 0;
+      border-block-end: none;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -100,6 +112,11 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 24px 32px;
+    }
+
+    .rt-footer__contact {
+      padding: 0;
+      border-block-end: none;
     }
 
     .footer_bottom {
@@ -123,21 +140,6 @@
         {% content_for 'block', type: '_rt-footer-menus', id: 'menus' %}
         {% content_for 'block', type: '_rt-footer-form', id: 'form' %}
       </div>
-      {%- if section.settings.contact_email != blank or section.settings.address != blank -%}
-        <div class="rt-footer__contact">
-          {%- if section.settings.contact_email != blank -%}
-            <p class="rt-footer__contact-line">
-              {{ 'rt.footer.contact' | t }}:
-              <a href="mailto:{{ section.settings.contact_email | escape }}">{{ section.settings.contact_email | escape }}</a>
-            </p>
-          {%- endif -%}
-          {%- if section.settings.address != blank -%}
-            <p class="rt-footer__contact-line">
-              {{ 'rt.footer.address' | t }}: {{ section.settings.address | escape }}
-            </p>
-          {%- endif -%}
-        </div>
-      {%- endif -%}
       <div class="footer_bottom">
         {% if section.settings.logo != blank %}
             <div class="footer_bottom__logo">
