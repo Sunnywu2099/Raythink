@@ -54,6 +54,28 @@
     max-width: 82px;
   }
 
+  .rt-footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 32px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+  }
+
+  .rt-footer__contact-line {
+    margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .rt-footer__contact a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
   @media (min-width: 750px) and (max-width: 1023px) {
     .rt-footer__menus {
       display: grid;
@@ -101,6 +123,21 @@
         {% content_for 'block', type: '_rt-footer-menus', id: 'menus' %}
         {% content_for 'block', type: '_rt-footer-form', id: 'form' %}
       </div>
+      {%- if section.settings.contact_email != blank or section.settings.address != blank -%}
+        <div class="rt-footer__contact">
+          {%- if section.settings.contact_email != blank -%}
+            <p class="rt-footer__contact-line">
+              {{ 'rt.footer.contact' | t }}:
+              <a href="mailto:{{ section.settings.contact_email | escape }}">{{ section.settings.contact_email | escape }}</a>
+            </p>
+          {%- endif -%}
+          {%- if section.settings.address != blank -%}
+            <p class="rt-footer__contact-line">
+              {{ 'rt.footer.address' | t }}: {{ section.settings.address | escape }}
+            </p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
       <div class="footer_bottom">
         {% if section.settings.logo != blank %}
             <div class="footer_bottom__logo">
@@ -159,6 +196,22 @@
         "id": "background_color",
         "label": "Footer背景颜色",
         "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "联系信息"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "联系邮箱",
+        "default": "support@raythink.com"
+      },
+      {
+        "type": "textarea",
+        "id": "address",
+        "label": "地址",
+        "default": "Room A08, 2/F, Leek Ka Industrial Building, 8 Ng Fong Street, San Po Kong, Kowloon, HongKong"
       },
       {
         "type": "header",
