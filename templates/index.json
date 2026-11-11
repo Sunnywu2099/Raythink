@@ -128,6 +128,7 @@
         },
         "half_block_cQRNFw": {
           "type": "half-block",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/EX10_Front.png",
             "title": "EX10",
@@ -142,6 +143,7 @@
         },
         "half_block_zEDA3B": {
           "type": "half-block",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Raythink_EX10_Pro_transparent_background.png",
             "title": "EX10 Pro",
