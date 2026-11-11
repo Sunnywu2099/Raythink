@@ -131,9 +131,9 @@
           "settings": {
             "image": "shopify://shop_images/EX10_Front.png",
             "title": "EX10",
-            "title_color": "#000000",
+            "title_color": "{{ settings.color_palette.foreground }}",
             "description": "Essential Handheld Thermal Imaging for Everyday Inspections",
-            "description_color": "#000000",
+            "description_color": "{{ settings.color_palette.color1 }}",
             "primary_button_text": "Learn More",
             "primary_link": "shopify://products/ex10-handheld-thermal-camera",
             "secondary_button_text": "",
@@ -143,11 +143,11 @@
         "half_block_zEDA3B": {
           "type": "half-block",
           "settings": {
-            "image": "shopify://shop_images/EX10_Front.png",
+            "image": "shopify://shop_images/Raythink_EX10_Pro_transparent_background.png",
             "title": "EX10 Pro",
             "title_color": "#000000",
             "description": "Dual-Camera Handheld Thermal Imaging for Detailed Inspections",
-            "description_color": "#000000",
+            "description_color": "{{ settings.color_palette.color1 }}",
             "primary_button_text": "Learn More",
             "primary_link": "shopify://products/ex10pro-handheld-thermal-camera",
             "secondary_button_text": "",
