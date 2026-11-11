@@ -67,6 +67,10 @@
     gap: 64px;
     align-items: center;
   }
+
+  .rt-heading-box > :only-child {
+    grid-column: 1 / -1;
+  }
 }
 
 /* -------------------------------- radius -------------------------------- */
