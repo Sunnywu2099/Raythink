@@ -656,14 +656,14 @@
         "item_5": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Frame_2117130591_1_d5c54801-b5d6-4eea-97c6-5edb40e9da9b.png",
+            "image": "shopify://shop_images/Frame_2117130591_5.png",
             "title": "Certificate"
           }
         },
         "item_6": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Frame_2117130591_2_0a45c226-c050-4a3a-8330-2566f442822a.png",
+            "image": "shopify://shop_images/Frame_2117130591_4.png",
             "title": "Quick Start Guide"
           }
         }
