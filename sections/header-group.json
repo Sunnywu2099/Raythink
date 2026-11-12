@@ -357,76 +357,15 @@
                 "rt_header_menu_card_group_74KCg9"
               ]
             },
-            "rt_header_menu_mega_6EAecn": {
-              "type": "_rt-header-menu-mega",
-              "name": "分类菜单",
-              "disabled": true,
+            "rt_header_menu_link_mMx4WA": {
+              "type": "_rt-header-menu-link",
+              "name": "链接",
               "settings": {
-                "title": "App Download",
-                "url": ""
+                "title": "Software Download",
+                "url": "shopify://pages/ti-studio-download",
+                "open_in_new_window": false
               },
-              "blocks": {
-                "rt_header_menu_category_TXe6at": {
-                  "type": "_rt-header-menu-category",
-                  "name": "分类",
-                  "settings": {
-                    "title": "Desktop App"
-                  },
-                  "blocks": {
-                    "rt_header_menu_card_8qAa4E": {
-                      "type": "_rt-header-menu-card",
-                      "settings": {
-                        "title": "Card",
-                        "url": ""
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "rt_header_menu_card_8qAa4E"
-                  ]
-                },
-                "rt_header_menu_category_AxzeFp": {
-                  "type": "_rt-header-menu-category",
-                  "name": "分类",
-                  "settings": {
-                    "title": "Mobile App"
-                  },
-                  "blocks": {
-                    "rt_header_menu_card_DEhcqw": {
-                      "type": "_rt-header-menu-card",
-                      "settings": {
-                        "title": "Card",
-                        "url": ""
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "rt_header_menu_card_DEhcqw"
-                  ]
-                },
-                "rt_header_menu_category_eGE9VY": {
-                  "type": "_rt-header-menu-category",
-                  "settings": {
-                    "title": "Category"
-                  },
-                  "blocks": {}
-                },
-                "rt_header_menu_category_HNmBcw": {
-                  "type": "_rt-header-menu-category",
-                  "settings": {
-                    "title": "Category"
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "rt_header_menu_category_TXe6at",
-                "rt_header_menu_category_AxzeFp",
-                "rt_header_menu_category_eGE9VY",
-                "rt_header_menu_category_HNmBcw"
-              ]
+              "blocks": {}
             },
             "rt_header_menu_mega_U6VYdt": {
               "type": "_rt-header-menu-mega",
@@ -610,7 +549,7 @@
             "rt_header_menu_products_JTBF9Y",
             "rt_header_menu_products_WVQRyh",
             "rt_header_menu_mega_6LXnw8",
-            "rt_header_menu_mega_6EAecn",
+            "rt_header_menu_link_mMx4WA",
             "rt_header_menu_mega_U6VYdt",
             "rt_header_menu_mega_YjjGwT",
             "rt_header_menu_link_ezkUM8"
