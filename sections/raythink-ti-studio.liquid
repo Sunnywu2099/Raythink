@@ -6,6 +6,9 @@
 {% liquid
   assign rt_download = section.settings.download_url
   assign rt_manual = section.settings.manual_url
+  assign rt_ios = section.settings.ios_download_url | default: 'https://apps.apple.com/us/app/ti-studio/id6526465532'
+  assign rt_xiaomi = section.settings.xiaomi_download_url | default: 'https://www.raythink-tech.com/apk/Xiaomi_Raythink_TI_Studio_V2.1.0_build_44.apk'
+  assign rt_android = section.settings.android_download_url | default: 'https://www.raythink-tech.com/apk/android_TI_Studio_V2.1.0_build_44.apk'
 %}
 <section id="rt-ti-{{ section.id }}" class="rt-ti" style="--rt-accent:{{ section.settings.accent_color }};--rt-dark:#111b25;">
   <div class="rt-ti__hero">
@@ -22,11 +25,29 @@
         </div>
         <h2>{{ section.settings.hero_subheading | escape }}</h2>
         <p class="rt-ti__lede">{{ section.settings.hero_description | escape }}</p>
-        <div class="rt-ti__hero-actions">
-          {% if rt_download != blank %}<a class="rt-ti__btn rt-ti__btn--accent" href="{{ rt_download | escape }}" aria-label="Download TI Studio for Windows"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/></svg><span>{{ section.settings.download_label | escape }}</span></a>{% endif %}
-          {% if rt_manual != blank %}<a class="rt-ti__btn rt-ti__btn--outline-light" href="{{ rt_manual | escape }}" target="_blank" rel="noopener noreferrer">{{ section.settings.manual_label | escape }} ↗</a>{% endif %}
+        <div class="rt-ti__download-options" aria-label="TI Studio download options">
+          <div class="rt-ti__download-group">
+            <p class="rt-ti__download-group-label">DESKTOP</p>
+            {% if rt_download != blank %}
+              <a class="rt-ti__btn rt-ti__btn--accent rt-ti__device-btn" href="{{ rt_download | escape }}" aria-label="Download TI Studio for Windows">
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8m-4-4v4"/></svg>
+                <span>{{ section.settings.download_label | escape }}</span>
+              </a>
+            {% endif %}
+          </div>
+          <div class="rt-ti__download-group">
+            <p class="rt-ti__download-group-label">MOBILE APP</p>
+            <div class="rt-ti__mobile-links">
+              {% if rt_ios != blank %}<a class="rt-ti__btn rt-ti__btn--outline-light rt-ti__device-btn" href="{{ rt_ios | escape }}" target="_blank" rel="noopener noreferrer" aria-label="Download TI Studio for iOS">iOS ↗</a>{% endif %}
+              {% if rt_xiaomi != blank %}<a class="rt-ti__btn rt-ti__btn--outline-light rt-ti__device-btn" href="{{ rt_xiaomi | escape }}" aria-label="Download TI Studio for Xiaomi Android">Xiaomi Android ↓</a>{% endif %}
+              {% if rt_android != blank %}<a class="rt-ti__btn rt-ti__btn--outline-light rt-ti__device-btn" href="{{ rt_android | escape }}" aria-label="Download TI Studio for other Android devices">Other Android ↓</a>{% endif %}
+            </div>
+          </div>
         </div>
-        <div class="rt-ti__platform">{{ section.settings.platform_note | escape }}</div>
+        <div class="rt-ti__hero-support">
+          <span>{{ section.settings.platform_note | escape }}</span>
+          {% if rt_manual != blank %}<a href="{{ rt_manual | escape }}" target="_blank" rel="noopener noreferrer">{{ section.settings.manual_label | escape }} ↗</a>{% endif %}
+        </div>
       </div>
       <div class="rt-ti__hero-visual">
         {% if section.settings.hero_image != blank %}
@@ -126,6 +147,15 @@
 <style>
 #rt-ti-{{ section.id }}{font-family:inherit;color:#20262d;background:#fff;line-height:1.6}#rt-ti-{{ section.id }} *{box-sizing:border-box}#rt-ti-{{ section.id }} .rt-ti__wrap{width:min(1200px,calc(100% - 44px));margin:auto}#rt-ti-{{ section.id }} .rt-ti__hero{background:linear-gradient(120deg,#111b25 0%,#20313e 100%);color:#fff;padding:72px 0}#rt-ti-{{ section.id }} .rt-ti__hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px}#rt-ti-{{ section.id }} .rt-ti__eyebrow{font-size:12px;letter-spacing:.15em;font-weight:700;margin:0 0 18px;color:#b9c5cc}#rt-ti-{{ section.id }} .rt-ti__eyebrow--accent{color:var(--rt-accent)}#rt-ti-{{ section.id }} .rt-ti__hero-brand{display:flex;align-items:center;gap:18px;margin-bottom:16px}#rt-ti-{{ section.id }} .rt-ti__hero-brand h1{margin:0}#rt-ti-{{ section.id }} .rt-ti__hero-app-icon{flex:none;display:block;width:68px;height:68px;overflow:hidden;border-radius:50%;background:#fff}#rt-ti-{{ section.id }} .rt-ti__hero-app-icon img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%;box-shadow:none}#rt-ti-{{ section.id }} .rt-ti__download-brand{display:flex;align-items:center;gap:12px;margin-bottom:12px;min-height:48px}#rt-ti-{{ section.id }} .rt-ti__download-brand h3{margin:0}#rt-ti-{{ section.id }} .rt-ti__download-app-icon{flex:none;display:block;width:44px;height:44px;overflow:hidden;border-radius:50%;background:#fff}#rt-ti-{{ section.id }} .rt-ti__download-app-icon img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}#rt-ti-{{ section.id }} .rt-ti__hero h1{font-size:clamp(48px,5vw,78px);line-height:1.03;color:white;margin:0 0 16px;font-weight:750}#rt-ti-{{ section.id }} .rt-ti__hero h2{font-size:clamp(25px,3vw,40px);color:white;line-height:1.15;margin:0 0 22px;font-weight:600}#rt-ti-{{ section.id }} .rt-ti__lede{font-size:16px;line-height:1.85;color:#d4dee4;max-width:580px;margin:0 0 28px}#rt-ti-{{ section.id }} .rt-ti__hero-actions{display:flex;flex-wrap:wrap;gap:12px}#rt-ti-{{ section.id }} .rt-ti__btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:6px;padding:14px 23px;min-height:48px;font-size:14px;font-weight:700;line-height:1.3;transition:transform .2s,opacity .2s}#rt-ti-{{ section.id }} .rt-ti__btn:hover{transform:translateY(-2px);opacity:.9}#rt-ti-{{ section.id }} .rt-ti__btn--accent{background:var(--rt-accent);color:white;border:1px solid var(--rt-accent)}#rt-ti-{{ section.id }} .rt-ti__btn--outline-light{border:1px solid #8a98a4;color:white;background:transparent}#rt-ti-{{ section.id }} .rt-ti__btn--dark{background:#1c2933;color:#fff}#rt-ti-{{ section.id }} .rt-ti__platform{font-size:13px;color:#b5c2cc;margin-top:17px}#rt-ti-{{ section.id }} .rt-ti__hero-visual img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 24px 55px #0006}#rt-ti-{{ section.id }} .rt-ti__hero-placeholder{min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #597184;background:linear-gradient(135deg,#263e50,#09121b);border-radius:12px;font-size:50px;font-weight:700}#rt-ti-{{ section.id }} .rt-ti__hero-placeholder small{font-size:14px;font-weight:400}#rt-ti-{{ section.id }} .rt-ti__section{padding:80px 0}#rt-ti-{{ section.id }} .rt-ti__intro{text-align:center;max-width:800px;margin:auto}#rt-ti-{{ section.id }} .rt-ti__intro h2,#rt-ti-{{ section.id }} .rt-ti__section-head h2{font-size:clamp(27px,3vw,42px);line-height:1.2;margin:0 0 18px;color:#1b2329}#rt-ti-{{ section.id }} .rt-ti__intro>p:not(.rt-ti__eyebrow),#rt-ti-{{ section.id }} .rt-ti__section-head>p:not(.rt-ti__eyebrow){color:#64707a;font-size:16px;line-height:1.8}#rt-ti-{{ section.id }} .rt-ti__jump{display:flex;justify-content:center;gap:25px;margin-top:25px;flex-wrap:wrap}#rt-ti-{{ section.id }} .rt-ti__jump a,#rt-ti-{{ section.id }} .rt-ti__text-link{color:var(--rt-accent);font-weight:650;text-decoration:none;font-size:14px}#rt-ti-{{ section.id }} .rt-ti__section-head{text-align:center;max-width:800px;margin:0 auto 45px}#rt-ti-{{ section.id }} .rt-ti__feature-list{display:grid;gap:45px}#rt-ti-{{ section.id }} .rt-ti__feature{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}#rt-ti-{{ section.id }} .rt-ti__feature--reverse .rt-ti__feature-media{order:2}#rt-ti-{{ section.id }} .rt-ti__feature-media img{width:100%;height:auto;display:block;border-radius:9px}#rt-ti-{{ section.id }} .rt-ti__feature-media{background:#f3f6f8;border-radius:9px;overflow:hidden;min-height:230px;display:flex;align-items:center}#rt-ti-{{ section.id }} .rt-ti__media-placeholder{height:260px;width:100%;display:flex;align-items:center;justify-content:center;color:#6c7b86;text-align:center;padding:20px}#rt-ti-{{ section.id }} .rt-ti__number{color:var(--rt-accent);font-size:13px;font-weight:700;letter-spacing:.14em}#rt-ti-{{ section.id }} .rt-ti__feature h3{font-size:clamp(23px,2.5vw,32px);line-height:1.25;margin:12px 0 16px;color:#19242c}#rt-ti-{{ section.id }} .rt-ti__richtext{font-size:15px;line-height:1.85;color:#56636c}#rt-ti-{{ section.id }} .rt-ti__richtext p{margin:0 0 12px}#rt-ti-{{ section.id }} .rt-ti__richtext ul{padding-left:19px;margin:10px 0 0}#rt-ti-{{ section.id }} .rt-ti__richtext li{margin:6px 0}#rt-ti-{{ section.id }} .rt-ti__pro{border-top:1px solid #e8edf1}#rt-ti-{{ section.id }} .rt-ti__cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px}#rt-ti-{{ section.id }} .rt-ti__card{background:#f7f9fa;border:1px solid #edf0f2;border-radius:10px;overflow:hidden}#rt-ti-{{ section.id }} .rt-ti__card-media{background:#edf2f4}#rt-ti-{{ section.id }} .rt-ti__card-media img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}#rt-ti-{{ section.id }} .rt-ti__card-copy{padding:28px}#rt-ti-{{ section.id }} .rt-ti__card h3{font-size:22px;line-height:1.3;color:#1b252e;margin:0 0 12px}#rt-ti-{{ section.id }} .rt-ti__download-area{background:#f3f6f8}#rt-ti-{{ section.id }} .rt-ti__download-grid{display:grid;grid-template-columns:1fr 1fr;gap:23px}#rt-ti-{{ section.id }} .rt-ti__download-card{background:#fff;border:1px solid #e4ebef;border-radius:10px;padding:35px;display:flex;flex-direction:column;align-items:flex-start}#rt-ti-{{ section.id }} .rt-ti__download-icon{font-size:32px;color:var(--rt-accent)}#rt-ti-{{ section.id }} .rt-ti__download-card h3{font-size:24px;margin:12px 0}#rt-ti-{{ section.id }} .rt-ti__download-card>p{color:#65727b;margin:0 0 16px;font-size:15px}#rt-ti-{{ section.id }} .rt-ti__download-card .rt-ti__btn{margin:12px 0}#rt-ti-{{ section.id }} .rt-ti__metadata{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 13px}#rt-ti-{{ section.id }} .rt-ti__metadata span{background:#f0f3f5;border-radius:4px;color:#5c6871;padding:5px 9px;font-size:12px}#rt-ti-{{ section.id }} .rt-ti__fineprint,#rt-ti-{{ section.id }} .rt-ti__disclaimer{font-size:12px!important;color:#79858c!important}#rt-ti-{{ section.id }} .rt-ti__disclaimer{text-align:center;margin:24px 0 0}
 @media(max-width:900px){#rt-ti-{{ section.id }} .rt-ti__hero-grid,#rt-ti-{{ section.id }} .rt-ti__feature{grid-template-columns:1fr;gap:25px}#rt-ti-{{ section.id }} .rt-ti__feature--reverse .rt-ti__feature-media{order:0}#rt-ti-{{ section.id }} .rt-ti__hero{padding:50px 0}#rt-ti-{{ section.id }} .rt-ti__feature-list{gap:65px}}@media(max-width:650px){#rt-ti-{{ section.id }} .rt-ti__hero-brand{gap:12px}#rt-ti-{{ section.id }} .rt-ti__hero-app-icon{width:48px;height:48px}#rt-ti-{{ section.id }} .rt-ti__hero-brand h1{font-size:clamp(37px,10vw,56px)}#rt-ti-{{ section.id }} .rt-ti__wrap{width:calc(100% - 32px)}#rt-ti-{{ section.id }} .rt-ti__section{padding:52px 0}#rt-ti-{{ section.id }} .rt-ti__cards,#rt-ti-{{ section.id }} .rt-ti__download-grid{grid-template-columns:1fr}#rt-ti-{{ section.id }} .rt-ti__card-copy,#rt-ti-{{ section.id }} .rt-ti__download-card{padding:23px}#rt-ti-{{ section.id }} .rt-ti__hero-actions{flex-direction:column;align-items:stretch}#rt-ti-{{ section.id }} .rt-ti__hero-placeholder{min-height:220px}#rt-ti-{{ section.id }} .rt-ti__feature-media{min-height:0}}
+
+#rt-ti-{{ section.id }} .rt-ti__download-options{display:grid;gap:16px;margin-top:24px}
+#rt-ti-{{ section.id }} .rt-ti__download-group-label{font-size:10px;font-weight:750;letter-spacing:.16em;color:#b8cbd8;margin:0 0 8px}
+#rt-ti-{{ section.id }} .rt-ti__mobile-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#rt-ti-{{ section.id }} .rt-ti__device-btn{min-height:42px;padding:11px 12px;font-size:12px;gap:7px;white-space:nowrap}
+#rt-ti-{{ section.id }} .rt-ti__hero-support{display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;color:#b5c2cc;font-size:12px;margin-top:15px}
+#rt-ti-{{ section.id }} .rt-ti__hero-support a{color:#dce7ef;text-decoration:underline;text-underline-offset:3px}
+@media(min-width:901px) and (max-width:1100px){#rt-ti-{{ section.id }} .rt-ti__mobile-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){#rt-ti-{{ section.id }} .rt-ti__mobile-links{grid-template-columns:repeat(2,minmax(0,1fr))}#rt-ti-{{ section.id }} .rt-ti__device-btn{white-space:normal}}
 </style>
 {% schema %}
 {
@@ -143,6 +173,10 @@
     {"type":"url","id":"hero_image_url","label":"Fallback hero image URL"},
     {"type":"text","id":"download_label","label":"Download button label","default":"Download for Windows"},
     {"type":"url","id":"download_url","label":"PC installer URL"},
+    {"type":"header","content":"Mobile app downloads"},
+    {"type":"url","id":"ios_download_url","label":"iOS App Store URL"},
+    {"type":"url","id":"xiaomi_download_url","label":"Xiaomi Android APK URL"},
+    {"type":"url","id":"android_download_url","label":"Other Android APK URL"},
     {"type":"text","id":"manual_label","label":"Manual button label","default":"Download User Manual"},
     {"type":"url","id":"manual_url","label":"User manual URL"},
     {"type":"text","id":"platform_note","label":"Operating system note","default":"Windows 10 / 11 · 64-bit"},
@@ -163,7 +197,10 @@
       "hero_image_url":"https://www.raythink-tech.com/wp-content/uploads/2026/05/图片1.jpg",
       "download_url":"https://www.raythink-tech.com/apk/TI_Studio_OS_V2.0.2(004).ABROAD_WIN64_WIN1011.exe",
       "manual_url":"https://www.raythink-tech.com/wp-content/uploads/2026/04/TI-Studio-User-Manual_-V1.1.7.pdf",
-      "mobile_url":"https://www.raythink-tech.com/ti-studio-mobile-client/"
+      "mobile_url":"https://www.raythink-tech.com/ti-studio-mobile-client/",
+      "ios_download_url":"https://apps.apple.com/us/app/ti-studio/id6526465532",
+      "xiaomi_download_url":"https://www.raythink-tech.com/apk/Xiaomi_Raythink_TI_Studio_V2.1.0_build_44.apk",
+      "android_download_url":"https://www.raythink-tech.com/apk/android_TI_Studio_V2.1.0_build_44.apk"
     },
     "blocks":[
       {"type":"feature_large","settings":{"title":"Broad Product Compatibility","description":"<p>Manage compatible fixed and handheld thermal cameras and infrared modules in one place. Automatically detect devices, manage device information, and access real-time previews for efficient inspection workflows.</p><p>Device support includes RT630 remote access and TN330 compatibility.</p>","image_url":"https://www.raythink-tech.com/wp-content/uploads/2026/05/图片1.jpg"}},
