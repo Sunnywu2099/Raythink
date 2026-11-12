@@ -142,6 +142,7 @@
         "accent_color": "#dd613a",
         "eyebrow": "RAYTHINK SOFTWARE",
         "heading": "TI Studio",
+        "app_icon": "shopify://shop_images/ti-studio-app-icon-original.png",
         "hero_subheading": "Analyze. Monitor. Report.",
         "hero_description": "Professional thermal analysis software for temperature measurement, device management, real-time monitoring, and inspection reporting.",
         "hero_image_url": "https://www.raythink-tech.com/wp-content/uploads/2026/05/图片1.jpg",
