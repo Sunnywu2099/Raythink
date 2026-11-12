@@ -1,0 +1,166 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "t:names.title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {
+            "text_color": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "raythink_ti_studio_LwkckT": {
+      "type": "raythink-ti-studio",
+      "blocks": {
+        "feature_large_PRqLGf": {
+          "type": "feature_large",
+          "settings": {
+            "title": "Broad Product Compatibility",
+            "description": "<p>Manage compatible fixed and handheld thermal cameras and infrared modules in one place. Automatically detect devices, manage device information, and access real-time previews for efficient inspection workflows.</p><p>Device support includes RT630 remote access and TN330 compatibility.</p>",
+            "image_url": "https://www.raythink-tech.com/wp-content/uploads/2026/05/图片1.jpg"
+          }
+        },
+        "feature_large_qE4tVG": {
+          "type": "feature_large",
+          "settings": {
+            "title": "Powerful Analysis Capability",
+            "description": "<p>Perform live temperature measurement and analysis, then revisit thermal images and recordings for in-depth offline analysis. Supports continuous playback, extended full-frame-rate recording, and Delta T measurements in offline analysis and reporting.</p>",
+            "image_url": "https://www.raythink-tech.com/wp-content/uploads/2026/05/图片2.jpg"
+          }
+        },
+        "feature_large_c6xwTc": {
+          "type": "feature_large",
+          "settings": {
+            "title": "Diverse Analysis Tools",
+            "description": "<p>Use point, line, circle, rectangle, polygon, area shielding, and offline polyline tools. Inspect thermal data with palettes, color highlighting, isotherms, 3D views, and level/span adjustments.</p><p>Preview and analyze up to four channels simultaneously for multi-target comparison.</p>",
+            "image_url": "https://www.raythink-tech.com/wp-content/uploads/2026/05/图片2.jpg"
+          }
+        },
+        "feature_large_dUGF84": {
+          "type": "feature_large",
+          "settings": {
+            "title": "Multi-Dimensional Monitoring",
+            "description": "<p>Collect temperature data by frame, second, minute, or hour. Visualize trends, export original temperature data, and create customized professional reports using drag-and-drop templates and components.</p>",
+            "image_url": "https://www.raythink-tech.com/wp-content/uploads/2026/05/图片3.jpg"
+          }
+        },
+        "feature_card_68X98p": {
+          "type": "feature_card",
+          "settings": {
+            "title": "Multi-Layered Alarms",
+            "description": "<p>Configure temperature threshold and temperature-rise alarms for the full frame or individual measurement rules, with multiple thresholds for hierarchical monitoring.</p>",
+            "image_url": "https://www.raythink-tech.com/wp-content/uploads/2026/05/图片4.png"
+          }
+        },
+        "feature_card_aJUjwi": {
+          "type": "feature_card",
+          "settings": {
+            "title": "Comprehensive Logging",
+            "description": "<p>Capture alarm events through sound, snapshots, recordings, and I/O linkage. Review detailed historical events in the Alarm Center for analysis and traceability.</p>",
+            "image_url": "https://www.raythink-tech.com/wp-content/uploads/2026/05/图片5.jpg"
+          }
+        },
+        "feature_card_eHedmc": {
+          "type": "feature_card",
+          "settings": {
+            "title": "Strong Device-Cloud Collaboration",
+            "description": "<p>Access images and videos synced from supported handheld devices to the cloud, download resources with a registered cloud account, and perform secondary analysis on your desktop.</p>",
+            "image_url": "https://www.raythink-tech.com/wp-content/uploads/2026/05/图片6.jpg"
+          }
+        },
+        "feature_card_zCWGYw": {
+          "type": "feature_card",
+          "settings": {
+            "title": "Advanced AI Capabilities",
+            "description": "<p>Get professional answers and use natural-language commands to assist with software operations and automated workflows, helping improve efficiency.</p>",
+            "image_url": "https://www.raythink-tech.com/wp-content/uploads/2026/05/图片7.png"
+          }
+        }
+      },
+      "block_order": [
+        "feature_large_PRqLGf",
+        "feature_large_qE4tVG",
+        "feature_large_c6xwTc",
+        "feature_large_dUGF84",
+        "feature_card_68X98p",
+        "feature_card_aJUjwi",
+        "feature_card_eHedmc",
+        "feature_card_zCWGYw"
+      ],
+      "name": "TI Studio software",
+      "settings": {
+        "accent_color": "#dd613a",
+        "eyebrow": "RAYTHINK SOFTWARE",
+        "heading": "TI Studio",
+        "hero_subheading": "Analyze. Monitor. Report.",
+        "hero_description": "Professional thermal analysis software for temperature measurement, device management, real-time monitoring, and inspection reporting.",
+        "hero_image_url": "https://www.raythink-tech.com/wp-content/uploads/2026/05/图片1.jpg",
+        "download_label": "Download for Windows",
+        "download_url": "https://www.raythink-tech.com/apk/TI_Studio_OS_V2.0.2(004).ABROAD_WIN64_WIN1011.exe",
+        "manual_label": "Download User Manual",
+        "manual_url": "https://www.raythink-tech.com/wp-content/uploads/2026/04/TI-Studio-User-Manual_-V1.1.7.pdf",
+        "platform_note": "Windows 10 / 11 · 64-bit",
+        "version_note": "V2.0.2 (004) — verify latest release",
+        "intro_heading": "One Platform. Complete Thermal Insight.",
+        "intro_text": "TI Studio PC Client brings together live thermal monitoring, radiometric analysis, customizable measurement tools, intelligent alarms, professional reporting, and device management for demanding inspection workflows.",
+        "pc_description": "Perform real-time and offline thermal analysis, track temperature trends, manage alarms, and create professional reports.",
+        "mobile_url": "https://www.raythink-tech.com/ti-studio-mobile-client/",
+        "compatibility_note": "Features and supported workflows may vary by Raythink device, firmware, connection method, and software version. Please check device compatibility before installation."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "raythink_ti_studio_LwkckT"
+  ]
+}
