@@ -34,7 +34,7 @@
             "img_desktop": "shopify://shop_images/IX1_Go_Scenario_KV_PC_1920.png",
             "img_mobile": "shopify://shop_images/IX1_Go_Scenario_KV_MO.png",
             "slogan": "Everyday Hero",
-            "title": "Raythink IX1GO",
+            "title": "Raythink IX1 Go",
             "description": "Compact Thermal Imaging for Everyday Inspections",
             "text_color": "{{ settings.color_palette.foreground }}",
             "button_text": "Learn More",
