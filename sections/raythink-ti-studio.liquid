@@ -16,7 +16,7 @@
         <h2>{{ section.settings.hero_subheading | escape }}</h2>
         <p class="rt-ti__lede">{{ section.settings.hero_description | escape }}</p>
         <div class="rt-ti__hero-actions">
-          {% if rt_download != blank %}<a class="rt-ti__btn rt-ti__btn--accent" href="{{ rt_download | escape }}" aria-label="Download TI Studio for Windows">{% render 'icon-download', fallback: 'download' %}<span>{{ section.settings.download_label | escape }}</span></a>{% endif %}
+          {% if rt_download != blank %}<a class="rt-ti__btn rt-ti__btn--accent" href="{{ rt_download | escape }}" aria-label="Download TI Studio for Windows"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/></svg><span>{{ section.settings.download_label | escape }}</span></a>{% endif %}
           {% if rt_manual != blank %}<a class="rt-ti__btn rt-ti__btn--outline-light" href="{{ rt_manual | escape }}" target="_blank" rel="noopener noreferrer">{{ section.settings.manual_label | escape }} ↗</a>{% endif %}
         </div>
         <div class="rt-ti__platform">{{ section.settings.platform_note | escape }}</div>
@@ -25,7 +25,7 @@
         {% if section.settings.hero_image != blank %}
           {{ section.settings.hero_image | image_url: width: 1400 | image_tag: loading: 'eager', widths: '420,720,980,1400', sizes: '(min-width: 900px) 48vw, 100vw', alt: 'TI Studio thermal imaging software interface' }}
         {% elsif section.settings.hero_image_url != blank %}
-          <img src="{{ section.settings.hero_image_url | escape }}" loading="eager" alt="TI Studio thermal imaging software interface">
+          <img src="{{ section.settings.hero_image_url | escape }}" loading="eager" width="1400" height="875" alt="TI Studio thermal imaging software interface">
         {% else %}
           <div class="rt-ti__hero-placeholder">TI Studio <small>Professional Thermal Analysis Software</small></div>
         {% endif %}
@@ -51,7 +51,7 @@
                 {% if block.settings.image != blank %}
                   {{ block.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '400,700,1000,1400', sizes: '(min-width: 900px) 50vw, 100vw', alt: block.settings.title }}
                 {% elsif block.settings.image_url != blank %}
-                  <img src="{{ block.settings.image_url | escape }}" loading="lazy" alt="{{ block.settings.title | escape }}">
+                  <img src="{{ block.settings.image_url | escape }}" loading="lazy" width="1200" height="675" alt="{{ block.settings.title | escape }}">
                 {% else %}<div class="rt-ti__media-placeholder">{{ block.settings.title | escape }}</div>{% endif %}
               </div>
               <div class="rt-ti__feature-copy"><p class="rt-ti__number">0{{ forloop.index }}</p><h3>{{ block.settings.title | escape }}</h3><div class="rt-ti__richtext">{{ block.settings.description }}</div></div>
@@ -71,7 +71,7 @@
                 {% if block.settings.image != blank %}
                   {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360,600,900', sizes: '(min-width: 900px) 48vw, 100vw', alt: block.settings.title }}
                 {% elsif block.settings.image_url != blank %}
-                  <img src="{{ block.settings.image_url | escape }}" loading="lazy" alt="{{ block.settings.title | escape }}">
+                  <img src="{{ block.settings.image_url | escape }}" loading="lazy" width="1200" height="675" alt="{{ block.settings.title | escape }}">
                 {% else %}<div class="rt-ti__media-placeholder">{{ block.settings.title | escape }}</div>{% endif %}
               </div>
               <div class="rt-ti__card-copy"><h3>{{ block.settings.title | escape }}</h3><div class="rt-ti__richtext">{{ block.settings.description }}</div></div>
