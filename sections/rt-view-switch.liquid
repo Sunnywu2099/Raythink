@@ -110,19 +110,13 @@
   .rt-view-panel {
     display: none;
     position: relative;
-    aspect-ratio: 327 / 470;
-  }
-
-  .rt-view-panel picture {
-    position: absolute;
-    inset: 0;
   }
 
   .rt-view-panel picture,
   .rt-view-panel img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
   }
 
   .rt-view-panel picture > img {
@@ -170,6 +164,17 @@
 
     .rt-view-panel {
       aspect-ratio: 3 / 1;
+    }
+
+    .rt-view-panel picture {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+    }
+
+    .rt-view-panel picture,
+    .rt-view-panel img {
+      height: 100%;
     }
   }
 {% endstylesheet %}
