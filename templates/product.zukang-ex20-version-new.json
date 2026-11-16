@@ -477,7 +477,9 @@
           "type": "slide",
           "settings": {
             "group": "3",
-            "title": ""
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Battery_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Battery_MO.jpg"
           }
         },
         "slide_PrFQJ4": {
