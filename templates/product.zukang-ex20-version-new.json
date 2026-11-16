@@ -486,7 +486,9 @@
           "type": "slide",
           "settings": {
             "group": "1",
-            "title": ""
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Storage_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Storage_MO.jpg"
           }
         },
         "slide_Cawikf": {
