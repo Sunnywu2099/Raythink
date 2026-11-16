@@ -495,7 +495,9 @@
           "type": "slide",
           "settings": {
             "group": "3",
-            "title": ""
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Durability_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Durability_MO.jpg"
           }
         },
         "image_mjnFaV": {
@@ -503,6 +505,8 @@
           "settings": {
             "title": "",
             "subtitle": "",
+            "pc": "shopify://shop_images/EX20_Applications_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Applications_MO.jpg",
             "alt_text": "Raythink EX20 thermal imaging features"
           }
         },
