@@ -402,6 +402,15 @@
             "mo": "shopify://shop_images/EX20_Wide_FOV_MO.jpg"
           }
         },
+        "slide_LWLVTm": {
+          "type": "slide",
+          "settings": {
+            "group": "1",
+            "title": "",
+            "pc": "shopify://shop_images/EX20_25Hz_Imaging_PC_173dc182-a395-4834-bf80-4dde5a477131.jpg",
+            "mo": "shopify://shop_images/EX20_25Hz_Imaging_MO_0bf97c98-14ae-4b4c-9ad5-327c83d7036d.jpg"
+          }
+        },
         "image_ggXfwK": {
           "type": "image",
           "settings": {
@@ -475,6 +484,7 @@
         "carousel_j9Md8c",
         "slide_eMVw6x",
         "slide_HJkd9Y",
+        "slide_LWLVTm",
         "image_ggXfwK",
         "carousel_m8X4et",
         "slide_3iy6mk",
