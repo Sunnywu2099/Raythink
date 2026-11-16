@@ -167,7 +167,6 @@
                 },
                 "rt_header_menu_product_category_gqzkQT": {
                   "type": "_rt-header-menu-product-category",
-                  "disabled": true,
                   "settings": {
                     "title": "EX20 Series"
                   },
@@ -176,8 +175,8 @@
                       "type": "_rt-header-menu-product",
                       "name": "产品",
                       "settings": {
-                        "product": "ix1gopro-smartphone-thermal-camera",
-                        "badge_text": "New",
+                        "product": "ex20-pro-handheld-thermal-camera",
+                        "badge_text": "",
                         "badge_color": "#00ad2e"
                       },
                       "blocks": {}
@@ -186,8 +185,8 @@
                       "type": "_rt-header-menu-product",
                       "name": "产品",
                       "settings": {
-                        "product": "ix1go-smartphone-thermal-camera",
-                        "badge_text": "New",
+                        "product": "ex20-handheld-thermal-camera",
+                        "badge_text": "",
                         "badge_color": "#00ad2e"
                       },
                       "blocks": {}
