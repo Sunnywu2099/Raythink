@@ -810,6 +810,8 @@
           "settings": {
             "title": "",
             "subtitle": "",
+            "pc": "shopify://shop_images/EX20_Pro_PC_Mobile_Workflow_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Pro_PC_Mobile_Workflow_MO.jpg",
             "alt_text": "Raythink EX20 Pro thermal imaging features"
           }
         },
