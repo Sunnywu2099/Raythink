@@ -515,6 +515,8 @@
           "settings": {
             "title": "",
             "subtitle": "",
+            "pc": "shopify://shop_images/EX20_Controls_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Controls_MO.jpg",
             "alt_text": "Raythink EX20 thermal imaging features"
           }
         },
