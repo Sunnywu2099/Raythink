@@ -542,6 +542,7 @@
         },
         "applications_ztATxL": {
           "type": "applications",
+          "disabled": true,
           "settings": {
             "title": "One Tool. Multiple Applications.",
             "subtitle": ""
