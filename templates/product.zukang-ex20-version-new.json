@@ -64,48 +64,49 @@
                 "feature_1": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "AI Super Resolution: See more detail with up to 640 × 480 resolution and 15× digital zoom.",
+                    "text": "512×384 NUR Super-Resolution: Sharper thermal details with 25Hz smooth imaging.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
                   },
                   "blocks": {}
                 },
-                "feature_2": {
+                "rt_product_icon_text_3tFG48": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "Smart AI HVAC Mode: Easily spot temperature differences with AI-assisted HVAC inspections.",
+                    "text": "56°×42° Wide FOV: Cover more area in a single scan.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
                   },
                   "blocks": {}
                 },
-                "feature_3": {
+                "rt_product_icon_text_HLJqKB": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "Plug & Play: Turn your compatible USB-C smartphone into a thermal camera in seconds.",
+                    "text": "Smart Temperature Analysis: −4°F to 1022°F (−20°C to 550°C), AI-assisted HVAC checks, and 3 custom spots.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
                   },
                   "blocks": {}
                 },
-                "feature_4": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "Everyday Home Inspections: Check heat loss, insulation gaps, and overheating components with ease.",
-                    "icon": "official",
-                    "round_icon": false,
-                    "return_days": 30
-                  },
-                  "blocks": {}
-                },
-                "rt_product_icon_text_xhnfFk": {
+                "rt_product_icon_text_z7TUYP": {
                   "type": "_rt-product-icon-text",
                   "name": "t:rt_product.icon_text",
                   "settings": {
-                    "text": "Wide Temperature Range: Measure from -20°C to 550°C (-4°F to 1022°F).",
+                    "text": "PC Analysis & 16GB Storage: Analyze, capture, and export inspection reports with TI Studio.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_ArjPra": {
+                  "type": "_rt-product-icon-text",
+                  "name": "t:rt_product.icon_text",
+                  "settings": {
+                    "text": "Built for the Field: Up to 9h runtime, IP54 protection, and 6.6ft (2m) drop resistance.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -115,10 +116,10 @@
               },
               "block_order": [
                 "feature_1",
-                "feature_2",
-                "feature_3",
-                "feature_4",
-                "rt_product_icon_text_xhnfFk"
+                "rt_product_icon_text_3tFG48",
+                "rt_product_icon_text_HLJqKB",
+                "rt_product_icon_text_z7TUYP",
+                "rt_product_icon_text_ArjPra"
               ]
             },
             "variant_picker_R3rGDr": {
