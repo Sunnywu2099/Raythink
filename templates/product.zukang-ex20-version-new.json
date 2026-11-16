@@ -530,6 +530,16 @@
             "alt_text": "Raythink EX20 thermal imaging features"
           }
         },
+        "image_TVGiCm": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "pc": "shopify://shop_images/EX20_Box_Contents_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Box_Contents_MO.jpg",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
         "applications_ztATxL": {
           "type": "applications",
           "settings": {
@@ -558,6 +568,7 @@
         "image_mjnFaV",
         "image_PDkRgc",
         "image_qb9VhN",
+        "image_TVGiCm",
         "applications_ztATxL"
       ],
       "name": "Raythink EX20 details",
