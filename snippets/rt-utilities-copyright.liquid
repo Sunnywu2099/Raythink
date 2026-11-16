@@ -10,7 +10,7 @@
 {%- liquid
   assign suffix = block.settings.text
 -%}
-{{ shop.name | escape }}
+{% comment %} {{ shop.name | escape }} {% endcomment %}
 <p class="rt-utilities__copyright" {{ block.shopify_attributes }}>
   <span>&copy;{{ 'now' | date: '%Y' }} RAYTHINK INNOVATION LIMITED </span>
   {%- if suffix != blank -%}
