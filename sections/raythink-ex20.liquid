@@ -29,9 +29,10 @@
   #{{ sid }} .rt-ex20-arrows { display: flex; gap: 8px; flex-shrink: 0; }
   #{{ sid }} .rt-ex20-arrow { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #c9cfd9; border-radius: 50%; background: transparent; color: inherit; font-size: 22px; cursor: pointer; }
   #{{ sid }} .rt-ex20-arrow:hover { background: #edf2f9; }
-  #{{ sid }} .rt-ex20-track { display: flex; gap: 14px; padding: 0 20px 10px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: thin; }
-  #{{ sid }} .rt-ex20-slide { flex: 0 0 calc((100% - 68px)/3); min-width: 0; scroll-snap-align: start; overflow: hidden; border-radius: {{ section.settings.card_radius }}px; background: #f5f7fa; }
-  #{{ sid }} .rt-ex20-slide .rt-ex20-picture img { width: 100%; height: auto; }
+  #{{ sid }} .rt-ex20-track { display: flex; gap: 0; padding: 0; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; overscroll-behavior-x: contain; }
+  #{{ sid }} .rt-ex20-track::-webkit-scrollbar { display: none; }
+  #{{ sid }} .rt-ex20-slide { flex: 0 0 100%; width: 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; overflow: hidden; border-radius: 0; background: #f5f7fa; }
+  #{{ sid }} .rt-ex20-slide .rt-ex20-picture img { display: block; width: 100%; height: auto; }
   #{{ sid }} .rt-ex20-slide-title { padding: 13px 14px 16px; font-size: 15px; font-weight: 600; line-height: 1.3; }
   #{{ sid }} .rt-ex20-apps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; padding: 0 20px 30px; }
   #{{ sid }} .rt-ex20-app { overflow: hidden; background: #f5f7fa; border-radius: {{ section.settings.card_radius }}px; }
@@ -41,8 +42,8 @@
     #{{ sid }} .rt-ex20-stats { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 10px; padding: 20px 12px; }
     #{{ sid }} .rt-ex20-carousel-head { padding: 24px 12px 12px; }
     #{{ sid }} .rt-ex20-head { padding: 26px 12px 14px; }
-    #{{ sid }} .rt-ex20-track { gap: 10px; padding-inline: 12px; }
-    #{{ sid }} .rt-ex20-slide { flex-basis: 82%; }
+    #{{ sid }} .rt-ex20-track { gap: 0; padding-inline: 0; }
+    #{{ sid }} .rt-ex20-slide { flex-basis: 100%; }
     #{{ sid }} .rt-ex20-arrows { display: none; }
     #{{ sid }} .rt-ex20-apps { grid-template-columns: repeat(2,minmax(0,1fr)); padding: 0 12px 22px; gap: 10px; }
     #{{ sid }} .rt-ex20-app p { font-size: 13px; }
@@ -98,8 +99,8 @@
             <div class="rt-ex20-carousel-head">
               <div><h2>{{ block.settings.title | escape }}</h2>{% if block.settings.subtitle != blank %}<p>{{ block.settings.subtitle | escape }}</p>{% endif %}</div>
               <div class="rt-ex20-arrows">
-                <button type="button" class="rt-ex20-arrow" aria-label="Previous slides" onclick="this.closest('.rt-ex20-carousel').querySelector('.rt-ex20-track').scrollBy({left:-this.closest('.rt-ex20-carousel').querySelector('.rt-ex20-track').clientWidth*.85,behavior:'smooth'})">‹</button>
-                <button type="button" class="rt-ex20-arrow" aria-label="Next slides" onclick="this.closest('.rt-ex20-carousel').querySelector('.rt-ex20-track').scrollBy({left:this.closest('.rt-ex20-carousel').querySelector('.rt-ex20-track').clientWidth*.85,behavior:'smooth'})">›</button>
+                <button type="button" class="rt-ex20-arrow" aria-label="Previous slides" onclick="this.closest('.rt-ex20-carousel').querySelector('.rt-ex20-track').scrollBy({left:-this.closest('.rt-ex20-carousel').querySelector('.rt-ex20-track').clientWidth,behavior:'smooth'})">‹</button>
+                <button type="button" class="rt-ex20-arrow" aria-label="Next slides" onclick="this.closest('.rt-ex20-carousel').querySelector('.rt-ex20-track').scrollBy({left:this.closest('.rt-ex20-carousel').querySelector('.rt-ex20-track').clientWidth,behavior:'smooth'})">›</button>
               </div>
             </div>
             <div class="rt-ex20-track" role="region" aria-label="{{ block.settings.title | escape }} carousel" tabindex="0">
