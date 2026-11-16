@@ -362,12 +362,153 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "raythink_ex20_FPmUyf": {
+      "type": "raythink-ex20",
+      "blocks": {
+        "image_hijqxW": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "carousel_j9Md8c": {
+          "type": "carousel",
+          "settings": {
+            "title": "Imaging & Detection",
+            "subtitle": "",
+            "group": "1"
+          }
+        },
+        "slide_eMVw6x": {
+          "type": "slide",
+          "settings": {
+            "group": "1",
+            "title": ""
+          }
+        },
+        "slide_HJkd9Y": {
+          "type": "slide",
+          "settings": {
+            "group": "1",
+            "title": ""
+          }
+        },
+        "image_ggXfwK": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "carousel_m8X4et": {
+          "type": "carousel",
+          "settings": {
+            "title": "Temperature Analysis",
+            "subtitle": "",
+            "group": "2"
+          }
+        },
+        "slide_3iy6mk": {
+          "type": "slide",
+          "settings": {
+            "group": "2",
+            "title": ""
+          }
+        },
+        "slide_qEgjUk": {
+          "type": "slide",
+          "settings": {
+            "group": "2",
+            "title": ""
+          }
+        },
+        "image_YTFD7c": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "carousel_UiBTeP": {
+          "type": "carousel",
+          "settings": {
+            "title": "Built for the Field",
+            "subtitle": "",
+            "group": "3"
+          }
+        },
+        "slide_nGzkHz": {
+          "type": "slide",
+          "settings": {
+            "group": "3",
+            "title": ""
+          }
+        },
+        "slide_Cawikf": {
+          "type": "slide",
+          "settings": {
+            "group": "3",
+            "title": ""
+          }
+        },
+        "applications_ztATxL": {
+          "type": "applications",
+          "settings": {
+            "title": "One Tool. Multiple Applications.",
+            "subtitle": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_hijqxW",
+        "carousel_j9Md8c",
+        "slide_eMVw6x",
+        "slide_HJkd9Y",
+        "image_ggXfwK",
+        "carousel_m8X4et",
+        "slide_3iy6mk",
+        "slide_qEgjUk",
+        "image_YTFD7c",
+        "carousel_UiBTeP",
+        "slide_nGzkHz",
+        "slide_Cawikf",
+        "applications_ztATxL"
+      ],
+      "name": "Raythink EX20 details",
+      "settings": {
+        "hero_pc": "shopify://shop_images/EX20_Hero_PC.jpg",
+        "hero_mo": "shopify://shop_images/EX20_Hero_MO.jpg",
+        "max_width": 1200,
+        "background": "#ffffff",
+        "text_color": "#151b28",
+        "stats_background": "#f2f5fa",
+        "card_radius": 8,
+        "show_stats": true,
+        "stat_1_value": "512×384",
+        "stat_1_label": "NUR super-resolution",
+        "stat_2_value": "56° × 42°",
+        "stat_2_label": "Wide Field of View",
+        "stat_3_value": "25Hz",
+        "stat_3_label": "Refresh Rate",
+        "stat_4_value": "-4°F to 1022°F",
+        "stat_4_label": "Temperature Range",
+        "stat_5_value": "9h",
+        "stat_5_label": "Battery Life",
+        "stat_6_value": "IP54",
+        "stat_6_label": "Protection"
+      }
     }
   },
   "order": [
     "main",
     "rt_nav_BjnEQH",
     "rt_grid_Uc873h",
-    "custom_liquid_4XpbPT"
+    "custom_liquid_4XpbPT",
+    "raythink_ex20_FPmUyf"
   ]
 }
