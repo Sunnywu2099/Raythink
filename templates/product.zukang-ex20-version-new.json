@@ -352,17 +352,6 @@
         "padding_bottom_desktop": 120
       }
     },
-    "custom_liquid_4XpbPT": {
-      "type": "custom-liquid",
-      "name": "t:names.custom_liquid",
-      "settings": {
-        "custom_liquid": "{% comment %}\n  Raythink EX20 - Amazon A+ Detail Page\n  PC: EX20_A_PC_01.jpg - EX20_A_PC_18.jpg\n  MO: EX20_A_MO_01.jpg - EX20_A_MO_18.jpg\n{% endcomment %}\n\n<style>\n  #raythink-ex20-aplus {\n    width: 100%;\n    margin: 0;\n    padding: 0;\n    line-height: 0;\n  }\n\n  #raythink-ex20-aplus .ex20-image {\n    display: block;\n    width: 100%;\n    height: auto;\n    margin: 0;\n    padding: 0;\n    border: 0;\n  }\n\n  #raythink-ex20-aplus picture {\n    display: block;\n    margin: 0;\n    padding: 0;\n  }\n\n  /* Full-width layout */\n  #raythink-ex20-aplus {\n    width: 100vw;\n    max-width: 100vw;\n    position: relative;\n    left: 50%;\n    margin-left: -50vw;\n  }\n\n  @media screen and (max-width: 749px) {\n    #raythink-ex20-aplus {\n      width: 100vw;\n      max-width: 100vw;\n      left: 50%;\n      margin-left: -50vw;\n    }\n  }\n</style>\n\n<div id=\"raythink-ex20-aplus\">\n\n  {% for i in (1..18) %}\n\n    {% if i < 10 %}\n      {% assign image_number = i | prepend: '0' %}\n    {% else %}\n      {% assign image_number = i %}\n    {% endif %}\n\n    {% assign pc_filename = 'EX20_A_PC_' | append: image_number | append: '.jpg' %}\n    {% assign mo_filename = 'EX20_A_MO_' | append: image_number | append: '.jpg' %}\n\n    {% assign pc_url = pc_filename | file_url %}\n    {% assign mo_url = mo_filename | file_url %}\n\n    <picture>\n      <source\n        media=\"(max-width: 749px)\"\n        srcset=\"{{ mo_url }}\"\n      >\n\n      {% if forloop.first %}\n        <img\n          class=\"ex20-image\"\n          src=\"{{ pc_url }}\"\n          alt=\"Raythink EX20 Thermal Imaging Camera - Feature {{ image_number }}\"\n          loading=\"eager\"\n          fetchpriority=\"high\"\n          decoding=\"async\"\n        >\n      {% else %}\n        <img\n          class=\"ex20-image\"\n          src=\"{{ pc_url }}\"\n          alt=\"Raythink EX20 Thermal Imaging Camera - Feature {{ image_number }}\"\n          loading=\"lazy\"\n          decoding=\"async\"\n        >\n      {% endif %}\n    </picture>\n\n  {% endfor %}\n\n</div>",
-        "background_color": "",
-        "section_width": "page-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
     "raythink_ex20_FPmUyf": {
       "type": "raythink-ex20",
       "blocks": {
@@ -384,13 +373,13 @@
             "group": "1"
           }
         },
-        "slide_eMVw6x": {
+        "slide_LWLVTm": {
           "type": "slide",
           "settings": {
             "group": "1",
             "title": "",
-            "pc": "shopify://shop_images/EX20_Color_Palettes_PC.jpg",
-            "mo": "shopify://shop_images/EX20_Color_Palettes_MO.jpg"
+            "pc": "shopify://shop_images/EX20_25Hz_Imaging_PC_173dc182-a395-4834-bf80-4dde5a477131.jpg",
+            "mo": "shopify://shop_images/EX20_25Hz_Imaging_MO_0bf97c98-14ae-4b4c-9ad5-327c83d7036d.jpg"
           }
         },
         "slide_HJkd9Y": {
@@ -402,13 +391,13 @@
             "mo": "shopify://shop_images/EX20_Wide_FOV_MO.jpg"
           }
         },
-        "slide_LWLVTm": {
+        "slide_eMVw6x": {
           "type": "slide",
           "settings": {
             "group": "1",
             "title": "",
-            "pc": "shopify://shop_images/EX20_25Hz_Imaging_PC_173dc182-a395-4834-bf80-4dde5a477131.jpg",
-            "mo": "shopify://shop_images/EX20_25Hz_Imaging_MO_0bf97c98-14ae-4b4c-9ad5-327c83d7036d.jpg"
+            "pc": "shopify://shop_images/EX20_Color_Palettes_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Color_Palettes_MO.jpg"
           }
         },
         "image_ggXfwK": {
@@ -416,6 +405,8 @@
           "settings": {
             "title": "",
             "subtitle": "",
+            "pc": "shopify://shop_images/EX20_AI_HVAC_PC.jpg",
+            "mo": "shopify://shop_images/EX20_AI_HVAC_MO.jpg",
             "alt_text": "Raythink EX20 thermal imaging features"
           }
         },
@@ -441,7 +432,22 @@
             "title": ""
           }
         },
+        "slide_iWCkYj": {
+          "type": "slide",
+          "settings": {
+            "group": "1",
+            "title": ""
+          }
+        },
         "image_YTFD7c": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "image_BEXhCw": {
           "type": "image",
           "settings": {
             "title": "",
@@ -464,11 +470,42 @@
             "title": ""
           }
         },
+        "slide_PrFQJ4": {
+          "type": "slide",
+          "settings": {
+            "group": "1",
+            "title": ""
+          }
+        },
         "slide_Cawikf": {
           "type": "slide",
           "settings": {
             "group": "3",
             "title": ""
+          }
+        },
+        "image_mjnFaV": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "image_PDkRgc": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "image_qb9VhN": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "alt_text": "Raythink EX20 thermal imaging features"
           }
         },
         "applications_ztATxL": {
@@ -482,17 +519,23 @@
       "block_order": [
         "image_hijqxW",
         "carousel_j9Md8c",
-        "slide_eMVw6x",
-        "slide_HJkd9Y",
         "slide_LWLVTm",
+        "slide_HJkd9Y",
+        "slide_eMVw6x",
         "image_ggXfwK",
         "carousel_m8X4et",
         "slide_3iy6mk",
         "slide_qEgjUk",
+        "slide_iWCkYj",
         "image_YTFD7c",
+        "image_BEXhCw",
         "carousel_UiBTeP",
         "slide_nGzkHz",
+        "slide_PrFQJ4",
         "slide_Cawikf",
+        "image_mjnFaV",
+        "image_PDkRgc",
+        "image_qb9VhN",
         "applications_ztATxL"
       ],
       "name": "Raythink EX20 details",
@@ -524,7 +567,6 @@
     "main",
     "rt_nav_BjnEQH",
     "rt_grid_Uc873h",
-    "custom_liquid_4XpbPT",
     "raythink_ex20_FPmUyf"
   ]
 }
