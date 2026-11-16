@@ -845,7 +845,9 @@
           "type": "slide",
           "settings": {
             "group": "3",
-            "title": ""
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Pro_Durability_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Pro_Durability_MO.jpg"
           }
         },
         "image_7cdfy7": {
