@@ -171,30 +171,30 @@
                     "title": "EX20 Series"
                   },
                   "blocks": {
-                    "rt_header_menu_product_w3cDqi": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ex20-pro-handheld-thermal-camera",
-                        "badge_text": "",
-                        "badge_color": "#00ad2e"
-                      },
-                      "blocks": {}
-                    },
                     "rt_header_menu_product_TdepKy": {
                       "type": "_rt-header-menu-product",
                       "name": "产品",
                       "settings": {
                         "product": "ex20-handheld-thermal-camera",
-                        "badge_text": "",
+                        "badge_text": "Essential",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_w3cDqi": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ex20-pro-handheld-thermal-camera",
+                        "badge_text": "Advanced",
                         "badge_color": "#00ad2e"
                       },
                       "blocks": {}
                     }
                   },
                   "block_order": [
-                    "rt_header_menu_product_w3cDqi",
-                    "rt_header_menu_product_TdepKy"
+                    "rt_header_menu_product_TdepKy",
+                    "rt_header_menu_product_w3cDqi"
                   ]
                 },
                 "rt_header_menu_product_category_3B8Vii": {
