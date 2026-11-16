@@ -1,0 +1,245 @@
+{% comment %}
+  Raythink EX20 Pro details - reusable visual A+ section.
+  Add once to an EX20-specific product template.
+  Block types: Full-width image, Feature carousel, Carousel slide, Application card.
+  Carousel slides are assigned to carousel group 1, 2 or 3.
+{% endcomment %}
+
+{%- liquid
+  assign sid = 'rt-ex20propro-' | append: section.id
+-%}
+
+<style>
+  #{{ sid }} { width: 100%; background: {{ section.settings.background }}; color: {{ section.settings.text_color }}; }
+  #{{ sid }} * { box-sizing: border-box; }
+  #{{ sid }} .rt-ex20propro-wrap { max-width: {{ section.settings.max_width }}px; margin-inline: auto; width: 100%; }
+  #{{ sid }} .rt-ex20propro-picture { display: block; width: 100%; line-height: 0; }
+  #{{ sid }} .rt-ex20propro-picture img { display: block; width: 100%; height: auto; border: 0; }
+  #{{ sid }} .rt-ex20propro-head { padding: 32px 20px 18px; text-align: center; }
+  #{{ sid }} .rt-ex20propro-head h2 { margin: 0 0 8px; color: inherit; font-size: clamp(24px, 3vw, 38px); line-height: 1.16; font-weight: 700; }
+  #{{ sid }} .rt-ex20propro-head p { margin: 0; color: inherit; opacity: .72; font-size: clamp(14px, 1.5vw, 18px); }
+  #{{ sid }} .rt-ex20propro-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; padding: 24px 20px; background: {{ section.settings.stats_background }}; }
+  #{{ sid }} .rt-ex20propro-stat { min-width: 0; text-align: center; }
+  #{{ sid }} .rt-ex20propro-stat strong { display: block; font-size: clamp(17px,2.1vw,27px); line-height: 1.2; color: inherit; }
+  #{{ sid }} .rt-ex20propro-stat span { display: block; font-size: clamp(11px,1.2vw,15px); margin-top: 5px; opacity: .75; }
+  #{{ sid }} .rt-ex20propro-carousel { padding-bottom: 26px; }
+  #{{ sid }} .rt-ex20propro-carousel-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; padding: 30px 20px 16px; }
+  #{{ sid }} .rt-ex20propro-carousel-head h2 { margin: 0 0 6px; font-size: clamp(24px,3vw,36px); line-height: 1.18; color: inherit; }
+  #{{ sid }} .rt-ex20propro-carousel-head p { margin: 0; opacity: .72; font-size: 15px; }
+  #{{ sid }} .rt-ex20propro-arrows { display: flex; gap: 8px; flex-shrink: 0; }
+  #{{ sid }} .rt-ex20propro-arrow { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #c9cfd9; border-radius: 50%; background: transparent; color: inherit; font-size: 22px; cursor: pointer; }
+  #{{ sid }} .rt-ex20propro-arrow:hover { background: #edf2f9; }
+  #{{ sid }} .rt-ex20propro-track { display: flex; gap: 0; padding: 0; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; overscroll-behavior-x: contain; }
+  #{{ sid }} .rt-ex20propro-track::-webkit-scrollbar { display: none; }
+  #{{ sid }} .rt-ex20propro-slide { flex: 0 0 100%; width: 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; overflow: hidden; border-radius: 0; background: #f5f7fa; }
+  #{{ sid }} .rt-ex20propro-slide .rt-ex20propro-picture img { display: block; width: 100%; height: auto; }
+  #{{ sid }} .rt-ex20propro-slide-title { padding: 13px 14px 16px; font-size: 15px; font-weight: 600; line-height: 1.3; }
+  #{{ sid }} .rt-ex20propro-apps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; padding: 0 20px 30px; }
+  #{{ sid }} .rt-ex20propro-app { overflow: hidden; background: #f5f7fa; border-radius: {{ section.settings.card_radius }}px; }
+  #{{ sid }} .rt-ex20propro-app p { margin: 0; padding: 12px 14px; font-size: 15px; font-weight: 600; }
+  #{{ sid }} .rt-ex20propro-empty { padding: 35px 20px; text-align: center; opacity: .6; }
+  @media (max-width: 749px) {
+    #{{ sid }} .rt-ex20propro-stats { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 10px; padding: 20px 12px; }
+    #{{ sid }} .rt-ex20propro-carousel-head { padding: 24px 12px 12px; }
+    #{{ sid }} .rt-ex20propro-head { padding: 26px 12px 14px; }
+    #{{ sid }} .rt-ex20propro-track { gap: 0; padding-inline: 0; }
+    #{{ sid }} .rt-ex20propro-slide { flex-basis: 100%; }
+    #{{ sid }} .rt-ex20propro-arrows { display: none; }
+    #{{ sid }} .rt-ex20propro-apps { grid-template-columns: repeat(2,minmax(0,1fr)); padding: 0 12px 22px; gap: 10px; }
+    #{{ sid }} .rt-ex20propro-app p { font-size: 13px; }
+  }
+</style>
+
+<div id="{{ sid }}" {{ section.shopify_attributes }}>
+  <div class="rt-ex20propro-wrap">
+    {% if section.settings.hero_pc != blank or section.settings.hero_mo != blank %}
+      <picture class="rt-ex20propro-picture">
+        {% if section.settings.hero_mo != blank %}
+          <source media="(max-width: 749px)" srcset="{{ section.settings.hero_mo | image_url: width: 1100 }}">
+        {% endif %}
+        {% assign hero_image = section.settings.hero_pc | default: section.settings.hero_mo %}
+        {{ hero_image | image_url: width: 2000 | image_tag: loading: 'eager', fetchpriority: 'high', alt: 'Raythink EX20 Pro thermal imaging camera' }}
+      </picture>
+    {% endif %}
+
+    {% if section.settings.show_stats %}
+      <div class="rt-ex20propro-stats" aria-label="EX20 Pro main features">
+        {% for i in (1..6) %}
+          {% assign val_key = 'stat_' | append: i | append: '_value' %}
+          {% assign label_key = 'stat_' | append: i | append: '_label' %}
+          {% assign val = section.settings[val_key] %}
+          {% assign caption = section.settings[label_key] %}
+          {% if val != blank %}
+            <div class="rt-ex20propro-stat"><strong>{{ val | escape }}</strong><span>{{ caption | escape }}</span></div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'image' %}
+          <div {{ block.shopify_attributes }}>
+            {% if block.settings.title != blank %}
+              <div class="rt-ex20propro-head"><h2>{{ block.settings.title | escape }}</h2>{% if block.settings.subtitle != blank %}<p>{{ block.settings.subtitle | escape }}</p>{% endif %}</div>
+            {% endif %}
+            {% assign pc_image = block.settings.pc | default: block.settings.mo %}
+            {% if pc_image != blank %}
+              <picture class="rt-ex20propro-picture">
+                {% if block.settings.mo != blank %}<source media="(max-width: 749px)" srcset="{{ block.settings.mo | image_url: width: 1100 }}">{% endif %}
+                {{ pc_image | image_url: width: 2000 | image_tag: loading: 'lazy', alt: block.settings.alt_text }}
+              </picture>
+            {% elsif request.design_mode %}
+              <div class="rt-ex20propro-empty">Select a PC image and a mobile image for this block</div>
+            {% endif %}
+          </div>
+
+        {% when 'carousel' %}
+          <div class="rt-ex20propro-carousel" {{ block.shopify_attributes }}>
+            <div class="rt-ex20propro-carousel-head">
+              <div><h2>{{ block.settings.title | escape }}</h2>{% if block.settings.subtitle != blank %}<p>{{ block.settings.subtitle | escape }}</p>{% endif %}</div>
+              <div class="rt-ex20propro-arrows">
+                <button type="button" class="rt-ex20propro-arrow" aria-label="Previous slides" onclick="this.closest('.rt-ex20propro-carousel').querySelector('.rt-ex20propro-track').scrollBy({left:-this.closest('.rt-ex20propro-carousel').querySelector('.rt-ex20propro-track').clientWidth,behavior:'smooth'})">‹</button>
+                <button type="button" class="rt-ex20propro-arrow" aria-label="Next slides" onclick="this.closest('.rt-ex20propro-carousel').querySelector('.rt-ex20propro-track').scrollBy({left:this.closest('.rt-ex20propro-carousel').querySelector('.rt-ex20propro-track').clientWidth,behavior:'smooth'})">›</button>
+              </div>
+            </div>
+            <div class="rt-ex20propro-track" role="region" aria-label="{{ block.settings.title | escape }} carousel" tabindex="0">
+              {% assign found_slide = false %}
+              {% for slide in section.blocks %}
+                {% if slide.type == 'slide' and slide.settings.group == block.settings.group %}
+                  {% assign card_image = slide.settings.pc | default: slide.settings.mo %}
+                  {% if card_image != blank %}
+                    {% assign found_slide = true %}
+                    <article class="rt-ex20propro-slide" {{ slide.shopify_attributes }}>
+                      <picture class="rt-ex20propro-picture">
+                        {% if slide.settings.mo != blank %}<source media="(max-width: 749px)" srcset="{{ slide.settings.mo | image_url: width: 1200 }}">{% endif %}
+                        {{ card_image | image_url: width: 2000 | image_tag: loading: 'lazy', alt: slide.settings.title }}
+                      </picture>
+                      {% if slide.settings.title != blank %}<div class="rt-ex20propro-slide-title">{{ slide.settings.title | escape }}</div>{% endif %}
+                    </article>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+              {% unless found_slide %}{% if request.design_mode %}<div class="rt-ex20propro-empty">Add Carousel slide blocks with the same group number</div>{% endif %}{% endunless %}
+            </div>
+          </div>
+
+        {% when 'applications' %}
+          <div {{ block.shopify_attributes }}>
+            <div class="rt-ex20propro-head"><h2>{{ block.settings.title | escape }}</h2>{% if block.settings.subtitle != blank %}<p>{{ block.settings.subtitle | escape }}</p>{% endif %}</div>
+            <div class="rt-ex20propro-apps">
+              {% for app in section.blocks %}
+                {% if app.type == 'app_card' %}
+                  {% assign app_img = app.settings.pc | default: app.settings.mo %}
+                  {% if app_img != blank %}
+                    <article class="rt-ex20propro-app" {{ app.shopify_attributes }}>
+                      <picture class="rt-ex20propro-picture">
+                        {% if app.settings.mo != blank %}<source media="(max-width: 749px)" srcset="{{ app.settings.mo | image_url: width: 700 }}">{% endif %}
+                        {{ app_img | image_url: width: 900 | image_tag: loading: 'lazy', alt: app.settings.title }}
+                      </picture>
+                      {% if app.settings.title != blank %}<p>{{ app.settings.title | escape }}</p>{% endif %}
+                    </article>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Raythink EX20 Pro details",
+  "tag": "section",
+  "class": "section-raythink-ex20pro-details",
+  "settings": [
+    {"type":"header","content":"Hero banner"},
+    {"type":"image_picker","id":"hero_pc","label":"Hero image - PC"},
+    {"type":"image_picker","id":"hero_mo","label":"Hero image - MO"},
+    {"type":"header","content":"Layout"},
+    {"type":"range","id":"max_width","label":"Content max width","min":800,"max":1600,"step":50,"unit":"px","default":1200},
+    {"type":"color","id":"background","label":"Background","default":"#ffffff"},
+    {"type":"color","id":"text_color","label":"Text color","default":"#151b28"},
+    {"type":"color","id":"stats_background","label":"Specs background","default":"#f2f5fa"},
+    {"type":"range","id":"card_radius","label":"Card corners","min":0,"max":24,"step":2,"unit":"px","default":8},
+    {"type":"header","content":"Six key specifications"},
+    {"type":"checkbox","id":"show_stats","label":"Show specs under Hero","default":true},
+    {"type":"text","id":"stat_1_value","label":"Spec 1 value","default":"512×384"},
+    {"type":"text","id":"stat_1_label","label":"Spec 1 label","default":"NUR super-resolution"},
+    {"type":"text","id":"stat_2_value","label":"Spec 2 value","default":"56° × 42°"},
+    {"type":"text","id":"stat_2_label","label":"Spec 2 label","default":"Wide Field of View"},
+    {"type":"text","id":"stat_3_value","label":"Spec 3 value","default":"25Hz"},
+    {"type":"text","id":"stat_3_label","label":"Spec 3 label","default":"Refresh Rate"},
+    {"type":"text","id":"stat_4_value","label":"Spec 4 value","default":"-4°F to 1022°F"},
+    {"type":"text","id":"stat_4_label","label":"Spec 4 label","default":"Temperature Range"},
+    {"type":"text","id":"stat_5_value","label":"Spec 5 value","default":"8h"},
+    {"type":"text","id":"stat_5_label","label":"Spec 5 label","default":"Battery Life"},
+    {"type":"text","id":"stat_6_value","label":"Spec 6 value","default":"2MP"},
+    {"type":"text","id":"stat_6_label","label":"Spec 6 label","default":"Visible Light Camera"}
+  ],
+  "blocks": [
+    {
+      "type":"image","name":"Feature banner (PC / MO)","settings":[
+        {"type":"text","id":"title","label":"Optional title"},
+        {"type":"text","id":"subtitle","label":"Optional subtitle"},
+        {"type":"image_picker","id":"pc","label":"Image - PC"},
+        {"type":"image_picker","id":"mo","label":"Image - MO"},
+        {"type":"text","id":"alt_text","label":"Image description","default":"Raythink EX20 Pro thermal imaging features"}
+      ]
+    },
+    {
+      "type":"carousel","name":"Feature carousel","limit":3,"settings":[
+        {"type":"text","id":"title","label":"Carousel title","default":"Explore More Features"},
+        {"type":"text","id":"subtitle","label":"Carousel subtitle"},
+        {"type":"select","id":"group","label":"Carousel group","options":[{"value":"1","label":"Group 1"},{"value":"2","label":"Group 2"},{"value":"3","label":"Group 3"}],"default":"1","info":"Use a unique group for each carousel. Slides with the same group appear here."}
+      ]
+    },
+    {
+      "type":"slide","name":"Carousel slide","settings":[
+        {"type":"select","id":"group","label":"Belongs to carousel","options":[{"value":"1","label":"Group 1"},{"value":"2","label":"Group 2"},{"value":"3","label":"Group 3"}],"default":"1"},
+        {"type":"text","id":"title","label":"Optional caption"},
+        {"type":"image_picker","id":"pc","label":"Image - PC"},
+        {"type":"image_picker","id":"mo","label":"Image - MO"}
+      ]
+    },
+    {
+      "type":"applications","name":"Application grid","limit":1,"settings":[
+        {"type":"text","id":"title","label":"Title","default":"One Tool. Multiple Applications."},
+        {"type":"text","id":"subtitle","label":"Subtitle"}
+      ]
+    },
+    {
+      "type":"app_card","name":"Application card","limit":12,"settings":[
+        {"type":"text","id":"title","label":"Application name","default":"Home Inspection"},
+        {"type":"image_picker","id":"pc","label":"Image - PC"},
+        {"type":"image_picker","id":"mo","label":"Image - MO (optional)"}
+      ]
+    }
+  ],
+  "presets": [{"name":"Raythink EX20 Pro details","blocks":[
+    {"type":"image"},
+    {"type":"image"},
+    {"type":"carousel","settings":{"group":"1","title":"Imaging & Detection"}},
+    {"type":"slide","settings":{"group":"1"}},
+    {"type":"slide","settings":{"group":"1"}},
+    {"type":"slide","settings":{"group":"1"}},
+    {"type":"image"},
+    {"type":"carousel","settings":{"group":"2","title":"Temperature Analysis"}},
+    {"type":"slide","settings":{"group":"2"}},
+    {"type":"slide","settings":{"group":"2"}},
+    {"type":"slide","settings":{"group":"2"}},
+    {"type":"image"},
+    {"type":"image"},
+    {"type":"carousel","settings":{"group":"3","title":"Built for the Field"}},
+    {"type":"slide","settings":{"group":"3"}},
+    {"type":"slide","settings":{"group":"3"}},
+    {"type":"slide","settings":{"group":"3"}},
+    {"type":"image"},
+    {"type":"image"},
+    {"type":"image"},
+    {"type":"image"}
+  ]}]
+}
+{% endschema %}
