@@ -64,48 +64,51 @@
                 "feature_1": {
                   "type": "_rt-product-icon-text",
                   "settings": {
-                    "text": "AI Super Resolution: See more detail with up to 640 × 480 resolution and 15× digital zoom.",
+                    "text": "512×384 NUR Super-Resolution: Enhanced thermal clarity with smooth 25Hz imaging.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
                   },
                   "blocks": {}
                 },
-                "feature_2": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "Smart AI HVAC Mode: Easily spot temperature differences with AI-assisted HVAC inspections.",
-                    "icon": "official",
-                    "round_icon": false,
-                    "return_days": 30
-                  },
-                  "blocks": {}
-                },
-                "feature_3": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "Plug & Play: Turn your compatible USB-C smartphone into a thermal camera in seconds.",
-                    "icon": "official",
-                    "round_icon": false,
-                    "return_days": 30
-                  },
-                  "blocks": {}
-                },
-                "feature_4": {
-                  "type": "_rt-product-icon-text",
-                  "settings": {
-                    "text": "Everyday Home Inspections: Check heat loss, insulation gaps, and overheating components with ease.",
-                    "icon": "official",
-                    "round_icon": false,
-                    "return_days": 30
-                  },
-                  "blocks": {}
-                },
-                "rt_product_icon_text_xhnfFk": {
+                "rt_product_icon_text_FWf3qT": {
                   "type": "_rt-product-icon-text",
                   "name": "t:rt_product.icon_text",
                   "settings": {
-                    "text": "Wide Temperature Range: Measure from -20°C to 550°C (-4°F to 1022°F).",
+                    "text": "4 Imaging Modes & Laser Pointer: 2MP visible light, PIP, dual-spectrum fusion, and precise laser targeting.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_JnTThz": {
+                  "type": "_rt-product-icon-text",
+                  "name": "t:rt_product.icon_text",
+                  "settings": {
+                    "text": "Wi-Fi & PC/Mobile Workflow: Wireless transfer, TI Studio analysis, and 16GB storage.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_4bW4x9": {
+                  "type": "_rt-product-icon-text",
+                  "name": "t:rt_product.icon_text",
+                  "settings": {
+                    "text": "Advanced Temperature Analysis: −4°F to 1022°F (−20°C to 550°C), AI-assisted HVAC checks, and 6 custom spots.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_6qt8KW": {
+                  "type": "_rt-product-icon-text",
+                  "name": "t:rt_product.icon_text",
+                  "settings": {
+                    "text": "Built for Professionals: Up to 8h runtime, IP54 protection, and 6.6ft (2m) drop resistance.",
                     "icon": "official",
                     "round_icon": false,
                     "return_days": 30
@@ -115,10 +118,10 @@
               },
               "block_order": [
                 "feature_1",
-                "feature_2",
-                "feature_3",
-                "feature_4",
-                "rt_product_icon_text_xhnfFk"
+                "rt_product_icon_text_FWf3qT",
+                "rt_product_icon_text_JnTThz",
+                "rt_product_icon_text_4bW4x9",
+                "rt_product_icon_text_6qt8KW"
               ]
             },
             "variant_picker_R3rGDr": {
