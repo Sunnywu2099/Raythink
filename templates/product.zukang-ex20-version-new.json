@@ -422,21 +422,27 @@
           "type": "slide",
           "settings": {
             "group": "2",
-            "title": ""
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Temperature_Spots_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Temperature_Spots_MO.jpg"
           }
         },
         "slide_qEgjUk": {
           "type": "slide",
           "settings": {
             "group": "2",
-            "title": ""
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Temperature_Alerts_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Temperature_Alerts_MO.jpg"
           }
         },
         "slide_iWCkYj": {
           "type": "slide",
           "settings": {
             "group": "1",
-            "title": ""
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Isotherm_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Isotherm_MO.jpg"
           }
         },
         "image_YTFD7c": {
