@@ -755,6 +755,8 @@
           "settings": {
             "title": "",
             "subtitle": "",
+            "pc": "shopify://shop_images/EX20_Pro_AI_HVAC_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Pro_AI_HVAC_MO.jpg",
             "alt_text": "Raythink EX20 Pro thermal imaging features"
           }
         },
@@ -770,21 +772,27 @@
           "type": "slide",
           "settings": {
             "group": "2",
-            "title": ""
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Pro_Temperature_Spots_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Pro_Temperature_Spots_MO.jpg"
           }
         },
         "slide_acWirh": {
           "type": "slide",
           "settings": {
             "group": "2",
-            "title": ""
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Pro_Temperature_Alerts_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Pro_Temperature_Alerts_MO.jpg"
           }
         },
         "slide_rDXHTA": {
           "type": "slide",
           "settings": {
             "group": "2",
-            "title": ""
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Pro_Isotherm_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Pro_Isotherm_MO.jpg"
           }
         },
         "image_8JLDPg": {
