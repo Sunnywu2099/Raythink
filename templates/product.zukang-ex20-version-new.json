@@ -397,7 +397,9 @@
           "type": "slide",
           "settings": {
             "group": "1",
-            "title": ""
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Wide_FOV_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Wide_FOV_MO.jpg"
           }
         },
         "image_ggXfwK": {
