@@ -479,42 +479,6 @@
         "padding_bottom_desktop": 160
       }
     },
-    "rt_view_switch_JhpcUC": {
-      "type": "rt-view-switch",
-      "blocks": {
-        "view_eBkdAr": {
-          "type": "view",
-          "settings": {
-            "title": "IX1 Go Pro",
-            "image_desktop": "shopify://shop_images/IX1Go_Pro_9_Color_PalettesPC.png",
-            "image_mobile": "shopify://shop_images/IX1_Go_Pro_9_Color_Palettes_MO.png"
-          }
-        },
-        "view_agTzQL": {
-          "type": "view",
-          "settings": {
-            "title": "IX1 Go",
-            "image_desktop": "shopify://shop_images/6_color_Palettes_IX1_Go.png",
-            "image_mobile": "shopify://shop_images/6_Color_Palettes_IX1_Go_MO.png"
-          }
-        }
-      },
-      "block_order": [
-        "view_eBkdAr",
-        "view_agTzQL"
-      ],
-      "settings": {
-        "heading": "The Right Palette for Every Inspection.",
-        "heading_color": "#ffffff",
-        "description": "Choose from 6 color palettes on IX1 GO to visualize temperature patterns your way",
-        "description_color": "#b5b5b5",
-        "background_color": "#141414",
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 96,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 160
-      }
-    },
     "rt_text_with_image_2_nQ9JHk": {
       "type": "rt-text-with-image-2",
       "blocks": {
@@ -549,6 +513,42 @@
       "settings": {
         "background_color": "#141414",
         "image_position": "left",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_view_switch_JhpcUC": {
+      "type": "rt-view-switch",
+      "blocks": {
+        "view_eBkdAr": {
+          "type": "view",
+          "settings": {
+            "title": "IX1 Go Pro",
+            "image_desktop": "shopify://shop_images/IX1Go_Pro_9_Color_PalettesPC.png",
+            "image_mobile": "shopify://shop_images/IX1_Go_Pro_9_Color_Palettes_MO.png"
+          }
+        },
+        "view_agTzQL": {
+          "type": "view",
+          "settings": {
+            "title": "IX1 Go",
+            "image_desktop": "shopify://shop_images/6_color_Palettes_IX1_Go.png",
+            "image_mobile": "shopify://shop_images/6_Color_Palettes_IX1_Go_MO.png"
+          }
+        }
+      },
+      "block_order": [
+        "view_eBkdAr",
+        "view_agTzQL"
+      ],
+      "settings": {
+        "heading": "The Right Palette for Every Inspection.",
+        "heading_color": "#ffffff",
+        "description": "Choose from 6 color palettes on IX1 GO to visualize temperature patterns your way",
+        "description_color": "#b5b5b5",
+        "background_color": "#141414",
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 96,
         "padding_top_desktop": 0,
@@ -1045,8 +1045,8 @@
     "rt_grid_Uc873h",
     "rt_text_with_image_VnaR7W",
     "rt_view_switch",
-    "rt_view_switch_JhpcUC",
     "rt_text_with_image_2_nQ9JHk",
+    "rt_view_switch_JhpcUC",
     "rt_text_with_image_2_BDftf4",
     "rt_grid_p8xYMw",
     "rt_grid_WCTTyB",
