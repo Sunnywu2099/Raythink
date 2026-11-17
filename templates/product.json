@@ -494,8 +494,8 @@
           "type": "view",
           "settings": {
             "title": "IX1 Go Pro",
-            "image_desktop": "shopify://shop_images/IX1GOPRO_4_image_modes.png",
-            "image_mobile": "shopify://shop_images/IX1GOPRO_4_Image_Modes_MO.png"
+            "image_desktop": "shopify://shop_images/IX1Go_Pro_9_Color_PalettesPC.png",
+            "image_mobile": "shopify://shop_images/IX1_Go_Pro_9_Color_Palettes_MO.png"
           }
         }
       },
