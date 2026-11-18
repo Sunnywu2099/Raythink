@@ -133,6 +133,38 @@
                     "rt_header_menu_product_link_KprY8C"
                   ]
                 },
+                "rt_header_menu_product_category_gqzkQT": {
+                  "type": "_rt-header-menu-product-category",
+                  "settings": {
+                    "title": "EX20 Series"
+                  },
+                  "blocks": {
+                    "rt_header_menu_product_TdepKy": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ex20-handheld-thermal-camera",
+                        "badge_text": "Essential",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_w3cDqi": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ex20-pro-handheld-thermal-camera",
+                        "badge_text": "Advanced",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_TdepKy",
+                    "rt_header_menu_product_w3cDqi"
+                  ]
+                },
                 "rt_header_menu_product_category_pBeBjt": {
                   "type": "_rt-header-menu-product-category",
                   "settings": {
@@ -163,39 +195,6 @@
                   "block_order": [
                     "rt_header_menu_product_4hmb3h",
                     "rt_header_menu_product_PfQa99"
-                  ]
-                },
-                "rt_header_menu_product_category_gqzkQT": {
-                  "type": "_rt-header-menu-product-category",
-                  "disabled": true,
-                  "settings": {
-                    "title": "EX20 Series"
-                  },
-                  "blocks": {
-                    "rt_header_menu_product_w3cDqi": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ix1gopro-smartphone-thermal-camera",
-                        "badge_text": "New",
-                        "badge_color": "#00ad2e"
-                      },
-                      "blocks": {}
-                    },
-                    "rt_header_menu_product_TdepKy": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ix1go-smartphone-thermal-camera",
-                        "badge_text": "New",
-                        "badge_color": "#00ad2e"
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "rt_header_menu_product_w3cDqi",
-                    "rt_header_menu_product_TdepKy"
                   ]
                 },
                 "rt_header_menu_product_category_3B8Vii": {
@@ -244,8 +243,8 @@
               },
               "block_order": [
                 "rt_header_menu_product_links_UPxgDw",
-                "rt_header_menu_product_category_pBeBjt",
                 "rt_header_menu_product_category_gqzkQT",
+                "rt_header_menu_product_category_pBeBjt",
                 "rt_header_menu_product_category_3B8Vii"
               ]
             },
@@ -356,6 +355,16 @@
               "block_order": [
                 "rt_header_menu_card_group_74KCg9"
               ]
+            },
+            "rt_header_menu_link_mMx4WA": {
+              "type": "_rt-header-menu-link",
+              "name": "链接",
+              "settings": {
+                "title": "Software Download",
+                "url": "shopify://pages/ti-studio-download",
+                "open_in_new_window": false
+              },
+              "blocks": {}
             },
             "rt_header_menu_mega_U6VYdt": {
               "type": "_rt-header-menu-mega",
@@ -539,6 +548,7 @@
             "rt_header_menu_products_JTBF9Y",
             "rt_header_menu_products_WVQRyh",
             "rt_header_menu_mega_6LXnw8",
+            "rt_header_menu_link_mMx4WA",
             "rt_header_menu_mega_U6VYdt",
             "rt_header_menu_mega_YjjGwT",
             "rt_header_menu_link_ezkUM8"

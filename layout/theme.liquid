@@ -7,6 +7,12 @@
   dir="{{ request.locale.direction | default: 'ltr' }}"
 >
   <head>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WF9CVDHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"

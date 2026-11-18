@@ -12,12 +12,44 @@
     "rt_main_banner_NM4gjD": {
       "type": "rt-main-banner",
       "blocks": {
+        "main_banner_block_jPdgRq": {
+          "type": "main-banner-block",
+          "settings": {
+            "img_desktop": "shopify://shop_images/EX20Pro_KV_PC2560.png",
+            "img_mobile": "shopify://shop_images/EX20_Pro_KV_MO.png",
+            "slogan": "Scan Wider, Analyze Smarter",
+            "title": "Raythink EX20",
+            "description": "Wide-View Thermal Imaging with PC-Based Analysis",
+            "text_color": "{{ settings.color_palette.background }}",
+            "button_text": "Learn More",
+            "button_url": "shopify://products/ex20-handheld-thermal-camera",
+            "button_text_2": "",
+            "button_url_2": "",
+            "layout": "left"
+          }
+        },
+        "main_banner_block_YhyXwR": {
+          "type": "main-banner-block",
+          "settings": {
+            "img_desktop": "shopify://shop_images/EX20_Product_Launch_KV_PC_1920.jpg",
+            "img_mobile": "shopify://shop_images/EX20_Product_Launch_KV_MO.jpg",
+            "slogan": "See Beyond, Analyze Anywhere",
+            "title": "Raythink EX20 Pro",
+            "description": "Image Fusion Thermal Imaging with Flexible PC & Mobile Analysis",
+            "text_color": "{{ settings.color_palette.foreground }}",
+            "button_text": "Learn More",
+            "button_url": "shopify://products/ex20-pro-handheld-thermal-camera",
+            "button_text_2": "",
+            "button_url_2": "",
+            "layout": "left"
+          }
+        },
         "main_banner_block_3tkL8h": {
           "type": "main-banner-block",
           "settings": {
             "img_desktop": "shopify://shop_images/IX1_Go_KV_PC_1920__4X_a84989e9-ceed-4d43-bf60-5c015df884df.jpg",
             "img_mobile": "shopify://shop_images/IX1_Go_KV_MO_4X_eef8ec84-5f1b-4025-9453-33d571c8dff3.jpg",
-            "slogan": "GO EASY, GO SMART",
+            "slogan": "Go Easy, Go Smart",
             "title": "Raythink IX1 Go Pro",
             "description": "Dual-Lens Thermal Imaging for Smarter Inspections",
             "text_color": "{{ settings.color_palette.foreground }}",
@@ -46,6 +78,8 @@
         }
       },
       "block_order": [
+        "main_banner_block_jPdgRq",
+        "main_banner_block_YhyXwR",
         "main_banner_block_3tkL8h",
         "main_banner_block_kKqVWA"
       ],
@@ -109,13 +143,13 @@
         "half_block_zEDA3B": {
           "type": "half-block",
           "settings": {
-            "image": "shopify://shop_images/Raythink_EX10_Pro_2000x2000_Matched.png",
-            "title": "EX10 Pro",
+            "image": "shopify://shop_images/EX20_Pro_2000_2000_Trans_BG.png",
+            "title": "EX20 Pro",
             "title_color": "#000000",
-            "description": "Dual-Camera Handheld Thermal Imaging for Detailed Inspections",
+            "description": "Image Fusion & Seamless PC/Mobile Workflow",
             "description_color": "{{ settings.color_palette.color1 }}",
             "primary_button_text": "Learn More",
-            "primary_link": "shopify://products/ex10pro-handheld-thermal-camera",
+            "primary_link": "shopify://products/ex20-pro-handheld-thermal-camera",
             "secondary_button_text": "",
             "secondary_link": ""
           }
@@ -123,13 +157,13 @@
         "half_block_cQRNFw": {
           "type": "half-block",
           "settings": {
-            "image": "shopify://shop_images/EX10_Front.png",
-            "title": "EX10",
+            "image": "shopify://shop_images/EX20_2000_2000_Trans_BG.png",
+            "title": "EX20",
             "title_color": "{{ settings.color_palette.foreground }}",
-            "description": "Essential Handheld Thermal Imaging for Everyday Inspections",
+            "description": "Wide-View Thermal Imaging with PC-Based Analysis",
             "description_color": "{{ settings.color_palette.color1 }}",
             "primary_button_text": "Learn More",
-            "primary_link": "shopify://products/ex10-handheld-thermal-camera",
+            "primary_link": "shopify://products/ex20-handheld-thermal-camera",
             "secondary_button_text": "",
             "secondary_link": ""
           }

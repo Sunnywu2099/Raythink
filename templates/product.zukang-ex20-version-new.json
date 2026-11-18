@@ -1,0 +1,607 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "rt-product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_rt-product-media-gallery",
+          "static": true,
+          "settings": {
+            "zoom": true,
+            "video_loop": false
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_rt-product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 48,
+            "sticky_details_desktop": false,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "rt_summary": {
+              "type": "_rt-product-summary",
+              "settings": {
+                "reviews_link": ""
+              },
+              "blocks": {}
+            },
+            "rt_features": {
+              "type": "_rt-product-features",
+              "settings": {
+                "show_learn_more": true
+              },
+              "blocks": {
+                "feature_1": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "512×384 NUR Super-Resolution: Sharper thermal details with 25Hz smooth imaging.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_3tFG48": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "56°×42° Wide FOV: Cover more area in a single scan.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_HLJqKB": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Smart Temperature Analysis: −4°F to 1022°F (−20°C to 550°C), AI-assisted HVAC checks, and 3 custom spots.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_z7TUYP": {
+                  "type": "_rt-product-icon-text",
+                  "name": "t:rt_product.icon_text",
+                  "settings": {
+                    "text": "PC Analysis & 16GB Storage: Analyze, capture, and export inspection reports with TI Studio.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "rt_product_icon_text_ArjPra": {
+                  "type": "_rt-product-icon-text",
+                  "name": "t:rt_product.icon_text",
+                  "settings": {
+                    "text": "Built for the Field: Up to 9h runtime, IP54 protection, and 6.6ft (2m) drop resistance.",
+                    "icon": "official",
+                    "round_icon": false,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "feature_1",
+                "rt_product_icon_text_3tFG48",
+                "rt_product_icon_text_HLJqKB",
+                "rt_product_icon_text_z7TUYP",
+                "rt_product_icon_text_ArjPra"
+              ]
+            },
+            "variant_picker_R3rGDr": {
+              "type": "_rt-product-variant-picker",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": false,
+                "option_label_text_color": "",
+                "variant_style_class": "default",
+                "custom_variant_background": "{{ settings.color_palette.background }}",
+                "custom_variant_text": "{{ settings.color_palette.foreground }}",
+                "custom_variant_border": "{{ settings.color_palette.foreground }}",
+                "selected_variant_style_class": "default",
+                "custom_selected_variant_background": "{{ settings.color_palette.foreground }}",
+                "custom_selected_variant_text": "{{ settings.color_palette.background }}",
+                "custom_selected_variant_border": "{{ settings.color_palette.foreground }}",
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "quantity": {
+              "type": "_rt-product-quantity",
+              "settings": {
+                "input_style": "default",
+                "input_background_color": "{{ settings.color_palette.background }}",
+                "input_text_color": "{{ settings.color_palette.foreground }}",
+                "input_border_color": "{{ settings.color_palette.foreground }}",
+                "border_width": 1,
+                "border_radius": 8
+              },
+              "blocks": {}
+            },
+            "rt_delivery": {
+              "type": "_rt-product-delivery",
+              "settings": {
+                "delivery_text": "Order today, ships in 3–7 business days"
+              },
+              "blocks": {}
+            },
+            "rt_payment": {
+              "type": "_rt-product-payment",
+              "settings": {
+                "show_payment_icons": true
+              },
+              "blocks": {}
+            },
+            "rt_services": {
+              "type": "_rt-product-services",
+              "settings": {},
+              "blocks": {
+                "returns": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "30-Day Return Policy",
+                    "icon": "return",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "members": {
+                  "type": "_rt-product-icon-text",
+                  "disabled": true,
+                  "settings": {
+                    "text": "Member’s Benefits",
+                    "icon": "gift",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "guarantee": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "Price Guarantee",
+                    "icon": "price",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                },
+                "warranty": {
+                  "type": "_rt-product-icon-text",
+                  "settings": {
+                    "text": "2-Year Warranty",
+                    "icon": "warranty",
+                    "round_icon": true,
+                    "return_days": 30
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "returns",
+                "members",
+                "guarantee",
+                "warranty"
+              ]
+            },
+            "rt_purchase": {
+              "type": "_rt-product-buy-buttons",
+              "static": true,
+              "settings": {
+                "show_accelerated_checkout": true,
+                "text_color": ""
+              },
+              "blocks": {
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button-custom",
+                    "custom_button_background": "#ffffff",
+                    "custom_button_text": "#1f1f1f",
+                    "custom_button_border": "#d9d9d9"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "_rt-product-buy-now",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button-custom",
+                    "custom_button_background": "#1f1f1f",
+                    "custom_button_text": "#ffffff",
+                    "custom_button_border": "#1f1f1f"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            }
+          },
+          "block_order": [
+            "rt_summary",
+            "rt_features",
+            "variant_picker_R3rGDr",
+            "quantity",
+            "rt_delivery",
+            "rt_payment",
+            "rt_services"
+          ]
+        }
+      },
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#1f1f1f",
+        "surface_background": "#fafafa",
+        "sale_color": "#ff1919",
+        "sale_background": "#ffebeb",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "rt_nav_BjnEQH": {
+      "type": "rt-nav",
+      "blocks": {
+        "nav_block_BWDGFy": {
+          "type": "nav_block",
+          "settings": {
+            "text_color": "#000000",
+            "nav_text": "Overview",
+            "nav_id": "shopify-section-template--22366096720033__rt_grid_Uc873h"
+          }
+        },
+        "nav_block_TPwhzD": {
+          "type": "nav_block",
+          "settings": {
+            "text_color": "#000000",
+            "nav_text": "What’s in the box",
+            "nav_id": "shopify-section-template--22366096720033__rt_in_the_box"
+          }
+        },
+        "nav_block_DEEYdA": {
+          "type": "nav_block",
+          "settings": {
+            "text_color": "#000000",
+            "nav_text": "Specs",
+            "nav_id": ""
+          }
+        },
+        "nav_block_zphccF": {
+          "type": "nav_block",
+          "settings": {
+            "text_color": "#000000",
+            "nav_text": "Reviews",
+            "nav_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "nav_block_BWDGFy",
+        "nav_block_TPwhzD",
+        "nav_block_DEEYdA",
+        "nav_block_zphccF"
+      ],
+      "disabled": true,
+      "name": "rt-nav",
+      "settings": {
+        "background_color": "#ffffff",
+        "bb_color": "#e5e5e5"
+      }
+    },
+    "rt_grid_Uc873h": {
+      "type": "rt-grid",
+      "blocks": {
+        "grid_block_kKtXnD": {
+          "type": "grid-block",
+          "settings": {
+            "image": "shopify://shop_images/image_1075.png",
+            "image_mobile": "shopify://shop_images/image_1080.png"
+          }
+        }
+      },
+      "block_order": [
+        "grid_block_kKtXnD"
+      ],
+      "disabled": true,
+      "name": "rt-grid",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 120
+      }
+    },
+    "raythink_ex20_FPmUyf": {
+      "type": "raythink-ex20",
+      "blocks": {
+        "image_hijqxW": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "pc": "shopify://shop_images/EX20_NUR_Resolution_PC.jpg",
+            "mo": "shopify://shop_images/EX20_NUR_Resolution_MO.jpg",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "carousel_j9Md8c": {
+          "type": "carousel",
+          "settings": {
+            "title": "Imaging & Detection",
+            "subtitle": "",
+            "group": "1"
+          }
+        },
+        "slide_LWLVTm": {
+          "type": "slide",
+          "settings": {
+            "group": "1",
+            "title": "",
+            "pc": "shopify://shop_images/EX20_25Hz_Imaging_PC_173dc182-a395-4834-bf80-4dde5a477131.jpg",
+            "mo": "shopify://shop_images/EX20_25Hz_Imaging_MO_0bf97c98-14ae-4b4c-9ad5-327c83d7036d.jpg"
+          }
+        },
+        "slide_HJkd9Y": {
+          "type": "slide",
+          "settings": {
+            "group": "1",
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Wide_FOV_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Wide_FOV_MO.jpg"
+          }
+        },
+        "slide_eMVw6x": {
+          "type": "slide",
+          "settings": {
+            "group": "1",
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Color_Palettes_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Color_Palettes_MO.jpg"
+          }
+        },
+        "image_ggXfwK": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "pc": "shopify://shop_images/EX20_AI_HVAC_PC.jpg",
+            "mo": "shopify://shop_images/EX20_AI_HVAC_MO.jpg",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "carousel_m8X4et": {
+          "type": "carousel",
+          "settings": {
+            "title": "Temperature Analysis",
+            "subtitle": "",
+            "group": "2"
+          }
+        },
+        "slide_3iy6mk": {
+          "type": "slide",
+          "settings": {
+            "group": "2",
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Temperature_Spots_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Temperature_Spots_MO.jpg"
+          }
+        },
+        "slide_qEgjUk": {
+          "type": "slide",
+          "settings": {
+            "group": "2",
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Temperature_Alerts_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Temperature_Alerts_MO.jpg"
+          }
+        },
+        "slide_iWCkYj": {
+          "type": "slide",
+          "settings": {
+            "group": "1",
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Isotherm_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Isotherm_MO.jpg"
+          }
+        },
+        "image_YTFD7c": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "pc": "shopify://shop_images/EX20_Temperature_Range_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Temperature_Range_MO.jpg",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "image_BEXhCw": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "pc": "shopify://shop_images/EX20_PC_Workflow_PC.jpg",
+            "mo": "shopify://shop_images/EX20_PC_Workflow_MO.jpg",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "carousel_UiBTeP": {
+          "type": "carousel",
+          "settings": {
+            "title": "Built for the Field",
+            "subtitle": "",
+            "group": "3"
+          }
+        },
+        "slide_nGzkHz": {
+          "type": "slide",
+          "settings": {
+            "group": "3",
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Battery_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Battery_MO.jpg"
+          }
+        },
+        "slide_PrFQJ4": {
+          "type": "slide",
+          "settings": {
+            "group": "1",
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Storage_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Storage_MO.jpg"
+          }
+        },
+        "slide_Cawikf": {
+          "type": "slide",
+          "settings": {
+            "group": "3",
+            "title": "",
+            "pc": "shopify://shop_images/EX20_Durability_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Durability_MO.jpg"
+          }
+        },
+        "image_mjnFaV": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "pc": "shopify://shop_images/EX20_Applications_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Applications_MO.jpg",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "image_PDkRgc": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "pc": "shopify://shop_images/EX20_Controls_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Controls_MO.jpg",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "image_qb9VhN": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "pc": "shopify://shop_images/EX20_Languages_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Languages_MO.jpg",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "image_TVGiCm": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "pc": "shopify://shop_images/EX20_Box_Contents_PC.jpg",
+            "mo": "shopify://shop_images/EX20_Box_Contents_MO.jpg",
+            "alt_text": "Raythink EX20 thermal imaging features"
+          }
+        },
+        "applications_ztATxL": {
+          "type": "applications",
+          "disabled": true,
+          "settings": {
+            "title": "One Tool. Multiple Applications.",
+            "subtitle": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_hijqxW",
+        "carousel_j9Md8c",
+        "slide_LWLVTm",
+        "slide_HJkd9Y",
+        "slide_eMVw6x",
+        "image_ggXfwK",
+        "carousel_m8X4et",
+        "slide_3iy6mk",
+        "slide_qEgjUk",
+        "slide_iWCkYj",
+        "image_YTFD7c",
+        "image_BEXhCw",
+        "carousel_UiBTeP",
+        "slide_nGzkHz",
+        "slide_PrFQJ4",
+        "slide_Cawikf",
+        "image_mjnFaV",
+        "image_PDkRgc",
+        "image_qb9VhN",
+        "image_TVGiCm",
+        "applications_ztATxL"
+      ],
+      "name": "Raythink EX20 details",
+      "settings": {
+        "hero_pc": "shopify://shop_images/EX20_Hero_PC.jpg",
+        "hero_mo": "shopify://shop_images/EX20_Hero_MO.jpg",
+        "max_width": 1200,
+        "background": "#ffffff",
+        "text_color": "#151b28",
+        "stats_background": "#f2f5fa",
+        "card_radius": 8,
+        "show_stats": true,
+        "stat_1_value": "512×384",
+        "stat_1_label": "NUR super-resolution",
+        "stat_2_value": "56° × 42°",
+        "stat_2_label": "Wide Field of View",
+        "stat_3_value": "25Hz",
+        "stat_3_label": "Refresh Rate",
+        "stat_4_value": "-4°F to 1022°F",
+        "stat_4_label": "Temperature Range",
+        "stat_5_value": "9h",
+        "stat_5_label": "Battery Life",
+        "stat_6_value": "IP54",
+        "stat_6_label": "Protection"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rt_nav_BjnEQH",
+    "rt_grid_Uc873h",
+    "raythink_ex20_FPmUyf"
+  ]
+}
