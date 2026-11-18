@@ -12,6 +12,38 @@
     "rt_main_banner_NM4gjD": {
       "type": "rt-main-banner",
       "blocks": {
+        "main_banner_block_jPdgRq": {
+          "type": "main-banner-block",
+          "settings": {
+            "img_desktop": "shopify://shop_images/EX20_KV_PC2560.png",
+            "img_mobile": "shopify://shop_images/EX20_Pro_KV_MO.png",
+            "slogan": "See Beyond. Analyze Anywhere",
+            "title": "Raythink EX20 Pro",
+            "description": "Wide-View Thermal Imaging with PC-Based Analysis",
+            "text_color": "{{ settings.color_palette.background }}",
+            "button_text": "Learn More",
+            "button_url": "shopify://products/ex20-pro-handheld-thermal-camera",
+            "button_text_2": "",
+            "button_url_2": "",
+            "layout": "left"
+          }
+        },
+        "main_banner_block_YhyXwR": {
+          "type": "main-banner-block",
+          "settings": {
+            "img_desktop": "shopify://shop_images/EX20_Product_Launch_KV_PC_1920.jpg",
+            "img_mobile": "shopify://shop_images/EX20_Product_Launch_KV_MO.jpg",
+            "slogan": "See Wider..Work Smarter.",
+            "title": "Raythink EX20",
+            "description": "Wide-View Thermal Imaging with PC-Based Analysis",
+            "text_color": "{{ settings.color_palette.background }}",
+            "button_text": "Learn More",
+            "button_url": "shopify://products/ex20-handheld-thermal-camera",
+            "button_text_2": "",
+            "button_url_2": "",
+            "layout": "left"
+          }
+        },
         "main_banner_block_3tkL8h": {
           "type": "main-banner-block",
           "settings": {
@@ -43,26 +75,13 @@
             "button_url_2": "",
             "layout": "left"
           }
-        },
-        "main_banner_block_jPdgRq": {
-          "type": "main-banner-block",
-          "settings": {
-            "slogan": "Slogan Slogan Slogan",
-            "title": "Raythink IX1GO",
-            "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
-            "text_color": "#ffffff",
-            "button_text": "Learn More",
-            "button_url": "",
-            "button_text_2": "Buy Now",
-            "button_url_2": "",
-            "layout": "left"
-          }
         }
       },
       "block_order": [
+        "main_banner_block_jPdgRq",
+        "main_banner_block_YhyXwR",
         "main_banner_block_3tkL8h",
-        "main_banner_block_kKqVWA",
-        "main_banner_block_jPdgRq"
+        "main_banner_block_kKqVWA"
       ],
       "name": "rt-main-banner",
       "settings": {
