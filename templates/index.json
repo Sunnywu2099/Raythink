@@ -17,7 +17,7 @@
           "settings": {
             "img_desktop": "shopify://shop_images/EX20Pro_KV_PC2560.png",
             "img_mobile": "shopify://shop_images/EX20_Pro_KV_MO.png",
-            "slogan": "See Beyond. Analyze Anywhere",
+            "slogan": "See Beyond, Analyze Anywhere",
             "title": "Raythink EX20 Pro",
             "description": "Image Fusion Thermal Imaging for Flexible PC & Mobile Analysis",
             "text_color": "{{ settings.color_palette.background }}",
@@ -33,7 +33,7 @@
           "settings": {
             "img_desktop": "shopify://shop_images/EX20_Product_Launch_KV_PC_1920.jpg",
             "img_mobile": "shopify://shop_images/EX20_Product_Launch_KV_MO.jpg",
-            "slogan": "See Wider..Work Smarter.",
+            "slogan": "See Wider, Work Smarter.",
             "title": "Raythink EX20",
             "description": "Wide-View Thermal Imaging with PC-Based Analysis",
             "text_color": "{{ settings.color_palette.foreground }}",
