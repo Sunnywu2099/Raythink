@@ -36,7 +36,7 @@
             "slogan": "See Wider..Work Smarter.",
             "title": "Raythink EX20",
             "description": "Wide-View Thermal Imaging with PC-Based Analysis",
-            "text_color": "{{ settings.color_palette.background }}",
+            "text_color": "{{ settings.color_palette.foreground }}",
             "button_text": "Learn More",
             "button_url": "shopify://products/ex20-handheld-thermal-camera",
             "button_text_2": "",
