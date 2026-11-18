@@ -43,11 +43,26 @@
             "button_url_2": "",
             "layout": "left"
           }
+        },
+        "main_banner_block_jPdgRq": {
+          "type": "main-banner-block",
+          "settings": {
+            "slogan": "Slogan Slogan Slogan",
+            "title": "Raythink IX1GO",
+            "description": "Discription Pellentesque posuere, diam in hendrerit volutpat",
+            "text_color": "#ffffff",
+            "button_text": "Learn More",
+            "button_url": "",
+            "button_text_2": "Buy Now",
+            "button_url_2": "",
+            "layout": "left"
+          }
         }
       },
       "block_order": [
         "main_banner_block_3tkL8h",
-        "main_banner_block_kKqVWA"
+        "main_banner_block_kKqVWA",
+        "main_banner_block_jPdgRq"
       ],
       "name": "rt-main-banner",
       "settings": {
