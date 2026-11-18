@@ -133,38 +133,6 @@
                     "rt_header_menu_product_link_KprY8C"
                   ]
                 },
-                "rt_header_menu_product_category_pBeBjt": {
-                  "type": "_rt-header-menu-product-category",
-                  "settings": {
-                    "title": "EX10 Series"
-                  },
-                  "blocks": {
-                    "rt_header_menu_product_4hmb3h": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ex10-handheld-thermal-camera",
-                        "badge_text": "Essential",
-                        "badge_color": "#00ad2e"
-                      },
-                      "blocks": {}
-                    },
-                    "rt_header_menu_product_PfQa99": {
-                      "type": "_rt-header-menu-product",
-                      "name": "产品",
-                      "settings": {
-                        "product": "ex10pro-handheld-thermal-camera",
-                        "badge_text": "Advanced",
-                        "badge_color": "#00ad2e"
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "rt_header_menu_product_4hmb3h",
-                    "rt_header_menu_product_PfQa99"
-                  ]
-                },
                 "rt_header_menu_product_category_gqzkQT": {
                   "type": "_rt-header-menu-product-category",
                   "settings": {
@@ -195,6 +163,38 @@
                   "block_order": [
                     "rt_header_menu_product_TdepKy",
                     "rt_header_menu_product_w3cDqi"
+                  ]
+                },
+                "rt_header_menu_product_category_pBeBjt": {
+                  "type": "_rt-header-menu-product-category",
+                  "settings": {
+                    "title": "EX10 Series"
+                  },
+                  "blocks": {
+                    "rt_header_menu_product_4hmb3h": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ex10-handheld-thermal-camera",
+                        "badge_text": "Essential",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    },
+                    "rt_header_menu_product_PfQa99": {
+                      "type": "_rt-header-menu-product",
+                      "name": "产品",
+                      "settings": {
+                        "product": "ex10pro-handheld-thermal-camera",
+                        "badge_text": "Advanced",
+                        "badge_color": "#00ad2e"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "rt_header_menu_product_4hmb3h",
+                    "rt_header_menu_product_PfQa99"
                   ]
                 },
                 "rt_header_menu_product_category_3B8Vii": {
@@ -243,8 +243,8 @@
               },
               "block_order": [
                 "rt_header_menu_product_links_UPxgDw",
-                "rt_header_menu_product_category_pBeBjt",
                 "rt_header_menu_product_category_gqzkQT",
+                "rt_header_menu_product_category_pBeBjt",
                 "rt_header_menu_product_category_3B8Vii"
               ]
             },
