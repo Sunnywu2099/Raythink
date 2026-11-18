@@ -143,7 +143,7 @@
         "half_block_zEDA3B": {
           "type": "half-block",
           "settings": {
-            "image": "shopify://shop_images/EX20Pro_HP_TransBG.png",
+            "image": "shopify://shop_images/EX20_Pro_2000_2000_Trans_BG.png",
             "title": "EX20 Pro",
             "title_color": "#000000",
             "description": "Image Fusion & Seamless PC/Mobile Workflow",
@@ -157,7 +157,7 @@
         "half_block_cQRNFw": {
           "type": "half-block",
           "settings": {
-            "image": "shopify://shop_images/EX20_HP_TransBG.png",
+            "image": "shopify://shop_images/EX20_2000_2000_Trans_BG.png",
             "title": "EX20",
             "title_color": "{{ settings.color_palette.foreground }}",
             "description": "Wide-View Thermal Imaging with PC-Based Analysis",
