@@ -13,11 +13,18 @@
   data-end="{{ countdown_end | strip | escape }}"
   data-hide-expired="{{ section.settings.hide_expired }}"
   data-editor="{{ request.design_mode }}"
-  style="--rt-accent: {{ section.settings.accent_color }};"
+  style="
+    --rt-accent: {{ section.settings.accent_color | default: '#ff5548' }};
+    --rt-eyebrow: {{ section.settings.eyebrow_color | default: '#ffffff' }};
+    --rt-digits: {{ section.settings.timer_digit_color | default: '#ffffff' }};
+    --rt-units: {{ section.settings.timer_label_color | default: '#d4d7df' }};
+    --rt-tile: {{ section.settings.timer_tile_color | default: '#262b35' }};
+    --rt-background: {{ section.settings.background_color | default: '#10141e' }};
+  "
 >
   {%- if section.settings.artwork != blank -%}
     <div class="raythink-promo__art" aria-hidden="true">
-      {{ section.settings.artwork | image_url: width: 1440 | image_tag: widths: '480,720,960,1440', sizes: '(max-width: 670px) 80vw, 45vw', loading: 'eager', alt: '' }}
+      {{ section.settings.artwork | image_url: width: 1600 | image_tag: widths: '480,720,960,1280,1600', sizes: '(max-width: 759px) 85vw, 50vw', loading: 'eager', alt: '' }}
     </div>
   {%- endif -%}
 
@@ -44,7 +51,7 @@
     {%- endif -%}
 
     {%- if button_url != blank and section.settings.button_label != blank -%}
-      <a class="raythink-promo__cta" href="{{ button_url }}">
+      <a class="raythink-promo__cta" href="{{ button_url | escape }}">
         {{ section.settings.button_label | escape }}
         <span aria-hidden="true">↗</span>
       </a>
@@ -64,11 +71,8 @@
     isolation: isolate;
     display: block;
     overflow: hidden;
-    color: #fff;
-    background: #101319;
-    border-bottom: 2px solid var(--rt-accent, #ff7549);
+    background: var(--rt-background);
     font-family: inherit;
-    font-size: 16px;
     line-height: 1.2;
   }
 
@@ -78,7 +82,7 @@
   .raythink-promo__art {
     position: absolute;
     z-index: -1;
-    inset: 0 0 0 53%;
+    inset: 0 max(0px, calc((100% - 1400px) / 2)) 0 50%;
     pointer-events: none;
   }
 
@@ -87,26 +91,26 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 62% 50%;
+    object-position: center;
   }
 
   .raythink-promo__art::after {
     position: absolute;
     inset: 0;
     content: '';
-    background: linear-gradient(90deg, #101319, transparent 48%, #10131944);
+    background: linear-gradient(90deg, var(--rt-background), transparent 36%, transparent 65%, var(--rt-background));
   }
 
   .raythink-promo__layout {
     display: grid;
     align-items: center;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 0.85fr);
-    gap: clamp(18px, 4vw, 72px);
-    min-height: 126px;
-    max-width: 1720px;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 0.78fr);
+    gap: clamp(12px, 1.5vw, 28px);
+    min-height: 97px;
+    max-width: 1200px;
     box-sizing: border-box;
     margin-inline: auto;
-    padding: 19px clamp(60px, 6vw, 106px) 19px clamp(28px, 5vw, 96px);
+    padding: 12px clamp(53px, 4vw, 76px) 12px 32px;
   }
 
   .raythink-promo__layout:has([data-timer][hidden]),
@@ -115,83 +119,95 @@
   }
 
   .raythink-promo__eyebrow {
-    margin: 0 0 6px;
-    color: #f3ded7;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    margin: 0 0 2px;
+    color: var(--rt-eyebrow);
+    font-size: clamp(14px, 1vw, 16px);
+    font-weight: 600;
     overflow-wrap: anywhere;
   }
 
   .raythink-promo__title {
     margin: 0;
-    color: var(--rt-accent, #ff7549);
-    font-size: clamp(25px, 3.2vw, 52px);
-    line-height: 1.03;
-    letter-spacing: -0.035em;
+    color: var(--rt-accent);
+    font-size: clamp(22px, 1.8vw, 30px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
     font-weight: 800;
     overflow-wrap: anywhere;
   }
 
   .raythink-promo__countdown {
+    --rt-timer-gap: clamp(16px, 1.7vw, 32px);
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(6px, 0.85vw, 16px);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--rt-timer-gap);
   }
 
   .raythink-promo__unit {
     display: grid;
-    gap: 7px;
-    justify-items: stretch;
+    gap: 4px;
     text-align: center;
   }
 
   .raythink-promo__number {
+    position: relative;
     display: grid;
     place-items: center;
-    min-width: clamp(47px, 4.35vw, 70px);
-    min-height: clamp(43px, 3.85vw, 59px);
-    padding: 0 5px;
     box-sizing: border-box;
-    color: #fff;
-    background: #212630;
-    border: 1px solid #ffffff22;
-    border-radius: 6px;
-    font-size: clamp(20px, 2vw, 30px);
-    font-weight: 750;
+    min-width: clamp(42px, 3.2vw, 48px);
+    min-height: clamp(42px, 3.2vw, 48px);
+    padding: 0 5px;
+    color: var(--rt-digits);
+    background: var(--rt-tile);
+    border-radius: 8px;
+    font-size: clamp(17px, 1.6vw, 20px);
+    font-weight: 800;
     font-variant-numeric: tabular-nums;
   }
 
+  .raythink-promo__unit:not(:last-child) .raythink-promo__number::after {
+    position: absolute;
+    inset-inline-start: calc(100% + var(--rt-timer-gap) / 2 - 1.5px);
+    top: 50%;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    color: var(--rt-units);
+    background: currentColor;
+    box-shadow: 0 6px currentColor;
+    opacity: 0.65;
+    transform: translateY(-4px);
+    content: '';
+  }
+
   .raythink-promo__unit-label {
-    color: #ece1de;
-    font-size: 10px;
-    font-weight: 650;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    color: var(--rt-units);
+    font-size: 11px;
+    font-weight: 500;
   }
 
   .raythink-promo__cta {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
+    gap: 7px;
     grid-column: -2 / -1;
     justify-self: end;
+    min-height: 36px;
     box-sizing: border-box;
-    min-height: 40px;
-    padding: 9px 15px;
+    padding: 7px 12px;
     border: 1px solid #ffffffa1;
     border-radius: 6px;
     color: #fff;
-    background: #151319ed;
+    background: #101319e6;
     font-size: 13px;
     font-weight: 700;
     text-align: center;
     text-decoration: none;
+    overflow-wrap: anywhere;
   }
 
   .raythink-promo__cta:hover {
-    color: #151319;
+    color: #101319;
     background: #fff;
     text-decoration: none;
   }
@@ -199,10 +215,9 @@
   .raythink-promo__close {
     position: absolute;
     top: 50%;
-    right: clamp(7px, 1.4vw, 24px);
+    right: clamp(5px, 1.7vw, 32px);
     display: grid;
     place-items: center;
-    box-sizing: border-box;
     width: 44px;
     height: 44px;
     padding: 0;
@@ -210,42 +225,50 @@
     border: 0;
     border-radius: 50%;
     color: #fff;
-    background: #111218c9;
-    font: 400 24px/1 system-ui, sans-serif;
+    background: transparent;
+    font: 400 21px/1 system-ui, sans-serif;
     cursor: pointer;
   }
 
-  .raythink-promo__close:hover { background: #36313b; }
-  .raythink-promo :focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  .raythink-promo__close span {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #25252d;
+  }
 
-  @media (max-width: 670px) {
+  .raythink-promo__close:hover span { background: #45454e; }
+  .raythink-promo :focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+  @media (max-width: 759px) {
     .raythink-promo__layout,
     .raythink-promo__layout:has([data-timer][hidden]),
     .raythink-promo__layout:not(:has([data-timer])) {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       justify-items: start;
-      gap: 12px;
       min-height: 0;
-      padding: 15px 50px 15px 18px;
-    }
-
-    .raythink-promo__art { left: 27%; }
-    .raythink-promo__art::after { background: linear-gradient(90deg, #101319, #101319a6 100%); }
-    .raythink-promo__title { font-size: clamp(25px, 6.9vw, 38px); }
-    .raythink-promo__eyebrow { font-size: 10px; margin-bottom: 4px; }
-    .raythink-promo__number { min-width: 43px; min-height: 33px; font-size: 18px; }
-    .raythink-promo__unit { gap: 4px; }
-    .raythink-promo__unit-label { font-size: 9px; }
-    .raythink-promo__cta { justify-self: start; min-height: 36px; padding: 7px 11px; font-size: 12px; }
-    .raythink-promo__close { top: 3px; right: 3px; transform: none; }
-  }
-
-  @media (min-width: 390px) and (max-width: 670px) {
-    .raythink-promo__layout:has(.raythink-promo__cta):has([data-timer]:not([hidden])) {
-      grid-template-columns: auto minmax(0, 1fr);
+      gap: 10px;
+      padding: 13px 48px 13px 16px;
     }
 
     .raythink-promo__copy { grid-column: 1 / -1; }
+    .raythink-promo__art { inset: 0 0 0 15%; opacity: 0.35; }
+    .raythink-promo__art::after { background: linear-gradient(90deg, var(--rt-background), transparent 68%); }
+    .raythink-promo__eyebrow { font-size: 13px; }
+    .raythink-promo__title { font-size: clamp(21px, 5.8vw, 28px); }
+    .raythink-promo__countdown { --rt-timer-gap: 14px; }
+    .raythink-promo__number { min-width: 37px; min-height: 34px; font-size: 16px; }
+    .raythink-promo__unit-label { font-size: 10px; }
+    .raythink-promo__cta { justify-self: start; padding-inline: 9px; font-size: 12px; }
+    .raythink-promo__close { top: 3px; right: 2px; transform: none; }
+  }
+
+  @media (min-width: 390px) and (max-width: 759px) {
+    .raythink-promo__layout:has(.raythink-promo__cta):has([data-timer]:not([hidden])) {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
   }
 {% endstylesheet %}
 
@@ -382,14 +405,23 @@
   "name": "Raythink Top Banner",
   "enabled_on": { "groups": ["header"] },
   "settings": [
+    { "type": "header", "content": "Campaign copy" },
     { "type": "text", "id": "campaign_label", "label": "Small heading", "default": "Raythink Thermal Cameras" },
     { "type": "text", "id": "campaign_title", "label": "Main headline", "default": "Black Friday Offers" },
-    { "type": "text", "id": "countdown_end", "label": "Countdown end (Pacific Time)", "info": "Enter local Pacific time in YYYY-MM-DD HH:MM or YYYY-MM-DD HH:MM:SS, e.g. 2026-11-30 23:59:59. Daylight saving is automatic. Leave blank to hide the countdown." },
+    { "type": "text", "id": "button_label", "label": "Optional button label", "default": "Explore Offers" },
+    { "type": "url", "id": "button_url", "label": "Optional button link" },
+    { "type": "header", "content": "Countdown" },
+    { "type": "text", "id": "countdown_end", "label": "Countdown end (Pacific Time)", "info": "Enter Los Angeles local time, e.g. 2026-11-30 23:59. Seconds are optional. Daylight saving is automatic. Leave blank to hide the countdown." },
     { "type": "checkbox", "id": "hide_expired", "label": "Hide the banner when the countdown ends", "default": true },
-    { "type": "image_picker", "id": "artwork", "label": "Right-side artwork" },
-    { "type": "color", "id": "accent_color", "label": "Headline and border colour", "default": "#ff7549" },
-    { "type": "text", "id": "button_label", "label": "Button label", "default": "Explore Offers" },
-    { "type": "url", "id": "button_url", "label": "Button link" },
+    { "type": "header", "content": "Background and colours" },
+    { "type": "image_picker", "id": "artwork", "label": "Right-side background image", "info": "Use a wide image. Keep key artwork near the centre because the edges fade into the banner background." },
+    { "type": "color", "id": "background_color", "label": "Banner background", "default": "#10141e" },
+    { "type": "color", "id": "eyebrow_color", "label": "Small heading colour", "default": "#ffffff" },
+    { "type": "color", "id": "accent_color", "label": "Main headline colour", "default": "#ff5548" },
+    { "type": "color", "id": "timer_digit_color", "label": "Countdown digit colour", "default": "#ffffff" },
+    { "type": "color", "id": "timer_label_color", "label": "Countdown label colour", "default": "#d4d7df" },
+    { "type": "color", "id": "timer_tile_color", "label": "Countdown tile colour", "default": "#262b35" },
+    { "type": "header", "content": "Display" },
     { "type": "checkbox", "id": "show_close", "label": "Allow customers to close the banner", "default": true }
   ],
   "presets": [{ "name": "Raythink Top Banner" }]
