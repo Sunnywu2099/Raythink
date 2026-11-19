@@ -691,7 +691,7 @@
       "settings": {
         "campaign_label": "Black Friday Deals Are Live!",
         "campaign_title": "Enjoy Up to 35% Off",
-        "button_label": "Shop Black Friday",
+        "button_label": "",
         "button_url": "shopify://products/ix1gopro-smartphone-thermal-camera",
         "countdown_end": "",
         "hide_expired": false,
