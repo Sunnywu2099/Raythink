@@ -687,6 +687,7 @@
     },
     "raythink_promo_topbar_Ag88wd": {
       "type": "raythink-promo-topbar",
+      "disabled": true,
       "name": "Raythink Top Banner",
       "settings": {
         "campaign_label": "Black Friday Deals Are Live!",
@@ -696,7 +697,12 @@
         "countdown_end": "",
         "hide_expired": false,
         "artwork": "shopify://shop_images/Raythink_Topbar_Version_1.png",
+        "background_color": "#10141e",
+        "eyebrow_color": "#ffffff",
         "accent_color": "#ff7549",
+        "timer_digit_color": "#ffffff",
+        "timer_label_color": "#d4d7df",
+        "timer_tile_color": "#262b35",
         "show_close": true
       }
     }
