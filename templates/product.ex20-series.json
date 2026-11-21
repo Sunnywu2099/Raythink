@@ -546,7 +546,7 @@
       ],
       "name": "rt-grid",
       "settings": {
-        "background_color": "#141414",
+        "background_color": "#F5F6FC",
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 96,
         "padding_top_desktop": 0,
