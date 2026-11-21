@@ -520,14 +520,14 @@
         "title_yt8FiJ": {
           "type": "title",
           "settings": {
-            "text_color": "{{ settings.color_palette.background }}",
+            "text_color": "{{ settings.color_palette.foreground }}",
             "text": "One Compact Tool. Multiple Applications."
           }
         },
         "description_wDprkU": {
           "type": "description",
           "settings": {
-            "text_color": "#a6a6a6",
+            "text_color": "{{ settings.color_palette.color1 }}",
             "text": "Explore underfloor heating, HVAC pipes, heat loss, and DIY with thermal imaging."
           }
         },
@@ -547,10 +547,10 @@
       "name": "rt-grid",
       "settings": {
         "background_color": "#F5F6FC",
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 96,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 160
+        "padding_top_mobile": 96,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 160,
+        "padding_bottom_desktop": 120
       }
     },
     "rt_in_the_box": {
