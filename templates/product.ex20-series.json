@@ -440,7 +440,7 @@
         "description_j3bkJd": {
           "type": "description",
           "settings": {
-            "text_color": "{{ settings.color_palette.color1 }}",
+            "text_color": "#595959",
             "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
           }
         },
@@ -481,7 +481,7 @@
         "description_tXcfKt": {
           "type": "description",
           "settings": {
-            "text_color": "{{ settings.color_palette.color1 }}",
+            "text_color": "#595959",
             "text": "Record field thermal data effortlessly for reports and post-inspection analysis."
           }
         },
@@ -522,7 +522,7 @@
         "description_xyWhA7": {
           "type": "description",
           "settings": {
-            "text_color": "{{ settings.color_palette.color1 }}",
+            "text_color": "#595959",
             "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
           }
         },
@@ -563,7 +563,7 @@
         "description_CUHYwz": {
           "type": "description",
           "settings": {
-            "text_color": "{{ settings.color_palette.color1 }}",
+            "text_color": "#595959",
             "text": "Record field thermal data effortlessly for reports and post-inspection analysis."
           }
         },
@@ -604,7 +604,7 @@
         "description_wDprkU": {
           "type": "description",
           "settings": {
-            "text_color": "{{ settings.color_palette.color1 }}",
+            "text_color": "#595959",
             "text": "Choose from 6 color palettes to highlight temperature differences and improve visibility across various inspection scenarios."
           }
         },
