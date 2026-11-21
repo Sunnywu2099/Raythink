@@ -37,6 +37,9 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 12px;
   }
+  #shopify-section-{{ section.id }} .rt-icons-with-text-banner {
+    margin-top: 24px;
+  }
 
   @media (min-width: 750px) {
     #shopify-section-{{ section.id }} .rt-icons-with-text-box {
@@ -46,6 +49,10 @@
         grid-template-columns: repeat({{ icon_block_count }}, 1fr);
       {% endif %}
       gap: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .rt-icons-with-text-banner {
+      margin-top: 40px;
     }
   }
 {% endstyle %}
