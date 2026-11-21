@@ -382,7 +382,7 @@
       ],
       "name": "rt-text-with-image-2",
       "settings": {
-        "background_color": "#141414",
+        "background_color": "#F5F6FC",
         "image_position": "left",
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 96,
@@ -422,7 +422,7 @@
       ],
       "name": "rt-text-with-image-2",
       "settings": {
-        "background_color": "#141414",
+        "background_color": "#F5F6FC",
         "image_position": "right",
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 96,
