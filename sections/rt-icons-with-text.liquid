@@ -8,12 +8,14 @@
   assign block_bg_color = ss.block_background_color | default: '#ffffff'
   assign is_center = ss.is_center | default: false
   assign show_heading = false
+  assign icon_block_count = 0
   for block in section.blocks
     if block.type == 'title' or block.type == 'description'
       if block.settings.text != blank
         assign show_heading = true
-        break
       endif
+    elsif block.type == 'application-block'
+      assign icon_block_count = icon_block_count | plus: 1
     endif
   endfor
 -%}
@@ -35,11 +37,22 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 12px;
   }
+  #shopify-section-{{ section.id }} .rt-icons-with-text-banner {
+    margin-top: 24px;
+  }
 
   @media (min-width: 750px) {
     #shopify-section-{{ section.id }} .rt-icons-with-text-box {
-      grid-template-columns: repeat(4, 1fr);
+      {% if icon_block_count > 4 %}
+        grid-template-columns: repeat(4, 1fr);
+      {% elsif icon_block_count > 0 %}
+        grid-template-columns: repeat({{ icon_block_count }}, 1fr);
+      {% endif %}
       gap: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .rt-icons-with-text-banner {
+      margin-top: 40px;
     }
   }
 {% endstyle %}
@@ -83,6 +96,15 @@
           {%- endcase -%}
         {%- endfor -%}
       </div>
+
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'application-banner-block' -%}
+            <div class="rt-icons-with-text-banner rt-radius-lg overflow-hidden">
+              {% render 'rt-image2picture', image_desktop: block.settings.banner_desktop, image_mobile: block.settings.banner_mobile, loading: 'lazy' %}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
 
     </div>
   </div>
@@ -207,6 +229,7 @@
       {
         "type": "application-block",
         "name": "application-block",
+        "limit": 4,
         "settings": [
           {
             "type": "image_picker",
@@ -236,6 +259,22 @@
             "id": "text_color",
             "label": "标题颜色",
             "default": "#595959"
+          }
+        ]
+      },
+      {
+        "type": "application-banner-block",
+        "name": "application-banner-block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "banner_desktop",
+            "label": "横幅（桌面端）"
+          },
+          {
+            "type": "image_picker",
+            "id": "banner_mobile",
+            "label": "横幅（移动端）"
           }
         ]
       }
