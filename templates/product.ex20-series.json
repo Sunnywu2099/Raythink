@@ -371,7 +371,7 @@
           "type": "application-block",
           "settings": {
             "icon": "shopify://shop_images/Scan_ada1c606-cd65-4d93-8312-f62e597e4a64.png",
-            "title": "Official Warranty",
+            "title": "256×192 Native Resolution",
             "title_color": "#000000",
             "text": "",
             "text_color": "#595959"
@@ -381,7 +381,7 @@
           "type": "application-block",
           "settings": {
             "icon": "shopify://shop_images/UpScale.png",
-            "title": "Fast & Reliable Shipping",
+            "title": "Up to 512×384 NUR",
             "title_color": "#000000",
             "text": "",
             "text_color": "#595959"
@@ -391,7 +391,7 @@
           "type": "application-block",
           "settings": {
             "icon": "shopify://shop_images/Scan.png",
-            "title": "Secure & Easy Checkout",
+            "title": "56°×42° Wide FOV",
             "title_color": "#000000",
             "text": "",
             "text_color": "#595959"
