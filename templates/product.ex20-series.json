@@ -629,6 +629,66 @@
     },
     "rt_whatsinbox_DEYP9w": {
       "type": "rt-whatsinbox",
+      "blocks": {
+        "item_qVL79G": {
+          "type": "item",
+          "settings": {
+            "title": "EX20*1"
+          }
+        },
+        "item_K3nrmh": {
+          "type": "item",
+          "settings": {
+            "title": "EX20*1"
+          }
+        },
+        "item_HEBVKE": {
+          "type": "item",
+          "settings": {
+            "title": "EX20*1"
+          }
+        },
+        "item_6JLC8M": {
+          "type": "item",
+          "settings": {
+            "title": "EX20*1"
+          }
+        },
+        "item_NnJ4ya": {
+          "type": "item",
+          "settings": {
+            "title": "EX20*1"
+          }
+        },
+        "item_mJj9hn": {
+          "type": "item",
+          "settings": {
+            "title": "EX20*1"
+          }
+        },
+        "item_3hQqwX": {
+          "type": "item",
+          "settings": {
+            "title": "EX20*1"
+          }
+        },
+        "item_dwYj6K": {
+          "type": "item",
+          "settings": {
+            "title": "EX20*1"
+          }
+        }
+      },
+      "block_order": [
+        "item_qVL79G",
+        "item_K3nrmh",
+        "item_HEBVKE",
+        "item_6JLC8M",
+        "item_NnJ4ya",
+        "item_mJj9hn",
+        "item_3hQqwX",
+        "item_dwYj6K"
+      ],
       "name": "rt-whatsin-thebox",
       "settings": {
         "heading": "What's in the box",
