@@ -1,0 +1,429 @@
+{%- liquid
+  assign campaign_label = section.settings.campaign_label
+  assign campaign_title = section.settings.campaign_title
+  assign countdown_end = section.settings.countdown_end
+  assign button_url = section.settings.button_url
+-%}
+
+<raythink-promo-banner
+  class="raythink-promo"
+  role="region"
+  aria-label="{{ campaign_title | default: 'Raythink promotion' | escape }}"
+  data-section-id="{{ section.id }}"
+  data-end="{{ countdown_end | strip | escape }}"
+  data-hide-expired="{{ section.settings.hide_expired }}"
+  data-editor="{{ request.design_mode }}"
+  style="
+    --rt-accent: {{ section.settings.accent_color | default: '#ff5548' }};
+    --rt-eyebrow: {{ section.settings.eyebrow_color | default: '#ffffff' }};
+    --rt-digits: {{ section.settings.timer_digit_color | default: '#ffffff' }};
+    --rt-units: {{ section.settings.timer_label_color | default: '#d4d7df' }};
+    --rt-tile: {{ section.settings.timer_tile_color | default: '#262b35' }};
+    --rt-background: {{ section.settings.background_color | default: '#10141e' }};
+  "
+>
+  {%- if section.settings.artwork != blank -%}
+    <div class="raythink-promo__art" aria-hidden="true">
+      {{ section.settings.artwork | image_url: width: 1600 | image_tag: widths: '480,720,960,1280,1600', sizes: '(max-width: 759px) 85vw, 50vw', loading: 'eager', alt: '' }}
+    </div>
+  {%- endif -%}
+
+  <div class="raythink-promo__layout">
+    <div class="raythink-promo__copy">
+      {%- if campaign_label != blank -%}
+        <p class="raythink-promo__eyebrow">{{ campaign_label | escape }}</p>
+      {%- endif -%}
+      {%- if campaign_title != blank -%}
+        <p class="raythink-promo__title">{{ campaign_title | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if countdown_end != blank -%}
+      <div class="raythink-promo__countdown" data-timer role="timer" aria-live="off" hidden>
+        {%- assign units = 'Days,Hours,Mins,Secs' | split: ',' -%}
+        {%- for unit in units -%}
+          <div class="raythink-promo__unit">
+            <span class="raythink-promo__number" data-number>00</span>
+            <span class="raythink-promo__unit-label">{{ unit }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if button_url != blank and section.settings.button_label != blank -%}
+      <a class="raythink-promo__cta" href="{{ button_url | escape }}">
+        {{ section.settings.button_label | escape }}
+        <span aria-hidden="true">↗</span>
+      </a>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.show_close -%}
+    <button class="raythink-promo__close" type="button" aria-label="Close promotion banner" data-close hidden>
+      <span aria-hidden="true">×</span>
+    </button>
+  {%- endif -%}
+</raythink-promo-banner>
+
+{% stylesheet %}
+  .raythink-promo {
+    position: relative;
+    isolation: isolate;
+    display: block;
+    overflow: hidden;
+    background: var(--rt-background);
+    font-family: inherit;
+    line-height: 1.2;
+  }
+
+  .raythink-promo[hidden],
+  .raythink-promo [hidden] { display: none; }
+
+  .raythink-promo__art {
+    position: absolute;
+    z-index: -1;
+    inset: 0 max(0px, calc((100% - 1400px) / 2)) 0 50%;
+    pointer-events: none;
+  }
+
+  .raythink-promo__art img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .raythink-promo__art::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: linear-gradient(90deg, var(--rt-background), transparent 36%, transparent 65%, var(--rt-background));
+  }
+
+  .raythink-promo__layout {
+    display: grid;
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 0.78fr);
+    gap: clamp(12px, 1.5vw, 28px);
+    min-height: 97px;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin-inline: auto;
+    padding: 12px clamp(53px, 4vw, 76px) 12px 32px;
+  }
+
+  .raythink-promo__layout:has([data-timer][hidden]),
+  .raythink-promo__layout:not(:has([data-timer])) {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .raythink-promo__eyebrow {
+    margin: 0 0 2px;
+    color: var(--rt-eyebrow);
+    font-size: clamp(14px, 1vw, 16px);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .raythink-promo__title {
+    margin: 0;
+    color: var(--rt-accent);
+    font-size: clamp(22px, 1.8vw, 30px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+  }
+
+  .raythink-promo__countdown {
+    --rt-timer-gap: clamp(16px, 1.7vw, 32px);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--rt-timer-gap);
+  }
+
+  .raythink-promo__unit {
+    display: grid;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .raythink-promo__number {
+    position: relative;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    min-width: clamp(42px, 3.2vw, 48px);
+    min-height: clamp(42px, 3.2vw, 48px);
+    padding: 0 5px;
+    color: var(--rt-digits);
+    background: var(--rt-tile);
+    border-radius: 8px;
+    font-size: clamp(17px, 1.6vw, 20px);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .raythink-promo__unit:not(:last-child) .raythink-promo__number::after {
+    position: absolute;
+    inset-inline-start: calc(100% + var(--rt-timer-gap) / 2 - 1.5px);
+    top: 50%;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    color: var(--rt-units);
+    background: currentColor;
+    box-shadow: 0 6px currentColor;
+    opacity: 0.65;
+    transform: translateY(-4px);
+    content: '';
+  }
+
+  .raythink-promo__unit-label {
+    color: var(--rt-units);
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .raythink-promo__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    grid-column: -2 / -1;
+    justify-self: end;
+    min-height: 36px;
+    box-sizing: border-box;
+    padding: 7px 12px;
+    border: 1px solid #ffffffa1;
+    border-radius: 6px;
+    color: #fff;
+    background: #101319e6;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .raythink-promo__cta:hover {
+    color: #101319;
+    background: #fff;
+    text-decoration: none;
+  }
+
+  .raythink-promo__close {
+    position: absolute;
+    top: 50%;
+    right: clamp(5px, 1.7vw, 32px);
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    background: transparent;
+    font: 400 21px/1 system-ui, sans-serif;
+    cursor: pointer;
+  }
+
+  .raythink-promo__close span {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #25252d;
+  }
+
+  .raythink-promo__close:hover span { background: #45454e; }
+  .raythink-promo :focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+  @media (max-width: 759px) {
+    .raythink-promo__layout,
+    .raythink-promo__layout:has([data-timer][hidden]),
+    .raythink-promo__layout:not(:has([data-timer])) {
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: start;
+      min-height: 0;
+      gap: 10px;
+      padding: 13px 48px 13px 16px;
+    }
+
+    .raythink-promo__copy { grid-column: 1 / -1; }
+    .raythink-promo__art { inset: 0 0 0 15%; opacity: 0.35; }
+    .raythink-promo__art::after { background: linear-gradient(90deg, var(--rt-background), transparent 68%); }
+    .raythink-promo__eyebrow { font-size: 13px; }
+    .raythink-promo__title { font-size: clamp(21px, 5.8vw, 28px); }
+    .raythink-promo__countdown { --rt-timer-gap: 14px; }
+    .raythink-promo__number { min-width: 37px; min-height: 34px; font-size: 16px; }
+    .raythink-promo__unit-label { font-size: 10px; }
+    .raythink-promo__cta { justify-self: start; padding-inline: 9px; font-size: 12px; }
+    .raythink-promo__close { top: 3px; right: 2px; transform: none; }
+  }
+
+  @media (min-width: 390px) and (max-width: 759px) {
+    .raythink-promo__layout:has(.raythink-promo__cta):has([data-timer]:not([hidden])) {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('raythink-promo-banner')) {
+    const pacificClock = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Los_Angeles',
+      timeZoneName: 'longOffset'
+    });
+
+    function pacificOffset(instant) {
+      return pacificClock.formatToParts(instant)
+        .find(part => part.type === 'timeZoneName').value.slice(3);
+    }
+
+    function parseCountdownEnd(value) {
+      // Preserve the exact deadline for already configured ISO timestamps.
+      if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(Z|[+-]\d{2}:\d{2})$/.test(value)) {
+        return Date.parse(value);
+      }
+
+      const local = /^(\d{4}-\d{2}-\d{2})[ T](\d{2}:\d{2})(?::(\d{2}))?$/.exec(value);
+      if (!local) return NaN;
+      const wallTime = local[1] + 'T' + local[2] + ':' + (local[3] || '00');
+
+      // Read the date fields as UTC temporarily to validate the calendar date.
+      const nominal = Date.parse(wallTime + 'Z');
+      if (!Number.isFinite(nominal) || new Date(nominal).toISOString().slice(0, 19) !== wallTime) {
+        return NaN;
+      }
+
+      // Check both sides of a potential daylight-saving transition.
+      const day = 24 * 60 * 60 * 1000;
+      const offsets = new Set([pacificOffset(nominal - day), pacificOffset(nominal + day)]);
+      const candidates = [];
+      for (const offset of offsets) {
+        const instant = Date.parse(wallTime + offset);
+        if (Number.isFinite(instant) && pacificOffset(instant) === offset) {
+          candidates.push(instant);
+        }
+      }
+      // A repeated fall-back hour uses its first occurrence. A skipped hour is invalid.
+      return candidates.length ? Math.min(...candidates) : NaN;
+    }
+
+    customElements.define('raythink-promo-banner', class extends HTMLElement {
+      connectedCallback() {
+        this.timer = this.querySelector('[data-timer]');
+        this.digits = Array.from(this.querySelectorAll('[data-number]'));
+        this.closeButton = this.querySelector('[data-close]');
+        this.inEditor = this.dataset.editor === 'true';
+        this.storageKey = [
+          'raythink-promo',
+          this.dataset.sectionId,
+          this.dataset.end,
+          this.getAttribute('aria-label')
+        ].join(':');
+
+        if (!this.inEditor && this.wasDismissed()) {
+          this.hidden = true;
+          return;
+        }
+
+        this.hidden = false;
+
+        if (this.closeButton && !this.inEditor) {
+          this.closeButton.hidden = false;
+          this.closeButton.addEventListener('click', this.dismiss);
+        }
+
+        if (this.timer) {
+          this.endTime = parseCountdownEnd(this.dataset.end);
+          if (Number.isFinite(this.endTime) && this.updateCountdown()) {
+            this.interval = window.setInterval(() => this.updateCountdown(), 250);
+          }
+        }
+      }
+
+      disconnectedCallback() {
+        window.clearInterval(this.interval);
+        this.closeButton?.removeEventListener('click', this.dismiss);
+      }
+
+      wasDismissed() {
+        try {
+          return sessionStorage.getItem(this.storageKey) === '1';
+        } catch {
+          return false;
+        }
+      }
+
+      dismiss = () => {
+        try {
+          sessionStorage.setItem(this.storageKey, '1');
+        } catch {
+          // The close button still works when session storage is disabled.
+        }
+        window.clearInterval(this.interval);
+        const headerLink = this.closest('.shopify-section')?.nextElementSibling?.querySelector('a[href], button:not([disabled])');
+        this.hidden = true;
+        headerLink?.focus({ preventScroll: true });
+      };
+
+      updateCountdown() {
+        const remaining = Math.ceil((this.endTime - Date.now()) / 1000);
+        if (remaining <= 0) {
+          window.clearInterval(this.interval);
+          this.timer.hidden = true;
+          this.hidden = this.dataset.hideExpired === 'true' && !this.inEditor;
+          return false;
+        }
+
+        const values = [
+          Math.floor(remaining / 86400),
+          Math.floor(remaining / 3600) % 24,
+          Math.floor(remaining / 60) % 60,
+          remaining % 60
+        ];
+        values.forEach((value, index) => {
+          const formatted = String(value).padStart(2, '0');
+          if (this.digits[index].textContent !== formatted) {
+            this.digits[index].textContent = formatted;
+          }
+        });
+        this.timer.hidden = false;
+        return true;
+      }
+    });
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Raythink Top Banner",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "header", "content": "Campaign copy" },
+    { "type": "text", "id": "campaign_label", "label": "Small heading", "default": "Raythink Thermal Cameras" },
+    { "type": "text", "id": "campaign_title", "label": "Main headline", "default": "Black Friday Offers" },
+    { "type": "text", "id": "button_label", "label": "Optional button label", "default": "Explore Offers" },
+    { "type": "url", "id": "button_url", "label": "Optional button link" },
+    { "type": "header", "content": "Countdown" },
+    { "type": "text", "id": "countdown_end", "label": "Countdown end (Pacific Time)", "info": "Enter Los Angeles local time, e.g. 2026-11-30 23:59. Seconds are optional. Daylight saving is automatic. Leave blank to hide the countdown." },
+    { "type": "checkbox", "id": "hide_expired", "label": "Hide the banner when the countdown ends", "default": true },
+    { "type": "header", "content": "Background and colours" },
+    { "type": "image_picker", "id": "artwork", "label": "Right-side background image", "info": "Use a wide image. Keep key artwork near the centre because the edges fade into the banner background." },
+    { "type": "color", "id": "background_color", "label": "Banner background", "default": "#10141e" },
+    { "type": "color", "id": "eyebrow_color", "label": "Small heading colour", "default": "#ffffff" },
+    { "type": "color", "id": "accent_color", "label": "Main headline colour", "default": "#ff5548" },
+    { "type": "color", "id": "timer_digit_color", "label": "Countdown digit colour", "default": "#ffffff" },
+    { "type": "color", "id": "timer_label_color", "label": "Countdown label colour", "default": "#d4d7df" },
+    { "type": "color", "id": "timer_tile_color", "label": "Countdown tile colour", "default": "#262b35" },
+    { "type": "header", "content": "Display" },
+    { "type": "checkbox", "id": "show_close", "label": "Allow customers to close the banner", "default": true }
+  ],
+  "presets": [{ "name": "Raythink Top Banner" }]
+}
+{% endschema %}
