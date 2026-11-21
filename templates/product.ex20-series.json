@@ -521,14 +521,14 @@
           "type": "title",
           "settings": {
             "text_color": "{{ settings.color_palette.foreground }}",
-            "text": "One Compact Tool. Multiple Applications."
+            "text": "See Heat Your Way."
           }
         },
         "description_wDprkU": {
           "type": "description",
           "settings": {
             "text_color": "{{ settings.color_palette.color1 }}",
-            "text": "Explore underfloor heating, HVAC pipes, heat loss, and DIY with thermal imaging."
+            "text": "Choose from 6 color palettes to highlight temperature differences and improve visibility across various inspection scenarios."
           }
         },
         "grid_block_WywzJi": {
