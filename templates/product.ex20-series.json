@@ -870,7 +870,6 @@
         "row_15",
         "row_16"
       ],
-      "disabled": true,
       "settings": {
         "heading": "Specification",
         "heading_color": "#000000",
@@ -932,7 +931,6 @@
         "product_2",
         "product_3"
       ],
-      "disabled": true,
       "settings": {
         "heading": "Which is the Best for You?",
         "heading_color": "#000000",
@@ -983,54 +981,9 @@
         "item_3",
         "item_4"
       ],
-      "disabled": true,
       "settings": {
         "heading": "FAQ",
         "heading_color": "#000000",
-        "background_color": "#ffffff",
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48,
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 80
-      }
-    },
-    "rt_review": {
-      "type": "rt-review",
-      "blocks": {
-        "summary": {
-          "type": "summary",
-          "settings": {
-            "rating": "4.9",
-            "review_count": 130,
-            "star_5": 120,
-            "star_4": 6,
-            "star_3": 2,
-            "star_2": 1,
-            "star_1": 1,
-            "button_text": "Write a Review",
-            "button_url": ""
-          }
-        },
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "author": "Customer",
-            "rating": 5,
-            "date": "August 20, 2025",
-            "title": "Clear thermal images",
-            "body": "<p>Useful for home checks. The image is clear and the temperature reading is easy to understand.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "summary",
-        "review_1"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Review",
-        "heading_color": "#000000",
-        "gallery_heading": "Customer Images",
         "background_color": "#ffffff",
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48,
@@ -1053,7 +1006,6 @@
     "rt_in_the_box",
     "rt_specification",
     "rt_compare",
-    "rt_faq",
-    "rt_review"
+    "rt_faq"
   ]
 }
