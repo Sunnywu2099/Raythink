@@ -356,7 +356,7 @@
         "title_FKeBgn": {
           "type": "title",
           "settings": {
-            "text_color": "#ffffff",
+            "text_color": "{{ settings.color_palette.foreground }}",
             "text": "See Clearer. Look Closer. Measure More."
           }
         },
@@ -432,9 +432,10 @@
         "image_block_ifCAph",
         "image_block_tJfJrC"
       ],
+      "disabled": true,
       "name": "rt-text-with-image",
       "settings": {
-        "background_color": "#141414",
+        "background_color": "{{ settings.color_palette.background }}",
         "padding_top_mobile": 120,
         "padding_bottom_mobile": 80,
         "padding_top_desktop": 80,
