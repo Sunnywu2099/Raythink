@@ -431,14 +431,14 @@
           "type": "title",
           "settings": {
             "text_color": "{{ settings.color_palette.foreground }}",
-            "text": "Smarter HVAC Checks. Less Guesswork."
+            "text": "Smarter HVAC Inspections, Made Easy."
           }
         },
         "description_j3bkJd": {
           "type": "description",
           "settings": {
             "text_color": "#595959",
-            "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
+            "text": "AI-powered HVAC mode automatically adjusts color palettes and emissivity settings. Compare temperatures across two areas and get alerts when the difference exceeds 6°C (10.8°F), helping you spot potential issues faster."
           }
         },
         "image_block_4hwtG7": {
