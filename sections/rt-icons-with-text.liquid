@@ -8,12 +8,17 @@
   assign block_bg_color = ss.block_background_color | default: '#ffffff'
   assign is_center = ss.is_center | default: false
   assign show_heading = false
+  assign icon_block_count = 0
   for block in section.blocks
     if block.type == 'title' or block.type == 'description'
       if block.settings.text != blank
         assign show_heading = true
         break
       endif
+    endif
+
+    if block.type == 'application-block'
+      assign icon_block_count = icon_block_count | plus: 1
     endif
   endfor
 -%}
@@ -38,7 +43,11 @@
 
   @media (min-width: 750px) {
     #shopify-section-{{ section.id }} .rt-icons-with-text-box {
-      grid-template-columns: repeat(4, 1fr);
+      {% if icon_block_count > 4 %}
+        grid-template-columns: repeat(4, 1fr);
+      {% else %}
+        grid-template-columns: repeat({{ icon_block_count }}, 1fr);
+      {% endif %}
       gap: 20px;
     }
   }
