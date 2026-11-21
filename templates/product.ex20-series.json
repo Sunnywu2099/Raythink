@@ -634,6 +634,8 @@
         "heading": "What's in the box",
         "heading_color": "#000000",
         "background_color": "#ffffff",
+        "image": "shopify://shop_images/Frame_2085661963.png",
+        "image_mobile": "shopify://shop_images/Frame_2117130478_0f76a213-bc06-4f60-9f75-feb29558c825.png",
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48,
         "padding_top_desktop": 80,
