@@ -855,7 +855,7 @@
         "product_1": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "ex10pro-handheld-thermal-camera",
             "title": "CX20",
             "price": "$389.00",
             "viewing_label": "Currently viewing",
@@ -869,7 +869,7 @@
         "product_2": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "ex20-handheld-thermal-camera",
             "title": "CX20 Pro",
             "price": "$489.00",
             "viewing_label": "",
@@ -883,7 +883,7 @@
         "product_3": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "ex20-pro-handheld-thermal-camera",
             "title": "CX20 Ultra",
             "price": "$589.00",
             "viewing_label": "",
