@@ -52,7 +52,7 @@
             {%- for block in section.blocks -%}
               {%- if block.type == 'item' -%}
                 <div class="rt-whatsin-thebox-content-item">
-                  {% render 'rt-heading', variant: 'title', text: block.settings.title, color: ss.heading_color %}
+                  {% render 'rt-heading', variant: 'title', text: ss.title, color: ss.heading_color %}
                 </div>
               {%- endif -%}
             {%- endfor -%}
