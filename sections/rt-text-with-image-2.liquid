@@ -5,6 +5,7 @@
   assign pt_desktop = ss.padding_top_desktop | default: 60
   assign pb_desktop = ss.padding_bottom_desktop | default: 60
   assign bg_color = ss.background_color | default: '#f5f5f9'
+  assign text_align = ss.text_align | default: 'center'
   assign show_heading = false
   for block in section.blocks
     if block.type == 'title' or block.type == 'description'
@@ -29,7 +30,7 @@
 
 {% style %}
   #{{ section.id }} .rt-twi {
-    margin-top: 40px;
+    /* margin-top: 40px; */
   }
   
   #{{ section.id }} .rt-twi {
@@ -88,6 +89,7 @@
       justify-content: center;
       padding: 40px;
       width: 43%;
+      text-align: {{ text_align }};
     }
   }
 {% endstyle %}
@@ -169,6 +171,22 @@
           }
         ],
         "default": "left"
+      },
+      {
+        "type": "select",
+        "id": "text_align",
+        "label": "文字对齐",
+        "options": [
+          {
+            "value": "left",
+            "label": "左对齐"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          }
+        ],
+        "default": "center"
       },
       {
         "type": "header",
