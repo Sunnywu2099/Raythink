@@ -90,6 +90,13 @@
         {%- endfor -%}
       </div>
 
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'application-banner-block' -%}
+            {% render 'rt-image2picture', image_desktop: block.settings.banner_desktop, image_mobile: block.settings.banner_mobile, loading: 'lazy' %}
+        {%- endcase -%}
+      {%- endfor -%}
+
     </div>
   </div>
 </div>
@@ -213,6 +220,7 @@
       {
         "type": "application-block",
         "name": "application-block",
+        "limit": 4,
         "settings": [
           {
             "type": "image_picker",
@@ -242,6 +250,22 @@
             "id": "text_color",
             "label": "标题颜色",
             "default": "#595959"
+          }
+        ]
+      },
+      {
+        "type": "application-banner-block",
+        "name": "application-banner-block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "banner_desktop",
+            "label": "横幅（桌面端）"
+          },
+          {
+            "type": "image_picker",
+            "id": "banner_mobile",
+            "label": "横幅（移动端）"
           }
         ]
       }
