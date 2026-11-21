@@ -74,6 +74,9 @@
 }
 
 /* -------------------------------- radius -------------------------------- */
+.overflow-hidden {
+  overflow: hidden;
+}
 .rt-radius-sm {
   border-radius: 8px;
 }
