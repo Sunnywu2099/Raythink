@@ -396,6 +396,13 @@
             "text": "",
             "text_color": "#595959"
           }
+        },
+        "application_banner_block_h4tiFf": {
+          "type": "application-banner-block",
+          "settings": {
+            "banner_desktop": "shopify://shop_images/Frame_2117130538.png",
+            "banner_mobile": "shopify://shop_images/Frame_2117130450_ce804fe7-2021-4e77-9eeb-3069889b2599.png"
+          }
         }
       },
       "block_order": [
@@ -403,7 +410,8 @@
         "description_6c3YEA",
         "application_block_Nkgp88",
         "application_block_irH8rf",
-        "application_block_6zFUQT"
+        "application_block_6zFUQT",
+        "application_banner_block_h4tiFf"
       ],
       "name": "rt-icons-with-text",
       "settings": {
