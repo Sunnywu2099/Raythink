@@ -472,14 +472,14 @@
           "type": "title",
           "settings": {
             "text_color": "{{ settings.color_palette.foreground }}",
-            "text": "Capture Thermal Photos & Videos"
+            "text": "See Heat. Spot Problems."
           }
         },
         "description_tXcfKt": {
           "type": "description",
           "settings": {
             "text_color": "#595959",
-            "text": "Record field thermal data effortlessly for reports and post-inspection analysis."
+            "text": "Thermal imaging reveals hidden heat patterns, helping you quickly identify potential issues in engines, brakes, and other automotive components."
           }
         },
         "image_block_CJPN6V": {
@@ -513,14 +513,14 @@
           "type": "title",
           "settings": {
             "text_color": "{{ settings.color_palette.foreground }}",
-            "text": "Smarter HVAC Checks. Less Guesswork."
+            "text": "See Heat. Spot Problems."
           }
         },
         "description_xyWhA7": {
           "type": "description",
           "settings": {
             "text_color": "#595959",
-            "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
+            "text": "Thermal imaging reveals hidden heat patterns, helping you quickly identify potential issues in engines, brakes, and other automotive components."
           }
         },
         "image_block_Aa9APb": {
