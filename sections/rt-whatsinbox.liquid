@@ -16,7 +16,16 @@
 -%}
 
 {% stylesheet %}
-  .rt-whatsin-thebox {}
+  .rt-whatsin-thebox .rt-whatsin-thebox-wrapper {
+    position: relative;
+  }
+  .rt-whatsin-thebox .rt-whatsin-thebox-content {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
 
   @media (min-width: 750px) {
     
@@ -25,7 +34,7 @@
 
 <div
   id="{{ section.id }}"
-  class="rt-section rt-pdp rt-whatsin-thebox rt-radius-lg overflow-hidden"
+  class="rt-section rt-pdp rt-whatsin-thebox"
   style="--rt-section-bg-color: {{ bg_color }}; --rt-pdp-heading-color: {{ heading_color }};"
 >
   <div
@@ -41,7 +50,7 @@
   >
     <div class="rt-container">
       <div class="rt-pdp-layout">
-      <div class="rt-whatsin-thebox-wrapper">
+      <div class="rt-whatsin-thebox-wrapper rt-radius-lg overflow-hidden">
         <div class="rt-whatsin-thebox-image">
           {% render 'rt-image2picture', image_desktop: ss.image, image_mobile: ss.image_mobile, loading: 'lazy' %}
         </div>
