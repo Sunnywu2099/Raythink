@@ -390,6 +390,46 @@
         "padding_bottom_desktop": 160
       }
     },
+    "rt_text_with_image_2_kYXWfV": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_efmpiy": {
+          "type": "title",
+          "settings": {
+            "text_color": "{{ settings.color_palette.foreground }}",
+            "text": "Smarter HVAC Checks. Less Guesswork."
+          }
+        },
+        "description_xyWhA7": {
+          "type": "description",
+          "settings": {
+            "text_color": "{{ settings.color_palette.color1 }}",
+            "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
+          }
+        },
+        "image_block_Aa9APb": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/IX1GO_HVAC_PC.png",
+            "image_mobile": "shopify://shop_images/IX1GO_HVAC_MO.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_efmpiy",
+        "description_xyWhA7",
+        "image_block_Aa9APb"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#F5F6FC",
+        "image_position": "left",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
     "rt_text_with_image_2_BDftf4": {
       "type": "rt-text-with-image-2",
       "blocks": {
@@ -419,6 +459,46 @@
         "title_jDpgzi",
         "description_tXcfKt",
         "image_block_CJPN6V"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#F5F6FC",
+        "image_position": "right",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_text_with_image_2_6kf7tU": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_BWXMn8": {
+          "type": "title",
+          "settings": {
+            "text_color": "{{ settings.color_palette.foreground }}",
+            "text": "Capture Thermal Photos & Videos"
+          }
+        },
+        "description_CUHYwz": {
+          "type": "description",
+          "settings": {
+            "text_color": "{{ settings.color_palette.color1 }}",
+            "text": "Record field thermal data effortlessly for reports and post-inspection analysis."
+          }
+        },
+        "image_block_i6XTMC": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2085661929_80fae308-d1ee-4bfb-adaf-7f2fac4cc175.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130584_fa78fa77-7da6-4191-88aa-c8f21a218825.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_BWXMn8",
+        "description_CUHYwz",
+        "image_block_i6XTMC"
       ],
       "name": "rt-text-with-image-2",
       "settings": {
@@ -809,6 +889,8 @@
     "rt_grid_Uc873h",
     "rt_text_with_image_2_nQ9JHk",
     "rt_text_with_image_2_BDftf4",
+    "rt_text_with_image_2_kYXWfV",
+    "rt_text_with_image_2_6kf7tU",
     "rt_grid_p8xYMw",
     "rt_in_the_box",
     "rt_specification",
