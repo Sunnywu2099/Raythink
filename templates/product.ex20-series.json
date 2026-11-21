@@ -396,16 +396,6 @@
             "text": "",
             "text_color": "#595959"
           }
-        },
-        "application_block_qztMVG": {
-          "type": "application-block",
-          "settings": {
-            "icon": "shopify://shop_images/Support.png",
-            "title": "Expert Technical Support",
-            "title_color": "#000000",
-            "text": "",
-            "text_color": "#595959"
-          }
         }
       },
       "block_order": [
@@ -413,8 +403,7 @@
         "description_6c3YEA",
         "application_block_Nkgp88",
         "application_block_irH8rf",
-        "application_block_6zFUQT",
-        "application_block_qztMVG"
+        "application_block_6zFUQT"
       ],
       "name": "rt-icons-with-text",
       "settings": {
