@@ -350,6 +350,83 @@
         "padding_bottom_desktop": 120
       }
     },
+    "rt_icons_with_text_gjiinE": {
+      "type": "rt-icons-with-text",
+      "blocks": {
+        "title_nB64Gh": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "Precision You Can Trust"
+          }
+        },
+        "description_6c3YEA": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text": "Every Raythink thermal system is calibrated against blackbody standards to guarantee accurate, actionable thermal data in mission-critical environments."
+          }
+        },
+        "application_block_Nkgp88": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Warranty.png",
+            "title": "Official Warranty",
+            "title_color": "#000000",
+            "text": "",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_irH8rf": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Shipping.png",
+            "title": "Fast & Reliable Shipping",
+            "title_color": "#000000",
+            "text": "",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_6zFUQT": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Checkout.png",
+            "title": "Secure & Easy Checkout",
+            "title_color": "#000000",
+            "text": "",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_qztMVG": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Support.png",
+            "title": "Expert Technical Support",
+            "title_color": "#000000",
+            "text": "",
+            "text_color": "#595959"
+          }
+        }
+      },
+      "block_order": [
+        "title_nB64Gh",
+        "description_6c3YEA",
+        "application_block_Nkgp88",
+        "application_block_irH8rf",
+        "application_block_6zFUQT",
+        "application_block_qztMVG"
+      ],
+      "name": "rt-icons-with-text",
+      "settings": {
+        "background_color": "#f5f5f9",
+        "block_background_color": "#ffffff",
+        "is_center": true,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
     "rt_text_with_image_2_nQ9JHk": {
       "type": "rt-text-with-image-2",
       "blocks": {
@@ -891,6 +968,7 @@
     "main",
     "rt_nav_BjnEQH",
     "rt_grid_Uc873h",
+    "rt_icons_with_text_gjiinE",
     "rt_text_with_image_2_nQ9JHk",
     "rt_text_with_image_2_BDftf4",
     "rt_text_with_image_2_kYXWfV",
