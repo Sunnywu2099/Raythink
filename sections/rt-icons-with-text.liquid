@@ -13,11 +13,8 @@
     if block.type == 'title' or block.type == 'description'
       if block.settings.text != blank
         assign show_heading = true
-        break
       endif
-    endif
-
-    if block.type == 'application-block'
+    elsif block.type == 'application-block'
       assign icon_block_count = icon_block_count | plus: 1
     endif
   endfor
@@ -45,7 +42,7 @@
     #shopify-section-{{ section.id }} .rt-icons-with-text-box {
       {% if icon_block_count > 4 %}
         grid-template-columns: repeat(4, 1fr);
-      {% else %}
+      {% elsif icon_block_count > 0 %}
         grid-template-columns: repeat({{ icon_block_count }}, 1fr);
       {% endif %}
       gap: 20px;
