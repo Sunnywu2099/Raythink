@@ -370,7 +370,7 @@
         "application_block_Nkgp88": {
           "type": "application-block",
           "settings": {
-            "icon": "shopify://shop_images/Warranty.png",
+            "icon": "shopify://shop_images/Scan_ada1c606-cd65-4d93-8312-f62e597e4a64.png",
             "title": "Official Warranty",
             "title_color": "#000000",
             "text": "",
@@ -380,7 +380,7 @@
         "application_block_irH8rf": {
           "type": "application-block",
           "settings": {
-            "icon": "shopify://shop_images/Shipping.png",
+            "icon": "shopify://shop_images/UpScale.png",
             "title": "Fast & Reliable Shipping",
             "title_color": "#000000",
             "text": "",
@@ -390,7 +390,7 @@
         "application_block_6zFUQT": {
           "type": "application-block",
           "settings": {
-            "icon": "shopify://shop_images/Checkout.png",
+            "icon": "shopify://shop_images/Scan.png",
             "title": "Secure & Easy Checkout",
             "title_color": "#000000",
             "text": "",
