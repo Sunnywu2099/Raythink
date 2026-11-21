@@ -12,6 +12,7 @@
   assign pt_desktop = ss.padding_top_desktop | default: 80
   assign pb_desktop = ss.padding_bottom_desktop | default: 80
   assign bg_color = ss.background_color | default: '#ffffff'
+  assign heading_color = ss.heading_color | default: '#000000'
 -%}
 
 {% stylesheet %}
@@ -25,7 +26,7 @@
 <div
   id="{{ section.id }}"
   class="rt-section rt-pdp rt-whatsin-thebox rt-radius-lg overflow-hidden"
-  style="--rt-section-bg-color: {{ bg_color }}; --rt-pdp-heading-color: {{ ss.heading_color }};"
+  style="--rt-section-bg-color: {{ bg_color }}; --rt-pdp-heading-color: {{ heading_color }};"
 >
   <div
     class="rt-ss-padding"
@@ -52,7 +53,7 @@
             {%- for block in section.blocks -%}
               {%- if block.type == 'item' -%}
                 <div class="rt-whatsin-thebox-content-item">
-                  {% render 'rt-heading', variant: 'title', text: ss.title, color: ss.heading_color %}
+                  {% render 'rt-heading', variant: 'title', text: ss.title, color: heading_color %}
                 </div>
               {%- endif -%}
             {%- endfor -%}
