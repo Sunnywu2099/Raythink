@@ -93,7 +93,7 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'application-banner-block' -%}
-            <div class="rt-icons-with-text-banner rt-radius-16">
+            <div class="rt-icons-with-text-banner rt-radius-lg overflow-hidden">
               {% render 'rt-image2picture', image_desktop: block.settings.banner_desktop, image_mobile: block.settings.banner_mobile, loading: 'lazy' %}
             </div>
         {%- endcase -%}
