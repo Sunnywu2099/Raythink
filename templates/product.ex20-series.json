@@ -513,14 +513,14 @@
           "type": "title",
           "settings": {
             "text_color": "{{ settings.color_palette.foreground }}",
-            "text": "See Heat. Spot Problems."
+            "text": "BUILT TO LAST"
           }
         },
         "description_xyWhA7": {
           "type": "description",
           "settings": {
             "text_color": "#595959",
-            "text": "Thermal imaging reveals hidden heat patterns, helping you quickly identify potential issues in engines, brakes, and other automotive components."
+            "text": "IP54 protection, 6.6ft drop resistance,and tripod mounting for reliable field inspections."
           }
         },
         "image_block_Aa9APb": {
@@ -554,14 +554,14 @@
           "type": "title",
           "settings": {
             "text_color": "{{ settings.color_palette.foreground }}",
-            "text": "Capture Thermal Photos & Videos"
+            "text": "LARGE STORAGE CAPACITY"
           }
         },
         "description_CUHYwz": {
           "type": "description",
           "settings": {
             "text_color": "#595959",
-            "text": "Record field thermal data effortlessly for reports and post-inspection analysis."
+            "text": "16GB built-in storage keeps thousands of thermal images and videos ready for review and analysis."
           }
         },
         "image_block_i6XTMC": {
