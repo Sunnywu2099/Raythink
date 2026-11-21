@@ -421,9 +421,9 @@
         "background_color": "#f5f5f9",
         "block_background_color": "#ffffff",
         "is_center": true,
-        "padding_top_mobile": 0,
+        "padding_top_mobile": 80,
         "padding_bottom_mobile": 96,
-        "padding_top_desktop": 0,
+        "padding_top_desktop": 120,
         "padding_bottom_desktop": 160
       }
     },
