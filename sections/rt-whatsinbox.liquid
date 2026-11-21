@@ -61,11 +61,11 @@
           </div>
           <div class="rt-whatsin-thebox-content-items">
             {%- for block in section.blocks -%}
-              {%- if block.type == 'item' -%}
                 <div class="rt-whatsin-thebox-content-item">
-                  
+                  {% for item in section.blocks %}
+                    {{ forloop.index }}. {{ item.settings.title }}
+                  {% endfor %}
                 </div>
-              {%- endif -%}
             {%- endfor -%}
           </div>
         </div>
