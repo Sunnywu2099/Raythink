@@ -306,8 +306,8 @@
       "name": "rt-banner-full-width",
       "settings": {
         "background_color": "#ffffff",
-        "banner_desktop": "shopify://shop_images/Frame_2117130538_0e182588-dd8b-4f38-81f9-11cd9cdee023.png",
-        "banner_mobile": "shopify://shop_images/Frame_2117130653.png",
+        "banner_desktop": "shopify://shop_images/What_s_in_the_box.png",
+        "banner_mobile": "shopify://shop_images/Frame_2117130654_1.png",
         "text_position": "left",
         "text_align": "left",
         "text_align_mobile": "left",
