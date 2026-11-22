@@ -4,6 +4,7 @@
   @param {string} variant - "title" or "description"
   @param {string} [text] - Content (used when variant is "title" or "description")
   @param {string} [color] - Text color
+  @param {string} [color_mobile] - Mobile text color. Omitted values keep the desktop color.
   @param {string} [class] - Title/description element class
   @param {string} [shopify_attributes] - block.shopify_attributes output
   @param {string} [diff] - "inside" or "outside"
@@ -44,6 +45,7 @@
   assign variant = variant | default: ''
   assign text = text | default: blank
   assign color = color | default: blank
+  assign color_mobile = color_mobile | default: blank
   assign class = class | default: ''
   assign shopify_attributes = shopify_attributes | default: ''
   assign diff = diff | default: ''
@@ -53,8 +55,12 @@
   {%- case variant -%}
     {%- when 'title' -%}
       <h2
-        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}"
-        style="--color-text: {{color}}; color: {{color}};"
+        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}{% if color_mobile != blank %} rt-color-mobile{% endif %}"
+        {% if color_mobile != blank %}
+          style="--color-text: {{ color }}; --color-text-mobile: {{ color_mobile }};"
+        {% else %}
+          style="--color-text: {{ color }}; color: {{ color }};"
+        {% endif %}
         {{ shopify_attributes }}
       >
         {{ text }}
@@ -62,8 +68,12 @@
 
     {%- when 'subtitle' -%}
       <p
-        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}"
-        style="--color-text: {{color}}; color: {{color}};"
+        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}{% if color_mobile != blank %} rt-color-mobile{% endif %}"
+        {% if color_mobile != blank %}
+          style="--color-text: {{ color }}; --color-text-mobile: {{ color_mobile }};"
+        {% else %}
+          style="--color-text: {{ color }}; color: {{ color }};"
+        {% endif %}
         {{ shopify_attributes }}
       >
         {{ text }}
@@ -71,8 +81,12 @@
 
     {%- when 'description' -%}
       <p
-        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}"
-        style="--color-text: {{color}}; color: {{color}};"
+        class="rt-{{ variant }} {% if diff == 'inside' %}rt-inside{% endif %}{% if color_mobile != blank %} rt-color-mobile{% endif %}"
+        {% if color_mobile != blank %}
+          style="--color-text: {{ color }}; --color-text-mobile: {{ color_mobile }};"
+        {% else %}
+          style="--color-text: {{ color }}; color: {{ color }};"
+        {% endif %}
         {{ shopify_attributes }}
       >
         {{ text }}
