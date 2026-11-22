@@ -35,7 +35,10 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-   }
+  }
+  #shopify-section-{{ section.id }} .rt-banner-full-width-image{
+    max-width: 390px;
+  }
   @media (min-width: 750px) {
     #shopify-section-{{ section.id }} .rt-banner-full-width-banner{
       height: 600px;
@@ -52,6 +55,7 @@
     #shopify-section-{{ section.id }} .rt-banner-full-width-text-content{
       gap: 16px;
     }
+
   }
 {% endstyle %}
 
