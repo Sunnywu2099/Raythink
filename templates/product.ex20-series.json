@@ -279,6 +279,65 @@
         "padding_bottom_mobile": 0
       }
     },
+    "rt_toggle_img_xAYA7m": {
+      "type": "rt-toggle-img",
+      "blocks": {
+        "title_6YRA8f": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "Every Degree in Focus"
+          }
+        },
+        "description_9UztBn": {
+          "type": "description",
+          "settings": {
+            "text_color": "#565658",
+            "text": "Highlight critical temperature ranges, track multiple measurement points, and get instant alerts when temperatures exceed preset limits."
+          }
+        },
+        "image_block_LCwjKB": {
+          "type": "image_block",
+          "settings": {
+            "title": "Pinpoint Temperature Anomalies",
+            "description": "Isotherm highlights selected temperature ranges, making it easier to detect unusual heat patterns and locate potential issues."
+          }
+        },
+        "image_block_Li79fX": {
+          "type": "image_block",
+          "settings": {
+            "title": "Pinpoint Temperature Anomalies",
+            "description": "Isotherm highlights selected temperature ranges, making it easier to detect unusual heat patterns and locate potential issues."
+          }
+        },
+        "image_block_jgnzWx": {
+          "type": "image_block",
+          "settings": {
+            "title": "Pinpoint Temperature Anomalies",
+            "description": "Isotherm highlights selected temperature ranges, making it easier to detect unusual heat patterns and locate potential issues."
+          }
+        }
+      },
+      "block_order": [
+        "title_6YRA8f",
+        "description_9UztBn",
+        "image_block_LCwjKB",
+        "image_block_Li79fX",
+        "image_block_jgnzWx"
+      ],
+      "name": "rt-toggle-img",
+      "settings": {
+        "background_color": "#F5F6FC",
+        "wrapper_color": "#FFFFFF",
+        "block_color": "#F8F8F8",
+        "block_title_color": "#000000",
+        "block_text_color": "#565658",
+        "padding_top_mobile": 80,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 160,
+        "padding_bottom_desktop": 160
+      }
+    },
     "rt_nav_BjnEQH": {
       "type": "rt-nav",
       "blocks": {
@@ -1112,6 +1171,7 @@
   },
   "order": [
     "main",
+    "rt_toggle_img_xAYA7m",
     "rt_nav_BjnEQH",
     "rt_grid_Uc873h",
     "rt_icons_with_text_gjiinE",
