@@ -16,6 +16,9 @@
   #shopify-section-{{ section.id }} .rt-banner-full-width{
     position: relative;
   }
+  #shopify-section-{{ section.id }} .rt-color-mobile {
+    color: var(--color-text-mobile);
+  }
   #shopify-section-{{ section.id }} .rt-banner-full-width-text{
     position: absolute;
     inset: 0;
@@ -34,6 +37,9 @@
     gap: 16px;
    }
   @media (min-width: 750px) {
+    #shopify-section-{{ section.id }} .rt-color-mobile {
+      color: var(--color-text);
+    }
     #shopify-section-{{ section.id }} .rt-banner-full-width-text{
       text-align: {{ text_align }};
       justify-content: {{ justify_content }};
@@ -60,9 +66,19 @@
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'title' %}
-            {% render 'rt-heading', variant: 'title', text: block.settings.text, color: block.settings.text_color %}
+            {% render 'rt-heading',
+              variant: 'title',
+              text: block.settings.text,
+              color: block.settings.text_color,
+              color_mobile: block.settings.text_color_mobile
+            %}
           {% when 'description' %}
-            {% render 'rt-heading', variant: 'subtitle', text: block.settings.text, color: block.settings.text_color %}
+            {% render 'rt-heading',
+              variant: 'subtitle',
+              text: block.settings.text,
+              color: block.settings.text_color,
+              color_mobile: block.settings.text_color_mobile
+            %}
         {% endcase %}
       {% endfor %}
     </div>
