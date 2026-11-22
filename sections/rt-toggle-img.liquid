@@ -364,17 +364,14 @@
 
         event.preventDefault();
 
-        const willOpen = !item.open;
+        if (item.open) return;
 
         for (const other of this.querySelectorAll('[data-toggle-item]')) {
           if (other !== item) other.open = false;
         }
 
-        item.open = willOpen;
-
-        if (willOpen) {
-          this.#activate(item.dataset.index);
-        }
+        item.open = true;
+        this.#activate(item.dataset.index);
       };
 
       #onBlockSelect = (event) => {
