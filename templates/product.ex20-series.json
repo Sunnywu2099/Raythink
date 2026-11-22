@@ -310,7 +310,7 @@
           "settings": {
             "image_desktop": "shopify://shop_images/4-2-PC.png",
             "image_mobile": "shopify://shop_images/4-2-MO.png",
-            "title": "Pinpoint Temperature Anomalies",
+            "title": "Precise Temperature Tracking",
             "description": "Isotherm highlights selected temperature ranges, making it easier to detect unusual heat patterns and locate potential issues."
           }
         },
@@ -319,7 +319,7 @@
           "settings": {
             "image_desktop": "shopify://shop_images/4-3-PC.png",
             "image_mobile": "shopify://shop_images/4-3-MO.png",
-            "title": "Pinpoint Temperature Anomalies",
+            "title": "Automatic Alerts & Capture",
             "description": "Isotherm highlights selected temperature ranges, making it easier to detect unusual heat patterns and locate potential issues."
           }
         }
