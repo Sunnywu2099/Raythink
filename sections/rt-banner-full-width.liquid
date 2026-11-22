@@ -2,6 +2,12 @@
   assign ss = section.settings
   assign bg_color = ss.background_color | default: '#ffffff'
   assign text_position = ss.text_position | default: 'left'
+  if text_position == 'left'
+    assign justify_content = 'flex-start'
+  else
+    assign justify_content = 'flex-end'
+  endif
+
   assign text_align = ss.text_align | default: 'left'
   assign text_align_mobile = ss.text_align_mobile | default: 'left'
 -%}
@@ -15,11 +21,18 @@
     inset: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: {{ justify_content }};
+    align-items: center;
+    text-align: {{ text_align_mobile }};
   }
    #shopify-section-{{ section.id }} .rt-banner-full-width-text-content{
     max-width: 460px;
    }
   @media (min-width: 750px) {
+    #shopify-section-{{ section.id }} .rt-banner-full-width-text{
+      text-align: {{ text_align }};
+    }
   }
 {% endstyle %}
 
