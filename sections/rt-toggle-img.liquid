@@ -237,20 +237,26 @@
             {%- assign stage_index = 0 -%}
             {%- for block in section.blocks -%}
               {%- if block.type == 'image_block' -%}
-                {%- if block.settings.title != blank or block.settings.description != blank or block.settings.image_desktop != blank or block.settings.image_mobile != blank -%}
-                  <div
-                    class="rt-toggle-img__stage-item{% if stage_index == 0 %} is-active{% endif %}"
-                    data-toggle-media
-                    data-index="{{ stage_index }}"
-                  >
-                    {% render 'rt-image2picture',
-                      image_desktop: block.settings.image_desktop,
-                      image_mobile: block.settings.image_mobile,
-                      sizes: '(min-width: 750px) 42vw, 90vw',
-                      loading: 'lazy',
-                      alt: block.settings.title
-                    %}
-                  </div>
+                {%- if block.settings.title != blank
+                  or block.settings.description != blank
+                  or block.settings.image_desktop != blank
+                  or block.settings.image_mobile != blank
+                -%}
+                  {%- if block.settings.image_desktop != blank or block.settings.image_mobile != blank -%}
+                    <div
+                      class="rt-toggle-img__stage-item{% if stage_index == 0 %} is-active{% endif %}"
+                      data-toggle-media
+                      data-index="{{ stage_index }}"
+                    >
+                      {% render 'rt-image2picture',
+                        image_desktop: block.settings.image_desktop,
+                        image_mobile: block.settings.image_mobile,
+                        sizes: '(min-width: 750px) 42vw, 90vw',
+                        loading: 'lazy',
+                        alt: block.settings.title
+                      %}
+                    </div>
+                  {%- endif -%}
                   {%- assign stage_index = stage_index | plus: 1 -%}
                 {%- endif -%}
               {%- endif -%}
@@ -261,7 +267,11 @@
             {%- assign item_index = 0 -%}
             {%- for block in section.blocks -%}
               {%- if block.type == 'image_block' -%}
-                {%- if block.settings.title != blank or block.settings.description != blank or block.settings.image_desktop != blank or block.settings.image_mobile != blank -%}
+                {%- if block.settings.title != blank
+                  or block.settings.description != blank
+                  or block.settings.image_desktop != blank
+                  or block.settings.image_mobile != blank
+                -%}
                   <details
                     class="rt-toggle-img__item"
                     data-toggle-item
@@ -281,15 +291,17 @@
                       {%- if block.settings.description != blank -%}
                         <p class="rt-toggle-img__desc">{{ block.settings.description | escape }}</p>
                       {%- endif -%}
-                      <div class="rt-toggle-img__media-inline">
-                        {% render 'rt-image2picture',
-                          image_desktop: block.settings.image_desktop,
-                          image_mobile: block.settings.image_mobile,
-                          sizes: '90vw',
-                          loading: 'lazy',
-                          alt: block.settings.title
-                        %}
-                      </div>
+                      {%- if block.settings.image_desktop != blank or block.settings.image_mobile != blank -%}
+                        <div class="rt-toggle-img__media-inline">
+                          {% render 'rt-image2picture',
+                            image_desktop: block.settings.image_desktop,
+                            image_mobile: block.settings.image_mobile,
+                            sizes: '90vw',
+                            loading: 'lazy',
+                            alt: block.settings.title
+                          %}
+                        </div>
+                      {%- endif -%}
                     </div>
                   </details>
                   {%- assign item_index = item_index | plus: 1 -%}
@@ -478,6 +490,7 @@
     {
       "type": "image_block",
       "name": "图片块",
+      "limit": 3,
       "settings": [
         {
           "type": "image_picker",
