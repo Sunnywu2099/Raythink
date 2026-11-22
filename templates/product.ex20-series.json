@@ -286,6 +286,7 @@
           "type": "title",
           "settings": {
             "text_color": "#000000",
+            "text_color_mobile": "#ffffff",
             "text": "From Inspection to Insight."
           }
         },
@@ -293,6 +294,7 @@
           "type": "description",
           "settings": {
             "text_color": "#595959",
+            "text_color_mobile": "{{ settings.color_palette.background }}",
             "text": "Go beyond on-site inspections with TI Studio. Capture thermal images, analyze temperature data on your PC, and create professional reports—all in one seamless workflow."
           }
         }
