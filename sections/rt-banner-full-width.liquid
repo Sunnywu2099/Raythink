@@ -22,7 +22,7 @@
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: {{ justify_content }};
+    justify-content: flex-start;
     align-items: center;
     text-align: {{ text_align_mobile }};
   }
@@ -35,6 +35,7 @@
   @media (min-width: 750px) {
     #shopify-section-{{ section.id }} .rt-banner-full-width-text{
       text-align: {{ text_align }};
+      justify-content: {{ justify_content }};
     }
     #shopify-section-{{ section.id }} .rt-banner-full-width-text-content{
       gap: 16px;
