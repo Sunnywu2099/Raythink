@@ -1,0 +1,231 @@
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 40
+  assign pb_mobile = ss.padding_bottom_mobile | default: 40
+  assign pt_desktop = ss.padding_top_desktop | default: 60
+  assign pb_desktop = ss.padding_bottom_desktop | default: 60
+  assign bg_color = ss.background_color | default: '#f5f5f9'
+  assign show_heading = false
+  for block in section.blocks
+    if block.type == 'title' or block.type == 'description'
+      if block.settings.text != blank
+        assign show_heading = true
+        break
+      endif
+    endif
+  endfor
+-%}
+
+{%- capture container_padding -%}
+  style="
+    {% render 'rt-section-padding',
+      section_pt_mobile: pt_mobile,
+      section_pb_mobile: pb_mobile,
+      section_pt_desktop: pt_desktop,
+      section_pb_desktop: pb_desktop
+    %}
+  "
+{%- endcapture -%}
+
+{% style %}
+  @media (min-width: 750px) {
+  }
+{% endstyle %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section"
+  style="--rt-section-bg-color: {{ bg_color }};"
+>
+  <div class="rt-ss-padding" {{ container_padding }}>
+    <div class="rt-container">
+      {%- if show_heading -%}
+        <div class="rt-pdp-heading rt-pdp-heading-center">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'title' -%}
+                {% render 'rt-heading',
+                  variant: 'title',
+                  text: block.settings.text,
+                  color: block.settings.text_color,
+                  shopify_attributes: block.shopify_attributes
+                %}
+
+              {%- when 'description' -%}
+                {% render 'rt-heading',
+                  variant: 'subtitle',
+                  text: block.settings.text,
+                  color: block.settings.text_color,
+                  shopify_attributes: block.shopify_attributes
+                %}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <div class="rt-toggle-wrapper"></div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "rt-toggle-img",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "颜色配置"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色",
+      "default": "#F5F6FC"
+    },
+    {
+      "type": "color",
+      "id": "wrapper_color",
+      "label": "内容区域颜色",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "block_color",
+      "label": "块背景颜色",
+      "default": "#F8F8F8"
+    },
+    {
+      "type": "color",
+      "id": "block_title_color",
+      "label": "块标题颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "block_text_color",
+      "label": "块文字颜色",
+      "default": "#565658"
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "上（移动端）",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "下（移动端）",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "上（桌面端）",
+      "default": 160
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "下（桌面端）",
+      "default": 160
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "标题",
+      "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "文字颜色",
+          "default": "#000000"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "标题",
+          "default": "Every Degree in Focus"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "描述",
+      "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "文字颜色",
+          "default": "#565658"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "内容",
+          "default": "Highlight critical temperature ranges, track multiple measurement points, and get instant alerts when temperatures exceed preset limits."
+        }
+      ]
+    },
+    {
+      "type": "image_block",
+      "name": "图片块",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "图片（桌面端）"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "图片（移动端）"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "标题",
+          "default": "Pinpoint Temperature Anomalies"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "描述",
+          "default": "Isotherm highlights selected temperature ranges, making it easier to detect unusual heat patterns and locate potential issues."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "rt-toggle-img",
+      "category": "rt-layout"
+    }
+  ]
+}
+{% endschema %}
