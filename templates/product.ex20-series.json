@@ -310,7 +310,7 @@
         "banner_mobile": "shopify://shop_images/Frame_2117130653.png",
         "text_position": "left",
         "text_align": "left",
-        "text_align_mobile": "center",
+        "text_align_mobile": "left",
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "padding_top_desktop": 0,
