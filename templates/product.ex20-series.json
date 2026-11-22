@@ -279,6 +279,41 @@
         "padding_bottom_mobile": 0
       }
     },
+    "rt_toggle_img_BaB6J6": {
+      "type": "rt-toggle-img",
+      "blocks": {
+        "title_899QJj": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "Every Degree in Focus"
+          }
+        },
+        "description_mH3XXf": {
+          "type": "description",
+          "settings": {
+            "text_color": "#565658",
+            "text": "Highlight critical temperature ranges, track multiple measurement points, and get instant alerts when temperatures exceed preset limits."
+          }
+        }
+      },
+      "block_order": [
+        "title_899QJj",
+        "description_mH3XXf"
+      ],
+      "name": "rt-toggle-img",
+      "settings": {
+        "background_color": "#F5F6FC",
+        "wrapper_color": "#FFFFFF",
+        "block_color": "#F8F8F8",
+        "block_title_color": "#000000",
+        "block_text_color": "#565658",
+        "padding_top_mobile": 80,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 160,
+        "padding_bottom_desktop": 160
+      }
+    },
     "rt_nav_BjnEQH": {
       "type": "rt-nav",
       "blocks": {
@@ -1115,12 +1150,14 @@
         "title": {
           "type": "title",
           "settings": {
+            "text_color": "#000000",
             "text": "Every Degree in Focus"
           }
         },
         "description": {
           "type": "description",
           "settings": {
+            "text_color": "#565658",
             "text": "Highlight critical temperature ranges, track multiple measurement points, and get instant alerts when temperatures exceed preset limits."
           }
         },
@@ -1152,12 +1189,29 @@
           }
         }
       },
-      "block_order": ["title", "description", "image_1", "image_2", "image_3"],
-      "settings": {}
+      "block_order": [
+        "title",
+        "description",
+        "image_1",
+        "image_2",
+        "image_3"
+      ],
+      "settings": {
+        "background_color": "#f5f6fc",
+        "wrapper_color": "#ffffff",
+        "block_color": "#f8f8f8",
+        "block_title_color": "#000000",
+        "block_text_color": "#565658",
+        "padding_top_mobile": 80,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 160,
+        "padding_bottom_desktop": 160
+      }
     }
   },
   "order": [
     "main",
+    "rt_toggle_img_BaB6J6",
     "rt_nav_BjnEQH",
     "rt_grid_Uc873h",
     "rt_icons_with_text_gjiinE",
