@@ -565,9 +565,9 @@
         "block_color": "#F8F8F8",
         "block_title_color": "#000000",
         "block_text_color": "#565658",
-        "padding_top_mobile": 80,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 80,
-        "padding_top_desktop": 160,
+        "padding_top_desktop": 0,
         "padding_bottom_desktop": 160
       }
     },
