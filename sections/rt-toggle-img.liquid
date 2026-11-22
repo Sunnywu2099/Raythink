@@ -47,10 +47,10 @@
   #{{ section.id }} .rt-toggle-img {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
     padding: 20px;
     background: transparent;
-    border-radius: 16px;
+    border-radius: 0;
   }
 
   #{{ section.id }} .rt-toggle-img__stage {
@@ -60,18 +60,14 @@
   #{{ section.id }} .rt-toggle-img__list {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
     min-width: 0;
   }
 
   #{{ section.id }} .rt-toggle-img__item {
-    border-radius: 12px;
+    border-radius: 16px;
     background: var(--rt-toggle-wrapper);
-    /* padding: 12px; */
-  }
-
-  #{{ section.id }} .rt-toggle-img__item[open] {
-    padding-bottom: 20px;
+    padding: 24px;
   }
 
   #{{ section.id }} .rt-toggle-img__trigger {
@@ -116,7 +112,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* padding-top: 8px; */
+    padding-top: 12px;
   }
 
   #{{ section.id }} .rt-toggle-img__desc {
