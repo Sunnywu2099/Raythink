@@ -158,17 +158,23 @@
       height: 100%;
       min-width: 0;
       overflow: hidden;
+      background: var(--rt-toggle-wrapper);
     }
 
     #{{ section.id }} .rt-toggle-img__stage-item {
       position: absolute;
       inset: 0;
       opacity: 0;
-      transition: opacity 0.45s ease;
+      transition: opacity 0.4s ease;
     }
 
     #{{ section.id }} .rt-toggle-img__stage-item.is-active {
       opacity: 1;
+      transition-delay: 0s;
+    }
+
+    #{{ section.id }} .rt-toggle-img__stage-item:not(.is-active) {
+      transition-delay: 0s;
     }
 
     #{{ section.id }} .rt-toggle-img__stage picture,
@@ -342,7 +348,7 @@
       connectedCallback() {
         this.#controller = new AbortController();
         const signal = this.#controller.signal;
-        this.addEventListener('toggle', this.#onToggle, { capture: true, signal });
+        this.addEventListener('click', this.#onClick, { signal });
         this.addEventListener('shopify:block:select', this.#onBlockSelect, { signal });
       }
 
@@ -350,17 +356,25 @@
         this.#controller?.abort();
       }
 
-      #onToggle = (event) => {
-        const item = event.target;
-        if (!(item instanceof HTMLDetailsElement) || !item.matches('[data-toggle-item]')) return;
-        if (!item.open) {
-          if (!this.querySelector('[data-toggle-item][open]')) item.open = true;
-          return;
-        }
+      #onClick = (event) => {
+        const summary = event.target.closest('[data-toggle-item] > summary');
+        if (!summary) return;
+        const item = summary.parentElement;
+        if (!(item instanceof HTMLDetailsElement)) return;
+
+        event.preventDefault();
+
+        const willOpen = !item.open;
+
         for (const other of this.querySelectorAll('[data-toggle-item]')) {
           if (other !== item) other.open = false;
         }
-        this.#activate(item.dataset.index);
+
+        item.open = willOpen;
+
+        if (willOpen) {
+          this.#activate(item.dataset.index);
+        }
       };
 
       #onBlockSelect = (event) => {
@@ -368,7 +382,10 @@
         if (!(target instanceof Element)) return;
         const item = target.closest('[data-toggle-item]');
         if (!item || !this.contains(item)) return;
-        if (item instanceof HTMLDetailsElement) item.open = true;
+        if (item instanceof HTMLDetailsElement) {
+          item.open = true;
+          this.#activate(item.dataset.index);
+        }
       };
 
       #activate(index) {
