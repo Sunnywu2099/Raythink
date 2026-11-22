@@ -5,6 +5,9 @@
   assign pt_desktop = ss.padding_top_desktop | default: 0
   assign pb_desktop = ss.padding_bottom_desktop | default: 0
   assign bg_color = ss.background_color | default: '#ffffff'
+  assign text_position = ss.text_position | default: 'left'
+  assign text_align = ss.text_align | default: 'left'
+  assign text_align_mobile = ss.text_align_mobile | default: 'left'
 -%}
 
 {% stylesheet %}
@@ -30,6 +33,17 @@
   >
     <div class="rt-banner-full-width-banner">
       {% render 'rt-image2picture', image_desktop: ss.banner_desktop, image_mobile: ss.banner_mobile, loading: 'lazy' %}
+    </div>
+
+    <div class="rt-banner-full-width-text rt-container">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'title' %}
+            {% render 'rt-heading', variant: 'title', text: block.settings.text, color: block.settings.text_color %}
+          {% when 'description' %}
+            {% render 'rt-heading', variant: 'subtitle', text: block.settings.text, color: block.settings.text_color %}
+        {% endcase %}
+      {% endfor %}
     </div>
   </div>
 </div>
