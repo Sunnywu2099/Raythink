@@ -279,6 +279,129 @@
         "padding_bottom_mobile": 0
       }
     },
+    "rt_banner_full_width_zpVHrn": {
+      "type": "rt-banner-full-width",
+      "blocks": {
+        "title_aHXRfQ": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text_color_mobile": "#ffffff",
+            "text": "Built to Go the Distance"
+          }
+        },
+        "description_PXjYUR": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text_color_mobile": "{{ settings.color_palette.background }}",
+            "text": "Built for demanding workdays, EX20 combines lasting battery power with fast charging to keep your inspections moving."
+          }
+        }
+      },
+      "block_order": [
+        "title_aHXRfQ",
+        "description_PXjYUR"
+      ],
+      "name": "rt-banner-full-width",
+      "settings": {
+        "background_color": "#ffffff",
+        "banner_desktop": "shopify://shop_images/What_s_in_the_box.png",
+        "banner_mobile": "shopify://shop_images/Frame_2117130654_1.png",
+        "text_position": "left",
+        "text_align": "left",
+        "text_align_mobile": "left",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0
+      }
+    },
+    "rt_banner_full_width_eYYff4": {
+      "type": "rt-banner-full-width",
+      "blocks": {
+        "title_KzQX3F": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text_color_mobile": "#ffffff",
+            "text": "Wireless Transfer & Software Analysis"
+          }
+        },
+        "description_9Ah783": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text_color_mobile": "{{ settings.color_palette.background }}",
+            "text": "Works with TI Studio PC & Mobile Software for flexible thermal analysis."
+          }
+        },
+        "image_MJVRdd": {
+          "type": "image",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Frame_2117130648.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130648.png",
+            "note": "*PC Software is compatible with Windows only"
+          }
+        }
+      },
+      "block_order": [
+        "title_KzQX3F",
+        "description_9Ah783",
+        "image_MJVRdd"
+      ],
+      "name": "rt-banner-full-width",
+      "settings": {
+        "background_color": "#ffffff",
+        "banner_desktop": "shopify://shop_images/Frame_2117130538_1.png",
+        "banner_mobile": "shopify://shop_images/Frame_2117130654.png",
+        "text_position": "left",
+        "text_align": "left",
+        "text_align_mobile": "center",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0
+      }
+    },
+    "rt_banner_full_width_WHMPDi": {
+      "type": "rt-banner-full-width",
+      "blocks": {
+        "title_RWYhbU": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text_color_mobile": "#ffffff",
+            "text": "From Inspection to Insight."
+          }
+        },
+        "description_Rp3m4a": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text_color_mobile": "{{ settings.color_palette.background }}",
+            "text": "Go beyond on-site inspections with TI Studio. Capture thermal images, analyze temperature data on your PC, and create professional reports—all in one seamless workflow."
+          }
+        }
+      },
+      "block_order": [
+        "title_RWYhbU",
+        "description_Rp3m4a"
+      ],
+      "name": "rt-banner-full-width",
+      "settings": {
+        "background_color": "#ffffff",
+        "banner_desktop": "shopify://shop_images/Frame_2117130538_0e182588-dd8b-4f38-81f9-11cd9cdee023.png",
+        "banner_mobile": "shopify://shop_images/Frame_2117130653.png",
+        "text_position": "left",
+        "text_align": "left",
+        "text_align_mobile": "center",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0
+      }
+    },
     "rt_nav_BjnEQH": {
       "type": "rt-nav",
       "blocks": {
@@ -692,7 +815,7 @@
       "name": "rt-whatsin-thebox",
       "settings": {
         "heading": "What's in the box",
-        "heading_color": "#FFFFFF",
+        "heading_color": "#ffffff",
         "background_color": "#ffffff",
         "image": "shopify://shop_images/Frame_2085661963.png",
         "image_mobile": "shopify://shop_images/Frame_2117130478_0f76a213-bc06-4f60-9f75-feb29558c825.png",
@@ -974,6 +1097,9 @@
   },
   "order": [
     "main",
+    "rt_banner_full_width_zpVHrn",
+    "rt_banner_full_width_eYYff4",
+    "rt_banner_full_width_WHMPDi",
     "rt_nav_BjnEQH",
     "rt_grid_Uc873h",
     "rt_icons_with_text_gjiinE",
