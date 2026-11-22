@@ -297,17 +297,26 @@
             "text_color_mobile": "{{ settings.color_palette.background }}",
             "text": "Works with TI Studio PC & Mobile Software for flexible thermal analysis."
           }
+        },
+        "image_MJVRdd": {
+          "type": "image",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Frame_2117130648.png",
+            "image_mobile": "shopify://shop_images/Frame_2117130648.png",
+            "note": "*PC Software is compatible with Windows only"
+          }
         }
       },
       "block_order": [
         "title_KzQX3F",
-        "description_9Ah783"
+        "description_9Ah783",
+        "image_MJVRdd"
       ],
       "name": "rt-banner-full-width",
       "settings": {
         "background_color": "#ffffff",
-        "banner_desktop": "shopify://shop_images/Frame_2117130538_0e182588-dd8b-4f38-81f9-11cd9cdee023.png",
-        "banner_mobile": "shopify://shop_images/Frame_2117130653.png",
+        "banner_desktop": "shopify://shop_images/Frame_2117130538_1.png",
+        "banner_mobile": "shopify://shop_images/Frame_2117130654.png",
         "text_position": "left",
         "text_align": "left",
         "text_align_mobile": "center",
