@@ -297,11 +297,26 @@
             "text_color_mobile": "{{ settings.color_palette.background }}",
             "text": "Built for demanding workdays, EX20 combines lasting battery power with fast charging to keep your inspections moving."
           }
+        },
+        "sell_points_rH3fVG": {
+          "type": "sell_points",
+          "settings": {
+            "icon_1": "shopify://shop_images/Frame_2117130628.png",
+            "title_1": "2750mAh",
+            "text_1": "Lithium Battery",
+            "icon_2": "shopify://shop_images/Frame_2117130629.png",
+            "title_2": "9 Hours",
+            "text_2": "Thermal Imaging + NUR Mode",
+            "icon_3": "shopify://shop_images/Frame_2117130630.png",
+            "title_3": "75Mins",
+            "text_3": "Charge to Over 90%"
+          }
         }
       },
       "block_order": [
         "title_aHXRfQ",
-        "description_PXjYUR"
+        "description_PXjYUR",
+        "sell_points_rH3fVG"
       ],
       "name": "rt-banner-full-width",
       "settings": {
