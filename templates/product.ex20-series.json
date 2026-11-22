@@ -279,6 +279,39 @@
         "padding_bottom_mobile": 0
       }
     },
+    "rt_banner_full_width_eYYff4": {
+      "type": "rt-banner-full-width",
+      "blocks": {
+        "title_KzQX3F": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "From Inspection to Insight."
+          }
+        },
+        "description_9Ah783": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text": "Go beyond on-site inspections with TI Studio. Capture thermal images, analyze temperature data on your PC, and create professional reports—all in one seamless workflow."
+          }
+        }
+      },
+      "block_order": [
+        "title_KzQX3F",
+        "description_9Ah783"
+      ],
+      "name": "rt-banner-full-width",
+      "settings": {
+        "background_color": "#ffffff",
+        "banner_desktop": "shopify://shop_images/Frame_2117130538_0e182588-dd8b-4f38-81f9-11cd9cdee023.png",
+        "banner_mobile": "shopify://shop_images/Frame_2117130653.png",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0
+      }
+    },
     "rt_nav_BjnEQH": {
       "type": "rt-nav",
       "blocks": {
@@ -586,39 +619,6 @@
         "padding_bottom_mobile": 96,
         "padding_top_desktop": 0,
         "padding_bottom_desktop": 160
-      }
-    },
-    "rt_banner_full_width_eYYff4": {
-      "type": "rt-banner-full-width",
-      "blocks": {
-        "title_KzQX3F": {
-          "type": "title",
-          "settings": {
-            "text_color": "#000000",
-            "text": "From Inspection to Insight."
-          }
-        },
-        "description_9Ah783": {
-          "type": "description",
-          "settings": {
-            "text_color": "#595959",
-            "text": "Go beyond on-site inspections with TI Studio. Capture thermal images, analyze temperature data on your PC, and create professional reports—all in one seamless workflow."
-          }
-        }
-      },
-      "block_order": [
-        "title_KzQX3F",
-        "description_9Ah783"
-      ],
-      "name": "rt-banner-full-width",
-      "settings": {
-        "background_color": "#ffffff",
-        "banner_desktop": "shopify://shop_images/Frame_2117130538_0e182588-dd8b-4f38-81f9-11cd9cdee023.png",
-        "banner_mobile": "shopify://shop_images/Frame_2117130653.png",
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 0
       }
     },
     "rt_grid_p8xYMw": {
@@ -1007,6 +1007,7 @@
   },
   "order": [
     "main",
+    "rt_banner_full_width_eYYff4",
     "rt_nav_BjnEQH",
     "rt_grid_Uc873h",
     "rt_icons_with_text_gjiinE",
@@ -1014,7 +1015,6 @@
     "rt_text_with_image_2_BDftf4",
     "rt_text_with_image_2_kYXWfV",
     "rt_text_with_image_2_6kf7tU",
-    "rt_banner_full_width_eYYff4",
     "rt_grid_p8xYMw",
     "rt_whatsinbox_DEYP9w",
     "rt_specification",
