@@ -46,6 +46,48 @@
       margin-top: 8px;
       color: #ffffff;
   }
+  #shopify-section-{{ section.id }} .rt-banner-sell-points{
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  #shopify-section-{{ section.id }} .rt-banner-sell-point{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  #shopify-section-{{ section.id }} .rt-banner-sell-point__icon{
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgb(36 88 167 / 10%);
+  }
+  #shopify-section-{{ section.id }} .rt-banner-sell-point__icon img{
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+  #shopify-section-{{ section.id }} .rt-banner-sell-point__title{
+    margin: 0;
+    color: #2458a7;
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 700;
+  }
+  #shopify-section-{{ section.id }} .rt-banner-sell-point__text{
+    margin: 2px 0 0;
+    color: #595959;
+    font-size: 14px;
+    line-height: 18px;
+  }
   @media (min-width: 750px) {
     #shopify-section-{{ section.id }} .rt-banner-full-width-banner{
       height: 600px;
@@ -68,6 +110,26 @@
     }
     #shopify-section-{{ section.id }} .rt-banner-full-width-image-note{
       color: rgba(0, 0, 0, .65);
+    }
+    #shopify-section-{{ section.id }} .rt-banner-sell-points{
+      margin-top: 12px;
+      gap: 28px;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-sell-point{
+      gap: 16px;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-sell-point__icon{
+      flex-basis: 64px;
+      width: 64px;
+      height: 64px;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-sell-point__icon img{
+      width: 36px;
+      height: 36px;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-sell-point__title{
+      font-size: 28px;
+      line-height: 32px;
     }
   }
 {% endstyle %}
@@ -112,6 +174,46 @@
                 {{ block.settings.note }}
               </div>
             </div>
+          {% when 'sell_points' %}
+            {% liquid
+              assign has_sell_point = false
+              if block.settings.icon_1 != blank or block.settings.icon_2 != blank or block.settings.icon_3 != blank
+                assign has_sell_point = true
+              endif
+            %}
+            {% if has_sell_point %}
+              <ul class="rt-banner-sell-points" {{ block.shopify_attributes }}>
+                {% for index in (1..3) %}
+                  {% liquid
+                    assign icon_key = 'icon_' | append: index
+                    assign title_key = 'title_' | append: index
+                    assign text_key = 'text_' | append: index
+                    assign point_icon = block.settings[icon_key]
+                    assign point_title = block.settings[title_key]
+                    assign point_text = block.settings[text_key]
+                  %}
+                  {% if point_icon != blank %}
+                    <li class="rt-banner-sell-point">
+                      <span class="rt-banner-sell-point__icon">
+                        {{
+                          point_icon
+                          | image_url: width: 144
+                          | image_tag: loading: 'lazy', alt: point_title, widths: '72, 144'
+                        }}
+                      </span>
+                      <div class="rt-banner-sell-point__body">
+                        {% if point_title != blank %}
+                          <p class="rt-banner-sell-point__title">{{ point_title | escape }}</p>
+                        {% endif %}
+                        {% if point_text != blank %}
+                          <p class="rt-banner-sell-point__text">{{ point_text | escape }}</p>
+                        {% endif %}
+                      </div>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
         {% endcase %}
       {% endfor %}
     </div>
