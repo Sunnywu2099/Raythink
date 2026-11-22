@@ -590,6 +590,26 @@
     },
     "rt_banner_full_width_eYYff4": {
       "type": "rt-banner-full-width",
+      "blocks": {
+        "title_KzQX3F": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "From Inspection to Insight."
+          }
+        },
+        "description_9Ah783": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text": "Go beyond on-site inspections with TI Studio. Capture thermal images, analyze temperature data on your PC, and create professional reports—all in one seamless workflow."
+          }
+        }
+      },
+      "block_order": [
+        "title_KzQX3F",
+        "description_9Ah783"
+      ],
       "name": "rt-banner-full-width",
       "settings": {
         "background_color": "#ffffff",
