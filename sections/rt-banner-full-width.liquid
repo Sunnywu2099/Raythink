@@ -1,0 +1,480 @@
+{%- liquid
+  assign ss = section.settings
+  assign bg_color = ss.background_color | default: '#ffffff'
+  assign text_position = ss.text_position | default: 'left'
+  if text_position == 'left'
+    assign justify_content = 'flex-start'
+  else
+    assign justify_content = 'flex-end'
+  endif
+
+  assign text_align = ss.text_align | default: 'left'
+  assign text_align_mobile = ss.text_align_mobile | default: 'left'
+-%}
+
+{% style %}
+  #shopify-section-{{ section.id }} .rt-banner-full-width{
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .rt-color-mobile {
+    color: var(--color-text-mobile);
+  }
+  #shopify-section-{{ section.id }} .rt-banner-full-width-text{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: {{ text_align_mobile }};
+    padding-top: 40px;
+  }
+   #shopify-section-{{ section.id }} .rt-banner-full-width-text-content{
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  #shopify-section-{{ section.id }} .rt-banner-full-width-image{
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  #shopify-section-{{ section.id }} .rt-banner-full-width-image-note{
+      text-align: left;
+      font-size: 12px;
+      margin-top: 8px;
+      color: #ffffff;
+  }
+  #shopify-section-{{ section.id }} .rt-banner-sell-points{
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  #shopify-section-{{ section.id }} .rt-banner-sell-point{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  #shopify-section-{{ section.id }} .rt-banner-sell-point__icon{
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgb(36 88 167 / 10%);
+  }
+  #shopify-section-{{ section.id }} .rt-banner-sell-point__icon img{
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+  #shopify-section-{{ section.id }} .rt-banner-sell-point__title{
+    margin: 0;
+    color: #ffffff;
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: 700;
+  }
+  #shopify-section-{{ section.id }} .rt-banner-sell-point__text{
+    margin: 0;
+    color: #C3C9D1;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  @media (min-width: 750px) {
+    #shopify-section-{{ section.id }} .rt-banner-full-width-banner{
+      height: 600px;
+    }
+    #shopify-section-{{ section.id }} .rt-color-mobile {
+      color: var(--color-text);
+    }
+    #shopify-section-{{ section.id }} .rt-banner-full-width-text{
+      text-align: {{ text_align }};
+      justify-content: {{ justify_content }};
+      align-items: center;
+      padding-top: 0px;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-full-width-text-content{
+      gap: 16px;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-full-width-image{
+      max-width: 390px;
+      margin: 28px 0 0px;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-full-width-image-note{
+      color: rgba(0, 0, 0, .65);
+    }
+    #shopify-section-{{ section.id }} .rt-banner-sell-points{
+      margin-top: 40px;
+      gap: 28px;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-sell-point{
+      gap: 13px;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-sell-point__icon{
+      flex-basis: 60px;
+      width: 60px;
+      height: 60px;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-sell-point__icon img{
+      width: 36px;
+      height: 36px;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-sell-point__title{
+      font-size: 32px;
+      line-height: 36px;
+      color: #2458a7;
+    }
+    #shopify-section-{{ section.id }} .rt-banner-sell-point__text{
+      margin: 2px 0 0;
+      color: #595959;
+    }
+  }
+{% endstyle %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section rt-banner-full-width"
+  style="--rt-section-bg-color: {{ bg_color }};"
+>
+  <div class="rt-banner-full-width-banner">
+    {% render 'rt-image2picture', image_desktop: ss.banner_desktop, image_mobile: ss.banner_mobile, loading: 'lazy' %}
+  </div>
+
+  <div class="rt-banner-full-width-text rt-container">
+    <div class="rt-banner-full-width-text-content">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'title' %}
+            {% render 'rt-heading',
+              variant: 'title',
+              text: block.settings.text,
+              color: block.settings.text_color,
+              color_mobile: block.settings.text_color_mobile
+            %}
+          {% when 'description' %}
+            {% render 'rt-heading',
+              variant: 'subtitle',
+              text: block.settings.text,
+              color: block.settings.text_color,
+              color_mobile: block.settings.text_color_mobile
+            %}
+          {% when 'image' %}
+            <div class="rt-banner-full-width-image">
+              <div class="wrapper">
+                {% render 'rt-image2picture',
+                  image_desktop: block.settings.image_desktop,
+                  image_mobile: block.settings.image_mobile,
+                  loading: 'lazy'
+                %}
+              </div>
+              <div class="rt-banner-full-width-image-note">
+                {{ block.settings.note }}
+              </div>
+            </div>
+          {% when 'sell_points' %}
+            {% liquid
+              assign has_sell_point = false
+              if block.settings.icon_1 != blank or block.settings.icon_2 != blank or block.settings.icon_3 != blank
+                assign has_sell_point = true
+              endif
+            %}
+            {% if has_sell_point %}
+              <ul class="rt-banner-sell-points" {{ block.shopify_attributes }}>
+                {% for index in (1..3) %}
+                  {% liquid
+                    assign icon_key = 'icon_' | append: index
+                    assign title_key = 'title_' | append: index
+                    assign text_key = 'text_' | append: index
+                    assign point_icon = block.settings[icon_key]
+                    assign point_title = block.settings[title_key]
+                    assign point_text = block.settings[text_key]
+                  %}
+                  {% if point_icon != blank %}
+                    <li class="rt-banner-sell-point">
+                      <span class="rt-banner-sell-point__icon">
+                        {{
+                          point_icon
+                          | image_url: width: 144
+                          | image_tag: loading: 'lazy', widths: '72, 144', sizes: '64px', alt: point_title
+                        }}
+                      </span>
+                      <div class="rt-banner-sell-point__body">
+                        {% if point_title != blank %}
+                          <p class="rt-banner-sell-point__title">{{ point_title | escape }}</p>
+                        {% endif %}
+                        {% if point_text != blank %}
+                          <p class="rt-banner-sell-point__text">{{ point_text | escape }}</p>
+                        {% endif %}
+                      </div>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "rt-banner-full-width",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_desktop",
+      "label": "横幅（桌面端）"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_mobile",
+      "label": "横幅（移动端）"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "文案位置",
+      "info": "仅支持桌面端",
+      "options": [
+        {
+          "value": "left",
+          "label": "左"
+        },
+        {
+          "value": "right",
+          "label": "右"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "文案对齐方式（桌面端）",
+      "options": [
+        {
+          "value": "left",
+          "label": "左对齐"
+        },
+        {
+          "value": "center",
+          "label": "居中对齐"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "text_align_mobile",
+      "label": "文案对齐方式（移动端）",
+      "options": [
+        {
+          "value": "left",
+          "label": "左对齐"
+        },
+        {
+          "value": "center",
+          "label": "居中对齐"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "上（移动端）",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "下（移动端）",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "上（桌面端）",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "下（桌面端）",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "标题",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "文字颜色",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color_mobile",
+          "label": "文字颜色（移动端）",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "标题",
+          "default": "From Inspection to Insight."
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "描述",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "文字颜色",
+          "default": "#595959"
+        },
+        {
+          "type": "color",
+          "id": "text_color_mobile",
+          "label": "文字颜色（移动端）",
+          "default": "#B8C2D0"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "内容",
+          "default": "Go beyond on-site inspections with TI Studio. Capture thermal images, analyze temperature data on your PC, and create professional reports—all in one seamless workflow."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "图片",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "图片（桌面端）"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "图片（移动端）"
+        },
+        {
+          "type": "text",
+          "id": "note",
+          "label": "备注",
+          "default": "*PC Software is compatible with Windows only"
+        }
+      ]
+    },
+    {
+      "type": "sell_points",
+      "name": "卖点",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_1",
+          "label": "icon图标(1)"
+        },
+        {
+          "type": "text",
+          "id": "title_1",
+          "label": "标题(1)"
+        },
+        {
+          "type": "text",
+          "id": "text_1",
+          "label": "内容(1)"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "icon图标(2)"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "标题(2)"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "内容(2)"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_3",
+          "label": "icon图标(3)"
+        },
+        {
+          "type": "text",
+          "id": "title_3",
+          "label": "标题(3)"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "label": "内容(3)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "rt-banner-full-width",
+      "category": "rt-product"
+    }
+  ]
+}
+{% endschema %}
