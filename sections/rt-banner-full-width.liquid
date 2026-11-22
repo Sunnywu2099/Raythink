@@ -79,6 +79,19 @@
               color: block.settings.text_color,
               color_mobile: block.settings.text_color_mobile
             %}
+          {% when 'image' %}
+            <div class="rt-banner-full-width-image">
+              <div class="wrapper">
+                {% render 'rt-image2picture',
+                  image_desktop: block.settings.image_desktop,
+                  image_mobile: block.settings.image_mobile,
+                  loading: 'lazy'
+                %}
+              </div>
+              <div class="rt-banner-full-width-image-note">
+                {{ block.settings.note }}
+              </div>
+            </div>
         {% endcase %}
       {% endfor %}
     </div>
