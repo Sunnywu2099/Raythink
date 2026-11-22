@@ -25,14 +25,19 @@
     justify-content: {{ justify_content }};
     align-items: center;
     text-align: {{ text_align_mobile }};
-    gap: 16px;
   }
    #shopify-section-{{ section.id }} .rt-banner-full-width-text-content{
     max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
    }
   @media (min-width: 750px) {
     #shopify-section-{{ section.id }} .rt-banner-full-width-text{
       text-align: {{ text_align }};
+    }
+    #shopify-section-{{ section.id }} .rt-banner-full-width-text-content{
+      gap: 16px;
     }
   }
 {% endstyle %}
