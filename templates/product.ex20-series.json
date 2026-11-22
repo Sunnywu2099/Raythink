@@ -299,6 +299,8 @@
         "image_block_LCwjKB": {
           "type": "image_block",
           "settings": {
+            "image_desktop": "shopify://shop_images/4-1-PC.png",
+            "image_mobile": "shopify://shop_images/4-1-MO.png",
             "title": "Pinpoint Temperature Anomalies",
             "description": "Isotherm highlights selected temperature ranges, making it easier to detect unusual heat patterns and locate potential issues."
           }
@@ -306,6 +308,8 @@
         "image_block_Li79fX": {
           "type": "image_block",
           "settings": {
+            "image_desktop": "shopify://shop_images/4-2-PC.png",
+            "image_mobile": "shopify://shop_images/4-2-MO.png",
             "title": "Pinpoint Temperature Anomalies",
             "description": "Isotherm highlights selected temperature ranges, making it easier to detect unusual heat patterns and locate potential issues."
           }
@@ -313,6 +317,8 @@
         "image_block_jgnzWx": {
           "type": "image_block",
           "settings": {
+            "image_desktop": "shopify://shop_images/4-3-PC.png",
+            "image_mobile": "shopify://shop_images/4-3-MO.png",
             "title": "Pinpoint Temperature Anomalies",
             "description": "Isotherm highlights selected temperature ranges, making it easier to detect unusual heat patterns and locate potential issues."
           }
