@@ -1,0 +1,561 @@
+{% comment %}
+  Section contract.
+  Centered heading plus one open image block at a time.
+  Desktop fades the image beside the list. Mobile shows that image under the open copy.
+  @example
+  <!-- Add rt-toggle-img with title, description, and image_block blocks. -->
+{% endcomment %}
+
+{%- liquid
+  assign ss = section.settings
+  assign pt_mobile = ss.padding_top_mobile | default: 40
+  assign pb_mobile = ss.padding_bottom_mobile | default: 40
+  assign pt_desktop = ss.padding_top_desktop | default: 60
+  assign pb_desktop = ss.padding_bottom_desktop | default: 60
+  assign bg_color = ss.background_color | default: '#f5f5f9'
+  assign wrapper_color = ss.wrapper_color | default: '#ffffff'
+  assign block_color = ss.block_color | default: '#f8f8f8'
+  assign block_title_color = ss.block_title_color | default: '#000000'
+  assign block_text_color = ss.block_text_color | default: '#565658'
+  assign show_heading = false
+  assign has_toggle = false
+  for block in section.blocks
+    if block.type == 'title' or block.type == 'description'
+      if block.settings.text != blank
+        assign show_heading = true
+      endif
+    elsif block.type == 'image_block'
+      if block.settings.title != blank or block.settings.description != blank or block.settings.image_desktop != blank or block.settings.image_mobile != blank
+        assign has_toggle = true
+      endif
+    endif
+  endfor
+-%}
+
+{%- capture container_padding -%}
+  style="
+    {% render 'rt-section-padding',
+      section_pt_mobile: pt_mobile,
+      section_pb_mobile: pb_mobile,
+      section_pt_desktop: pt_desktop,
+      section_pb_desktop: pb_desktop
+    %}
+  "
+{%- endcapture -%}
+
+{% style %}
+  #{{ section.id }} .rt-toggle-img {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    background: transparent;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  #{{ section.id }} .rt-toggle-img__stage {
+    display: none;
+  }
+
+  #{{ section.id }} .rt-toggle-img__list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  #{{ section.id }} .rt-toggle-img__item {
+    border-radius: 0;
+    background: var(--rt-toggle-wrapper);
+    padding: 20px;
+  }
+
+  #{{ section.id }} .rt-toggle-img__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--rt-toggle-title);
+    font: inherit;
+    font-weight: 700;
+    list-style: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  #{{ section.id }} .rt-toggle-img__trigger::-webkit-details-marker {
+    display: none;
+  }
+
+  #{{ section.id }} .rt-toggle-img__trigger:focus-visible {
+    outline: 2px solid var(--rt-toggle-title);
+    outline-offset: 4px;
+  }
+
+  #{{ section.id }} .rt-toggle-img__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  #{{ section.id }} .rt-toggle-img__icon {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    color: var(--rt-toggle-title);
+    transition: transform 0.3s ease;
+  }
+
+  #{{ section.id }} .rt-toggle-img__item[open] .rt-toggle-img__icon {
+    transform: rotate(180deg);
+  }
+
+  #{{ section.id }} .rt-toggle-img__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 8px;
+  }
+
+  #{{ section.id }} .rt-toggle-img__desc {
+    margin: 0;
+    color: var(--rt-toggle-text);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  #{{ section.id }} .rt-toggle-img__media-inline picture,
+  #{{ section.id }} .rt-toggle-img__stage picture {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  #{{ section.id }} .rt-toggle-img__media-inline picture > img,
+  #{{ section.id }} .rt-toggle-img__stage picture > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  @media (min-width: 750px) {
+    #{{ section.id }} .rt-toggle-img {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 40px;
+      align-items: stretch;
+      padding: 0;
+      background: var(--rt-toggle-wrapper);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    #{{ section.id }} .rt-toggle-img__stage {
+      display: block;
+      position: relative;
+      height: 100%;
+      min-width: 0;
+      overflow: hidden;
+      background: var(--rt-toggle-wrapper);
+    }
+
+    #{{ section.id }} .rt-toggle-img__stage-item {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    #{{ section.id }} .rt-toggle-img__stage-item.is-active {
+      opacity: 1;
+      transition-delay: 0s;
+    }
+
+    #{{ section.id }} .rt-toggle-img__stage-item:not(.is-active) {
+      transition-delay: 0s;
+    }
+
+    #{{ section.id }} .rt-toggle-img__stage picture,
+    #{{ section.id }} .rt-toggle-img__stage picture > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
+    }
+
+    #{{ section.id }} .rt-toggle-img__list {
+      gap: 12px;
+      padding: 48px 40px 48px 0;
+    }
+
+    #{{ section.id }} .rt-toggle-img__item {
+      background: var(--rt-toggle-block);
+      border-radius: 16px;
+      padding: 20px 24px;
+    }
+
+    #{{ section.id }} .rt-toggle-img__trigger {
+      gap: 20px;
+    }
+
+    #{{ section.id }} .rt-toggle-img__title {
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    #{{ section.id }} .rt-toggle-img__media-inline {
+      display: none;
+    }
+
+    #{{ section.id }} .rt-toggle-img__panel {
+      padding-top: 8px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #{{ section.id }} .rt-toggle-img__icon,
+    #{{ section.id }} .rt-toggle-img__stage-item {
+      transition: none;
+    }
+  }
+{% endstyle %}
+
+<div
+  id="{{ section.id }}"
+  class="rt-section"
+  style="--rt-section-bg-color: {{ bg_color }};"
+>
+  <div class="rt-ss-padding" {{ container_padding }}>
+    <div class="rt-container">
+      {%- if show_heading -%}
+        <div class="rt-pdp-heading rt-pdp-heading-center">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'title' -%}
+                {% render 'rt-heading',
+                  variant: 'title',
+                  text: block.settings.text,
+                  color: block.settings.text_color,
+                  shopify_attributes: block.shopify_attributes
+                %}
+
+              {%- when 'description' -%}
+                {% render 'rt-heading',
+                  variant: 'subtitle',
+                  text: block.settings.text,
+                  color: block.settings.text_color,
+                  shopify_attributes: block.shopify_attributes
+                %}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if has_toggle -%}
+        <rt-toggle-img
+          class="rt-toggle-img"
+          style="--rt-toggle-wrapper: {{ wrapper_color }}; --rt-toggle-block: {{ block_color }}; --rt-toggle-title: {{ block_title_color }}; --rt-toggle-text: {{ block_text_color }};"
+        >
+          <div class="rt-toggle-img__stage">
+            {%- assign stage_index = 0 -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'image_block' -%}
+                {%- if block.settings.title != blank
+                  or block.settings.description != blank
+                  or block.settings.image_desktop != blank
+                  or block.settings.image_mobile != blank
+                -%}
+                  {%- if block.settings.image_desktop != blank or block.settings.image_mobile != blank -%}
+                    <div
+                      class="rt-toggle-img__stage-item{% if stage_index == 0 %} is-active{% endif %}"
+                      data-toggle-media
+                      data-index="{{ stage_index }}"
+                    >
+                      {% render 'rt-image2picture',
+                        image_desktop: block.settings.image_desktop,
+                        image_mobile: block.settings.image_mobile,
+                        sizes: '(min-width: 750px) 42vw, 90vw',
+                        loading: 'lazy',
+                        alt: block.settings.title
+                      %}
+                    </div>
+                  {%- endif -%}
+                  {%- assign stage_index = stage_index | plus: 1 -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          <div class="rt-toggle-img__list">
+            {%- assign item_index = 0 -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'image_block' -%}
+                {%- if block.settings.title != blank
+                  or block.settings.description != blank
+                  or block.settings.image_desktop != blank
+                  or block.settings.image_mobile != blank
+                -%}
+                  <details
+                    class="rt-toggle-img__item"
+                    data-toggle-item
+                    data-index="{{ item_index }}"
+                    {% if item_index == 0 %}
+                      open
+                    {% endif %}
+                    {{ block.shopify_attributes }}
+                  >
+                    <summary class="rt-toggle-img__trigger">
+                      <span class="rt-toggle-img__title">{{ block.settings.title | escape }}</span>
+                      <svg class="rt-toggle-img__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                        <path d="M5 7.5 10 12.5 15 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </summary>
+                    <div class="rt-toggle-img__panel">
+                      {%- if block.settings.description != blank -%}
+                        <p class="rt-toggle-img__desc">{{ block.settings.description | escape }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.image_desktop != blank or block.settings.image_mobile != blank -%}
+                        <div class="rt-toggle-img__media-inline">
+                          {% render 'rt-image2picture',
+                            image_desktop: block.settings.image_desktop,
+                            image_mobile: block.settings.image_mobile,
+                            sizes: '90vw',
+                            loading: 'lazy',
+                            alt: block.settings.title
+                          %}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </details>
+                  {%- assign item_index = item_index | plus: 1 -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </rt-toggle-img>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% javascript %}
+  if (!customElements.get('rt-toggle-img')) {
+    class RtToggleImg extends HTMLElement {
+      #controller;
+
+      connectedCallback() {
+        this.#controller = new AbortController();
+        const signal = this.#controller.signal;
+        this.addEventListener('click', this.#onClick, { signal });
+        this.addEventListener('shopify:block:select', this.#onBlockSelect, { signal });
+      }
+
+      disconnectedCallback() {
+        this.#controller?.abort();
+      }
+
+      #onClick = (event) => {
+        const summary = event.target.closest('[data-toggle-item] > summary');
+        if (!summary) return;
+        const item = summary.parentElement;
+        if (!(item instanceof HTMLDetailsElement)) return;
+
+        event.preventDefault();
+
+        if (item.open) return;
+
+        for (const other of this.querySelectorAll('[data-toggle-item]')) {
+          if (other !== item) other.open = false;
+        }
+
+        item.open = true;
+        this.#activate(item.dataset.index);
+      };
+
+      #onBlockSelect = (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+        const item = target.closest('[data-toggle-item]');
+        if (!item || !this.contains(item)) return;
+        if (item instanceof HTMLDetailsElement) {
+          item.open = true;
+          this.#activate(item.dataset.index);
+        }
+      };
+
+      #activate(index) {
+        for (const media of this.querySelectorAll('[data-toggle-media]')) {
+          media.classList.toggle('is-active', media.dataset.index === index);
+        }
+      }
+    }
+
+    customElements.define('rt-toggle-img', RtToggleImg);
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "rt-toggle-img",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "颜色配置"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色",
+      "default": "#F5F6FC"
+    },
+    {
+      "type": "color",
+      "id": "wrapper_color",
+      "label": "内容区域颜色",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "block_color",
+      "label": "块背景颜色",
+      "default": "#F8F8F8"
+    },
+    {
+      "type": "color",
+      "id": "block_title_color",
+      "label": "块标题颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "block_text_color",
+      "label": "块文字颜色",
+      "default": "#565658"
+    },
+    {
+      "type": "header",
+      "content": "间距"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "上（移动端）",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "下（移动端）",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "上（桌面端）",
+      "default": 160
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "下（桌面端）",
+      "default": 160
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "标题",
+      "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "文字颜色",
+          "default": "#000000"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "标题",
+          "default": "Every Degree in Focus"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "描述",
+      "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "文字颜色",
+          "default": "#565658"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "内容",
+          "default": "Highlight critical temperature ranges, track multiple measurement points, and get instant alerts when temperatures exceed preset limits."
+        }
+      ]
+    },
+    {
+      "type": "image_block",
+      "name": "图片块",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "图片（桌面端）"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "图片（移动端）"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "标题",
+          "default": "Pinpoint Temperature Anomalies"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "描述",
+          "default": "Isotherm highlights selected temperature ranges, making it easier to detect unusual heat patterns and locate potential issues."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "rt-toggle-img",
+      "category": "rt-layout"
+    }
+  ]
+}
+{% endschema %}
