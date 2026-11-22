@@ -47,8 +47,8 @@
   #{{ section.id }} .rt-toggle-img {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 8px;
+    gap: 4px;
+    padding: 20px;
     background: var(--rt-toggle-wrapper);
     border-radius: 16px;
   }
@@ -60,14 +60,18 @@
   #{{ section.id }} .rt-toggle-img__list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     min-width: 0;
   }
 
   #{{ section.id }} .rt-toggle-img__item {
     border-radius: 12px;
-    background: var(--rt-toggle-block);
-    padding: 16px;
+    background: var(--rt-toggle-wrapper);
+    padding: 12px;
+  }
+
+  #{{ section.id }} .rt-toggle-img__item[open] {
+    padding-bottom: 20px;
   }
 
   #{{ section.id }} .rt-toggle-img__trigger {
@@ -111,7 +115,7 @@
   #{{ section.id }} .rt-toggle-img__panel {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
     padding-top: 8px;
   }
 
@@ -143,21 +147,24 @@
     #{{ section.id }} .rt-toggle-img {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-      gap: 20px;
-      align-items: center;
-      padding: 16px;
+      gap: 40px;
+      align-items: stretch;
+      padding: 0;
       border-radius: 20px;
+      overflow: hidden;
     }
 
     #{{ section.id }} .rt-toggle-img__stage {
-      display: grid;
+      display: block;
+      position: relative;
+      height: 100%;
       min-width: 0;
-      border-radius: 16px;
       overflow: hidden;
     }
 
     #{{ section.id }} .rt-toggle-img__stage-item {
-      grid-area: 1 / 1;
+      position: absolute;
+      inset: 0;
       opacity: 0;
       transition: opacity 0.45s ease;
     }
@@ -166,17 +173,27 @@
       opacity: 1;
     }
 
+    #{{ section.id }} .rt-toggle-img__stage picture,
     #{{ section.id }} .rt-toggle-img__stage picture > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border-radius: 0;
     }
 
     #{{ section.id }} .rt-toggle-img__list {
       gap: 12px;
+      padding: 48px 40px 48px 0;
     }
 
     #{{ section.id }} .rt-toggle-img__item {
+      background: var(--rt-toggle-block);
       border-radius: 16px;
       padding: 20px 24px;
+    }
+
+    #{{ section.id }} .rt-toggle-img__trigger {
+      gap: 20px;
     }
 
     #{{ section.id }} .rt-toggle-img__title {
