@@ -605,6 +605,7 @@
         "description_9Ah783",
         "image_MJVRdd"
       ],
+      "disabled": true,
       "name": "rt-banner-full-width",
       "settings": {
         "background_color": "#ffffff",
@@ -664,7 +665,7 @@
           "type": "title",
           "settings": {
             "text_color": "{{ settings.color_palette.foreground }}",
-            "text": "BUILT TO LAST"
+            "text": "Built To Last"
           }
         },
         "description_xyWhA7": {
@@ -677,8 +678,8 @@
         "image_block_Aa9APb": {
           "type": "image_block",
           "settings": {
-            "image": "shopify://shop_images/IX1GO_HVAC_PC.png",
-            "image_mobile": "shopify://shop_images/IX1GO_HVAC_MO.png"
+            "image": "shopify://shop_images/Built_to_last_PC.png",
+            "image_mobile": "shopify://shop_images/Built_to_last_MO.png"
           }
         }
       },
