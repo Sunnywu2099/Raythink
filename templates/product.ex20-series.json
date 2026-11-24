@@ -341,6 +341,7 @@
       "block_order": [
         "grid_block_kKtXnD"
       ],
+      "disabled": true,
       "name": "rt-grid",
       "settings": {
         "background_color": "#ffffff",
@@ -444,8 +445,8 @@
         "image_block_4hwtG7": {
           "type": "image_block",
           "settings": {
-            "image": "shopify://shop_images/IX1GO_HVAC_PC.png",
-            "image_mobile": "shopify://shop_images/IX1GO_HVAC_MO.png"
+            "image": "shopify://shop_images/HVAC_PC.png",
+            "image_mobile": "shopify://shop_images/HVAC_MO.png"
           }
         }
       },
@@ -485,8 +486,8 @@
         "image_block_CJPN6V": {
           "type": "image_block",
           "settings": {
-            "image": "shopify://shop_images/Frame_2085661929_80fae308-d1ee-4bfb-adaf-7f2fac4cc175.png",
-            "image_mobile": "shopify://shop_images/Frame_2117130584_fa78fa77-7da6-4191-88aa-c8f21a218825.png"
+            "image": "shopify://shop_images/Therma_View_PC.png",
+            "image_mobile": "shopify://shop_images/Thermal_View_MO.png"
           }
         }
       },
@@ -560,9 +561,9 @@
       ],
       "name": "rt-toggle-img",
       "settings": {
-        "background_color": "#F5F6FC",
-        "wrapper_color": "#FFFFFF",
-        "block_color": "#F8F8F8",
+        "background_color": "#f5f6fc",
+        "wrapper_color": "#ffffff",
+        "block_color": "#f8f8f8",
         "block_title_color": "#000000",
         "block_text_color": "#565658",
         "padding_top_mobile": 0,
