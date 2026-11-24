@@ -394,6 +394,268 @@
         "padding_bottom_desktop": 160
       }
     },
+    "rt_text_with_image_2_73rwBd": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_Mi34aH": {
+          "type": "title",
+          "settings": {
+            "text_color": "{{ settings.color_palette.foreground }}",
+            "text": "See Heat. Spot Problems."
+          }
+        },
+        "description_3WmjFL": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text": "Thermal imaging reveals hidden heat patterns, helping you quickly identify potential issues in engines, brakes, and other automotive components."
+          }
+        },
+        "image_block_BYV9PM": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Therma_View_PC.png",
+            "image_mobile": "shopify://shop_images/Thermal_View_MO.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_Mi34aH",
+        "description_3WmjFL",
+        "image_block_BYV9PM"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#f5f6fc",
+        "image_position": "right",
+        "text_align": "left",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_banner_full_width_qWeBwn": {
+      "type": "rt-banner-full-width",
+      "blocks": {
+        "title_EFRNPm": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text_color_mobile": "#ffffff",
+            "text": "From Inspection to Insight."
+          }
+        },
+        "description_xWyGi8": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text_color_mobile": "#B8C2D0",
+            "text": "Go beyond on-site inspections with TI Studio. Capture thermal images, analyze temperature data on your PC, and create professional reports—all in one seamless workflow."
+          }
+        }
+      },
+      "block_order": [
+        "title_EFRNPm",
+        "description_xWyGi8"
+      ],
+      "disabled": true,
+      "name": "rt-banner-full-width",
+      "settings": {
+        "background_color": "#ffffff",
+        "banner_desktop": "shopify://shop_images/Frame_2117130538_44c0a33b-5206-4012-abfb-e2abbe02481c.png",
+        "text_position": "left",
+        "text_align": "left",
+        "text_align_mobile": "left",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0
+      }
+    },
+    "rt_toggle_img_8aQjL9": {
+      "type": "rt-toggle-img",
+      "blocks": {
+        "title_LVgXFf": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "Every Degree in Focus"
+          }
+        },
+        "description_PJAHpf": {
+          "type": "description",
+          "settings": {
+            "text_color": "#565658",
+            "text": "Highlight critical temperature ranges, track multiple measurement points, and get instant alerts when temperatures exceed preset limits."
+          }
+        },
+        "image_block_nUGKRA": {
+          "type": "image_block",
+          "settings": {
+            "image_desktop": "shopify://shop_images/4-1-PC.png",
+            "image_mobile": "shopify://shop_images/4-1-MO.png",
+            "title": "Pinpoint Temperature Anomalies",
+            "description": "Isotherm highlights selected temperature ranges, making it easier to detect unusual heat patterns and locate potential issues."
+          }
+        },
+        "image_block_tfMhjG": {
+          "type": "image_block",
+          "settings": {
+            "image_desktop": "shopify://shop_images/4-2-PC.png",
+            "image_mobile": "shopify://shop_images/4-2-MO.png",
+            "title": "Precise Temperature Tracking",
+            "description": "Automatically track hot, cold, and center spots, with up to 3 customizable measurement points for detailed temperature analysis."
+          }
+        },
+        "image_block_CWg9RD": {
+          "type": "image_block",
+          "settings": {
+            "image_desktop": "shopify://shop_images/4-3-PC.png",
+            "image_mobile": "shopify://shop_images/4-3-MO.png",
+            "title": "Automatic Alerts & Capture",
+            "description": "Set temperature thresholds to trigger instant alerts and automatically capture thermal images, making it easier to detect and document potential issues."
+          }
+        }
+      },
+      "block_order": [
+        "title_LVgXFf",
+        "description_PJAHpf",
+        "image_block_nUGKRA",
+        "image_block_tfMhjG",
+        "image_block_CWg9RD"
+      ],
+      "name": "rt-toggle-img",
+      "settings": {
+        "background_color": "#f5f6fc",
+        "wrapper_color": "#ffffff",
+        "block_color": "#f8f8f8",
+        "block_title_color": "#000000",
+        "block_text_color": "#565658",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 80,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_text_with_image_2_gYk3hm": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_dmQCJm": {
+          "type": "title",
+          "settings": {
+            "text_color": "{{ settings.color_palette.foreground }}",
+            "text": "Built To Last"
+          }
+        },
+        "description_tLqC9L": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text": "IP54 protection, 6.6ft drop resistance,and tripod mounting for reliable field inspections."
+          }
+        },
+        "image_block_RhpNJi": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/Built_to_last_PC.png",
+            "image_mobile": "shopify://shop_images/Built_to_last_MO.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_dmQCJm",
+        "description_tLqC9L",
+        "image_block_RhpNJi"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#f5f6fc",
+        "image_position": "left",
+        "text_align": "left",
+        "padding_top_mobile": 96,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 160,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_text_with_image_2_Ja7cwr": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_GzDdQN": {
+          "type": "title",
+          "settings": {
+            "text_color": "{{ settings.color_palette.foreground }}",
+            "text": "Large Storage Capacity"
+          }
+        },
+        "description_HFp7Y6": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text": "16GB built-in storage keeps thousands of thermal images and videos ready for review and analysis."
+          }
+        },
+        "image_block_ULnWAj": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/16_GB_Capacity.png",
+            "image_mobile": "shopify://shop_images/16_GB_Capacity_MO.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_GzDdQN",
+        "description_HFp7Y6",
+        "image_block_ULnWAj"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#f5f6fc",
+        "image_position": "right",
+        "text_align": "left",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_banner_full_width_rmDd79": {
+      "type": "rt-banner-full-width",
+      "blocks": {
+        "title_4HJY64": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text_color_mobile": "#ffffff",
+            "text": "Built to Go the Distance"
+          }
+        },
+        "description_arrD4j": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text_color_mobile": "{{ settings.color_palette.background }}",
+            "text": "Built for demanding workdays, EX20 combines lasting battery power with fast charging to keep your inspections moving."
+          }
+        }
+      },
+      "block_order": [
+        "title_4HJY64",
+        "description_arrD4j"
+      ],
+      "name": "rt-banner-full-width",
+      "settings": {
+        "background_color": "#ffffff",
+        "text_position": "left",
+        "text_align": "left",
+        "text_align_mobile": "left",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0
+      }
+    },
     "rt_nav_BjnEQH": {
       "type": "rt-nav",
       "blocks": {
@@ -812,6 +1074,12 @@
     "main",
     "rt_icons_with_text_qfA9Fy",
     "rt_text_with_image_2_Whmyeg",
+    "rt_text_with_image_2_73rwBd",
+    "rt_banner_full_width_qWeBwn",
+    "rt_toggle_img_8aQjL9",
+    "rt_text_with_image_2_gYk3hm",
+    "rt_text_with_image_2_Ja7cwr",
+    "rt_banner_full_width_rmDd79",
     "rt_nav_BjnEQH",
     "rt_grid_Uc873h",
     "rt_grid_WCTTyB",
