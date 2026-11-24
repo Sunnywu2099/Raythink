@@ -837,48 +837,56 @@
       "blocks": {
         "item_qVL79G": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "EX20*1"
           }
         },
         "item_K3nrmh": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Packing Box*1"
           }
         },
         "item_HEBVKE": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Product Certificate*1"
           }
         },
         "item_6JLC8M": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Calibration Certificate*1"
           }
         },
         "item_NnJ4ya": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Quality Certificate*1"
           }
         },
         "item_mJj9hn": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "USB-C Cable*1"
           }
         },
         "item_3hQqwX": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Wrist Strap*1"
           }
         },
         "item_dwYj6K": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Quick Start Guide*1"
           }
@@ -896,11 +904,11 @@
       ],
       "name": "rt-whatsin-thebox",
       "settings": {
-        "heading": "What's in the box",
-        "heading_color": "#ffffff",
-        "background_color": "#ffffff",
-        "image": "shopify://shop_images/Frame_2085661963.png",
-        "image_mobile": "shopify://shop_images/Frame_2117130478_0f76a213-bc06-4f60-9f75-feb29558c825.png",
+        "heading": "",
+        "heading_color": "{{ settings.color_palette.foreground }}",
+        "background_color": "{{ settings.color_palette.background }}",
+        "image": "shopify://shop_images/EX20_PC_WIB.png",
+        "image_mobile": "shopify://shop_images/EX20_PC_WIB_MO.png",
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48,
         "padding_top_desktop": 80,
