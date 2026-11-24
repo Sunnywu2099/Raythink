@@ -823,6 +823,7 @@
         "description_wDprkU",
         "grid_block_WywzJi"
       ],
+      "disabled": true,
       "name": "rt-grid",
       "settings": {
         "background_color": "#f5f6fc",
@@ -1063,6 +1064,7 @@
         "row_15",
         "row_16"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Specification",
         "heading_color": "#000000",
@@ -1124,6 +1126,7 @@
         "product_2",
         "product_3"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Which is the Best for You?",
         "heading_color": "#000000",
@@ -1174,6 +1177,7 @@
         "item_3",
         "item_4"
       ],
+      "disabled": true,
       "settings": {
         "heading": "FAQ",
         "heading_color": "#000000",
