@@ -678,48 +678,56 @@
       "blocks": {
         "item_miWUcz": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "EX20*1"
           }
         },
         "item_id9FGa": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Packing Box*1"
           }
         },
         "item_NLdQJ9": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Product Certificate*1"
           }
         },
         "item_McN8Mq": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Calibration Certificate*1"
           }
         },
         "item_RNEKm3": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Quality Certificate*1"
           }
         },
         "item_hDPyrm": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "USB-C Cable*1"
           }
         },
         "item_tAfVNT": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Wrist Strap*1"
           }
         },
         "item_qH9eUk": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Quick Start Guide*1"
           }
@@ -737,11 +745,11 @@
       ],
       "name": "rt-whatsin-thebox",
       "settings": {
-        "heading": "What's in the box",
+        "heading": "",
         "heading_color": "#000000",
         "background_color": "#ffffff",
-        "image": "shopify://shop_images/Frame_2085661962_c59c0771-d39f-4233-a72f-4b06a69c7eb2.png",
-        "image_mobile": "shopify://shop_images/Frame_2117130478_21442e49-162c-4f01-9abe-84d65a8166e5.png",
+        "image": "shopify://shop_images/Frame_2085661962_ef884b17-8435-49eb-9d34-db3824aa12c1.png",
+        "image_mobile": "shopify://shop_images/Frame_2117130478_80a71ccd-bda5-42a7-a8a9-497b318319fe.png",
         "padding_top_mobile": 48,
         "padding_bottom_mobile": 48,
         "padding_top_desktop": 80,
