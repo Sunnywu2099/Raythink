@@ -279,6 +279,121 @@
         "padding_bottom_mobile": 0
       }
     },
+    "rt_icons_with_text_qfA9Fy": {
+      "type": "rt-icons-with-text",
+      "blocks": {
+        "title_jimzWV": {
+          "type": "title",
+          "settings": {
+            "text_color": "#000000",
+            "text": "Sharper Details. Wider Coverage. Faster Inspections."
+          }
+        },
+        "description_BTMXta": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text": "With 256×192 native resolution, NUR super-resolution up to 512×384, and a wide 56°×42° field of view, EX20 captures more detail across a larger area, helping you spot temperature anomalies faster with fewer scans."
+          }
+        },
+        "application_block_7BtDcY": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Scan_ada1c606-cd65-4d93-8312-f62e597e4a64.png",
+            "title": "256×192 Native Resolution",
+            "title_color": "#000000",
+            "text": "",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_wFBDn8": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/UpScale.png",
+            "title": "Up to 512×384 NUR",
+            "title_color": "#000000",
+            "text": "",
+            "text_color": "#595959"
+          }
+        },
+        "application_block_6RciKL": {
+          "type": "application-block",
+          "settings": {
+            "icon": "shopify://shop_images/Scan.png",
+            "title": "56°×42° Wide FOV",
+            "title_color": "#000000",
+            "text": "",
+            "text_color": "#595959"
+          }
+        },
+        "application_banner_block_NyLpBw": {
+          "type": "application-banner-block",
+          "settings": {
+            "banner_desktop": "shopify://shop_images/Frame_2117130538.png",
+            "banner_mobile": "shopify://shop_images/Frame_2117130450_ce804fe7-2021-4e77-9eeb-3069889b2599.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_jimzWV",
+        "description_BTMXta",
+        "application_block_7BtDcY",
+        "application_block_wFBDn8",
+        "application_block_6RciKL",
+        "application_banner_block_NyLpBw"
+      ],
+      "name": "rt-icons-with-text",
+      "settings": {
+        "background_color": "#f5f5f9",
+        "block_background_color": "#ffffff",
+        "is_center": true,
+        "padding_top_mobile": 80,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 120,
+        "padding_bottom_desktop": 160
+      }
+    },
+    "rt_text_with_image_2_Whmyeg": {
+      "type": "rt-text-with-image-2",
+      "blocks": {
+        "title_Pgzzqt": {
+          "type": "title",
+          "settings": {
+            "text_color": "{{ settings.color_palette.foreground }}",
+            "text": "Smarter HVAC Inspections, Made Easy."
+          }
+        },
+        "description_FDdjP9": {
+          "type": "description",
+          "settings": {
+            "text_color": "#595959",
+            "text": "AI-powered HVAC mode automatically adjusts color palettes and emissivity settings. Compare temperatures across two areas and get alerts when the difference exceeds 6°C (10.8°F), helping you spot potential issues faster."
+          }
+        },
+        "image_block_67Tmz8": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/HVAC_PC.png",
+            "image_mobile": "shopify://shop_images/HVAC_MO.png"
+          }
+        }
+      },
+      "block_order": [
+        "title_Pgzzqt",
+        "description_FDdjP9",
+        "image_block_67Tmz8"
+      ],
+      "name": "rt-text-with-image-2",
+      "settings": {
+        "background_color": "#f5f6fc",
+        "image_position": "left",
+        "text_align": "left",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 96,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 160
+      }
+    },
     "rt_nav_BjnEQH": {
       "type": "rt-nav",
       "blocks": {
@@ -352,288 +467,6 @@
         "padding_bottom_desktop": 120
       }
     },
-    "rt_text_with_image_VnaR7W": {
-      "type": "rt-text-with-image",
-      "blocks": {
-        "title_FKeBgn": {
-          "type": "title",
-          "settings": {
-            "text_color": "#ffffff",
-            "text": "See Clearer. Look Closer. Measure More."
-          }
-        },
-        "description_xFigkH": {
-          "type": "description",
-          "settings": {
-            "text_color": "#a6a6a6",
-            "text": "From home inspections to HVAC, electrical and automotive checks."
-          }
-        },
-        "image_block_AYXBE9": {
-          "type": "image_block",
-          "settings": {
-            "background_color": "#1f1f1f",
-            "image": "shopify://shop_images/IX1GO_AI_Super_Resolution_PC.png",
-            "image_mobile": "shopify://shop_images/IX1GO_AI_Super_Resolution_MO.png",
-            "image_position": "left",
-            "title": "See More Thermal Detail with AI.",
-            "title_color": "#ffffff",
-            "description": "Up to 640×480* AI Super Resolution reveals finer thermal details, helping you spot hidden heat across surfaces, pipes, appliances, vehicles, and more.",
-            "description_color": "#a6a6a6",
-            "text_align": "center"
-          }
-        },
-        "image_block_QUqYyW": {
-          "type": "image_block",
-          "settings": {
-            "background_color": "#1f1f1f",
-            "image": "shopify://shop_images/Frame_2117130520.png",
-            "image_mobile": "shopify://shop_images/Frame_2117130450_5ec4fe19-62af-450c-aff8-dddf79c09d40.png",
-            "image_position": "right",
-            "title": "Measure Wide. Focus on What Matters.",
-            "title_color": "#ffffff",
-            "description": "Measure temperatures from  -4°F to  1022°F and use isotherms to highlight areas that deserve closer attention.",
-            "description_color": "#a6a6a6",
-            "text_align": "center"
-          }
-        },
-        "image_block_ifCAph": {
-          "type": "image_block",
-          "settings": {
-            "background_color": "#1f1f1f",
-            "image": "shopify://shop_images/IX1GO_Isothem_PC.png",
-            "image_mobile": "shopify://shop_images/IX1GO_Isothem_MO.png",
-            "image_position": "left",
-            "title": "Highlight What Matters.",
-            "title_color": "#ffffff",
-            "description": "Isolate a selected temperature range to make areas of interest stand out at a glance.",
-            "description_color": "#a6a6a6",
-            "text_align": "center"
-          }
-        },
-        "image_block_tJfJrC": {
-          "type": "image_block",
-          "settings": {
-            "background_color": "#1f1f1f",
-            "image": "shopify://shop_images/IX1GO_15X_PC.png",
-            "image_mobile": "shopify://shop_images/IX1GO_15X_MO.png",
-            "image_position": "right",
-            "title": "See Distant and Hard-to-Reach Targets Up Close.",
-            "title_color": "#ffffff",
-            "description": "Zoom in up to 15× to inspect distant, elevated, or hard-to-reach areas without moving closer.",
-            "description_color": "#a6a6a6",
-            "text_align": "center"
-          }
-        }
-      },
-      "block_order": [
-        "title_FKeBgn",
-        "description_xFigkH",
-        "image_block_AYXBE9",
-        "image_block_QUqYyW",
-        "image_block_ifCAph",
-        "image_block_tJfJrC"
-      ],
-      "name": "rt-text-with-image",
-      "settings": {
-        "background_color": "#141414",
-        "padding_top_mobile": 120,
-        "padding_bottom_mobile": 80,
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 160
-      }
-    },
-    "rt_view_switch_bQBHhd": {
-      "type": "rt-view-switch",
-      "blocks": {
-        "view_gNLUaY": {
-          "type": "view",
-          "settings": {
-            "title": "IX1 Go",
-            "image_desktop": "shopify://shop_images/IX1GO_3_IMG_Modes.png",
-            "image_mobile": "shopify://shop_images/MO_IX1Go_3_Image_Modes.png"
-          }
-        },
-        "view_YkpR9m": {
-          "type": "view",
-          "settings": {
-            "title": "IX1 Go Pro",
-            "image_desktop": "shopify://shop_images/IX1GOPRO_4_image_modes.png",
-            "image_mobile": "shopify://shop_images/IX1GOPRO_4_Image_Modes_MO.png"
-          }
-        }
-      },
-      "block_order": [
-        "view_gNLUaY",
-        "view_YkpR9m"
-      ],
-      "settings": {
-        "heading": "Choose the View That Fits the Job.",
-        "heading_color": "#ffffff",
-        "description": "Switch between thermal, visible-light camera, and picture-in-picture views to connect thermal information with the real-world scene.",
-        "description_color": "#b5b5b5",
-        "background_color": "#141414",
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 96,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 160
-      }
-    },
-    "rt_text_with_image_2_nQ9JHk": {
-      "type": "rt-text-with-image-2",
-      "blocks": {
-        "title_87kWYA": {
-          "type": "title",
-          "settings": {
-            "text_color": "#ffffff",
-            "text": "Smarter HVAC Checks. Less Guesswork."
-          }
-        },
-        "description_j3bkJd": {
-          "type": "description",
-          "settings": {
-            "text_color": "#a6a6a6",
-            "text": "AI automatically adjusts thermal settings and compares peak temperatures across two selected areas, alerting you when the difference exceeds 10.8°F (6°C)—so you know where to take a closer look."
-          }
-        },
-        "image_block_4hwtG7": {
-          "type": "image_block",
-          "settings": {
-            "image": "shopify://shop_images/IX1GO_HVAC_PC.png",
-            "image_mobile": "shopify://shop_images/IX1GO_HVAC_MO.png"
-          }
-        }
-      },
-      "block_order": [
-        "title_87kWYA",
-        "description_j3bkJd",
-        "image_block_4hwtG7"
-      ],
-      "name": "rt-text-with-image-2",
-      "settings": {
-        "background_color": "#141414",
-        "image_position": "left",
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 96,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 160
-      }
-    },
-    "rt_view_switch_RzL337": {
-      "type": "rt-view-switch",
-      "blocks": {
-        "view_Vxjer9": {
-          "type": "view",
-          "settings": {
-            "title": "IX1 Go",
-            "image_desktop": "shopify://shop_images/6_color_Palettes_IX1_Go.png",
-            "image_mobile": "shopify://shop_images/6_Color_Palettes_IX1_Go_MO.png"
-          }
-        },
-        "view_RDPXw9": {
-          "type": "view",
-          "settings": {
-            "title": "IX1 Go Pro",
-            "image_desktop": "shopify://shop_images/IX1Go_Pro_9_Color_PalettesPC.png",
-            "image_mobile": "shopify://shop_images/IX1_Go_Pro_9_Color_Palettes_MO.png"
-          }
-        }
-      },
-      "block_order": [
-        "view_Vxjer9",
-        "view_RDPXw9"
-      ],
-      "settings": {
-        "heading": "The Right Palette for Every Inspection",
-        "heading_color": "#ffffff",
-        "description": "Choose from 6 color palettes on IX1 GO to visualize temperature patterns your way.",
-        "description_color": "#b5b5b5",
-        "background_color": "#141414",
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 96,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 160
-      }
-    },
-    "rt_text_with_image_2_BDftf4": {
-      "type": "rt-text-with-image-2",
-      "blocks": {
-        "title_jDpgzi": {
-          "type": "title",
-          "settings": {
-            "text_color": "#ffffff",
-            "text": "Capture Thermal Photos & Videos"
-          }
-        },
-        "description_tXcfKt": {
-          "type": "description",
-          "settings": {
-            "text_color": "#a6a6a6",
-            "text": "Record field thermal data effortlessly for reports and post-inspection analysis."
-          }
-        },
-        "image_block_CJPN6V": {
-          "type": "image_block",
-          "settings": {
-            "image": "shopify://shop_images/Frame_2085661929_80fae308-d1ee-4bfb-adaf-7f2fac4cc175.png",
-            "image_mobile": "shopify://shop_images/Frame_2117130584_fa78fa77-7da6-4191-88aa-c8f21a218825.png"
-          }
-        }
-      },
-      "block_order": [
-        "title_jDpgzi",
-        "description_tXcfKt",
-        "image_block_CJPN6V"
-      ],
-      "name": "rt-text-with-image-2",
-      "settings": {
-        "background_color": "#141414",
-        "image_position": "right",
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 96,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 160
-      }
-    },
-    "rt_grid_p8xYMw": {
-      "type": "rt-grid",
-      "blocks": {
-        "title_yt8FiJ": {
-          "type": "title",
-          "settings": {
-            "text_color": "{{ settings.color_palette.background }}",
-            "text": "One Compact Tool. Multiple Applications."
-          }
-        },
-        "description_wDprkU": {
-          "type": "description",
-          "settings": {
-            "text_color": "#a6a6a6",
-            "text": "Explore underfloor heating, HVAC pipes, heat loss, and DIY with thermal imaging."
-          }
-        },
-        "grid_block_WywzJi": {
-          "type": "grid-block",
-          "settings": {
-            "image": "shopify://shop_images/Powered_by_TI_Studio.png",
-            "image_mobile": "shopify://shop_images/Frame_2117130478.png"
-          }
-        }
-      },
-      "block_order": [
-        "title_yt8FiJ",
-        "description_wDprkU",
-        "grid_block_WywzJi"
-      ],
-      "name": "rt-grid",
-      "settings": {
-        "background_color": "#141414",
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 96,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 160
-      }
-    },
     "rt_grid_WCTTyB": {
       "type": "rt-grid",
       "blocks": {
@@ -656,70 +489,6 @@
         "padding_bottom_mobile": 80,
         "padding_top_desktop": 64,
         "padding_bottom_desktop": 120
-      }
-    },
-    "rt_in_the_box": {
-      "type": "rt-in-the-box",
-      "blocks": {
-        "item_1": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Frame_2117130594_1_2cde5f5a-91da-4f97-884d-4f0f1f8d866a.png",
-            "title": "IX1 Go"
-          }
-        },
-        "item_2": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Frame_2117130592_f199d7a5-9a5a-4d63-b3d3-8cd1cdeee96b.png",
-            "title": "Packaging Box"
-          }
-        },
-        "item_3": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Frame_2117130592_1_05b7d3fe-94da-4687-9a3a-6362a4cc459e.png",
-            "title": "Carrying Bag"
-          }
-        },
-        "item_4": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Frame_2117130591_2f6cc129-f7f0-4841-b96d-11e75df0b9af.png",
-            "title": "USB-C Cable"
-          }
-        },
-        "item_5": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Frame_2117130591_5.png",
-            "title": "Certificate"
-          }
-        },
-        "item_6": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Frame_2117130591_4.png",
-            "title": "Quick Start Guide"
-          }
-        }
-      },
-      "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4",
-        "item_5",
-        "item_6"
-      ],
-      "settings": {
-        "heading": "What's in the box",
-        "heading_color": "#000000",
-        "background_color": "#ffffff",
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48,
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 80
       }
     },
     "rt_specification": {
@@ -1041,16 +810,11 @@
   },
   "order": [
     "main",
+    "rt_icons_with_text_qfA9Fy",
+    "rt_text_with_image_2_Whmyeg",
     "rt_nav_BjnEQH",
     "rt_grid_Uc873h",
-    "rt_text_with_image_VnaR7W",
-    "rt_view_switch_bQBHhd",
-    "rt_text_with_image_2_nQ9JHk",
-    "rt_view_switch_RzL337",
-    "rt_text_with_image_2_BDftf4",
-    "rt_grid_p8xYMw",
     "rt_grid_WCTTyB",
-    "rt_in_the_box",
     "rt_specification",
     "rt_compare",
     "rt_faq",
