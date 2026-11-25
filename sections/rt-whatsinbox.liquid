@@ -13,9 +13,10 @@
   assign pb_desktop = ss.padding_bottom_desktop | default: 80
   assign bg_color = ss.background_color | default: '#ffffff'
   assign heading_color = ss.heading_color | default: '#000000'
+  assign item_color = ss.item_color | default: '#000000'
 -%}
 
-{% stylesheet %}
+{% style %}
   .rt-whatsin-thebox .rt-whatsin-thebox-wrapper {
     position: relative;
   }
@@ -35,7 +36,7 @@
   .rt-whatsin-thebox-content-item{
     font-size: 14px;
     line-height: 18px;
-    color: rgba(255, 255, 255, 0.66);
+    color: {{ item_color }};
     font-weight: 600;
   }
   @media (min-width: 750px) {
@@ -51,7 +52,7 @@
       line-height: 20px;
     }
   }
-{% endstylesheet %}
+{% endstyle %}
 
 <div
   id="{{ section.id }}"
@@ -97,6 +98,7 @@
 {
   "name": "rt-whatsin-thebox",
   "tag": "section",
+  "limit": 1,
   "enabled_on": {
     "templates": ["product"]
   },
@@ -111,6 +113,12 @@
       "type": "color",
       "id": "heading_color",
       "label": "标题颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "item_color",
+      "label": "物品文案颜色",
       "default": "#000000"
     },
     {
